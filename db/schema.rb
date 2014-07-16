@@ -11,9 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716044335) do
+ActiveRecord::Schema.define(version: 20140716053459) do
 
   create_table "product_status_types", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.boolean  "alive"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
@@ -27,12 +35,51 @@ ActiveRecord::Schema.define(version: 20140716044335) do
     t.datetime "updated_at"
   end
 
+  create_table "projects", force: true do |t|
+    t.boolean  "alive"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "Product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["Product_id"], name: "index_projects_on_Product_id"
+
   create_table "sprint_status_types", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sprints", force: true do |t|
+    t.boolean  "alive"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "Product_id"
+    t.integer  "Project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sprints", ["Product_id"], name: "index_sprints_on_Product_id"
+  add_index "sprints", ["Project_id"], name: "index_sprints_on_Project_id"
+
+  create_table "stories", force: true do |t|
+    t.boolean  "alive"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "Product_id"
+    t.integer  "Project_id"
+    t.integer  "Sprint_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stories", ["Product_id"], name: "index_stories_on_Product_id"
+  add_index "stories", ["Project_id"], name: "index_stories_on_Project_id"
+  add_index "stories", ["Sprint_id"], name: "index_stories_on_Sprint_id"
 
   create_table "story_status_types", force: true do |t|
     t.string   "title"
@@ -47,5 +94,22 @@ ActiveRecord::Schema.define(version: 20140716044335) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tasks", force: true do |t|
+    t.boolean  "alive"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "Product_id"
+    t.integer  "Project_id"
+    t.integer  "Sprint_id"
+    t.integer  "Story_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["Product_id"], name: "index_tasks_on_Product_id"
+  add_index "tasks", ["Project_id"], name: "index_tasks_on_Project_id"
+  add_index "tasks", ["Sprint_id"], name: "index_tasks_on_Sprint_id"
+  add_index "tasks", ["Story_id"], name: "index_tasks_on_Story_id"
 
 end

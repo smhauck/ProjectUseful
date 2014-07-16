@@ -1,4 +1,14 @@
 ProjectUseful::Application.routes.draw do
+  resources :tasks
+
+  resources :stories
+
+  resources :sprints
+
+  resources :projects
+
+  resources :products
+
   resources :task_status_types
 
   resources :story_status_types
