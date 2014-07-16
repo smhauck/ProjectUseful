@@ -1,0 +1,29 @@
+<h1>Listing task_status_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_status_types.each do |task_status_type| %>
+      <tr>
+        <td><%= task_status_type.title %></td>
+        <td><%= task_status_type.description %></td>
+        <td><%= link_to 'Show', task_status_type %></td>
+        <td><%= link_to 'Edit', edit_task_status_type_path(task_status_type) %></td>
+        <td><%= link_to 'Destroy', task_status_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task status type', new_task_status_type_path %>

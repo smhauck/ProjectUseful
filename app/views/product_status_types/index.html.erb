@@ -1,0 +1,29 @@
+<h1>Listing product_status_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_status_types.each do |product_status_type| %>
+      <tr>
+        <td><%= product_status_type.title %></td>
+        <td><%= product_status_type.description %></td>
+        <td><%= link_to 'Show', product_status_type %></td>
+        <td><%= link_to 'Edit', edit_product_status_type_path(product_status_type) %></td>
+        <td><%= link_to 'Destroy', product_status_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product status type', new_product_status_type_path %>

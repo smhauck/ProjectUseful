@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sprint_status_type.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sprint_status_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_sprint_status_type_path(@sprint_status_type) %> |
+<%= link_to 'Back', sprint_status_types_path %>
