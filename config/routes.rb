@@ -1,47 +1,35 @@
 ProjectUseful::Application.routes.draw do
+  get 'admin' => 'admin#index'
+
   resources :wikis
 
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-
-  get "session/new"
-  get "session/create"
-
-  get "welcome/index"
   
 
-
-  resources :sprints
-
-  resources :stories
-  
-  resources :tasks
-  
-  resources :projects
-
-  resources :products
-
-  resources :task_status_types
-
-  resources :story_status_types
-
-  resources :sprint_status_types
-
-  resources :project_status_types
 
   resources :product_status_types
+  resources :project_status_types
+  resources :sprint_status_types
+  resources :story_status_types
+  resources :task_status_types
+  resources :products
+  resources :projects
+  resources :sprints
+  resources :stories
+  resources :tasks
   
   resources :users
-
-
-
 
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
-    get 'logout' => :destroy
+    delete 'logout' => :destroy
   end
+
+  get "sessions/create"
+  get "sessions/destroy"
+  get "welcome/index"
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20140717004757) do
   add_index "tasks", ["Story_id"], name: "index_tasks_on_Story_id"
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "username"
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
