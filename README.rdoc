@@ -2,11 +2,6 @@
 
 Project Useful is a Ruby on Rails-based project management system implementing the Scrum Agile methodology.
 
-== Author, Copyright, and License
-
-Project Useful is copyright 2014 by William B. Hauck, http://www.wbhauck.com .
-
-Project Useful is released under the GNU Affero General Public License.  See the LICENSE file for details.
 
 == System Requirements
 
@@ -27,6 +22,13 @@ Create a user for Project Useful and grant all rights to the databases to the us
 Include the appropriate database gem.  For MySQL or MariaDB add the following line to your Gemfile:
 
 <tt>gem 'mysql2'</tt>
+
+
+== Author, Copyright, and License
+
+Project Useful is copyright 2014 by William B. Hauck, http://www.wbhauck.com .
+
+Project Useful is released under the GNU Affero General Public License.  See the LICENSE file for details.
 
 
 == Sections still to write
