@@ -2,6 +2,12 @@
 
 Project Useful is a Ruby on Rails-based project management system implementing the Scrum Agile methodology.
 
+== Author, Copyright, and License
+
+Project Useful is copyright 2014 by William B. Hauck, http://www.wbhauck.com .
+
+Project Useful is released under the GNU Affero General Public License.  See the LICENSE file for details.
+
 == System Requirements
 
 * Ruby version 2 or later
