@@ -1,18 +1,20 @@
-== README
+== Project Useful
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project Useful is a Ruby on Rails-based project management system implementing the Scrum Agile methodology.
 
-Things you may want to cover:
+= System Requirements
 
 * Ruby version
-ruby 2.1.2
+Ruby 2.1.2
 
 * System dependencies
 
 * Configuration
 
 * Database creation
+The system is being developed on a system using MySQL 5.1.46.  Later versions as well MariaDB should also work.
+
+==
 
 * Database initialization
 
@@ -24,6 +26,3 @@ ruby 2.1.2
 
 * ...
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
