@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716053459) do
+ActiveRecord::Schema.define(version: 20140716235613) do
 
   create_table "product_status_types", force: true do |t|
     t.string   "title"
@@ -111,5 +111,12 @@ ActiveRecord::Schema.define(version: 20140716053459) do
   add_index "tasks", ["Project_id"], name: "index_tasks_on_Project_id"
   add_index "tasks", ["Sprint_id"], name: "index_tasks_on_Sprint_id"
   add_index "tasks", ["Story_id"], name: "index_tasks_on_Story_id"
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

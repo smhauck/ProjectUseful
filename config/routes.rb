@@ -1,11 +1,21 @@
 ProjectUseful::Application.routes.draw do
-  get "welcome/index"
-  resources :tasks
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
 
-  resources :stories
+  get "session/new"
+  get "session/create"
+
+  get "welcome/index"
+  
+
 
   resources :sprints
 
+  resources :stories
+  
+  resources :tasks
+  
   resources :projects
 
   resources :products
@@ -19,12 +29,24 @@ ProjectUseful::Application.routes.draw do
   resources :project_status_types
 
   resources :product_status_types
+  
+  resources :users
+
+
+
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    get 'logout' => :destroy
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
