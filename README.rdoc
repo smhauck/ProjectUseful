@@ -1,20 +1,28 @@
-== Project Useful
+= Project Useful
 
 Project Useful is a Ruby on Rails-based project management system implementing the Scrum Agile methodology.
 
-= System Requirements
+== System Requirements
 
 * Ruby version
 Ruby 2.1.2
 
 * System dependencies
+Ruby 2
+Rails 4
+MySQL or MariaDB 5.1 or later
 
 * Configuration
 
-* Database creation
+== Database
 The system is being developed on a system using MySQL 5.1.46.  Later versions as well MariaDB should also work.
 
-==
+Create a database for production.  If you plan to do development or testing of the system you'll also need a corresponding database.
+
+Create a user for Project Useful and grant all rights to the databases to the user.  Make sure to update your config/database.yml file with the appropriate database, username, and password.
+
+Include the appropriate database gem.  For MySQL or MariaDB add the following line to your Gemfile:
+gem 'mysql2'
 
 * Database initialization
 
