@@ -182,8 +182,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <%= yield %>
 </div><!-- class="container" -->
 
-<div class="container" -->
-<footer>
+<div class="container">
+	<footer>
+	<p>Referrer: <%= request.referrer %></p>
     <p class="text-muted"><a href="/license">License</a> * <a href="/technology">Technology</a></p>
     <p class="text-muted">Follow development on the <a href="http://www.projecttasktodo.org/blog.shtml">development blog</a> and the <a href="https://github.com/wbhauck/ProjectUseful">Project Change Log</a></p>
     <p class="text-muted">Powered by <%= link_to 'Project Useful', root_url %> &copy; 2014 William B. Hauck</p>

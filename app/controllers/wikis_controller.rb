@@ -29,6 +29,7 @@ class WikisController < ApplicationController
   # GET /wikis/1
   # GET /wikis/1.json
   def show
+    @pages = WikiPage.all
   end
 
   # GET /wikis/new

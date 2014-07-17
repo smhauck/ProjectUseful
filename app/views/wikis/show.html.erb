@@ -26,15 +26,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @wiki.title %>
-</p>
+  
+<h1><%= @wiki.title %> (<%= link_to 'Edit', edit_wiki_path(@wiki) %>)</h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @wiki.description %>
-</p>
+<p class="wiki_description"><%= @wiki.description %></p>
 
-<%= link_to 'Edit', edit_wiki_path(@wiki) %> |
-<%= link_to 'Back', wikis_path %>
+<% @pages.each do |page| %>
+  <%= link_to page.title, page %>
+<% end %>

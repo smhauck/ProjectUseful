@@ -1,44 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @wiki_page.title %>
-</p>
+<h2><%= @wiki_page.title %> <%= link_to '(Edit)', edit_wiki_page_path(@wiki_page) %></h2>
 
-<p>
-  <strong>Body:</strong>
-  <%= simple_format(@wiki_page.body) %>
-</p>
+<%= simple_format(@wiki_page.body) %>
 
-<p>
-  <strong>Version:</strong>
-  <%= @wiki_page.version %>
-</p>
-
-<p>
+<h3>Related Items</h3>
+<% if @wiki_page.Product %>
+	<p>
   <strong>Product:</strong>
   <%= @wiki_page.Product %>
-</p>
+  </p>
+<% end %>
 
-<p>
-  <strong>Project:</strong>
-  <%= @wiki_page.Project %>
-</p>
+<% if @wiki_page.Project %>
+  <p>
+    <strong>Project:</strong>
+    <%= @wiki_page.Project %>
+  </p>
+<% end %>
 
-<p>
-  <strong>Story:</strong>
-  <%= @wiki_page.Story %>
-</p>
+<% if @wiki_page.Story %>
+  <p>
+    <strong>Story:</strong>
+    <%= @wiki_page.Story %>
+  </p>
+<% end %>
 
-<p>
-  <strong>Task:</strong>
-  <%= @wiki_page.Task %>
-</p>
+<% if @wiki_page.Task %>
+  <p>
+    <strong>Task:</strong>
+    <%= @wiki_page.Task %>
+  </p>
+<% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @wiki_page.User %>
-</p>
+<% if @wiki_page.User %>
+  <p>
+    <strong>User:</strong>
+    <%= @wiki_page.User %>
+  </p>
+<% end %>
 
-<%= link_to 'Edit', edit_wiki_page_path(@wiki_page) %> |
-<%= link_to 'Back', wiki_pages_path %>
