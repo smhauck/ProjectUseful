@@ -24,22 +24,39 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 %>
 
 
+<h1>Listing wiki_pages</h1>
 
-<h1>Listing wikis</h1>
-
-<table class="table">
+<table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
+      <th>Body</th>
+      <th>Version</th>
+      <th>Product</th>
+      <th>Project</th>
+      <th>Story</th>
+      <th>Task</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @wikis.each do |wiki| %>
+    <% @wiki_pages.each do |wiki_page| %>
       <tr>
-        <td><%= link_to wiki.title, wiki %></td>
-        <td><%= wiki.description %></td>
+        <td><%= wiki_page.title %></td>
+        <td><%= wiki_page.body %></td>
+        <td><%= wiki_page.version %></td>
+        <td><%= wiki_page.Product %></td>
+        <td><%= wiki_page.Project %></td>
+        <td><%= wiki_page.Story %></td>
+        <td><%= wiki_page.Task %></td>
+        <td><%= wiki_page.User %></td>
+        <td><%= link_to 'Show', wiki_page %></td>
+        <td><%= link_to 'Edit', edit_wiki_page_path(wiki_page) %></td>
+        <td><%= link_to 'Destroy', wiki_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -47,4 +64,4 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <br>
 
-<%= link_to 'New Wiki', new_wiki_path %>
+<%= link_to 'New Wiki page', new_wiki_page_path %>

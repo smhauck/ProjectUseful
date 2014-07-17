@@ -16,77 +16,86 @@
 # along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
-class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :update, :destroy]
 
-  # GET /stories
-  # GET /stories.json
+
+
+
+
+
+
+
+class WikiPagesController < ApplicationController
+	skip_before_action :authorize, only: [:index, :show]
+  before_action :set_wiki_page, only: [:show, :edit, :update, :destroy]
+
+  # GET /wiki_pages
+  # GET /wiki_pages.json
   def index
-    @stories = Story.all
+    @wiki_pages = WikiPage.all
   end
 
-  # GET /stories/1
-  # GET /stories/1.json
+  # GET /wiki_pages/1
+  # GET /wiki_pages/1.json
   def show
   end
 
-  # GET /stories/new
+  # GET /wiki_pages/new
   def new
-    @story = Story.new
+    @wiki_page = WikiPage.new
   end
 
-  # GET /stories/1/edit
+  # GET /wiki_pages/1/edit
   def edit
   end
 
-  # POST /stories
-  # POST /stories.json
+  # POST /wiki_pages
+  # POST /wiki_pages.json
   def create
-    @story = Story.new(story_params)
+    @wiki_page = WikiPage.new(wiki_page_params)
 
     respond_to do |format|
-      if @story.save
-        format.html { redirect_to @story, notice: 'Story was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @story }
+      if @wiki_page.save
+        format.html { redirect_to @wiki_page, notice: 'Wiki page was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @wiki_page }
       else
         format.html { render action: 'new' }
-        format.json { render json: @story.errors, status: :unprocessable_entity }
+        format.json { render json: @wiki_page.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /stories/1
-  # PATCH/PUT /stories/1.json
+  # PATCH/PUT /wiki_pages/1
+  # PATCH/PUT /wiki_pages/1.json
   def update
     respond_to do |format|
-      if @story.update(story_params)
-        format.html { redirect_to @story, notice: 'Story was successfully updated.' }
+      if @wiki_page.update(wiki_page_params)
+        format.html { redirect_to @wiki_page, notice: 'Wiki page was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @story.errors, status: :unprocessable_entity }
+        format.json { render json: @wiki_page.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /stories/1
-  # DELETE /stories/1.json
+  # DELETE /wiki_pages/1
+  # DELETE /wiki_pages/1.json
   def destroy
-    @story.destroy
+    @wiki_page.destroy
     respond_to do |format|
-      format.html { redirect_to stories_url }
+      format.html { redirect_to wiki_pages_url }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_story
-      @story = Story.find(params[:id])
+    def set_wiki_page
+      @wiki_page = WikiPage.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def story_params
-      params.require(:story).permit(:alive, :title, :description, :Product_id, :Project_id, :Sprint_id)
+    def wiki_page_params
+      params.require(:wiki_page).permit(:title, :body, :version, :Product_id, :Project_id, :Story_id, :Task_id, :User_id)
     end
 end

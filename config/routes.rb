@@ -1,4 +1,11 @@
 ProjectUseful::Application.routes.draw do
+
+  controller :pages do
+      get 'license' => :license
+      get 'technology' => :technology
+  end
+  resources :wiki_pages
+
   get 'admin' => 'admin#index'
 
   resources :wikis

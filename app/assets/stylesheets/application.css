@@ -11,3 +11,27 @@
  *= require_self
  *= require_tree .
  */
+
+
+/*
+ require admin.css.scss
+ require pages.css.scss
+ require product_status_types.css.scss
+ require products.css.scss
+ require project_status_types.css.scss
+ require projects.css.scss
+ require scaffolds.css.scss
+ require sessions.css.scss
+ require sprint_status_types.css.scss
+ require sprints.css.scss
+ require stories.css.scss
+ require story_status_types.css.scss
+ require task_status_types.css.scss
+ require tasks.css.scss
+ require users.css.scss
+ require welcome.css.scss
+ require wiki_pages.css.scss
+ require wikis.css.scss
+ require bootstrap.min
+ require project_useful
+*/

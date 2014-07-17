@@ -1,0 +1,49 @@
+<%= form_for(@wiki_page) do |f| %>
+  <% if @wiki_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wiki_page.errors.count, "error") %> prohibited this wiki_page from being saved:</h2>
+
+      <ul>
+      <% @wiki_page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br>
+    <%= f.number_field :version %>
+  </div>
+  <div class="field">
+    <%= f.label :Product_id %><br>
+    <%= f.text_field :Product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Project_id %><br>
+    <%= f.text_field :Project_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Story_id %><br>
+    <%= f.text_field :Story_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Task_id %><br>
+    <%= f.text_field :Task_id %>
+  </div>
+  <div class="field">
+    <%= f.label :User_id %><br>
+    <%= f.text_field :User_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

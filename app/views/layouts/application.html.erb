@@ -1,13 +1,39 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Project Useful</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "bootstrap.min", media: "all" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
 
   <% if session[:user_id] %>
     <nav class="navbar navbar-default" role="navigation">
@@ -71,7 +97,9 @@
               <ul class="dropdown-menu" role="menu">
                 <li><%= link_to "List", wikis_path %></li>
                 <li class="divider"></li>
-                <li><%= link_to "New", new_wiki_path %></li>
+                <li><%= link_to "New Wiki", new_wiki_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Wiki Page", new_wiki_page_path %></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -178,9 +206,20 @@
       </div><!-- /.container-fluid -->
     </nav>
   <% end %>
+</div><!-- class="container" -->
 
-
+<div class="container" -->
 <%= yield %>
+</div><!-- class="container" -->
+
+<div class="container" -->
+<footer>
+    <p class="text-muted"><a href="/license">License</a> * <a href="/technology">Technology</a></p>
+    <p class="text-muted">Follow development on the <a href="http://www.projecttasktodo.org/blog.shtml">development blog</a> and the <a href="https://github.com/wbhauck/ProjectUseful">Project Change Log</a></p>
+    <p class="text-muted">Powered by <%= link_to 'Project Useful', root_url %> &copy; 2014 William B. Hauck</p>
+</footer>
+</div><!-- class="container" -->
+
 
 </body>
 </html>

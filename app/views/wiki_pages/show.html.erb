@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @wiki_page.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= simple_format(@wiki_page.body) %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @wiki_page.version %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @wiki_page.Product %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @wiki_page.Project %>
+</p>
+
+<p>
+  <strong>Story:</strong>
+  <%= @wiki_page.Story %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @wiki_page.Task %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @wiki_page.User %>
+</p>
+
+<%= link_to 'Edit', edit_wiki_page_path(@wiki_page) %> |
+<%= link_to 'Back', wiki_pages_path %>

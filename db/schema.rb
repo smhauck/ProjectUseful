@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717004757) do
+ActiveRecord::Schema.define(version: 20140717061951) do
 
   create_table "product_status_types", force: true do |t|
     t.string   "title"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140717004757) do
     t.datetime "updated_at"
   end
 
-  add_index "projects", ["Product_id"], name: "index_projects_on_Product_id"
+  add_index "projects", ["Product_id"], name: "index_projects_on_Product_id", using: :btree
 
   create_table "sprint_status_types", force: true do |t|
     t.string   "title"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20140717004757) do
     t.datetime "updated_at"
   end
 
-  add_index "sprints", ["Product_id"], name: "index_sprints_on_Product_id"
-  add_index "sprints", ["Project_id"], name: "index_sprints_on_Project_id"
+  add_index "sprints", ["Product_id"], name: "index_sprints_on_Product_id", using: :btree
+  add_index "sprints", ["Project_id"], name: "index_sprints_on_Project_id", using: :btree
 
   create_table "stories", force: true do |t|
     t.boolean  "alive"
@@ -77,9 +77,9 @@ ActiveRecord::Schema.define(version: 20140717004757) do
     t.datetime "updated_at"
   end
 
-  add_index "stories", ["Product_id"], name: "index_stories_on_Product_id"
-  add_index "stories", ["Project_id"], name: "index_stories_on_Project_id"
-  add_index "stories", ["Sprint_id"], name: "index_stories_on_Sprint_id"
+  add_index "stories", ["Product_id"], name: "index_stories_on_Product_id", using: :btree
+  add_index "stories", ["Project_id"], name: "index_stories_on_Project_id", using: :btree
+  add_index "stories", ["Sprint_id"], name: "index_stories_on_Sprint_id", using: :btree
 
   create_table "story_status_types", force: true do |t|
     t.string   "title"
@@ -107,10 +107,10 @@ ActiveRecord::Schema.define(version: 20140717004757) do
     t.datetime "updated_at"
   end
 
-  add_index "tasks", ["Product_id"], name: "index_tasks_on_Product_id"
-  add_index "tasks", ["Project_id"], name: "index_tasks_on_Project_id"
-  add_index "tasks", ["Sprint_id"], name: "index_tasks_on_Sprint_id"
-  add_index "tasks", ["Story_id"], name: "index_tasks_on_Story_id"
+  add_index "tasks", ["Product_id"], name: "index_tasks_on_Product_id", using: :btree
+  add_index "tasks", ["Project_id"], name: "index_tasks_on_Project_id", using: :btree
+  add_index "tasks", ["Sprint_id"], name: "index_tasks_on_Sprint_id", using: :btree
+  add_index "tasks", ["Story_id"], name: "index_tasks_on_Story_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -118,6 +118,25 @@ ActiveRecord::Schema.define(version: 20140717004757) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "wiki_pages", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "version"
+    t.integer  "Product_id"
+    t.integer  "Project_id"
+    t.integer  "Story_id"
+    t.integer  "Task_id"
+    t.integer  "User_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wiki_pages", ["Product_id"], name: "index_wiki_pages_on_Product_id", using: :btree
+  add_index "wiki_pages", ["Project_id"], name: "index_wiki_pages_on_Project_id", using: :btree
+  add_index "wiki_pages", ["Story_id"], name: "index_wiki_pages_on_Story_id", using: :btree
+  add_index "wiki_pages", ["Task_id"], name: "index_wiki_pages_on_Task_id", using: :btree
+  add_index "wiki_pages", ["User_id"], name: "index_wiki_pages_on_User_id", using: :btree
 
   create_table "wikis", force: true do |t|
     t.string   "title"
