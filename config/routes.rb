@@ -1,4 +1,6 @@
 ProjectUseful::Application.routes.draw do
+  resources :wikis
+
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"

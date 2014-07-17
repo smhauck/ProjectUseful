@@ -1,0 +1,29 @@
+<h1>Listing wikis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wikis.each do |wiki| %>
+      <tr>
+        <td><%= wiki.title %></td>
+        <td><%= wiki.description %></td>
+        <td><%= link_to 'Show', wiki %></td>
+        <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
+        <td><%= link_to 'Destroy', wiki, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wiki', new_wiki_path %>
