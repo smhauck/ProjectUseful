@@ -5,11 +5,10 @@ Project Useful is a Ruby on Rails-based project management system implementing t
 == System Requirements
 
 * Ruby version 2 or later
-
 * System dependencies
-** Ruby 2
-** Rails 4
-** MySQL or MariaDB 5.1 or later
+  * Ruby 2
+  * Rails 4
+  * MySQL or MariaDB 5.1 or later
 
 
 == Database
@@ -20,7 +19,7 @@ Create a database for production.  If you plan to do development or testing of t
 Create a user for Project Useful and grant all rights to the databases to the user.  Make sure to update your config/database.yml file with the appropriate database, username, and password.
 
 Include the appropriate database gem.  For MySQL or MariaDB add the following line to your Gemfile:
-gem 'mysql2'
+<tt>gem 'mysql2'<tt>
 
 
 == Sections still to write
