@@ -23,6 +23,9 @@ Include the appropriate database gem.  For MySQL or MariaDB add the following li
 
 <tt>gem 'mysql2'</tt>
 
+== Installation
+Make sure you update your secret token before running the application!
+config/initializers/secret_token.rb
 
 == Author, Copyright, and License
 
