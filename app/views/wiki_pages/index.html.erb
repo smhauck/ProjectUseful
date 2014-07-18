@@ -49,11 +49,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
         <td><%= wiki_page.title %></td>
         <td><%= wiki_page.body %></td>
         <td><%= wiki_page.version %></td>
-        <td><%= wiki_page.product.title %></td>
-        <td><%= wiki_page.project.title %></td>
-        <td><%= wiki_page.story.title %></td>
-        <td><%= wiki_page.task.title %></td>
-        <td><%= wiki_page.user.username %></td>
+        <% if wiki_page.product_id %><td><%= wiki_page.product.title %></td><% end %>
+        <% if wiki_page.project_id %><td><%= wiki_page.project.title %></td><% end %>
+        <% if wiki_page.story_id %><td><%= wiki_page.story.title %></td><% end %>
+        <% if wiki_page.task_id %><td><%= wiki_page.task.title %></td><% end %>
+        <% if wiki_page.user_id %><td><%= wiki_page.user.username %></td><% end %>
         <td><%= link_to 'Show', wiki_page %></td>
         <td><%= link_to 'Edit', edit_wiki_page_path(wiki_page) %></td>
         <td><%= link_to 'Destroy', wiki_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
