@@ -26,14 +26,15 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Alive:</strong>
-  <%= @story.alive %>
-</p>
 
 <p>
   <strong>Title:</strong>
   <%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %>
+</p>
+
+<p>
+  <strong>(DEBUG) Alive:</strong>
+  <%= @story.alive %>
 </p>
 
 <p>

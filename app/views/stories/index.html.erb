@@ -29,30 +29,24 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <table class="table">
   <thead>
     <tr>
-      <th>Alive</th>
       <th>Title</th>
+      <th>Alive</th>
       <th>Description</th>
-      <th>Product</th>
-      <th>Project</th>
       <th>Sprint</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Project</th>
+      <th>Product</th>
     </tr>
   </thead>
 
   <tbody>
     <% @stories.each do |story| %>
       <tr>
-        <td><%= story.alive %></td>
-        <td><%= story.title %></td>
+        <td><%= link_to story.title, story %></td>
+        <td>(DEBUG): <%= story.alive %></td>
         <td><%= story.description %></td>
-	<% if story.product_id %><td><%= link_to story.product.title, story.product %></td><% end %>
-	<% if story.project_id %><td><%= link_to story.project.title, story.project %></td><% end %>
-	<% if story.sprint_id %><%= link_to "story.sprint.start_date - story.sprint.end_date", story.sprint %></td><% end %>
-        <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><% if story.sprint_id %><%= link_to "#{story.sprint.start_date} - #{story.sprint.end_date}", story.sprint %><% end %></td>
+	<td><% if story.project_id %><%= link_to story.project.title, story.project %><% end %></td>
+	<td><% if story.product_id %><%= link_to story.product.title, story.product %><% end %></td>
       </tr>
     <% end %>
   </tbody>
