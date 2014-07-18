@@ -37,16 +37,13 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <th>Story</th>
       <th>Task</th>
       <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @wiki_pages.each do |wiki_page| %>
       <tr>
-        <td><%= wiki_page.title %></td>
+        <td><%= link_to wiki_page.title, wiki_page %></td>
         <td><%= wiki_page.body %></td>
         <td><%= wiki_page.version %></td>
         <% if wiki_page.product_id %><td><%= wiki_page.product.title %></td><% end %>
@@ -54,9 +51,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
         <% if wiki_page.story_id %><td><%= wiki_page.story.title %></td><% end %>
         <% if wiki_page.task_id %><td><%= wiki_page.task.title %></td><% end %>
         <% if wiki_page.user_id %><td><%= wiki_page.user.username %></td><% end %>
-        <td><%= link_to 'Show', wiki_page %></td>
-        <td><%= link_to 'Edit', edit_wiki_page_path(wiki_page) %></td>
-        <td><%= link_to 'Destroy', wiki_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
