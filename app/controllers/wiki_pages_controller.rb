@@ -16,14 +16,6 @@
 # along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
-
-
-
-
-
-
-
-
 class WikiPagesController < ApplicationController
 	skip_before_action :authorize, only: [:index, :show]
   before_action :set_wiki_page, only: [:show, :edit, :update, :destroy]

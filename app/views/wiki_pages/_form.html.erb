@@ -46,16 +46,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label :wiki %>
-    <select name="wiki[id]">
-      <% Wiki.all.each do |wiki| %>
-        <% if wiki.id == @wiki_page.wiki_id %>
-          <option value="<%= wiki.id %>" selected="selected"><%= wiki.title %></option>
-        <% else %>
-          <option value="<%= wiki.id %>"><%= wiki.title %></option>
-        <% end %>
-      <% end %>
-    </select>
+    <%= f.label :wiki_id %><br>
+    <%= f.text_field :wiki_id %>
   </div>
   <div class="field">
     <%= f.label :version %><br>
