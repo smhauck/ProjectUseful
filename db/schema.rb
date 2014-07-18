@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717061951) do
+ActiveRecord::Schema.define(version: 20140718215638) do
+
+  create_table "blog_posts", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.date     "publish_date"
+    t.integer  "blog_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blog_posts", ["blog_id"], name: "index_blog_posts_on_blog_id", using: :btree
+  add_index "blog_posts", ["user_id"], name: "index_blog_posts_on_user_id", using: :btree
+
+  create_table "blogs", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
 
   create_table "product_status_types", force: true do |t|
     t.string   "title"
@@ -125,7 +148,7 @@ ActiveRecord::Schema.define(version: 20140717061951) do
     t.string   "title"
     t.text     "body"
     t.integer  "version"
-    t.integer  "wiki_id",    default: 2, null: false
+    t.integer  "wiki_id",    null: false
     t.integer  "product_id"
     t.integer  "project_id"
     t.integer  "story_id"

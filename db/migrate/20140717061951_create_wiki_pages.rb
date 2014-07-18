@@ -4,7 +4,7 @@ class CreateWikiPages < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.integer :version
-      t.references :wiki, index: true, null: false, default: 2
+      t.references :wiki, index: true, null: false
       t.references :product, index: true
       t.references :project, index: true
       t.references :story, index: true

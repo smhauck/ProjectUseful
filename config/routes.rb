@@ -1,5 +1,9 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :blog_posts
+
+  resources :blogs
+
   controller :pages do
       get 'license' => :license
       get 'technology' => :technology
