@@ -32,5 +32,5 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p class="wiki_description"><%= @wiki.description %></p>
 
 <% @wiki.pages.each do |page| %>
-  <%= link_to page.title, page %>
+	<p><%= link_to page.title, page %></p>
 <% end %>
