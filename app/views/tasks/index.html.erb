@@ -50,7 +50,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
         <td><%= task.description %></td>
         <td><% if task.product_id %><%= task.product.title %><% end %></td>
         <td><% if task.project_id %><%= task.project.title %><% end %></td>
-        <td><% if task.sprin_id %><%= task.sprint.start_date %> - <%= task.sprint.end_date %><% end %></td>
+        <td><% if task.sprint_id %><%= task.sprint.start_date %> - <%= task.sprint.end_date %><% end %></td>
         <td><% if task.story_id %><%= task.story.title %><% end %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
