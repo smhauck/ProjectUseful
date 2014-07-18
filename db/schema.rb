@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20140717061951) do
     t.string   "title"
     t.text     "body"
     t.integer  "version"
+    t.integer  "wiki_id"
     t.integer  "product_id"
     t.integer  "project_id"
     t.integer  "story_id"
@@ -139,6 +140,7 @@ ActiveRecord::Schema.define(version: 20140717061951) do
   add_index "wiki_pages", ["story_id"], name: "index_wiki_pages_on_story_id", using: :btree
   add_index "wiki_pages", ["task_id"], name: "index_wiki_pages_on_task_id", using: :btree
   add_index "wiki_pages", ["user_id"], name: "index_wiki_pages_on_user_id", using: :btree
+  add_index "wiki_pages", ["wiki_id"], name: "index_wiki_pages_on_wiki_id", using: :btree
 
   create_table "wikis", force: true do |t|
     t.string   "title"
