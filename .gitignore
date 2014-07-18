@@ -18,3 +18,7 @@
 # Ignore vim backup and swap files
 *~
 *.swp
+
+
+# Ignore Mac OS resource forks and such
+.DS_Store
