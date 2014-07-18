@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.boolean :alive
       t.string :title
       t.text :description
-      t.references :Product, index: true
+      t.references :product, index: true
 
       t.timestamps
     end

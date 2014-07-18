@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 20140717061951) do
     t.boolean  "alive"
     t.string   "title"
     t.text     "description"
-    t.integer  "Product_id"
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "projects", ["Product_id"], name: "index_projects_on_Product_id", using: :btree
+  add_index "projects", ["product_id"], name: "index_projects_on_product_id", using: :btree
 
   create_table "sprint_status_types", force: true do |t|
     t.string   "title"
@@ -54,32 +54,34 @@ ActiveRecord::Schema.define(version: 20140717061951) do
   end
 
   create_table "sprints", force: true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
     t.boolean  "alive"
     t.string   "title"
     t.text     "description"
-    t.integer  "Product_id"
-    t.integer  "Project_id"
+    t.integer  "product_id"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sprints", ["Product_id"], name: "index_sprints_on_Product_id", using: :btree
-  add_index "sprints", ["Project_id"], name: "index_sprints_on_Project_id", using: :btree
+  add_index "sprints", ["product_id"], name: "index_sprints_on_product_id", using: :btree
+  add_index "sprints", ["project_id"], name: "index_sprints_on_project_id", using: :btree
 
   create_table "stories", force: true do |t|
     t.boolean  "alive"
     t.string   "title"
     t.text     "description"
-    t.integer  "Product_id"
-    t.integer  "Project_id"
-    t.integer  "Sprint_id"
+    t.integer  "product_id"
+    t.integer  "project_id"
+    t.integer  "sprint_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "stories", ["Product_id"], name: "index_stories_on_Product_id", using: :btree
-  add_index "stories", ["Project_id"], name: "index_stories_on_Project_id", using: :btree
-  add_index "stories", ["Sprint_id"], name: "index_stories_on_Sprint_id", using: :btree
+  add_index "stories", ["product_id"], name: "index_stories_on_product_id", using: :btree
+  add_index "stories", ["project_id"], name: "index_stories_on_project_id", using: :btree
+  add_index "stories", ["sprint_id"], name: "index_stories_on_sprint_id", using: :btree
 
   create_table "story_status_types", force: true do |t|
     t.string   "title"
@@ -99,18 +101,18 @@ ActiveRecord::Schema.define(version: 20140717061951) do
     t.boolean  "alive"
     t.string   "title"
     t.text     "description"
-    t.integer  "Product_id"
-    t.integer  "Project_id"
-    t.integer  "Sprint_id"
-    t.integer  "Story_id"
+    t.integer  "product_id"
+    t.integer  "project_id"
+    t.integer  "sprint_id"
+    t.integer  "story_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "tasks", ["Product_id"], name: "index_tasks_on_Product_id", using: :btree
-  add_index "tasks", ["Project_id"], name: "index_tasks_on_Project_id", using: :btree
-  add_index "tasks", ["Sprint_id"], name: "index_tasks_on_Sprint_id", using: :btree
-  add_index "tasks", ["Story_id"], name: "index_tasks_on_Story_id", using: :btree
+  add_index "tasks", ["product_id"], name: "index_tasks_on_product_id", using: :btree
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
+  add_index "tasks", ["sprint_id"], name: "index_tasks_on_sprint_id", using: :btree
+  add_index "tasks", ["story_id"], name: "index_tasks_on_story_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -123,20 +125,20 @@ ActiveRecord::Schema.define(version: 20140717061951) do
     t.string   "title"
     t.text     "body"
     t.integer  "version"
-    t.integer  "Product_id"
-    t.integer  "Project_id"
-    t.integer  "Story_id"
-    t.integer  "Task_id"
-    t.integer  "User_id"
+    t.integer  "product_id"
+    t.integer  "project_id"
+    t.integer  "story_id"
+    t.integer  "task_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "wiki_pages", ["Product_id"], name: "index_wiki_pages_on_Product_id", using: :btree
-  add_index "wiki_pages", ["Project_id"], name: "index_wiki_pages_on_Project_id", using: :btree
-  add_index "wiki_pages", ["Story_id"], name: "index_wiki_pages_on_Story_id", using: :btree
-  add_index "wiki_pages", ["Task_id"], name: "index_wiki_pages_on_Task_id", using: :btree
-  add_index "wiki_pages", ["User_id"], name: "index_wiki_pages_on_User_id", using: :btree
+  add_index "wiki_pages", ["product_id"], name: "index_wiki_pages_on_product_id", using: :btree
+  add_index "wiki_pages", ["project_id"], name: "index_wiki_pages_on_project_id", using: :btree
+  add_index "wiki_pages", ["story_id"], name: "index_wiki_pages_on_story_id", using: :btree
+  add_index "wiki_pages", ["task_id"], name: "index_wiki_pages_on_task_id", using: :btree
+  add_index "wiki_pages", ["user_id"], name: "index_wiki_pages_on_user_id", using: :btree
 
   create_table "wikis", force: true do |t|
     t.string   "title"

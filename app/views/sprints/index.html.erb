@@ -20,8 +20,8 @@
         <td><%= sprint.alive %></td>
         <td><%= sprint.title %></td>
         <td><%= sprint.description %></td>
-        <td><%= sprint.Product %></td>
-        <td><%= sprint.Project %></td>
+        <td><%= sprint.product.title  %></td>
+        <td><%= sprint.project.title %></td>
         <td><%= link_to 'Show', sprint %></td>
         <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
         <td><%= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' } %></td>

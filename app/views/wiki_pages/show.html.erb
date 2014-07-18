@@ -1,3 +1,29 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <p id="notice"><%= notice %></p>
 
 <h2><%= @wiki_page.title %> <%= link_to '(Edit)', edit_wiki_page_path(@wiki_page) %></h2>
@@ -5,38 +31,38 @@
 <%= simple_format(@wiki_page.body) %>
 
 <h3>Related Items</h3>
-<% if @wiki_page.Product %>
+<% if @wiki_page.product %>
 	<p>
   <strong>Product:</strong>
-  <%= @wiki_page.Product %>
+  <%= link_to @wiki_page.product.title, @wiki_page.product %>
   </p>
 <% end %>
 
-<% if @wiki_page.Project %>
+<% if @wiki_page.project %>
   <p>
-    <strong>Project:</strong>
-    <%= @wiki_page.Project %>
+    <strong>project:</strong>
+    <%= @wiki_page.project.title %>
   </p>
 <% end %>
 
-<% if @wiki_page.Story %>
+<% if @wiki_page.story %>
   <p>
     <strong>Story:</strong>
-    <%= @wiki_page.Story %>
+    <%= @wiki_page.story.title %>
   </p>
 <% end %>
 
-<% if @wiki_page.Task %>
+<% if @wiki_page.task %>
   <p>
     <strong>Task:</strong>
-    <%= @wiki_page.Task %>
+    <%= @wiki_page.task.title %>
   </p>
 <% end %>
 
-<% if @wiki_page.User %>
+<% if @wiki_page.user %>
   <p>
     <strong>User:</strong>
-    <%= @wiki_page.User %>
+    <%= @wiki_page.user.username %>
   </p>
 <% end %>
 

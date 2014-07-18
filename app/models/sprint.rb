@@ -1,4 +1,4 @@
 class Sprint < ActiveRecord::Base
-  belongs_to :Product
-  belongs_to :Project
+  belongs_to :product
+  belongs_to :project
 end

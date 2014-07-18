@@ -1,3 +1,29 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <h1>Listing tasks</h1>
 
 <table>
@@ -22,10 +48,10 @@
         <td><%= task.alive %></td>
         <td><%= task.title %></td>
         <td><%= task.description %></td>
-        <td><%= task.Product %></td>
-        <td><%= task.Project %></td>
-        <td><%= task.Sprint %></td>
-        <td><%= task.Story %></td>
+        <td><%= task.product.title %></td>
+        <td><%= task.project.title %></td>
+	<td><%= task.sprint.start_date %> - <%= task.sprint.end_date %></td>
+        <td><%= task.story.title %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

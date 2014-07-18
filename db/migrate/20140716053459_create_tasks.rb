@@ -4,10 +4,10 @@ class CreateTasks < ActiveRecord::Migration
       t.boolean :alive
       t.string :title
       t.text :description
-      t.references :Product, index: true
-      t.references :Project, index: true
-      t.references :Sprint, index: true
-      t.references :Story, index: true
+      t.references :product, index: true
+      t.references :project, index: true
+      t.references :sprint, index: true
+      t.references :story, index: true
 
       t.timestamps
     end

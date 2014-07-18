@@ -1,7 +1,7 @@
 class WikiPage < ActiveRecord::Base
-  belongs_to :Product
-  belongs_to :Project
-  belongs_to :Story
-  belongs_to :Task
-  belongs_to :User
+  belongs_to :product
+  belongs_to :project
+  belongs_to :story
+  belongs_to :task
+  belongs_to :user
 end

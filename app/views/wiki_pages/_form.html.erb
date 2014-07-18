@@ -1,3 +1,29 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <%= form_for(@wiki_page) do |f| %>
   <% if @wiki_page.errors.any? %>
     <div id="error_explanation">
@@ -24,24 +50,24 @@
     <%= f.number_field :version %>
   </div>
   <div class="field">
-    <%= f.label :Product_id %><br>
-    <%= f.text_field :Product_id %>
+    <%= f.label :product_id %><br>
+    <%= f.text_field :product_id %>
   </div>
   <div class="field">
-    <%= f.label :Project_id %><br>
-    <%= f.text_field :Project_id %>
+    <%= f.label :project_id %><br>
+    <%= f.text_field :project_id %>
   </div>
   <div class="field">
-    <%= f.label :Story_id %><br>
-    <%= f.text_field :Story_id %>
+    <%= f.label :story_id %><br>
+    <%= f.text_field :story_id %>
   </div>
   <div class="field">
-    <%= f.label :Task_id %><br>
-    <%= f.text_field :Task_id %>
+    <%= f.label :task_id %><br>
+    <%= f.text_field :task_id %>
   </div>
   <div class="field">
-    <%= f.label :User_id %><br>
-    <%= f.text_field :User_id %>
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

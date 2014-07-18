@@ -1,3 +1,3 @@
 class Project < ActiveRecord::Base
-  belongs_to :Product
+  belongs_to :product
 end

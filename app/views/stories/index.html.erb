@@ -1,3 +1,29 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <h1>Listing stories</h1>
 
 <table>
@@ -21,9 +47,9 @@
         <td><%= story.alive %></td>
         <td><%= story.title %></td>
         <td><%= story.description %></td>
-        <td><%= story.Product %></td>
-        <td><%= story.Project %></td>
-        <td><%= story.Sprint %></td>
+        <td><%= story.product.title %></td>
+        <td><%= story.project.title %></td>
+        <td><%= story.sprint %></td>
         <td><%= link_to 'Show', story %></td>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>

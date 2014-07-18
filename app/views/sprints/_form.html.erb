@@ -1,3 +1,29 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <%= form_for(@sprint) do |f| %>
   <% if @sprint.errors.any? %>
     <div id="error_explanation">
@@ -12,24 +38,24 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.text_field :start_date%>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.text_field :end_date%>
+  </div>
+  <div class="field">
     <%= f.label :alive %><br>
     <%= f.check_box :alive %>
   </div>
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :product_id %><br>
+    <%= f.text_field :product_id %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :Product_id %><br>
-    <%= f.text_field :Product_id %>
-  </div>
-  <div class="field">
-    <%= f.label :Project_id %><br>
-    <%= f.text_field :Project_id %>
+    <%= f.label :project_id %><br>
+    <%= f.text_field :project_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
