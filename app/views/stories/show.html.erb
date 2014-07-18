@@ -33,7 +33,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p>
   <strong>Title:</strong>
-  <%= @story.title %>
+  <%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %>
 </p>
 
 <p>
@@ -41,20 +41,25 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <%= @story.description %>
 </p>
 
+<% if @story.product_id %>
 <p>
   <strong>Product:</strong>
-  <%= @story.product.title %>
+  <%= link_to @story.product.title, @story.product %>
 </p>
+<% end %>
 
+<% if @story.project_id %>
 <p>
   <strong>Project:</strong>
-  <%= @story.project.title %>
+  <%= link_to @story.project.title, @story.project %>
 </p>
+<% end %>
 
+<% if @story.sprint_id %>
 <p>
   <strong>Sprint:</strong>
-  <%= @story.sprint.start_date %> - <%= @story.sprint.end_date %>
+  <%= link_to "@story.sprint.start_date - @story.sprint.end_date", @story.sprint %>
 </p>
+<% end %>
 
-<%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>
