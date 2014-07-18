@@ -20,10 +20,13 @@
   <%= @blog_post.blog %>
 </p>
 
+<%# FIXME: user_id should be required %>
+<% if @blog_post.user_id %>
 <p>
   <strong>User:</strong>
   <%= @blog_post.user.username %>
 </p>
+<% end %>
 
 <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
 <%= link_to 'Back', blog_posts_path %>

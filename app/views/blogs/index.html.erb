@@ -15,12 +15,9 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><%= blog.title %></td>
+        <td><%= link_to blog.title, blog %></td>
         <td><%= blog.description %></td>
-        <td><%= blog.user %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= blog.user.username %></td>
       </tr>
     <% end %>
   </tbody>

@@ -8,23 +8,17 @@
       <th>Publish date</th>
       <th>Blog</th>
       <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @blog_posts.each do |blog_post| %>
       <tr>
-        <td><%= blog_post.title %></td>
+        <td><%= link_to blog_post.title, blog_post %></td>
         <td><%= blog_post.body %></td>
         <td><%= blog_post.publish_date %></td>
         <td><%= blog_post.blog %></td>
-        <td><%= blog_post.user %></td>
-        <td><%= link_to 'Show', blog_post %></td>
-        <td><%= link_to 'Edit', edit_blog_post_path(blog_post) %></td>
-        <td><%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<td><%= link_to blog_post.user.username, blog_post.user %></td>
       </tr>
     <% end %>
   </tbody>

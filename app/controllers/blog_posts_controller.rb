@@ -44,6 +44,7 @@ class BlogPostsController < ApplicationController
   # POST /blog_posts.json
   def create
     @blog_post = BlogPost.new(blog_post_params)
+    @blog_post.user_id = session[:user_id]
 
     respond_to do |format|
       if @blog_post.save
@@ -59,6 +60,9 @@ class BlogPostsController < ApplicationController
   # PATCH/PUT /blog_posts/1
   # PATCH/PUT /blog_posts/1.json
   def update
+
+    # only update if original author (user_id) is submitting it
+    if @blog_post.user_id = session[:user_id]
     respond_to do |format|
       if @blog_post.update(blog_post_params)
         format.html { redirect_to @blog_post, notice: 'Blog post was successfully updated.' }
@@ -67,6 +71,7 @@ class BlogPostsController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @blog_post.errors, status: :unprocessable_entity }
       end
+    end
     end
   end
 
@@ -88,6 +93,6 @@ class BlogPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_post_params
-      params.require(:blog_post).permit(:title, :body, :publish_date, :blog_id, :user_id)
+      params.require(:blog_post).permit(:title, :body, :publish_date, :blog_id)
     end
 end
