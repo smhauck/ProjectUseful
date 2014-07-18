@@ -47,9 +47,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
         <td><%= story.alive %></td>
         <td><%= story.title %></td>
         <td><%= story.description %></td>
-        <td><%= story.product.title %></td>
-        <td><%= story.project.title %></td>
-        <td><%= story.sprint %></td>
+	<% if story.product_id %><td><%= link_to story.product.title, story.product %></td><% end %>
+	<% if story.project_id %><td><%= link_to story.project.title, story.project %></td><% end %>
+	<% if story.sprint_id %><%= link_to "story.sprint.start_date - story.sprint.end_date", story.sprint %></td><% end %>
         <td><%= link_to 'Show', story %></td>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
