@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 20140717061951) do
     t.string   "title"
     t.text     "body"
     t.integer  "version"
-    t.integer  "wiki_id"
+    t.integer  "wiki_id",    default: 1, null: false
     t.integer  "product_id"
     t.integer  "project_id"
     t.integer  "story_id"
