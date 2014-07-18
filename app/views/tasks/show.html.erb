@@ -41,25 +41,33 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <%= @task.description %>
 </p>
 
+<% if @task.product_id %>
 <p>
   <strong>Product:</strong>
   <%= @task.product.title %>
 </p>
+<% end %>
 
+<% if @task.project_id %>
 <p>
   <strong>Project:</strong>
   <%= @task.project.title %>
 </p>
+<% end %>
 
+<% if @task.sprint_id %>
 <p>
   <strong>Sprint:</strong>
   <%= @task.sprint.start_date %> - <%= @task.sprint.end_date %>
 </p>
+<% end %>
 
+<% if @task.story_id %>
 <p>
   <strong>Story:</strong>
   <%= @task.story.title %>
 </p>
+<% end %>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
