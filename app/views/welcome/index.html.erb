@@ -1,0 +1,46 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<h1>Welcome to Project Useful</h1>
+
+<p>Project Useful is a project management system written in the Ruby programming language using the Rails framework.  Project Useful implements the Scrum Agile methodology for project management.  The process goes something like this ...</p>
+
+<p>You are building a Product.  For that Product you have a Project which is a moderate to long term duration with a clear end goal.  People request changes or new features to the Product through simple Stories that describe one request.  That Story is then broken down into the individual Tasks that are required to complete the Story.  The Story is worked on during a short duration time block called a Sprint.  Sprints typically last one to two weeks.</p>
+<p>So, for a specific example, Project Useful is being developed in the Scrum fashion.  The parts are:
+<ul>
+	<li>PRODUCT: Project Useful</li>
+	<li>PROJECT: Version 1.0 of Project Useful</li>
+	<li>STORY: Tasks can have one or more people assigned to them</li>
+	<li>TASK: Create database table to hold the task.id and the user.id</li>
+	<li>TASK: Create the web form to allow adding users to a task</li>
+	<li>TASK: Create the code that updates the database using the users selected in the web form</li>
+	<li>TASK: Write and execute unit test to ensure code is functioning as expected</li>
+	<li>TASK: Document the usage of the web form if it is complex</li>
+</ul>
+</p>
+<p>This Story is being worked on during the 2014-07-15 to 2014-07-30 Sprint.  You can read through the actual process at <%= link_to 'Tasks can have one or more people assigned to them', story_path(12) %>.</p>
+<p>Feel free to click through the menu items and explore the system.  Also be sure to check out the <%= link_to 'Project Useful Development Blog', blog_path(1) %></p>
+<p>Please note that this site is served from an instance of Project Useful.  All the functions you see here are available in the system.</p>
