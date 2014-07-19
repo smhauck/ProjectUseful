@@ -26,16 +26,21 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<p><strong>Product:</strong> <%= link_to @sprint.product.title, @sprint.product %> <strong>Project:</strong> <%= link_to @sprint.project.title, @sprint.project %></p>
+<h1>Sprint: <%= @sprint.start_date %> - <%= @sprint.end_date %> <%= link_to '(Edit)', edit_sprint_path(@sprint) %></h1>
+
 
 <p>
   <strong>(DEVEL) Alive:</strong>
   <%= @sprint.alive %>
 </p>
 
-<p>
-<strong>Sprint:</strong> <%= @sprint.start_date %> - <%= @sprint.end_date %> <%= link_to '(Edit)', edit_sprint_path(@sprint) %>
-</p>
+<p><strong>Product:</strong> <%= link_to @sprint.product.title, @sprint.product %> <strong>Project:</strong> <%= link_to @sprint.project.title, @sprint.project %></p>
 
-<%= link_to 'Edit', edit_sprint_path(@sprint) %> |
-<%= link_to 'Back', sprints_path %>
+<% if @sprint.stories %>
+	<h2>Stories</h2>
+<% @sprint.stories.each do |story| %>
+	<p><%= link_to story.title, story %></p>
+<% end %>
+<% else %>
+	<h2>No Stories for Sprint</h2>
+<% end %>
