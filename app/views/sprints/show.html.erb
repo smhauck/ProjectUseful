@@ -28,13 +28,15 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <h1>Sprint: <%= @sprint.start_date %> - <%= @sprint.end_date %> <%= link_to '(Edit)', edit_sprint_path(@sprint) %></h1>
 
-
 <p>
   <strong>(DEVEL) Alive:</strong>
   <%= @sprint.alive %>
 </p>
 
-<p><strong>Product:</strong> <%= link_to @sprint.product.title, @sprint.product %> <strong>Project:</strong> <%= link_to @sprint.project.title, @sprint.project %></p>
+<p>
+  <strong>Notes:</strong>
+  <%= @sprint.notes %>
+</p>
 
 <% if @sprint.stories %>
 	<h2>Stories</h2>

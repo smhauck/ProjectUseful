@@ -80,16 +80,10 @@ ActiveRecord::Schema.define(version: 20140718215638) do
     t.date     "start_date"
     t.date     "end_date"
     t.boolean  "alive"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "product_id"
-    t.integer  "project_id"
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "sprints", ["product_id"], name: "index_sprints_on_product_id", using: :btree
-  add_index "sprints", ["project_id"], name: "index_sprints_on_project_id", using: :btree
 
   create_table "stories", force: true do |t|
     t.boolean  "alive"
