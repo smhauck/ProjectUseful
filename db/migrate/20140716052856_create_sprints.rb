@@ -4,10 +4,7 @@ class CreateSprints < ActiveRecord::Migration
       t.date :start_date
       t.date :end_date
       t.boolean :alive
-      t.string :title
-      t.text :description
-      t.references :product, index: true
-      t.references :project, index: true
+      t.text :notes
 
       t.timestamps
     end
