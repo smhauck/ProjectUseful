@@ -42,8 +42,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </p>
 
 <% if @story.tasks %>
-	<h2>Tasks</h2>
-	<%= link_to 'Add Task', controller: "tasks", action: "new",  story: @story %><br />
+	<h2>Tasks <%= link_to '(Add)', controller: "tasks", action: "new",  story: @story %></h2>
 	<% @story.tasks.each do |task| %>
 		<%= link_to task.title, task %><br />
 	<% end %>

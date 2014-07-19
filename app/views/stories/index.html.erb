@@ -30,7 +30,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <thead>
     <tr>
       <th>Title</th>
-      <th>Alive</th>
+      <th>(DEVEL) Alive</th>
       <th>Description</th>
       <th>Sprint</th>
       <th>Project</th>
@@ -42,7 +42,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <% @stories.each do |story| %>
       <tr>
         <td><%= link_to story.title, story %></td>
-        <td>(DEBUG): <%= story.alive %></td>
+        <td><%= story.alive %></td>
         <td><%= story.description %></td>
 <td><% if story.sprint_id %><%= link_to "#{story.sprint.start_date} - #{story.sprint.end_date}", story.sprint %><% end %></td>
 	<td><% if story.project_id %><%= link_to story.project.title, story.project %><% end %></td>
