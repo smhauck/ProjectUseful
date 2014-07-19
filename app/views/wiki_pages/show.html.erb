@@ -28,6 +28,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <h2>Wiki: <%= link_to @wiki_page.wiki.title, @wiki_page.wiki %></h2>
 <h2><%= @wiki_page.title %> <%= link_to '(Edit)', edit_wiki_page_path(@wiki_page) %></h2>
+<p class="timestamp">Created: <%= @wiki_page.created_at %> Updated: <%= @wiki_page.updated_at %></p>
 
 <%= simple_format(@wiki_page.body) %>
 

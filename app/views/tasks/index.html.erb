@@ -29,32 +29,26 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <table class="table">
   <thead>
     <tr>
-      <th>Alive</th>
       <th>Title</th>
+      <th>(DEVEL)Alive</th>
       <th>Description</th>
       <th>Product</th>
       <th>Project</th>
       <th>Sprint</th>
       <th>Story</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
+        <td><%= link_to task.title, task %></td>
         <td><%= task.alive %></td>
-        <td><%= task.title %></td>
         <td><%= task.description %></td>
         <td><% if task.product_id %><%= task.product.title %><% end %></td>
         <td><% if task.project_id %><%= task.project.title %><% end %></td>
         <td><% if task.sprint_id %><%= task.sprint.start_date %> - <%= task.sprint.end_date %><% end %></td>
         <td><% if task.story_id %><%= task.story.title %><% end %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

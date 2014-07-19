@@ -26,23 +26,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-
-
-
-  <strong>(DEVEL)Alive:</strong>
-  <%= @task.alive %>
-
-
-
-
-
-
-
-
-
-
-
-<h1><%= link_to @task.title, edit_task_path(@task) %></h1>
+<h1><%= @task.title %> <%= link_to '(Edit)', edit_task_path(@task) %></h1>
 <p>(DEVEL)Alive: <%= @task.alive %></p>
 
 <p>
