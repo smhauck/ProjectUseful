@@ -62,7 +62,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <%= f.text_field :sprint_id %>
   </div>
   <% if @story_selected %>
-	  <div class="field">Story: <%= @story.title %></div>
+	  <div class="field">Story: <%= @task.story.title %></div>
+	  <%= f.hidden_field :story_id, :value => @task.story_id %>
   <% else %>
   <div class="field">
 	  <%= f.label :story %></br >
