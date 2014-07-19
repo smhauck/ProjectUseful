@@ -34,6 +34,11 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    if params[:story]
+      @story = Story.find(params[:story])
+    else
+      @story = Story.new
+    end
   end
 
   # GET /tasks/1/edit

@@ -26,48 +26,33 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Alive:</strong>
+
+
+
+  <strong>(DEVEL)Alive:</strong>
   <%= @task.alive %>
-</p>
+
+
+
+
+
+
+
+
+
+
+
+<h1><%= link_to @task.title, edit_task_path(@task) %></h1>
+<p>(DEVEL)Alive: <%= @task.alive %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @task.title %>
+<% if @task.story_id %><strong>Story:</strong> <%= link_to @task.story.title, @task.story %><% end %>
+<% if @task.sprint_id %><strong>Sprint:</strong> <%= link_to "#{@task.sprint.start_date} - #{@task.sprint.end_date}", @task.sprint %><% end %>
+<% if @task.project_id %><strong>Project:</strong> <%= link_to @task.project.title, @task.project %><% end %>
+<% if @task.product_id %><strong>Product:</strong> <%= link_to @task.product.title, @task.product %><% end %>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @task.description %>
 </p>
-
-<% if @task.product_id %>
-<p>
-  <strong>Product:</strong>
-  <%= @task.product.title %>
-</p>
-<% end %>
-
-<% if @task.project_id %>
-<p>
-  <strong>Project:</strong>
-  <%= @task.project.title %>
-</p>
-<% end %>
-
-<% if @task.sprint_id %>
-<p>
-  <strong>Sprint:</strong>
-  <%= @task.sprint.start_date %> - <%= @task.sprint.end_date %>
-</p>
-<% end %>
-
-<% if @task.story_id %>
-<p>
-  <strong>Story:</strong>
-  <%= @task.story.title %>
-</p>
-<% end %>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>

@@ -26,25 +26,18 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Alive:</strong>
-  <%= @project.alive %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<h1><%= link_to @project.title, edit_project_path(@project) %></h1>
+<p>Product: <%= link_to @project.product.title, @project.product %></p>
+<p>(DEVEL)Alive: <%= @project.alive %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+<p><%= @project.description %></p>
 
-<p>
-  <strong>Product:</strong>
-  <%= link_to @project.product.title, @project.product %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<% if @project.stories %>
+	<h2>Related Stories</h2>
+	<% @project.stories.each do |story| %>
+		<%= link_to story.title, story%><br />
+	<% end %>
+<% else %>
+	<h2>No Stories for this Project</h2>
+<% end %>

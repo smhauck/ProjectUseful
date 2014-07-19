@@ -62,22 +62,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <%= f.text_field :sprint_id %>
   </div>
   <div class="field">
-    <%= f.label :story %></br >
-    <% if @task.story_id %>
-      <select name="story[id]">
-        <option value="<%= @task.story_id %>" selected="selected"><%= @task.story.title %></option>
-      </select>
-    <% else %>
-      <select name="story[id]">
-        <% Story.all.each do |story| %>
-          <% if story.id == @task.story_id %>
-            <option value="<%= story.id %>" selected="selected"><%= story.title %></option>
-          <% else %>
-            <option value="<%= story.id %>"><%= story.title %></option>
-          <% end %>
-        <% end %>
-      </select>
-    <% end %>
+	  <%= f.label :story %></br >
+	  <%= collection_select(:task, :story_id, Story.all, :id, :title) %>
   </div>
   <div class="actions">
     <%= f.submit %>
