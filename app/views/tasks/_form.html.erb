@@ -61,10 +61,14 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <%= f.label :sprint_id %><br>
     <%= f.text_field :sprint_id %>
   </div>
+  <% if @story_selected %>
+	  <div class="field">Story: <%= @story.title %></div>
+  <% else %>
   <div class="field">
 	  <%= f.label :story %></br >
 	  <%= collection_select(:task, :story_id, Story.all, :id, :title) %>
   </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

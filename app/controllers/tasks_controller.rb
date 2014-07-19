@@ -36,6 +36,7 @@ class TasksController < ApplicationController
     @task = Task.new
     if params[:story]
       @story = Story.find(params[:story])
+      @story_selected = 1
     else
       @story = Story.new
     end
