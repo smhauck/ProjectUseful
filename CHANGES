@@ -1,3 +1,302 @@
+commit 7cb8dc3c5520c63f737b1799b03a0f36600dcba1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 14:41:28 2014 -0400
+
+    Removed all css files except for Bootstrap and project_useful.css.
+    Rails's scaffold css is overriding Bootstrap and the whole point of
+    using Bootstrap is for the styling.
+
+commit 28284e7f81d95fe58ec569ba294a3af3f2de11e2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 13:20:10 2014 -0400
+
+    small fix for http://www.projectuseful.org/stories/9
+
+commit e3316bc71ac6be20b063624b3b2251c6c5a99be1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 12:07:08 2014 -0400
+
+    cleaning up stories displays
+
+commit 27169e4707051ad91a572afb66846a38c28b3fe8
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 12:05:12 2014 -0400
+
+    http://www.projectuseful.org/stories/9 complete
+
+commit c03c639a586a4593c40757dc5239cde313d633a4
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 11:42:13 2014 -0400
+
+    updated task/show layout; wikis now show created_at and updated_at info
+
+commit 23c1c236ec4cfc2e95a6451015e0639744024e2a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 10:40:15 2014 -0400
+
+    fixed link to Help; wiki_path(1)
+
+commit 48f6d97f7b8ad6fea4136e66190e9a85c38bd06d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 01:13:02 2014 -0400
+
+    story now displays associated tasks; can now edit task and select a story
+
+commit ed907cc6b5c4e1305638b09bb3e212e49332c6c3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 21:48:09 2014 -0400
+
+    blogs and blog_posts now link to each other; showing a blog displays its posts
+
+commit 9b0ece84eda667138625073e040c32f115b48b80
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 19:42:07 2014 -0400
+
+    working on blog permissions
+
+commit 779c916fdd8f6b675da54b75c9e7b7696d557bbd
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 18:49:25 2014 -0400
+
+    remove session[:original_target] on logout
+
+commit ec647cece6829ce3761c6fade75d626c465b9d02
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 18:44:00 2014 -0400
+
+    footer: had blog instead of blogs for site development blog link
+
+commit 04b73501fee6bf8114516953176467139117fffe
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 18:39:32 2014 -0400
+
+    added Blog to navbar; skip_before_authorize for index and show
+
+commit 7a8cceea4578b08b16dc2f512e3a0041a421db4f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 18:33:41 2014 -0400
+
+    added blogs and blog_posts to system
+
+commit 07c99f863df9c1c60f938efdd144379f7bc503c6
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 15:12:47 2014 -0400
+
+    typo in tasks/index
+
+commit 33c34d1b8d0ee14a50ab8055aa7fa483ca162515
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 15:11:24 2014 -0400
+
+    note in README to update secret token; necessary for session security
+
+commit 657c3067e86faae059d70c00c68f291c5f73c4d1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 15:08:46 2014 -0400
+
+    removed create account link for now; not ready for self registration
+
+commit ed7b0a6fb49660d0ce0bdeb7d8b83e8af61dca5d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 15:06:54 2014 -0400
+
+    fixed some task issues; allow non-logged in people to view all items; this will change once I develop the more granular permissions system
+
+commit cc216e0d8978824267451868eed12316c63810f9
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 14:39:29 2014 -0400
+
+    added default value to wiki_pages wiki_id=2
+
+commit e77b3d6b6bfc8c6fab58112e8eaa037ec0eb49e5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 14:36:59 2014 -0400
+
+    added default value to wiki_pages wiki_id=1
+
+commit 765a20699d31d4b6d47a0cb49f1d7b02ced10564
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 14:32:29 2014 -0400
+
+    wiki page wiki id having trouble; making it a text field for now
+
+commit 0d1df5504c2fe306a3b2ba04a86c54d594436847
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 14:13:25 2014 -0400
+
+    added Wiki: to heading
+
+commit bd1ec6854763aaca1a3913e9b148067ea30147ab
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 13:45:53 2014 -0400
+
+    wikis link to pages; pages link back to wikis
+
+commit d8a218e6ed775e55129455a67b42d3d62e9825a2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 13:30:55 2014 -0400
+
+    display wiki pages list when showing wiki
+
+commit 291e2a7e8e4d5890d811dec8f4b7b92dc6f9ca17
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 12:56:16 2014 -0400
+
+    updated wiki_page migration to include wiki reference
+
+commit 6eb3b3c89505e7819863a4d78538b609110e1dea
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 10:10:45 2014 -0400
+
+    fixed display issues; moved link to show story to the title instead of the rails SHOW link
+
+commit ae5e90fc8bcea378c6cfde3836bd29509a415325
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 09:38:36 2014 -0400
+
+    can only show related items if they exist
+
+commit cb5b0a7eac4e79ae12c3039a44ac89d635655e31
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 09:28:13 2014 -0400
+
+    made tables Bootstrap class=table
+
+commit b44103ba99dd8b4e5ffa7c0c555ec996d3ecae97
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 09:22:43 2014 -0400
+
+    can only display story related items if they exist
+
+commit aff6e6204d1921a0934724f2e249b6801fbd47d8
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 02:51:51 2014 -0400
+
+    wiki_page/index: made title the link to show it;
+    removed show,edit,destroy links;
+
+commit 4b3cb4cd5807ef7a67d7185950c640662160b419
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 02:46:20 2014 -0400
+
+    precompiled assets; fixed bug in wiki_pages/show
+
+commit 93427f0b0e7d0eaff4e48d2f3de6af76e97b6c64
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 02:16:55 2014 -0400
+
+    bug: cannot show item titles if no items associated with wiki page
+
+commit c6953f3889287901b424a8a736b8653b9fb0e024
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 02:10:34 2014 -0400
+
+    needed to add list all wiki pages to logged in side
+
+commit 608ab326f876a4b6344ad7e2dfd3bfbf24c112de
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 02:09:34 2014 -0400
+
+    fixed typo/bug in wiki_pages/index; added List All Wiki Pages to navbar
+
+commit 7233b65bb8221a6ea0dec3cdcf36b90cbc56be9c
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 01:52:22 2014 -0400
+
+    updated project blog link
+
+commit ded8af6dbd903afa24a0ed7b817921220affac8c
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 01:49:40 2014 -0400
+
+    need to compile assets in production
+
+commit a31fdfa6eb21e3191769e8491aafff59f06f8fcc
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 18 01:48:53 2014 -0400
+
+    only a registered user can create another user (for now)
+
+commit b4cad6ec1d4d428b4e565df754eeb2efc6fe5ef3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 20:16:00 2014 -0400
+
+    removed referrer in footer; was only for debugging.  updated links in footer
+
+commit 958e2b2c006a00b03da4db74d997b55556d0c85e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 20:01:37 2014 -0400
+
+    Fixed UPPERCASED references
+    Display related item's title instead of the id
+    A better logic for requests, authorization, ad request.url
+    Added license section to files worked on
+
+commit ecc92d7051463ac66ea8ffaf1d0afa4b6c584079
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 15:23:52 2014 -0400
+
+    now redirects you to intended page after logging in if no existing session
+
+commit c3d1749efc67e184827720f561eb45af51022d78
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 13:11:57 2014 -0400
+
+    for now only show wiki stuff to non-logged in visitors
+
+commit 9b2ac90915d96a70b5863a48992cd0c7df39cc27
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 13:00:52 2014 -0400
+
+    added license to files; add wiki pages stuff; minor formatting changes
+
+commit e458f2dedcacec368d6706134c20baa52e711f70
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 12:58:50 2014 -0400
+
+    moved copyright and license info to bottom or written section
+
+commit 1ea00380542379953eecd968fc9c06cb275cec8e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 12:57:51 2014 -0400
+
+    more updates
+
+commit 3113af2ba1ca40231dba96f97f4f02ee5556dab6
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 12:50:31 2014 -0400
+
+    more updates; more testing markdown
+
+commit d14ca2d78c4ee4e93a8cd4bbe8e2b047316d3044
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 12:49:54 2014 -0400
+
+    more updates; more testing markdown
+
+commit e8ce22a5ed41fc8d6610d4bc533feb55bf1a7f29
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 12:48:51 2014 -0400
+
+    more updates; more testing markdown
+
+commit 0e8a0769f82e587bf810bfcb1d3f8e3e39ba5c0c
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 12:41:03 2014 -0400
+
+    updating content; testing markdown
+
+commit c61b5216de28b42556a41b5e0b42fc87c6af2363
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 12:38:51 2014 -0400
+
+    more updates; more testing markdown
+
+commit 402fe36f12acbeaa02bdbed2d6ac092b16fa31f1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 17 12:32:01 2014 -0400
+
+    updating content; testing markdown
 
 commit 8345e916edecec070ba685b602a468284911aa55
 Author: William B. Hauck <wbhauck@yahoo.com>
