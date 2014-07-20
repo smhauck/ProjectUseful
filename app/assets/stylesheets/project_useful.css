@@ -93,18 +93,6 @@ footer a:link, footer a:visited {
   float: none;
 }
 
-.navbar-default .navbar-nav .open a, .navbar-default .navbar-nav .open a:hover, .navbar-default .navbar-nav .open a:focus {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #000;
-}
-
-.navbar-default .navbar-nav .open a:hover {
-  background-color: #fff;
-  border-color: #0080c0;
-  color: #000;
-}
-
 .navbar-default .navbar-nav li a {
   background-color: #0080c0;
   border-color: #0080c0;
@@ -126,6 +114,18 @@ footer a:link, footer a:visited {
   background-color: #0080c0;
   border-color: #0080c0;
   color: #fff;
+}
+
+.navbar-default .navbar-nav .open a:hover {
+  background-color: #fff;
+  border-color: #0080c0;
+  color: #000;
+}
+
+.navbar-default .navbar-nav li a:hover {
+  background-color: #fff;
+  border-color: #0080c0;
+  color: #000;
 }
 
 
