@@ -62,7 +62,7 @@ footer a:link, footer a:visited {
   color: #fff;
 }
 
-.navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus
+.navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus {
   background-color: #0080c0;
   border-color: #0080c0;
   color: #fff;
