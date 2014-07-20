@@ -39,6 +39,16 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <%= @product.description %>
 </p>
 
+<% if @product.projects %>
+  <h2>Projects</h2>
+  <p>
+    <% @product.projects.each do |project| %>
+      <%= link_to project.title, project %><br />
+    <% end %>
+  </p>
+<% else %>
+  <h2>No Projects for Product</h2>
+<% end %>
 
 
 <% if @product.stories %>
@@ -50,4 +60,15 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </p>
 <% else %>
   <h2>No Stories for Product</h2>
+<% end %>
+
+<% if @product.wikis %>
+  <h2>Wikis</h2>
+  <p>
+    <% @product.wikis.each do |wiki| %>
+      <%= link_to wiki.title, wiki %><br />
+    <% end %>
+  </p>
+<% else %>
+  <h2>No Wikis for Product</h2>
 <% end %>

@@ -39,10 +39,29 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </p>
 
 <% if @sprint.stories %>
-	<h2>Stories</h2>
-<% @sprint.stories.each do |story| %>
-	<p><%= link_to story.title, story %></p>
-<% end %>
+  <h2>Stories</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Story</th>
+        <th>Status</th>
+        <th>Requestor</th>
+        <th>Project</th>
+        <th>Product</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sprint.stories.each do |story| %>
+        <tr>
+          <td><%= link_to story.title, story %></td>
+          <td><%= story.status.title %></td>
+          <td>Coming Soon</td>
+          <td><%= link_to story.project.title, project_path(story.project_id) %></td>
+          <td><%= link_to story.project.product.title, product_path(story.project.product_id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
-	<h2>No Stories for Sprint</h2>
+  <h2>No Stories for Sprint</h2>
 <% end %>

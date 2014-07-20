@@ -28,7 +28,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
 <h1><%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %></h1>
-<p>(DEVEL)Alive: <%= @story.alive %></p>
+<p>(DEVEL)Alive: <%= @story.status.alive %></p>
 <p>Status: <%= @story.status.title %></p>
 
 <p>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140720201208) do
+ActiveRecord::Schema.define(version: 20140720214812) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -167,6 +167,9 @@ ActiveRecord::Schema.define(version: 20140720201208) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_id"
   end
+
+  add_index "wikis", ["product_id"], name: "index_wikis_on_product_id", using: :btree
 
 end
