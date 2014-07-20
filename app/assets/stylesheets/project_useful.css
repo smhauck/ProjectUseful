@@ -14,6 +14,7 @@ table tr:hover {
 /* =================================================================== */
 
 footer {
+	background-color: #00a3e8;
   margin-top: 1em;
   padding-top: 1em;
   position: relative;
@@ -29,6 +30,53 @@ footer p {
 }
 
 
+
+
+.navbar-brand {
+	float: none;
+}
+
+/* make header / navigation blue */
+
+/*
+
+.nav {
+	background-color: #00a3e8;
+	border-color: #00a3e8;
+	color: #fff;
+}
+
+.dropdown-toggle {
+	background-color: #00a3e8;
+	border-color: #00a3e8;
+	color: #fff;
+}
+
+.navbar-header {
+	background-color: #00a3e8;
+	border-color: #00a3e8;
+	color: #fff;
+}
+
+.navbar-brand {
+	background-color: #00a3e8;
+	border-color: #00a3e8;
+	color: #fff;
+	float: none;
+}
+
+.navbar-brand a:link, .navbar-brand a:visited {
+	color: #fff;
+}
+
+
+.navbar-default {
+	background-color: #00a3e8;
+	border-color: #00a3e8;
+	color: #fff;
+}
+
+ */
 
 
 /* =================================================================== */
