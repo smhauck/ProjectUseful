@@ -1,6 +1,16 @@
 
 /* =================================================================== */
 
+.navbar-brand {
+	float: none;
+}
+
+
+.navbar-default {
+  background-image: none;
+}
+/* =================================================================== */
+
 .container {
   width: 100%;
 }
@@ -34,101 +44,6 @@ footer p {
 footer a:link, footer a:visited {
   color: #fff;
 }
-
-.navbar-brand {
-  float: none;
-}
-
-.dropdown-menu .divider {
-  background-color: #fff;
-}
-
-.dropdown-menu {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-}
-
-
-.dropdown-menu li {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-}
-
-.dropdown-menu li a {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-}
-
-.navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-}
-
-.nav {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-}
-
-.dropdown-toggle {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-}
-
-.navbar-header {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-}
-
-.navbar-default .navbar-brand, .navbar-brand {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-  float: none;
-}
-
-.navbar-default .navbar-nav li a {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-}
-
-.navbar-default .navbar-nav .open a, .navbar-default .navbar-nav .open a:hover, .navbar-default .navbar-nav .open a:focus {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-}
-
-.navbar-brand a:link, .navbar-brand a:visited {
-  color: #fff;
-}
-
-
-.navbar-default {
-  background-color: #0080c0;
-  border-color: #0080c0;
-  color: #fff;
-}
-
-.navbar-default .navbar-nav .open a:hover {
-  background-color: #fff;
-  border-color: #0080c0;
-  color: #000;
-}
-
-.navbar-default .navbar-nav li a:hover {
-  background-color: #fff;
-  border-color: #0080c0;
-  color: #000;
-}
-
-
 
 /* =================================================================== */
 /* =================================================================== */
