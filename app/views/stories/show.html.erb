@@ -29,6 +29,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <h1><%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %></h1>
 <p>(DEVEL)Alive: <%= @story.alive %></p>
+<p>Status: <%= @story.status.title %></p>
 
 <p>
 <% if @story.sprint_id %><strong>Sprint:</strong> <%= link_to "#{@story.sprint.start_date} - #{@story.sprint.end_date}", @story.sprint %><% end %>
@@ -38,7 +39,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p>
   <strong>Description:</strong>
-  <%= @story.description %>
+  <%= simple_format(@story.description) %>
 </p>
 
 <% if @story.tasks %>
