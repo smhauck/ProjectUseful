@@ -37,13 +37,14 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :alive %><br>
-    <%= f.check_box :alive %>
-  </div>
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :task_status_type_id %></br >
+    <%= collection_select(:task, :task_status_type_id, TaskStatusType.all, :id, :title) %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -62,13 +63,14 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <%= f.text_field :sprint_id %>
   </div>
   <% if @story_selected %>
-	  <div class="field">Story: <%= @task.story.title %></div>
-	  <%= f.hidden_field :story_id, :value => @task.story_id %>
+    <div class="field">Story: <%= @task.story.title %></div>
+      <%= f.hidden_field :story_id, :value => @task.story_id %>
+    </div>
   <% else %>
-  <div class="field">
-	  <%= f.label :story %></br >
-	  <%= collection_select(:task, :story_id, Story.all, :id, :title) %>
-  </div>
+    <div class="field">
+      <%= f.label :story %></br >
+      <%= collection_select(:task, :story_id, Story.all, :id, :title) %>
+    </div>
   <% end %>
   <div class="actions">
     <%= f.submit %>

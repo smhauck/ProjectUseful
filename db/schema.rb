@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140720214812) do
+ActiveRecord::Schema.define(version: 20140720225750) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20140720214812) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "alive"
   end
 
   create_table "tasks", force: true do |t|
@@ -127,12 +128,14 @@ ActiveRecord::Schema.define(version: 20140720214812) do
     t.integer  "story_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "task_status_type_id"
   end
 
   add_index "tasks", ["product_id"], name: "index_tasks_on_product_id", using: :btree
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
   add_index "tasks", ["sprint_id"], name: "index_tasks_on_sprint_id", using: :btree
   add_index "tasks", ["story_id"], name: "index_tasks_on_story_id", using: :btree
+  add_index "tasks", ["task_status_type_id"], name: "index_tasks_on_task_status_type_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"

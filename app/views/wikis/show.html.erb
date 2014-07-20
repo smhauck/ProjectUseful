@@ -31,6 +31,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p class="wiki_description"><%= @wiki.description %></p>
 
+<% if @wiki.product_id %><p>Related Product: <%= link_to @wiki.product.title, product_path(@wiki.product) %></p><% end %>
+
 <% @wiki.pages.each do |page| %>
 	<p><%= link_to page.title, page %></p>
 <% end %>
