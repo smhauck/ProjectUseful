@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721175930) do
+ActiveRecord::Schema.define(version: 20140721192314) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -67,9 +67,11 @@ ActiveRecord::Schema.define(version: 20140721175930) do
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_status_type_id"
   end
 
   add_index "projects", ["product_id"], name: "index_projects_on_product_id", using: :btree
+  add_index "projects", ["project_status_type_id"], name: "index_projects_on_project_status_type_id", using: :btree
 
   create_table "sprint_status_types", force: true do |t|
     t.boolean  "alive"

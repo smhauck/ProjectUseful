@@ -26,6 +26,29 @@ class StoriesController < ApplicationController
     @stories = Story.all
   end
 
+
+
+  # GET /stories/active
+  # GET /stories/active.json
+  def active
+   @stories = Story.joins(:status).where(story_status_types: { alive: true })
+  end
+
+  # GET /stories/complete
+  # GET /stories/complete.json
+  def complete
+   @stories = Story.joins(:status).where(story_status_types: { alive: false })
+  end
+
+
+
+
+
+
+
+
+
+
   # GET /stories/1
   # GET /stories/1.json
   def show

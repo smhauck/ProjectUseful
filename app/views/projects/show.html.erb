@@ -29,7 +29,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <h1><%= @project.title %> <%= link_to '(Edit)', edit_project_path(@project) %></h1>
 <p>Product: <%= link_to @project.product.title, @project.product %></p>
-<p>(DEVEL)Alive: <%= @project.alive %></p>
+<p>Status: <%= @project.status.title %></p>
 
 <p><%= @project.description %></p>
 

@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :alive %><br>
-    <%= f.check_box :alive %>
+    <%= f.label :project_status_type_id %></br >
+    <%= collection_select(:project, :project_status_type_id, ProjectStatusType.all, :id, :title) %>
   </div>
   <div class="field">
     <%= f.label :title %><br>

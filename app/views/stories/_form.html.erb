@@ -42,6 +42,10 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	  <%= collection_select(:story, :story_status_type_id, StoryStatusType.all, :id, :title) %>
   </div>
   <div class="field">
+	  <%= f.label :sprint_id %></br >
+	  <%= collection_select(:story, :sprint_id, Sprint.all, :id, :start_date) %>
+  </div>
+  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
@@ -56,10 +60,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <div class="field">
     <%= f.label :project_id %><br>
     <%= f.text_field :project_id %>
-  </div>
-  <div class="field">
-    <%= f.label :sprint_id %><br>
-    <%= f.text_field :sprint_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

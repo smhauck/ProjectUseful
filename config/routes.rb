@@ -17,6 +17,8 @@ ProjectUseful::Application.routes.draw do
   end
 
   
+  get 'stories/active' => 'stories#active'
+  get 'stories/complete' => 'stories#complete'
 
 
   resources :product_status_types
@@ -27,7 +29,9 @@ ProjectUseful::Application.routes.draw do
   resources :products
   resources :projects
   resources :sprints
+
   resources :stories
+
   resources :tasks
   
   resources :users
