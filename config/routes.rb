@@ -12,7 +12,9 @@ ProjectUseful::Application.routes.draw do
 
   get 'admin' => 'admin#index'
 
-  resources :wikis
+  resources :wikis do
+    resources :wiki_pages
+  end
 
   
 
@@ -39,7 +41,6 @@ ProjectUseful::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
   get "welcome/index"
-
 
 
 

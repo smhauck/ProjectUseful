@@ -36,6 +36,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+	  <%= f.label :blog_id %></br >
+	  <%= collection_select(:blog_post, :blog_id, Blog.all.order(:title), :id, :title) %>
+  </div>
 
   <div class="field">
     <%= f.label :title %><br>
@@ -48,10 +53,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <div class="field">
     <%= f.label :publish_date %><br>
     <%= f.date_select :publish_date %>
-  </div>
-  <div class="field">
-    <%= f.label :blog_id %><br>
-    <%= f.text_field :blog_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -25,7 +25,7 @@ class WikisController < ApplicationController
   def index
     @wikis = Wiki.all
   end
-
+  
   # GET /wikis/1
   # GET /wikis/1.json
   def show
