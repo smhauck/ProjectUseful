@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140720225750) do
+ActiveRecord::Schema.define(version: 20140721175930) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140720225750) do
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
 
   create_table "product_status_types", force: true do |t|
+    t.boolean  "alive"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140720225750) do
   end
 
   create_table "project_status_types", force: true do |t|
+    t.boolean  "alive"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(version: 20140720225750) do
   add_index "projects", ["product_id"], name: "index_projects_on_product_id", using: :btree
 
   create_table "sprint_status_types", force: true do |t|
+    t.boolean  "alive"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
@@ -83,7 +86,10 @@ ActiveRecord::Schema.define(version: 20140720225750) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sprint_status_type_id"
   end
+
+  add_index "sprints", ["sprint_status_type_id"], name: "index_sprints_on_sprint_status_type_id", using: :btree
 
   create_table "stories", force: true do |t|
     t.boolean  "alive"
@@ -103,19 +109,19 @@ ActiveRecord::Schema.define(version: 20140720225750) do
   add_index "stories", ["story_status_type_id"], name: "index_stories_on_story_status_type_id", using: :btree
 
   create_table "story_status_types", force: true do |t|
+    t.boolean  "alive"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "alive"
   end
 
   create_table "task_status_types", force: true do |t|
+    t.boolean  "alive"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "alive"
   end
 
   create_table "tasks", force: true do |t|
@@ -171,6 +177,7 @@ ActiveRecord::Schema.define(version: 20140720225750) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "product_id"
+    t.integer  "start_page_id"
   end
 
   add_index "wikis", ["product_id"], name: "index_wikis_on_product_id", using: :btree
