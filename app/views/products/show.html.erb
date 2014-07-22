@@ -55,7 +55,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 		    <td><%= link_to story.title, story %></td>
 		    <td><%= story.status.title %></td>
 		    <% if story.sprint %>
-			    <td><%= story.sprint.start_date %> - <%= story.sprint.end_date %></td>
+			    <td><%= link_to "#{story.sprint.start_date} - #{story.sprint.end_date}", story.sprint %></td>
 		    <% else %>
 			    <td></td>
 		    <% end %>
