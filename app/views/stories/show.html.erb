@@ -27,7 +27,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p id="notice"><%= notice %></p>
 
 
-<h1><%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %></h1>
+<h1>STORY: <%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %></h1>
 
 <p>Status: <%= @story.status.title %></p>
 
@@ -43,9 +43,16 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <% if @story.tasks %>
 	<h2>Tasks <%= link_to '(Add)', controller: "tasks", action: "new",  story: @story %></h2>
+	<table class="table">
+		<thead>
+			<tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr>
+		</thead>
+		<tbody>
 	<% @story.tasks.each do |task| %>
-		<%= link_to task.title, task %><br />
+		<tr><td><%= link_to task.title, task %></td><td><%= task.status.title %></td><td>Coming soon</td><td>Coming soon</td><td>Coming soon</td></tr>
 	<% end %>
+</tbody>
+</table>
 <% else %>
 	<h2>No Tasks for this Story</h2>
 	<%= link_to 'Add Task', controller: "tasks", action: "new",  story: @story %><br />
