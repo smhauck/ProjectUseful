@@ -26,7 +26,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= link_to @blog_post.blog.title, @blog_post.blog %></h1>
-<h2><%= @blog_post.title %> <%= link_to '(Edit)', edit_blog_post_path(@blog_post) %></h2>
-<p>Published on <%= @blog_post.publish_date %> by <%= @blog_post.user.username %></p>
-<p><%= @blog_post.body %></p>
+<div class="blog_title">
+	<h1><%= link_to @blog_post.blog.title, @blog_post.blog %></h1>
+</div>
+<div class="blog_post">
+<h2 class="blog_post_title"><%= @blog_post.title %> <%= link_to '(Edit)', edit_blog_post_path(@blog_post) %></h2>
+<p class="blog_post_published">Published on <%= @blog_post.publish_date %> by <%= @blog_post.user.username %></p>
+<p><%= simple_format(@blog_post.body) %></p>
+</div>
