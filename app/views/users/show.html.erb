@@ -1,9 +1,53 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Username:</strong>
   <%= @user.username %>
 </p>
+
+<% if @user.requests %>
+	<h2>Stories</h2>
+	<table class="table">
+		<thead>
+			<tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr>
+		</thead>
+		<tbody>
+	<% @user.requests.each do |request| %>
+		<tr><td><%= link_to request.title, request %></td><td><%= request.status.title %></td><td>Coming soon</td><td>Coming soon</td><td>Coming soon</td></tr>
+	<% end %>
+</tbody>
+</table>
+<% else %>
+	<h2>No Tasks for this Story</h2>
+	<%= link_to 'Add Task', controller: "tasks", action: "new",  story: @story %><br />
+<% end %>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
