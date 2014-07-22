@@ -39,18 +39,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <%= @product.description %>
 </p>
 
-<% if @product.projects %>
-  <h2>Projects</h2>
-  <p>
-    <% @product.projects.each do |project| %>
-      <%= link_to project.title, project %><br />
-    <% end %>
-  </p>
-<% else %>
-  <h2>No Projects for Product</h2>
-<% end %>
-
-
 <% if @product.stories %>
   <h2>Stories</h2>
   <p>

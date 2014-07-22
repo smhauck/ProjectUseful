@@ -44,6 +44,7 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
+    @blog.user_id = session[:user_id]
 
     respond_to do |format|
       if @blog.save

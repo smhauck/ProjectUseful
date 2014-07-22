@@ -43,7 +43,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </div>
   <div class="field">
 	  <%= f.label :sprint_id %></br >
-	  <%= collection_select(:story, :sprint_id, Sprint.all, :id, :start_date) %>
+	  <%= collection_select(:story, :sprint_id, Sprint.all, :id, :start_date, :include_blank => true) %>
+  </div>
+  <div class="field">
+	  <%= f.label :product_id %></br >
+	  <%= collection_select(:story, :product_id, Product.all, :id, :title) %>
   </div>
   <div class="field">
     <%= f.label :title %><br>
@@ -52,14 +56,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :product_id %><br>
-    <%= f.text_field :product_id %>
-  </div>
-  <div class="field">
-	  <%= f.label :project_id %></br >
-	  <%= collection_select(:story, :project_id, Project.all, :id, :title) %>
   </div>
   <div class="actions">
     <%= f.submit %>
