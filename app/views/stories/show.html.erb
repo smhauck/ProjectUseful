@@ -42,6 +42,10 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <strong>Description:</strong>
   <%= simple_format(@story.description) %>
 </p>
+<p>
+  <strong>Completion Notes:</strong>
+  <%= simple_format(@story.completion_notes) %>
+</p>
 
 <% if @story.tasks %>
 	<h2>Tasks <%= link_to '(Add)', controller: "tasks", action: "new",  story: @story %></h2>
