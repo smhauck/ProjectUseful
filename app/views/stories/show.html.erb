@@ -31,6 +31,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p>Status: <%= @story.status.title %></p>
 
+<p>Requestor: <%= link_to @story.requestor.username, @story.requestor %></p>
+
 <p>
 <% if @story.sprint_id %><strong>Sprint:</strong> <%= link_to "#{@story.sprint.start_date} - #{@story.sprint.end_date}", @story.sprint %><% end %>
 <% if @story.product_id %><strong>Product:</strong> <%= link_to @story.product.title, @story.product %><% end %>
