@@ -46,6 +46,10 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <%= collection_select(:task, :task_status_type_id, TaskStatusType.all, :id, :title) %>
   </div>
   <div class="field">
+    <%= f.label :story_id %></br >
+    <%= collection_select(:task, :story_id, Story.all, :id, :title) %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
@@ -60,10 +64,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <div class="field">
     <%= f.label :sprint_id %><br>
     <%= f.text_field :sprint_id %>
-  </div>
-  <div class="field">
-    <%= f.label :story_id %></br >
-    <%= collection_select(:task, :story_id, Story.all, :id, :title) %>
   </div>
   <div class="actions">
     <%= f.submit %>

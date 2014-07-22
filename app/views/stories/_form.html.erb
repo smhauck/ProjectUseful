@@ -58,8 +58,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <%= f.text_field :product_id %>
   </div>
   <div class="field">
-    <%= f.label :project_id %><br>
-    <%= f.text_field :project_id %>
+	  <%= f.label :project_id %></br >
+	  <%= collection_select(:story, :project_id, Project.all, :id, :title) %>
   </div>
   <div class="actions">
     <%= f.submit %>

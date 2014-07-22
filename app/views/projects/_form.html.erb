@@ -16,16 +16,16 @@
     <%= collection_select(:project, :project_status_type_id, ProjectStatusType.all, :id, :title) %>
   </div>
   <div class="field">
+    <%= f.label :product_id %></br >
+    <%= collection_select(:project, :product_id, Product.all, :id, :title) %>
+  </div>
+  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :product_id %><br>
-    <%= f.text_field :product_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
