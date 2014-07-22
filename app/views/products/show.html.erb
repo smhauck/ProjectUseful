@@ -30,25 +30,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <h1><%= @product.title %> <%= link_to '(Edit)', edit_product_path(@product) %></h1>
 
 <p>
-  <strong>(DEVEL)Alive:</strong>
-  <%= @product.alive %>
-</p>
-
-<p>
   <strong>Description:</strong>
   <%= @product.description %>
 </p>
-
-<% if @product.stories %>
-  <h2>Stories</h2>
-  <p>
-    <% @product.stories.each do |story| %>
-      <%= link_to story.title, story %><br />
-    <% end %>
-  </p>
-<% else %>
-  <h2>No Stories for Product</h2>
-<% end %>
 
 <% if @product.wikis %>
   <h2>Wikis</h2>
@@ -59,4 +43,25 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </p>
 <% else %>
   <h2>No Wikis for Product</h2>
+<% end %>
+
+<% if @product.stories %>
+	<h2>Stories</h2>
+	<table class="table">
+		<thead>
+			<tr><th>Title</th><th>Status</th><th>Sprint</th></tr>
+    <% @product.stories.each do |story| %>
+	    <tr>
+		    <td><%= link_to story.title, story %></td>
+		    <td><%= story.status.title %></td>
+		    <% if story.sprint %>
+			    <td><%= story.sprint.start_date %> - <%= story.sprint.end_date %></td>
+		    <% else %>
+			    <td></td>
+		    <% end %>
+	    </tr>
+    <% end %>
+  </table>
+<% else %>
+  <h2>No Stories for Product</h2>
 <% end %>

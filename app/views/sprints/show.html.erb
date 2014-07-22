@@ -46,7 +46,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
         <th>Story</th>
         <th>Status</th>
         <th>Requestor</th>
-        <th>Project</th>
         <th>Product</th>
       </tr>
     </thead>
@@ -56,8 +55,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
           <td><%= link_to story.title, story %></td>
           <td><%= story.status.title %></td>
           <td>Coming Soon</td>
-          <td><%= link_to story.project.title, project_path(story.project_id) %></td>
-          <td><%= link_to story.project.product.title, product_path(story.project.product_id) %></td>
+          <td><%= link_to story.product.title, product_path(story.product_id) %></td>
         </tr>
       <% end %>
     </tbody>

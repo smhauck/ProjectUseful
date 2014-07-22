@@ -42,6 +42,10 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <%= f.text_field :title %>
   </div>
   <div class="field">
+	  <%= f.label :product_id %></br >
+	  <%= collection_select(:wiki, :product_id, Product.all, :id, :title, include_blank: true) %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>

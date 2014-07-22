@@ -55,15 +55,15 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </div>
   <div class="field">
     <%= f.label :product_id %></br >
-    <%= collection_select(:wiki_page, :product_id, Product.all, :id, :title, :include_blank => true) %>
+    <%= collection_select(:wiki_page, :product_id, Product.all, :id, :title, include_blank: true) %>
   </div>
   <div class="field">
     <%= f.label :story_id %></br >
-    <%= collection_select(:wiki_page, :story_id, Story.all, :id, :title, :include_blank => true) %>
+    <%= collection_select(:wiki_page, :story_id, Story.all, :id, :title, include_blank: true) %>
   </div>
   <div class="field">
     <%= f.label :task_id %></br >
-    <%= collection_select(:wiki_page, :task_id, Task.all, :id, :title, :include_blank => true) %>
+    <%= collection_select(:wiki_page, :task_id, Task.all, :id, :title, include_blank: true) %>
   </div>
   <div class="actions">
     <%= f.submit %>
