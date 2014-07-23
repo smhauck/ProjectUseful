@@ -38,7 +38,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% if @story.product_id %><strong>Product:</strong> <%= link_to @story.product.title, @story.product %><% end %>
 </p>
 
-<p>Owners:</p>
+<p><strong>Owners:</strong></p>
 <p>
 <% num_users = @story.users.count %>
 <% user_count = 0 %>
