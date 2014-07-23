@@ -38,6 +38,20 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% if @story.product_id %><strong>Product:</strong> <%= link_to @story.product.title, @story.product %><% end %>
 </p>
 
+<p>Owners:</p>
+<p>
+<% num_users = @story.users.count %>
+<% user_count = 0 %>
+<% @story.story_assignments.each do |sa| %>
+<% user_count += 1 %>
+<% if num_users > 1 && user_count < num_users %>
+	<%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete %><br />
+<% else %>
+	<%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete %><br />
+<% end %>
+<% end %>
+</p>
+
 <p>
   <strong>Description:</strong>
   <%= simple_format(@story.description) %>
@@ -63,3 +77,5 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	<h2>No Tasks for this Story</h2>
 	<%= link_to 'Add Task', controller: "tasks", action: "new",  story: @story %><br />
 <% end %>
+
+<%= render 'add_user' %>

@@ -26,29 +26,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <h1>Complete Stories</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Status</th>
-      <th>Description</th>
-      <th>Sprint</th>
-      <th>Product</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stories.each do |story| %>
-      <tr>
-        <td><%= link_to story.title, story %></td>
-        <td><%= story.status.title %></td>
-        <td><%= story.description %></td>
-<td><% if story.sprint_id %><%= link_to "#{story.sprint.start_date} - #{story.sprint.end_date}", story.sprint %><% end %></td>
-	<td><% if story.product_id %><%= link_to story.product.title, story.product %><% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'stories_listing' %>
 
 <br>
 

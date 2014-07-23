@@ -1,0 +1,9 @@
+<%= form_for @story_assignment do |f| %>
+  <fieldset>
+    <legend>Add User to Story</legend>
+      <%= f.label :user_id %></br >
+      <%= collection_select(:story_assignment, :user_id, User.all, :id, :username, include_blank: true) %>
+    <%= f.hidden_field :story_id, value: @story.id %>
+    <input type="submit" value="Submit" />
+  </fieldset>
+<% end %>

@@ -1,0 +1,29 @@
+<h1>Listing story_assignments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Story</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @story_assignments.each do |story_assignment| %>
+      <tr>
+        <td><%= story_assignment.story %></td>
+        <td><%= story_assignment.user %></td>
+        <td><%= link_to 'Show', story_assignment %></td>
+        <td><%= link_to 'Edit', edit_story_assignment_path(story_assignment) %></td>
+        <td><%= link_to 'Destroy', story_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Story assignment', new_story_assignment_path %>
