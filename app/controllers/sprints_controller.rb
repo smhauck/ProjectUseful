@@ -88,6 +88,6 @@ class SprintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sprint_params
-      params.require(:sprint).permit(:alive, :start_date, :end_date, :title, :notes)
+      params.require(:sprint).permit(:alive, :sprint_status_type_id, :start_date, :end_date, :title, :notes)
     end
 end

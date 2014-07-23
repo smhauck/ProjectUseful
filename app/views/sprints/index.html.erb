@@ -30,7 +30,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <thead>
     <tr>
       <th>Sprint</th>
-      <th>Alive</th>
+      <th>Status</th>
+      <th>Stories</th>
     </tr>
   </thead>
 
@@ -38,7 +39,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <% @sprints.each do |sprint| %>
       <tr>
 	      <td><%= link_to "#{sprint.start_date} - #{sprint.end_date}", sprint %></td>
-        <td><%= sprint.alive %></td>
+        <td><%= sprint.status.title %></td>
+        <td><%= sprint.stories.count %></td>
       </tr>
     <% end %>
   </tbody>
