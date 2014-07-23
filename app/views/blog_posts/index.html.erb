@@ -43,7 +43,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
         <td><%= link_to blog_post.title, blog_post %></td>
         <td><%= blog_post.body %></td>
         <td><%= blog_post.publish_date %></td>
-        <td><%= blog_post.blog %></td>
+        <td><%= blog_post.blog.title %></td>
 	<td><%= link_to blog_post.user.username, blog_post.user %></td>
       </tr>
     <% end %>
