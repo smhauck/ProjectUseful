@@ -37,7 +37,7 @@ class StoriesController < ApplicationController
   # GET /stories/complete
   # GET /stories/complete.json
   def complete
-   @stories = Story.joins(:status).where(story_status_types: { alive: false })
+   @stories = Story.joins(:status).where(story_status_types: { code: 'complete'})
   end
 
 
