@@ -27,7 +27,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p id="notice"><%= notice %></p>
 
 <h1><%= @blog.title %> <%= link_to '(Edit)', edit_blog_path(@blog) %></h1>
-
+<p>Created by: <%= link_to @blog.creator.username, @blog.creator %></p>
 <p><%= @blog.description %></p>
 
 <% @blog.posts.each do |post| %>

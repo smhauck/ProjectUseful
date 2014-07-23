@@ -31,8 +31,25 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <%= @user.username %>
 </p>
 
+<% if @user.blogs %>
+	<h2>Created Blogs</h2>
+	<table class="table">
+		<thead>
+			<tr><th>Title</th><th>Created At</th></tr>
+		</thead>
+		<tbody>
+	<% @user.blogs.each do |blog| %>
+		<tr><td><%= link_to blog.title, blog %></td><td><%= blog.created_at %></td></tr>
+	<% end %>
+</tbody>
+</table>
+<% else %>
+	<h2>No Blogs</h2>
+<% end %>
+
+
 <% if @user.requests %>
-	<h2>Stories</h2>
+	<h2>Requested Stories</h2>
 	<table class="table">
 		<thead>
 			<tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr>
@@ -44,8 +61,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </tbody>
 </table>
 <% else %>
-	<h2>No Tasks for this Story</h2>
-	<%= link_to 'Add Task', controller: "tasks", action: "new",  story: @story %><br />
+	<h2>No Requested Stories</h2>
 <% end %>
 
 
