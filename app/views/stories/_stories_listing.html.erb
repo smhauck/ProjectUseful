@@ -49,12 +49,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
         <% num_users = story.users.count %>
         <% user_count = 0 %>
         <% story.users.each do |user| %>
-          <% user_count += 1%>
-          <% if num_users > 1 && user_count < num_users %>
-            <%= link_to user.username, user %>,
-          <% else %>
-            <%= link_to user.username, user %>
-          <% end %>
+          <%= link_to user.username, user %>,
         <% end %>
         </td>
       </tr>

@@ -45,9 +45,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% @story.story_assignments.each do |sa| %>
 <% user_count += 1 %>
 <% if num_users > 1 && user_count < num_users %>
-	<%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete %><br />
+  <%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, confirm: 'Are you sure?' %><br />
 <% else %>
-	<%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete %><br />
+  <%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, confirm: 'Are you sure?' %><br />
 <% end %>
 <% end %>
 </p>
@@ -62,20 +62,30 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </p>
 
 <% if @story.tasks %>
-	<h2>Tasks <%= link_to '(Add)', controller: "tasks", action: "new",  story: @story %></h2>
-	<table class="table">
-		<thead>
-			<tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr>
-		</thead>
-		<tbody>
-	<% @story.tasks.each do |task| %>
-		<tr><td><%= link_to task.title, task %></td><td><%= task.status.title %></td><td>Coming soon</td><td>Coming soon</td><td>Coming soon</td></tr>
-	<% end %>
-</tbody>
-</table>
+  <h2>Tasks <%= link_to '(Add)', controller: "tasks", action: "new",  story: @story %></h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr>
+    </thead>
+    <tbody>
+      <% @story.tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.title, task %></td>
+          <td><%= task.status.title %></td>
+          <td>
+            <% task.task_assignments.each do |ta| %>
+              <%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, confirm: 'Are you sure?' %><br />
+            <% end %>
+          </td>
+          <td>Coming soon</td>
+          <td>Coming soon</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
-	<h2>No Tasks for this Story</h2>
-	<%= link_to 'Add Task', controller: "tasks", action: "new",  story: @story %><br />
+  <h2>No Tasks for this Story</h2>
+  <%= link_to 'Add Task', controller: "tasks", action: "new",  story: @story %><br />
 <% end %>
 
 <%= render 'add_user' %>

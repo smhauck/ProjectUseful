@@ -30,6 +30,13 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p>Status: <%= @task.status.title %></p>
 
 <p>
+<strong>Owners:</strong><br />
+<% @task.task_assignments.each do |ta| %>
+	<%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, confirm: 'Are you sure?' %><br />
+<% end %>
+</p>
+
+<p>
 <% if @task.story_id %><strong>Story:</strong> <%= link_to @task.story.title, @task.story %><% end %>
 <% if @task.sprint_id %><strong>Sprint:</strong> <%= link_to "#{@task.sprint.start_date} - #{@task.sprint.end_date}", @task.sprint %><% end %>
 <% if @task.project_id %><strong>Project:</strong> <%= link_to @task.project.title, @task.project %><% end %>
@@ -39,4 +46,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p>
   <strong>Description:</strong>
   <%= simple_format(@task.description) %>
-</p>
+  </p>
+
+  <%= render 'add_user' %>

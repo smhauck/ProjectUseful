@@ -1,5 +1,9 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :story_assignments
+
+  resources :task_assignments
+
   resources :blog_posts
 
   resources :blogs

@@ -30,7 +30,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <thead>
     <tr>
       <th>Title</th>
-      <th>(DEVEL)Alive</th>
+      <th>Status</th>
+      <th>Assigned To</th>
       <th>Description</th>
       <th>Product</th>
       <th>Project</th>
@@ -43,7 +44,13 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <% @tasks.each do |task| %>
       <tr>
         <td><%= link_to task.title, task %></td>
-        <td><%= task.alive %></td>
+	<td><%= task.status.title %></td>
+	<td>
+        <% task.users.each do |user| %>
+        <%= user.username %>
+        <% end %>
+
+        </td>
         <td><%= task.description %></td>
         <td><% if task.product_id %><%= task.product.title %><% end %></td>
         <td><% if task.sprint_id %><%= task.sprint.start_date %> - <%= task.sprint.end_date %><% end %></td>

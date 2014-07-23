@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722172734) do
+ActiveRecord::Schema.define(version: 20140723052033) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -29,12 +29,10 @@ ActiveRecord::Schema.define(version: 20140722172734) do
   create_table "blogs", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "creator_id"
   end
-
-  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
 
   create_table "product_status_types", force: true do |t|
     t.boolean  "alive"
@@ -112,13 +110,34 @@ ActiveRecord::Schema.define(version: 20140722172734) do
   add_index "stories", ["sprint_id"], name: "index_stories_on_sprint_id", using: :btree
   add_index "stories", ["story_status_type_id"], name: "index_stories_on_story_status_type_id", using: :btree
 
+  create_table "story_assignments", force: true do |t|
+    t.integer  "story_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "story_assignments", ["story_id"], name: "index_story_assignments_on_story_id", using: :btree
+  add_index "story_assignments", ["user_id"], name: "index_story_assignments_on_user_id", using: :btree
+
   create_table "story_status_types", force: true do |t|
     t.boolean  "alive"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code"
   end
+
+  create_table "task_assignments", force: true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "task_assignments", ["task_id"], name: "index_task_assignments_on_task_id", using: :btree
+  add_index "task_assignments", ["user_id"], name: "index_task_assignments_on_user_id", using: :btree
 
   create_table "task_status_types", force: true do |t|
     t.boolean  "alive"

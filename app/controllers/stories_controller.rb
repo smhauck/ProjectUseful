@@ -52,6 +52,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+    @story_assignment = StoryAssignment.new
   end
 
   # GET /stories/new
