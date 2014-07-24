@@ -13,32 +13,31 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, { size: 60 } %>
   </div>
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, { cols: 60, rows: 10 } %>
+  </div>
+ 
+  <div class="field">
+	  <%= f.label :product_id %></br >
+	  <%= collection_select(:note, :product_id, Product.all, :id, :title, include_blank: true) %>
   </div>
   <div class="field">
-    <%= f.label :creator_id %><br>
-    <%= f.text_field :creator_id %>
+	  <%= f.label :sprint_id %></br >
+	  <%= collection_select(:note, :sprint_id, Sprint.all, :id, :start_date, include_blank: true) %>
   </div>
   <div class="field">
-    <%= f.label :product_id %><br>
-    <%= f.text_field :product_id %>
+	  <%= f.label :story_id %></br >
+	  <%= collection_select(:note, :story_id, Story.all, :id, :title, include_blank: true) %>
   </div>
   <div class="field">
-    <%= f.label :sprint_id %><br>
-    <%= f.text_field :sprint_id %>
+	  <%= f.label :task_id %></br >
+	  <%= collection_select(:note, :task_id, Task.all, :id, :title, include_blank: true) %>
   </div>
-  <div class="field">
-    <%= f.label :story_id %><br>
-    <%= f.text_field :story_id %>
-  </div>
-  <div class="field">
-    <%= f.label :task_id %><br>
-    <%= f.text_field :task_id %>
-  </div>
+  
+  
   <div class="actions">
     <%= f.submit %>
   </div>

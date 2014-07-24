@@ -40,16 +40,14 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <% @stories.each do |story| %>
       <tr>
         <td><%= link_to story.title, story %></td>
-        <td><%= story.status.title %></td>
+	<td class="<%= story.status.code %>"><%= story.status.title %></td>
         <td><%= story.description %></td>
         <td><% if story.sprint_id %><%= link_to "#{story.sprint.start_date} - #{story.sprint.end_date}", story.sprint %><% end %></td>
 	<td><% if story.product_id %><%= link_to story.product.title, story.product %><% end %></td>
 	<td><%= link_to story.requestor.username, story.requestor %></td>
         <td>
-        <% num_users = story.users.count %>
-        <% user_count = 0 %>
         <% story.users.each do |user| %>
-          <%= link_to user.username, user %>,
+          <%= link_to user.username, user %><br />
         <% end %>
         </td>
       </tr>

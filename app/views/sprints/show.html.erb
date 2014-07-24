@@ -45,15 +45,21 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <tr>
         <th>Story</th>
         <th>Status</th>
+        <th>Assigned To</th>
         <th>Requestor</th>
         <th>Product</th>
       </tr>
     </thead>
     <tbody>
       <% @sprint.stories.each do |story| %>
-        <tr>
+      <tr>
           <td><%= link_to story.title, story %></td>
-          <td><%= story.status.title %></td>
+	  <td class="<%= story.status.code %>"><%= story.status.title %></td>
+	  <td>
+            <% story.users.each do |user| %>
+              <%= link_to user.username, user %><br />
+            <% end %>
+          </td>
 	  <td><%= link_to story.requestor.username, story.requestor %></td>
           <td><%= link_to story.product.title, story.product %></td>
         </tr>

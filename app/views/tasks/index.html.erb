@@ -44,7 +44,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <% @tasks.each do |task| %>
       <tr>
         <td><%= link_to task.title, task %></td>
-	<td><%= task.status.title %></td>
+	<td class="<%= task.status.code %>"><%= task.status.title %></td>
 	<td>
         <% task.users.each do |user| %>
         <%= user.username %>
@@ -52,9 +52,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
         </td>
         <td><%= task.description %></td>
-        <td><% if task.product_id %><%= task.product.title %><% end %></td>
-        <td><% if task.sprint_id %><%= task.sprint.start_date %> - <%= task.sprint.end_date %><% end %></td>
-        <td><% if task.story_id %><%= task.story.title %><% end %></td>
+        <td><% if task.product_id %><%= link_to task.product.title, task.product %><% end %></td>
+	<td><% if task.sprint_id %><%= link_to "#{task.sprint.start_date} - #{task.sprint.end_date}", task.sprint %><% end %></td>
+        <td><% if task.story_id %><%= link_to task.story.title, task.story %><% end %></td>
       </tr>
     <% end %>
   </tbody>

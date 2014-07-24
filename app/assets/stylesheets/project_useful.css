@@ -1,5 +1,20 @@
 
 /* =================================================================== */
+.waiting { color: #ff6d24; font-weight: bold; }
+.in_progress { color: #1ca800; font-weight: bold; }
+.product_owner_review { }
+.product_owner_reject { }
+.product_owner_accept { }
+.client_review { }
+.client_reject { }
+.client_accept { }
+.production_push { }
+.production_review { }
+.complete { }
+.cancelled { }
+.deleted { }
+
+/* =================================================================== */
 
 
 .blog_post_published {
