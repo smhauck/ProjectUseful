@@ -40,10 +40,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p><strong>Owners:</strong></p>
 <p>
-<% num_users = @story.users.count %>
-<% user_count = 0 %>
 <% @story.story_assignments.each do |sa| %>
-<% user_count += 1 %>
   <%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
 </p>

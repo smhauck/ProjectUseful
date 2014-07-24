@@ -56,7 +56,17 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 		</thead>
 		<tbody>
 	<% @user.requests.each do |request| %>
-		<tr><td><%= link_to request.title, request %></td><td><%= request.status.title %></td><td>Coming soon</td><td>Coming soon</td><td>Coming soon</td></tr>
+		<tr>
+			<td><%= link_to request.title, request %></td>
+			<td><%= request.status.title %></td>
+			<td>
+				<% request.story_assignments.each do |sa| %>
+					<%= link_to sa.user.username, sa.user %><br />
+				<% end %>
+			</td>
+			<td>Coming soon</td>
+			<td>Coming soon</td>
+		</tr>
 	<% end %>
 </tbody>
 </table>

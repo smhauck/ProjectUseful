@@ -18,7 +18,7 @@
 
 
 class UsersController < ApplicationController
-#  skip_before_action :authorize, only: [:new, :create]
+  skip_before_action :authorize, only: [:show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
