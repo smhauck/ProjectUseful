@@ -23,36 +23,34 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 =end
 %>
 
-
 <p id="notice"><%= notice %></p>
 
-
 <h1>STORY: <%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %></h1>
+<table class="table">
 
-<p>Status: <%= @story.status.title %></p>
+  <tr><th>Status</th><td><%= @story.status.title %></td></tr>
 
-<p>Requestor: <%= link_to @story.requestor.username, @story.requestor %></p>
+  <tr><th>Requestor</th><td><%= link_to @story.requestor.username, @story.requestor %></td></tr>
 
-<p>
-<% if @story.sprint_id %><strong>Sprint:</strong> <%= link_to "#{@story.sprint.start_date} - #{@story.sprint.end_date}", @story.sprint %><% end %>
-<% if @story.product_id %><strong>Product:</strong> <%= link_to @story.product.title, @story.product %><% end %>
-</p>
+  <tr>
+    <th>Owners:</th>
+    <td>
+      <% @story.story_assignments.each do |sa| %>
+        <%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+      <% end %>
+      <%= render 'add_user' %>
+    </td>
+  </tr>
 
-<p><strong>Owners:</strong></p>
-<p>
-<% @story.story_assignments.each do |sa| %>
-  <%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
-<% end %>
-</p>
+  <tr><th>Sprint</th><td><% if @story.sprint_id %><%= link_to "#{@story.sprint.start_date} - #{@story.sprint.end_date}", @story.sprint %><% end %></td></tr>
 
-<p>
-  <strong>Description:</strong>
-  <%= simple_format(@story.description) %>
-</p>
-<p>
-  <strong>Completion Notes:</strong>
-  <%= simple_format(@story.completion_notes) %>
-</p>
+  <tr><th>Product</th><td><% if @story.product_id %><%= link_to @story.product.title, @story.product %><% end %></td></tr>
+
+  <tr><th>Description</th><td><%= simple_format(@story.description) %></td></tr>
+
+  <tr><th>Completion Notes</th><td><%= simple_format(@story.completion_notes) %></td></tr>
+
+</table>
 
 <% if @story.tasks %>
   <h2>Tasks <%= link_to '(Add)', controller: "tasks", action: "new",  story: @story %></h2>
@@ -81,4 +79,3 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <%= link_to 'Add Task', controller: "tasks", action: "new",  story: @story %><br />
 <% end %>
 
-<%= render 'add_user' %>
