@@ -127,10 +127,10 @@ ActiveRecord::Schema.define(version: 20140723225211) do
   create_table "story_status_types", force: true do |t|
     t.boolean  "alive"
     t.string   "title"
+    t.string   "code"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "code"
   end
 
   create_table "task_assignments", force: true do |t|

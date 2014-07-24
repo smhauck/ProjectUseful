@@ -3,6 +3,7 @@ class CreateStoryStatusTypes < ActiveRecord::Migration
     create_table :story_status_types do |t|
       t.boolean :alive
       t.string :title
+      t.string :code
       t.text :description
 
       t.timestamps
