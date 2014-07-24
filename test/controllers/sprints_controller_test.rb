@@ -18,7 +18,7 @@ class SprintsControllerTest < ActionController::TestCase
 
   test "should create sprint" do
     assert_difference('Sprint.count') do
-      post :create, sprint: { product_id: @sprint.product_id, project_id: @sprint.project_id, alive: @sprint.alive, description: @sprint.description, title: @sprint.title }
+      post :create, sprint: { alive: @sprint.alive, notes: @sprint.notes, start_date: @sprint.start_date, end_date: @sprint.end_date }
     end
 
     assert_redirected_to sprint_path(assigns(:sprint))
@@ -35,7 +35,7 @@ class SprintsControllerTest < ActionController::TestCase
   end
 
   test "should update sprint" do
-    patch :update, id: @sprint, sprint: { product_id: @sprint.product_id, project_id: @sprint.project_id, alive: @sprint.alive, description: @sprint.description, title: @sprint.title }
+    patch :update, id: @sprint, sprint: { alive: @sprint.alive, notes: @sprint.notes, start_date: @sprint.start_date, end_date: @sprint.end_date }
     assert_redirected_to sprint_path(assigns(:sprint))
   end
 

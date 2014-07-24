@@ -44,6 +44,6 @@ class StoryAssignmentsControllerTest < ActionController::TestCase
       delete :destroy, id: @story_assignment
     end
 
-    assert_redirected_to story_assignments_path
+    assert_redirected_to request.referrer
   end
 end

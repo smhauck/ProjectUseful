@@ -63,15 +63,15 @@ class BlogPostsController < ApplicationController
 
     # only update if original author (user_id) is submitting it
     if @blog_post.user_id = session[:user_id]
-    respond_to do |format|
-      if @blog_post.update(blog_post_params)
-        format.html { redirect_to @blog_post, notice: 'Blog post was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @blog_post.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @blog_post.update(blog_post_params)
+          format.html { redirect_to @blog_post, notice: 'Blog post was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @blog_post.errors, status: :unprocessable_entity }
+        end
       end
-    end
     end
   end
 

@@ -8,20 +8,20 @@ class SessionsControllerTest < ActionController::TestCase
 
   test "should login" do
     dave = users(:one)
-    post :create, name: dave.name, password: 'secret'
-    assert_redirected_to admin_url
+    post :create, username: dave.username, password: 'secret'
+    assert_redirected_to root_url
     assert_equal dave.id, session[:user_id]
   end
 
   test "should fail login" do
     dave = users(:one)
-    post :create, name: dave.name, password: 'wrong'
+    post :create, username: dave.username, password: 'wrong'
     assert_redirect_to login_url
   end
 
   test "should logout" do
     delete :destroy
-    assert_redirected_to welcome_url
+    assert_redirected_to root_url
   end
 
 end

@@ -34,7 +34,7 @@ class BlogPostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update blog_post" do
+  test "should UPDATE blog_post" do
     patch :update, id: @blog_post, blog_post: { blog_id: @blog_post.blog_id, body: @blog_post.body, publish_date: @blog_post.publish_date, title: @blog_post.title, user_id: @blog_post.user_id }
     assert_redirected_to blog_post_path(assigns(:blog_post))
   end

@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   title: MyString
   description: MyText
+  product_id: 1
+  start_page_id: 1
 
 two:
+  id: 2
   title: MyString
   description: MyText
+  product_id: 2
+  start_page_id: 2

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @note.title %>
+</p>
+<p>
+  <strong>Creator:</strong>
+  <%= @note.creator.username %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= simple_format(@note.body) %>
+</p>
+<hr />
+<p><strong>Related Items</strong></p>
+
+<% if @note.product %>
+<p>
+  <strong>Product:</strong>
+  <%= @note.product.title %>
+  </p>
+<% end %>
+
+<% if @note.sprint %>
+<p>
+  <strong>Sprint:</strong>
+  <%= @note.sprint.start_date %> - <%= @note.sprint.end_date %>
+</p>
+<% end %>
+
+<% if @note.story %>
+<p>
+  <strong>Story:</strong>
+  <%= @note.story.title %>
+</p>
+<% end %>
+
+<% if @note.task %>
+<p>
+  <strong>Task:</strong>
+  <%= @note.task.title %>
+</p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>

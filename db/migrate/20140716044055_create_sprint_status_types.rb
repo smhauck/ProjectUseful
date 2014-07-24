@@ -7,13 +7,6 @@ class CreateSprintStatusTypes < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    SprintStatusType.create(title: "Waiting", alive: "1")
-    SprintStatusType.create(title: "In Progress", alive: "1")
-    SprintStatusType.create(title: "Complete", alive: "0")
-    SprintStatusType.create(title: "Cancelled", alive: "0")
-    SprintStatusType.create(title: "Deleted", alive: "0")
-
   end
 
   def down

@@ -1,0 +1,36 @@
+<h1>Listing notes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>User</th>
+      <th>Product</th>
+      <th>Sprint</th>
+      <th>Story</th>
+      <th>Task</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= link_to note.title, note %></td>
+        <td><%= note.body %></td>
+        <td><%= note.creator.username %></td>
+        <td><% if note.product %><%= note.product.title %><% end %></td>
+        <td><% if note.sprint %><%= note.sprint.start_date %> - <%= note.sprint.end_date %><% end %></td>
+        <td><% if note.story %><%= note.story.title %><% end %></td>
+        <td><% if note.task %><%= note.task.title %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Note', new_note_path %>

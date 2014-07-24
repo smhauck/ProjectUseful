@@ -7,10 +7,5 @@ class CreateProductStatusTypes < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    ProductStatusType.create(title: "Waiting", alive: "1")
-    ProductStatusType.create(title: "In Progress", alive: "1")
-    ProductStatusType.create(title: "Complete", alive: "0")
-
   end
 end

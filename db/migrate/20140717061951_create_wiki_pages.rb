@@ -6,7 +6,6 @@ class CreateWikiPages < ActiveRecord::Migration
       t.integer :version
       t.references :wiki, index: true, null: false
       t.references :product, index: true
-      t.references :project, index: true
       t.references :story, index: true
       t.references :task, index: true
       t.references :user, index: true

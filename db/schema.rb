@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723052033) do
+ActiveRecord::Schema.define(version: 20140723225211) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -34,6 +34,33 @@ ActiveRecord::Schema.define(version: 20140723052033) do
     t.integer  "creator_id"
   end
 
+  create_table "note_privacy_types", force: true do |t|
+    t.string   "title"
+    t.string   "code"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "creator_id"
+    t.integer  "note_privacy_type_id", default: 1, null: false
+    t.integer  "product_id"
+    t.integer  "sprint_id"
+    t.integer  "story_id"
+    t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notes", ["note_privacy_type_id"], name: "index_notes_on_note_privacy_type_id", using: :btree
+  add_index "notes", ["product_id"], name: "index_notes_on_product_id", using: :btree
+  add_index "notes", ["sprint_id"], name: "index_notes_on_sprint_id", using: :btree
+  add_index "notes", ["story_id"], name: "index_notes_on_story_id", using: :btree
+  add_index "notes", ["task_id"], name: "index_notes_on_task_id", using: :btree
+
   create_table "product_status_types", force: true do |t|
     t.boolean  "alive"
     t.string   "title"
@@ -49,27 +76,6 @@ ActiveRecord::Schema.define(version: 20140723052033) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "project_status_types", force: true do |t|
-    t.boolean  "alive"
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "projects", force: true do |t|
-    t.boolean  "alive"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "product_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "project_status_type_id"
-  end
-
-  add_index "projects", ["product_id"], name: "index_projects_on_product_id", using: :btree
-  add_index "projects", ["project_status_type_id"], name: "index_projects_on_project_status_type_id", using: :btree
 
   create_table "sprint_status_types", force: true do |t|
     t.boolean  "alive"
@@ -96,7 +102,6 @@ ActiveRecord::Schema.define(version: 20140723052033) do
     t.string   "title"
     t.text     "description"
     t.integer  "product_id"
-    t.integer  "project_id"
     t.integer  "sprint_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -106,7 +111,6 @@ ActiveRecord::Schema.define(version: 20140723052033) do
   end
 
   add_index "stories", ["product_id"], name: "index_stories_on_product_id", using: :btree
-  add_index "stories", ["project_id"], name: "index_stories_on_project_id", using: :btree
   add_index "stories", ["sprint_id"], name: "index_stories_on_sprint_id", using: :btree
   add_index "stories", ["story_status_type_id"], name: "index_stories_on_story_status_type_id", using: :btree
 
@@ -152,7 +156,6 @@ ActiveRecord::Schema.define(version: 20140723052033) do
     t.string   "title"
     t.text     "description"
     t.integer  "product_id"
-    t.integer  "project_id"
     t.integer  "sprint_id"
     t.integer  "story_id"
     t.datetime "created_at"
@@ -161,7 +164,6 @@ ActiveRecord::Schema.define(version: 20140723052033) do
   end
 
   add_index "tasks", ["product_id"], name: "index_tasks_on_product_id", using: :btree
-  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
   add_index "tasks", ["sprint_id"], name: "index_tasks_on_sprint_id", using: :btree
   add_index "tasks", ["story_id"], name: "index_tasks_on_story_id", using: :btree
   add_index "tasks", ["task_status_type_id"], name: "index_tasks_on_task_status_type_id", using: :btree
@@ -179,7 +181,6 @@ ActiveRecord::Schema.define(version: 20140723052033) do
     t.integer  "version"
     t.integer  "wiki_id",    null: false
     t.integer  "product_id"
-    t.integer  "project_id"
     t.integer  "story_id"
     t.integer  "task_id"
     t.integer  "user_id"
@@ -188,7 +189,6 @@ ActiveRecord::Schema.define(version: 20140723052033) do
   end
 
   add_index "wiki_pages", ["product_id"], name: "index_wiki_pages_on_product_id", using: :btree
-  add_index "wiki_pages", ["project_id"], name: "index_wiki_pages_on_project_id", using: :btree
   add_index "wiki_pages", ["story_id"], name: "index_wiki_pages_on_story_id", using: :btree
   add_index "wiki_pages", ["task_id"], name: "index_wiki_pages_on_task_id", using: :btree
   add_index "wiki_pages", ["user_id"], name: "index_wiki_pages_on_user_id", using: :btree

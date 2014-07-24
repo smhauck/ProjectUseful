@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   alive: false
-  title: MyString
-  description: MyText
-  Product_id: 
-  Project_id: 
+  notes: this is note one
+  start_date: 2014-01-01
+  end_date: 2015-01-01
 
 two:
+  id: 2
   alive: false
-  title: MyString
-  description: MyText
-  Product_id: 
-  Project_id: 
+  notes: this is note two
+  start_date: 2010-01-01
+  end_date: 2011-01-01

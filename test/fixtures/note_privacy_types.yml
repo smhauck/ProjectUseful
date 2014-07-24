@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  title: Private
+  code: private
+  description: private type description
+
+two:
+  id: 2
+  title: Product
+  code: product
+  description: product type description

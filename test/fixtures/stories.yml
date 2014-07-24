@@ -1,17 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   alive: false
-  title: MyString
-  description: MyText
-  Product_id: 
-  Project_id: 
-  Sprint_id: 
+  title: Story One
+  description: Story One Description
+  product_id: 1
+  sprint_id: 1
+  story_status_type_id: 1
+  requestor_id: 1
+  completion_notes: Story One Completion Notes
 
 two:
+  id: 2
   alive: false
-  title: MyString
-  description: MyText
-  Product_id: 
-  Project_id: 
-  Sprint_id: 
+  title: Story Two
+  description: Story Two Description
+  product_id: 1
+  sprint_id: 1
+  story_status_type_id: 2
+  requestor_id: 2
+  completion_notes: Story Two Completion Notes

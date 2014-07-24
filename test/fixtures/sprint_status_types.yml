@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
+  id: 1
+  title: Sprint Status Type One
+  description: Sprint Status Type One Description
 
 two:
-  title: MyString
-  description: MyText
+  id: 2
+  title: Sprint Status Type Two
+  description: Sprint Status Type Two Description

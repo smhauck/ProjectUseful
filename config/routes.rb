@@ -1,5 +1,9 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :note_privacy_types
+
+  resources :notes
+
   resources :story_assignments
 
   resources :task_assignments

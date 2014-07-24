@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @note_privacy_type.title %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @note_privacy_type.code %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @note_privacy_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_note_privacy_type_path(@note_privacy_type) %> |
+<%= link_to 'Back', note_privacy_types_path %>

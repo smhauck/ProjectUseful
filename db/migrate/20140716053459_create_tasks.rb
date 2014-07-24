@@ -5,7 +5,6 @@ class CreateTasks < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.references :product, index: true
-      t.references :project, index: true
       t.references :sprint, index: true
       t.references :story, index: true
 

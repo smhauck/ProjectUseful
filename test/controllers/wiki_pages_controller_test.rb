@@ -18,7 +18,7 @@ class WikiPagesControllerTest < ActionController::TestCase
 
   test "should create wiki_page" do
     assert_difference('WikiPage.count') do
-      post :create, wiki_page: { Product_id: @wiki_page.Product_id, Project_id: @wiki_page.Project_id, Story_id: @wiki_page.Story_id, Task_id: @wiki_page.Task_id, User_id: @wiki_page.User_id, body: @wiki_page.body, title: @wiki_page.title, version: @wiki_page.version }
+      post :create, wiki_page: { product_id: @wiki_page.product_id, story_id: @wiki_page.story_id, task_id: @wiki_page.task_id, user_id: @wiki_page.user_id, body: @wiki_page.body, title: @wiki_page.title, version: @wiki_page.version }
     end
 
     assert_redirected_to wiki_page_path(assigns(:wiki_page))
@@ -35,7 +35,7 @@ class WikiPagesControllerTest < ActionController::TestCase
   end
 
   test "should update wiki_page" do
-    patch :update, id: @wiki_page, wiki_page: { Product_id: @wiki_page.Product_id, Project_id: @wiki_page.Project_id, Story_id: @wiki_page.Story_id, Task_id: @wiki_page.Task_id, User_id: @wiki_page.User_id, body: @wiki_page.body, title: @wiki_page.title, version: @wiki_page.version }
+    patch :update, id: @wiki_page, wiki_page: { product_id: @wiki_page.product_id, story_id: @wiki_page.story_id, task_id: @wiki_page.task_id, user_id: @wiki_page.user_id, body: @wiki_page.body, title: @wiki_page.title, version: @wiki_page.version }
     assert_redirected_to wiki_page_path(assigns(:wiki_page))
   end
 

@@ -1,0 +1,31 @@
+<h1>Listing note_privacy_types</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Code</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @note_privacy_types.each do |note_privacy_type| %>
+      <tr>
+        <td><%= note_privacy_type.title %></td>
+        <td><%= note_privacy_type.code %></td>
+        <td><%= note_privacy_type.description %></td>
+        <td><%= link_to 'Show', note_privacy_type %></td>
+        <td><%= link_to 'Edit', edit_note_privacy_type_path(note_privacy_type) %></td>
+        <td><%= link_to 'Destroy', note_privacy_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Note privacy type', new_note_privacy_type_path %>

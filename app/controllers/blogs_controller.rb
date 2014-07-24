@@ -44,7 +44,7 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
-    @blog.user_id = session[:user_id]
+    @blog.creator_id = session[:user_id]
 
     respond_to do |format|
       if @blog.save
@@ -89,6 +89,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :description, :user_id)
+      params.require(:blog).permit(:title, :description)
     end
 end

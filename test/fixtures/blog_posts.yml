@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  body: MyText
+  id: 1
+  title: Post One
+  body: Post One Body
   publish_date: 2014-07-18
-  blog_id: 
-  user_id: 
+  blog_id: 1
+  user_id: 1
 
 two:
-  title: MyString
-  body: MyText
+  id: 2
+  title: Post Two
+  body: Post Two Body
   publish_date: 2014-07-18
-  blog_id: 
-  user_id: 
+  blog_id: 2
+  user_id: 2

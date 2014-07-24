@@ -21,7 +21,7 @@ class TaskAssignmentsControllerTest < ActionController::TestCase
       post :create, task_assignment: { task_id: @task_assignment.task_id, user_id: @task_assignment.user_id }
     end
 
-    assert_redirected_to task_assignment_path(assigns(:task_assignment))
+    assert_redirected_to task_path(assigns(:task_id))
   end
 
   test "should show task_assignment" do
@@ -44,6 +44,5 @@ class TaskAssignmentsControllerTest < ActionController::TestCase
       delete :destroy, id: @task_assignment
     end
 
-    assert_redirected_to task_assignments_path
   end
 end

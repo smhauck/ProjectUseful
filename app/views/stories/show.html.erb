@@ -44,11 +44,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% user_count = 0 %>
 <% @story.story_assignments.each do |sa| %>
 <% user_count += 1 %>
-<% if num_users > 1 && user_count < num_users %>
-  <%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, confirm: 'Are you sure?' %><br />
-<% else %>
-  <%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, confirm: 'Are you sure?' %><br />
-<% end %>
+  <%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
 </p>
 
@@ -74,7 +70,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
           <td><%= task.status.title %></td>
           <td>
             <% task.task_assignments.each do |ta| %>
-              <%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, confirm: 'Are you sure?' %><br />
+              <%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
             <% end %>
           </td>
           <td>Coming soon</td>
