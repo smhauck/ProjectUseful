@@ -43,6 +43,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     </td>
   </tr>
 
+  <tr><th>Points</th><td><%= number_with_precision(@story.points, strip_insignificant_zeros: true) %></td></tr>
   <tr><th>Estimated Hours</th><td><%= @story.estimated_hours %></td></tr>
   <tr><th>Sprint</th><td><% if @story.sprint_id %><%= link_to "#{@story.sprint.start_date} - #{@story.sprint.end_date}", @story.sprint %><% end %></td></tr>
 
