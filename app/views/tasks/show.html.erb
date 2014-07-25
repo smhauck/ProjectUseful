@@ -43,10 +43,10 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <tr><th>Story</th><td><% if @task.story_id %><%= link_to @task.story.title, @task.story %><% end %></td></tr>
 
 
-<tr><th>Sprint</th><td><% if @task.sprint_id %><%= link_to "#{@task.sprint.start_date} - #{@task.sprint.end_date}", @task.sprint %><% end %></td></tr>
+<tr><th>Sprint</th><td><% if @task.story.sprint_id %><%= link_to "#{@task.story.sprint.start_date} - #{@task.story.sprint.end_date}", @task.story.sprint %><% end %></td></tr>
 
 
-<tr><th>Product</th><td><% if @task.product_id %><%= link_to @task.product.title, @task.product %><% end %></td></tr>
+<tr><th>Product</th><td><% if @task.story.product_id %><%= link_to @task.story.product.title, @task.story.product %><% end %></td></tr>
 
 
 <tr><th>Description</th><td><%= simple_format(@task.description) %></td></tr>

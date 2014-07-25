@@ -33,7 +33,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <tr><th>Requestor</th><td><%= link_to @story.requestor.username, @story.requestor %></td></tr>
 
   <tr>
-    <th>Owners:</th>
+    <th>Owners</th>
     <td>
       <% @story.story_assignments.each do |sa| %>
         <%= sa.user.username -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
