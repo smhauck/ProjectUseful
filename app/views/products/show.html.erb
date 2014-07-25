@@ -34,7 +34,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <%= @product.description %>
 </p>
 
-<% if @product.wikis %>
+<% if @product.wikis.count > 0 %>
   <h2>Wikis</h2>
   <p>
     <% @product.wikis.each do |wiki| %>
@@ -45,22 +45,34 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <h2>No Wikis for Product</h2>
 <% end %>
 
-<% if @product.stories %>
-	<h2>Stories</h2>
-	<table class="table">
-		<thead>
-			<tr><th>Title</th><th>Status</th><th>Sprint</th></tr>
-    <% @product.stories.each do |story| %>
-	    <tr>
-		    <td><%= link_to story.title, story %></td>
-		    <td><%= story.status.title %></td>
-		    <% if story.sprint %>
-			    <td><%= link_to "#{story.sprint.start_date} - #{story.sprint.end_date}", story.sprint %></td>
-		    <% else %>
-			    <td></td>
-		    <% end %>
-	    </tr>
-    <% end %>
+<% if @product.stories.count > 0 %>
+  <h2>Stories</h2>
+  <table class="table">
+    <thead>
+	    <tr><th>Story</th><th>Est. Hours</th><th>Actual Hours</th><th>Status</th><th>Num Tasks</th><th>Assigned To</th><th>Requestor</th><th>Sprint</th></tr>
+    </thead>
+    <tbody>
+      <% @product.stories.each do |story| %>
+        <tr>
+          <td><%= link_to story.title, story %></td>
+          <td><%= story.estimated_hours %></td>
+          <td>Coming Soon</td>
+          <td class="<%= story.status.code %>"><%= story.status.title %></td>
+          <td><%= story.tasks.count %></td>
+          <td>
+            <% story.users.each do |user| %>
+              <%= link_to user.username, user %><br />
+            <% end %>
+          </td>
+          <td><%= link_to story.requestor.username, story.requestor %></td>
+          <% if story.sprint %>
+            <td><%= link_to "#{story.sprint.start_date} - #{story.sprint.end_date}", story.sprint %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 <% else %>
   <h2>No Stories for Product</h2>

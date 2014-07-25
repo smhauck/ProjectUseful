@@ -1,50 +1,58 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# 
+# This file is part of Project Useful.
+# 
+# Project Useful is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# Project Useful is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
+#     Create the default product_status_types
+ProductStatusType.create(title: "Waiting", alive: "1")
+ProductStatusType.create(title: "In Progress", alive: "1")
+ProductStatusType.create(title: "Complete", alive: "0")
 
-# ProductStatusType.create(title: "Waiting", alive: "1")
-# ProductStatusType.create(title: "In Progress", alive: "1")
-# ProductStatusType.create(title: "Complete", alive: "0")
+
+#     Create the default sprint_status_types
+SprintStatusType.create(title: "Waiting", alive: "1")
+SprintStatusType.create(title: "In Progress", alive: "1")
+SprintStatusType.create(title: "Complete", alive: "0")
+SprintStatusType.create(title: "Cancelled", alive: "0")
+SprintStatusType.create(title: "Deleted", alive: "0")
+
  
- 
-# SprintStatusType.create(title: "Waiting", alive: "1")
-# SprintStatusType.create(title: "In Progress", alive: "1")
-# SprintStatusType.create(title: "Complete", alive: "0")
-# SprintStatusType.create(title: "Cancelled", alive: "0")
-# SprintStatusType.create(title: "Deleted", alive: "0")
- 
- 
- 
- 
+#     Create the default task_status_types
 TaskStatusType.create(title: "Waiting", alive: "1", code: "waiting")
 TaskStatusType.create(title: "In Progress", alive: "1", code: "in_progress")
 TaskStatusType.create(title: "Testing", alive: "1", code: "testing")
 TaskStatusType.create(title: "Complete", alive: "0", code: "complete")
- 
- 
-# User.create(username: "admin", password: "admin", password_confirmation: "admin")
+TaskStatusType.create(title: "Cancelled", alive: "0", code: "cancelled")
 
 
+#     Create the default story_status_types
+StoryStatusType.create(title: "Waiting", alive: "1", code: "waiting")
+StoryStatusType.create(title: "In Progress", alive: "1", code: "in_progress")
+StoryStatusType.create(title: "Product Owner Review", alive: "1", code: "product_owner_review")
+StoryStatusType.create(title: "Product Owner Reject", alive: "1", code: "product_owner_reject")
+StoryStatusType.create(title: "Product Owner Accept", alive: "1", code: "product_owner_accept")
+StoryStatusType.create(title: "Client Review", alive: "1", code: "client_review")
+StoryStatusType.create(title: "Client Reject", alive: "1", code: "client_reject")
+StoryStatusType.create(title: "Client Accept", alive: "1", code: "client_accept")
+StoryStatusType.create(title: "Production Push", alive: "1", code: "production_push")
+StoryStatusType.create(title: "Production Review", alive: "1", code: "production_review")
+StoryStatusType.create(title: "Complete", alive: "0", code: "complete")
+StoryStatusType.create(title: "Cancelled", alive: "0", code: "cancelled")
 
 
-
-
-# StoryStatusType.create(title: "Waiting", alive: "1", code: "waiting")
-# StoryStatusType.create(title: "In Progress", alive: "1", code: "in_progress")
-# StoryStatusType.create(title: "Product Owner Review", alive: "1", code: "product_owner_review")
-# StoryStatusType.create(title: "Product Owner Reject", alive: "1", code: "product_owner_reject")
-# StoryStatusType.create(title: "Product Owner Accept", alive: "1", code: "product_owner_accept")
-# StoryStatusType.create(title: "Client Review", alive: "1", code: "client_review")
-# StoryStatusType.create(title: "Client Reject", alive: "1", code: "client_reject")
-# StoryStatusType.create(title: "Client Accept", alive: "1", code: "client_accept")
-# StoryStatusType.create(title: "Production Push", alive: "1", code: "production_push")
-# StoryStatusType.create(title: "Production Review", alive: "1", code: "production_review")
-# StoryStatusType.create(title: "Complete", alive: "0", code: "complete")
-# StoryStatusType.create(title: "Cancelled", alive: "0", code: "cancelled")
-# StoryStatusType.create(title: "Deleted", alive: "0", code: "deleted")
+#     Create the default administrator user
+#     Be sure to change the admin password!
+User.create(username: "admin", password: "admin", password_confirmation: "admin")

@@ -47,6 +47,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
         <th>Est. Hours</th>
         <th>Actual Hours</th>
         <th>Status</th>
+        <th>Num Tasks</th>
         <th>Assigned To</th>
         <th>Requestor</th>
         <th>Product</th>
@@ -59,6 +60,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
           <td><%= story.estimated_hours %></td>
           <td>Coming Soon</td>
 	  <td class="<%= story.status.code %>"><%= story.status.title %></td>
+	  <td><%= story.tasks.count %></td>
 	  <td>
             <% story.users.each do |user| %>
               <%= link_to user.username, user %><br />
