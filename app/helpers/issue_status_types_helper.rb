@@ -1,0 +1,2 @@
+module IssueStatusTypesHelper
+end

@@ -4,5 +4,6 @@ class Note < ActiveRecord::Base
   belongs_to :sprint
   belongs_to :story
   belongs_to :task
+  belongs_to :user
   belongs_to :privacy, class_name: "NotePrivacyType", foreign_key: "note_privacy_type_id"
 end

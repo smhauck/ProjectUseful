@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725012857) do
+ActiveRecord::Schema.define(version: 20140725043238) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -34,6 +34,27 @@ ActiveRecord::Schema.define(version: 20140725012857) do
     t.integer  "creator_id"
   end
 
+  create_table "issue_status_types", force: true do |t|
+    t.string   "title"
+    t.string   "code"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "issues", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "requestor_id"
+    t.integer  "product_id"
+    t.integer  "issue_status_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "issues", ["issue_status_type_id"], name: "index_issues_on_issue_status_type_id", using: :btree
+  add_index "issues", ["product_id"], name: "index_issues_on_product_id", using: :btree
+
   create_table "note_privacy_types", force: true do |t|
     t.string   "title"
     t.string   "code"
@@ -53,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140725012857) do
     t.integer  "task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "notes", ["note_privacy_type_id"], name: "index_notes_on_note_privacy_type_id", using: :btree
@@ -60,6 +82,7 @@ ActiveRecord::Schema.define(version: 20140725012857) do
   add_index "notes", ["sprint_id"], name: "index_notes_on_sprint_id", using: :btree
   add_index "notes", ["story_id"], name: "index_notes_on_story_id", using: :btree
   add_index "notes", ["task_id"], name: "index_notes_on_task_id", using: :btree
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "product_status_types", force: true do |t|
     t.boolean  "alive"

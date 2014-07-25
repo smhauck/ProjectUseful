@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @issue.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @issue.description %>
+</p>
+
+<% if @issue.product_id %>
+<p>
+  <strong>Product:</strong>
+  <%= @issue.product.title %>
+</p>
+<% end %>
+
+<p>
+  <strong>Requestor:</strong>
+  <%= @issue.requestor.username %>
+</p>
+
+<p>
+  <strong>Issue status type:</strong>
+  <%= @issue.status.title %>
+</p>
+
+<%= link_to 'Edit', edit_issue_path(@issue) %> |
+<%= link_to 'Back', issues_path %>

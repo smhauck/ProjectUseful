@@ -1,5 +1,9 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :issues
+
+  resources :issue_status_types
+
   resources :note_privacy_types
 
   resources :notes

@@ -1,0 +1,31 @@
+<h1>Listing issue_status_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Code</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @issue_status_types.each do |issue_status_type| %>
+      <tr>
+        <td><%= issue_status_type.title %></td>
+        <td><%= issue_status_type.code %></td>
+        <td><%= issue_status_type.description %></td>
+        <td><%= link_to 'Show', issue_status_type %></td>
+        <td><%= link_to 'Edit', edit_issue_status_type_path(issue_status_type) %></td>
+        <td><%= link_to 'Destroy', issue_status_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Issue status type', new_issue_status_type_path %>

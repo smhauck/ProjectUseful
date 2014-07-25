@@ -43,6 +43,12 @@
   <%= @note.task.title %>
 </p>
 <% end %>
+<% if @note.user %>
+<p>
+  <strong>User:</strong>
+  <%= @note.user.username %>
+</p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_note_path(@note) %> |

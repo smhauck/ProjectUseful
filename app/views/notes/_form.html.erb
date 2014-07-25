@@ -36,6 +36,10 @@
 	  <%= f.label :task_id %></br >
 	  <%= collection_select(:note, :task_id, Task.all, :id, :title, include_blank: true) %>
   </div>
+  <div class="field">
+	  <%= f.label :user_id %></br >
+	  <%= collection_select(:note, :user_id, User.all, :id, :username, include_blank: true) %>
+  </div>
   
   
   <div class="actions">
