@@ -47,7 +47,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	<td class="<%= task.status.code %>"><%= task.status.title %></td>
 	<td>
         <% task.users.each do |user| %>
-        <%= user.username %>
+          <%= link_to user.username, user %>
         <% end %>
 
         </td>

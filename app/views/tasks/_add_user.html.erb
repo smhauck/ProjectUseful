@@ -1,9 +1,5 @@
 <%= form_for @task_assignment do |f| %>
-  <fieldset>
-  <legend>Add User to Task</legend>
-    <%= f.label :user_id %></br >
     <%= collection_select(:task_assignment, :user_id, User.all, :id, :username, include_blank: true) %>
   <%= f.hidden_field :task_id, value: @task.id %>
-  <input type="submit" value="Submit" />
-  </fieldset>
+  <input type="submit" value="Add User" />
 <% end %>

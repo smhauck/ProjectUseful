@@ -27,24 +27,27 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p id="notice"><%= notice %></p>
 
 <h1>TASK: <%= @task.title %> <%= link_to '(Edit)', edit_task_path(@task) %></h1>
-<p>Status: <%= @task.status.title %></p>
+<table class="table">
+	<tr><th>Status</th><td><%= @task.status.title %></td></tr>
 
-<p>
-<strong>Owners:</strong><br />
+<tr>
+	<th>Owners</th>
+	<td>
 <% @task.task_assignments.each do |ta| %>
 	<%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
-</p>
-
-<p>
-<% if @task.story_id %><strong>Story:</strong> <%= link_to @task.story.title, @task.story %><% end %>
-<% if @task.sprint_id %><strong>Sprint:</strong> <%= link_to "#{@task.sprint.start_date} - #{@task.sprint.end_date}", @task.sprint %><% end %>
-<% if @task.product_id %><strong>Product:</strong> <%= link_to @task.product.title, @task.product %><% end %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= simple_format(@task.description) %>
-  </p>
-
   <%= render 'add_user' %>
+</td>
+</tr>
+
+<tr><th>Story</th><td><% if @task.story_id %><%= link_to @task.story.title, @task.story %><% end %></td></tr>
+
+
+<tr><th>Sprint</th><td><% if @task.sprint_id %><%= link_to "#{@task.sprint.start_date} - #{@task.sprint.end_date}", @task.sprint %><% end %></td></tr>
+
+
+<tr><th>Product</th><td><% if @task.product_id %><%= link_to @task.product.title, @task.product %><% end %></td></tr>
+
+
+<tr><th>Description</th><td><%= simple_format(@task.description) %></td></tr>
+</table>
