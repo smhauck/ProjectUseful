@@ -23,43 +23,38 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 =end
 %>
 
-
-<h1>Listing tasks</h1>
-
 <table class="table">
   <thead>
     <tr>
       <th>Title</th>
+      <th>Points</th>
       <th>Est. Hours</th>
       <th>Actual Hours</th>
       <th>Status</th>
+      <th>Num Tassk</th>
       <th>Owner</th>
-      <th>Story</th>
+      <th>Requestor</th>
       <th>Product</th>
-      <th>Sprint</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @tasks.each do |task| %>
+    <% @stories.each do |story| %>
       <tr>
-        <td><%= link_to task.title, task %></td>
+        <td><%= link_to story.title, story %></td>
+        <td><%= number_with_precision(story.points, strip_insignificant_zeros: true) %></td>
+        <td><%= story.estimated_hours %></td>
         <td>Coming Soon</td>
-        <td>Coming Soon</td>
-	<td class="<%= task.status.code %>"><%= task.status.title %></td>
-	<td>
-        <% task.users.each do |user| %>
-          <%= link_to user.username, user %>
+	<td class="<%= story.status.code %>"><%= story.status.title %></td>
+	<td><%= story.tasks.count %></td>
+        <td>
+        <% story.users.each do |user| %>
+          <%= link_to user.username, user %><br />
         <% end %>
-        <td><% if task.story_id %><%= link_to task.story.title, task.story %><% end %></td>
         </td>
-        <td><% if task.story.product_id %><%= link_to task.story.product.title, task.story.product %><% end %></td>
-	<td><% if task.story.sprint_id %><%= link_to "#{task.story.sprint.start_date} - #{task.story.sprint.end_date}", task.story.sprint %><% end %></td>
+	<td><%= link_to story.requestor.username, story.requestor %></td>
+	<td><% if story.product_id %><%= link_to story.product.title, story.product %><% end %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Task', new_task_path %>

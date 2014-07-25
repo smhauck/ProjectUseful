@@ -40,38 +40,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <% if @sprint.stories %>
   <h2>Stories</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Story</th>
-        <th>Est. Hours</th>
-        <th>Actual Hours</th>
-        <th>Status</th>
-        <th>Num Tasks</th>
-        <th>Assigned To</th>
-        <th>Requestor</th>
-        <th>Product</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @sprint.stories.each do |story| %>
-      <tr>
-          <td><%= link_to story.title, story %></td>
-          <td><%= story.estimated_hours %></td>
-          <td>Coming Soon</td>
-	  <td class="<%= story.status.code %>"><%= story.status.title %></td>
-	  <td><%= story.tasks.count %></td>
-	  <td>
-            <% story.users.each do |user| %>
-              <%= link_to user.username, user %><br />
-            <% end %>
-          </td>
-	  <td><%= link_to story.requestor.username, story.requestor %></td>
-          <td><%= link_to story.product.title, story.product %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% @stories = @sprint.stories %>
+  <%= render 'stories_listing' %>
 <% else %>
   <h2>No Stories for Sprint</h2>
 <% end %>

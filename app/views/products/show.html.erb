@@ -42,38 +42,25 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <% end %>
   </p>
 <% else %>
-  <h2>No Wikis for Product</h2>
+  <h2>No Wikis</h2>
 <% end %>
+
+<% if @product.notes.count > 0 %>
+  <h2>Notes</h2>
+  <p>
+    <% @product.notes.each do |note| %>
+      <%= link_to note.title, note %><br />
+    <% end %>
+  </p>
+<% else %>
+  <h2>No Notes</h2>
+<% end %>
+
 
 <% if @product.stories.count > 0 %>
   <h2>Stories</h2>
-  <table class="table">
-    <thead>
-	    <tr><th>Story</th><th>Est. Hours</th><th>Actual Hours</th><th>Status</th><th>Num Tasks</th><th>Assigned To</th><th>Requestor</th><th>Sprint</th></tr>
-    </thead>
-    <tbody>
-      <% @product.stories.each do |story| %>
-        <tr>
-          <td><%= link_to story.title, story %></td>
-          <td><%= story.estimated_hours %></td>
-          <td>Coming Soon</td>
-          <td class="<%= story.status.code %>"><%= story.status.title %></td>
-          <td><%= story.tasks.count %></td>
-          <td>
-            <% story.users.each do |user| %>
-              <%= link_to user.username, user %><br />
-            <% end %>
-          </td>
-          <td><%= link_to story.requestor.username, story.requestor %></td>
-          <% if story.sprint %>
-            <td><%= link_to "#{story.sprint.start_date} - #{story.sprint.end_date}", story.sprint %></td>
-          <% else %>
-            <td></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% @stories = @product.stories %>
+  <%= render 'stories_listing' %>
 <% else %>
-  <h2>No Stories for Product</h2>
+  <h2>No Stories</h2>
 <% end %>
