@@ -28,7 +28,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <h1>STORY: <%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %></h1>
 <table class="table">
 
-  <tr><th>Status</th><td><%= @story.status.title %></td></tr>
+  <tr><th>Status</th><td class="<%= @story.status.code %>"><%= @story.status.title %></td></tr>
 
   <tr><th>Requestor</th><td><%= link_to @story.requestor.username, @story.requestor %></td></tr>
 
@@ -42,6 +42,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     </td>
   </tr>
 
+  <tr><th>Estimated Hours</th><td><%= @story.estimated_hours %></td></tr>
   <tr><th>Sprint</th><td><% if @story.sprint_id %><%= link_to "#{@story.sprint.start_date} - #{@story.sprint.end_date}", @story.sprint %><% end %></td></tr>
 
   <tr><th>Product</th><td><% if @story.product_id %><%= link_to @story.product.title, @story.product %><% end %></td></tr>

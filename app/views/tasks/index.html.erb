@@ -31,10 +31,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <tr>
       <th>Title</th>
       <th>Status</th>
-      <th>Assigned To</th>
+      <th>Owner</th>
       <th>Description</th>
       <th>Product</th>
-      <th>Project</th>
       <th>Sprint</th>
       <th>Story</th>
     </tr>
@@ -52,8 +51,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
         </td>
         <td><%= task.description %></td>
-        <td><% if task.product_id %><%= link_to task.product.title, task.product %><% end %></td>
-	<td><% if task.sprint_id %><%= link_to "#{task.sprint.start_date} - #{task.sprint.end_date}", task.sprint %><% end %></td>
+        <td><% if task.story.product_id %><%= link_to task.story.product.title, task.story.product %><% end %></td>
+	<td><% if task.story.sprint_id %><%= link_to "#{task.story.sprint.start_date} - #{task.story.sprint.end_date}", task.story.sprint %><% end %></td>
         <td><% if task.story_id %><%= link_to task.story.title, task.story %><% end %></td>
       </tr>
     <% end %>

@@ -28,7 +28,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <h1>TASK: <%= @task.title %> <%= link_to '(Edit)', edit_task_path(@task) %></h1>
 <table class="table">
-	<tr><th>Status</th><td><%= @task.status.title %></td></tr>
+	<tr><th>Status</th><td class="<%= @task.status.code %>"><%= @task.status.title %></td></tr>
 
 <tr>
 	<th>Owners</th>
