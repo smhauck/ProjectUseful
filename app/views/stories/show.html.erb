@@ -25,7 +25,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<h1>STORY: <%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %></h1>
+<h1>STORY: <%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %> <%= link_to '(Delete)', story_path(@story), method: :delete, data: { confirm: 'Really delete Story?' } %></h1>
+
 <table class="table">
 
   <tr><th>Status</th><td class="<%= @story.status.code %>"><%= @story.status.title %></td></tr>
@@ -63,7 +64,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <% @story.tasks.each do |task| %>
         <tr>
           <td><%= link_to task.title, task %></td>
-          <td><%= task.status.title %></td>
+	  <td class="<%= task.status.code %>"><%= task.status.title %></td>
           <td>
             <% task.task_assignments.each do |ta| %>
               <%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />

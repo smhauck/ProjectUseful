@@ -26,7 +26,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<h1>TASK: <%= @task.title %> <%= link_to '(Edit)', edit_task_path(@task) %></h1>
+<h1>TASK: <%= @task.title %> <%= link_to '(Edit)', edit_task_path(@task) %> <%= link_to '(Delete)', task_path(@task), method: :delete, data: { confirm: 'Really delete Task?' } %></h1>
 <table class="table">
 	<tr><th>Status</th><td class="<%= @task.status.code %>"><%= @task.status.title %></td></tr>
 
