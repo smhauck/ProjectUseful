@@ -28,11 +28,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
 <h1><%= @product.title %> <%= link_to '(Edit)', edit_product_path(@product) %></h1>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+<table class="table">
+<tr><th>Status</th><td class="<%= @product.status.code %>"><%= @product.status.title %></td></tr>
+<tr><th>Owner</th><td><%= @product.owner.username %></td></tr>
+<tr><th>Description:</th><td><%= simple_format(@product.description) %></td></tr>
+</table>
 
 <% if @product.wikis.count > 0 %>
   <h2>Wikis</h2>
