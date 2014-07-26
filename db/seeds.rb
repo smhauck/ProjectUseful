@@ -17,17 +17,17 @@
 
 
 #     Create the default product_status_types
-ProductStatusType.create(title: "Waiting", alive: "1")
-ProductStatusType.create(title: "In Progress", alive: "1")
-ProductStatusType.create(title: "Complete", alive: "0")
+ProductStatusType.create(title: "Waiting", alive: "1", code: 'waiting')
+ProductStatusType.create(title: "In Progress", alive: "1", code: 'in_progress')
+ProductStatusType.create(title: "Complete", alive: "0", code: 'complete')
+ProductStatusType.create(title: "Cancelled", alive: "0", code: 'cancelled')
 
 
 #     Create the default sprint_status_types
-SprintStatusType.create(title: "Waiting", alive: "1")
-SprintStatusType.create(title: "In Progress", alive: "1")
-SprintStatusType.create(title: "Complete", alive: "0")
-SprintStatusType.create(title: "Cancelled", alive: "0")
-SprintStatusType.create(title: "Deleted", alive: "0")
+SprintStatusType.create(title: "Waiting", alive: "1", code: 'waiting')
+SprintStatusType.create(title: "In Progress", alive: "1", code: 'in_progress')
+SprintStatusType.create(title: "Complete", alive: "0", code: 'complete')
+SprintStatusType.create(title: "Cancelled", alive: "0", code: 'cancelled')
 
  
 #     Create the default task_status_types
@@ -53,6 +53,12 @@ StoryStatusType.create(title: "Complete", alive: "0", code: "complete")
 StoryStatusType.create(title: "Cancelled", alive: "0", code: "cancelled")
 
 
-#     Create the default administrator user
-#     Be sure to change the admin password!
-User.create(username: "admin", password: "admin", password_confirmation: "admin")
+
+
+#################################################
+#     Create the default administrator user     #
+#     BE SURE TO CHANGE THE admin PASSWORD!     #
+#################################################
+User.create(username: "admin", password: "SECRET", password_confirmation: "SECRET")
+
+

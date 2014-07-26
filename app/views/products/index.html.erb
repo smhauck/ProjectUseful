@@ -30,7 +30,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <thead>
     <tr>
       <th>Title</th>
-      <th>Alive</th>
+      <th>Status</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -39,7 +39,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <% @products.each do |product| %>
       <tr>
         <td><%= link_to product.title, product %></td>
-        <td>(DEVEL) <%= product.alive %></td>
+	<td class="<%= product.status.code %>"><%= product.status.title %></td>
         <td><%= product.description %></td>
       </tr>
     <% end %>

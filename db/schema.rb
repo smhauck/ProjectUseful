@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725173047) do
+ActiveRecord::Schema.define(version: 20140726023014) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20140725173047) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code",        default: "FIXME", null: false
   end
 
   create_table "products", force: true do |t|
@@ -98,6 +99,8 @@ ActiveRecord::Schema.define(version: 20140725173047) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "owner_id",               default: 1, null: false
+    t.integer  "product_status_type_id", default: 1, null: false
   end
 
   create_table "sprint_status_types", force: true do |t|
@@ -106,6 +109,7 @@ ActiveRecord::Schema.define(version: 20140725173047) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code",        default: "FIXME", null: false
   end
 
   create_table "sprints", force: true do |t|
