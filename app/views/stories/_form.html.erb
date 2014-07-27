@@ -50,6 +50,14 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	  <%= collection_select(:story, :product_id, Product.all, :id, :title) %>
   </div>
   <div class="field">
+	  <%= f.label :requestor_id %></br >
+	  <% if @story.requestor_id %>
+	  <%= collection_select(:story, :requestor_id, User.all, :id, :username) %>
+	  <% else %>
+	  <%= collection_select(:story, :requestor_id, User.all, :id, :username, {selected: session[:user_id].to_i}) %>
+	  <% end %>
+  </div>
+  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title, { size: 60 } %>
   </div>

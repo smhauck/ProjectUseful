@@ -22,6 +22,7 @@ class Story < ActiveRecord::Base
   validates :requestor, presence: true
   validates :status, presence: true
   validates :product, presence: true
+  validates :creator, presence: true
 
 
 
@@ -29,6 +30,7 @@ class Story < ActiveRecord::Base
   belongs_to :sprint
   belongs_to :status, class_name: "StoryStatusType", foreign_key: "story_status_type_id"
   belongs_to :requestor, class_name: "User", foreign_key: "requestor_id"
+  belongs_to :creator, class_name: "User", foreign_key: "creator_id"
   has_many :tasks
 
   has_many :story_assignments
