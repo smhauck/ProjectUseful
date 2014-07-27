@@ -1,3 +1,460 @@
+commit 5bcc5802eca41e346c9675526e2ccf2d5331dbb4
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 18:26:21 2014 -0400
+
+    http://www.projectuseful.org/tasks/65
+
+commit dbf3a7bfec597ecdeb976b614309bafcabb4135d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 18:02:10 2014 -0400
+
+    http://www.projectuseful.org/stories/62
+
+commit ff8e0db0e30e2687748d24b25f9ef81d504e21a5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 17:48:16 2014 -0400
+
+    http://www.projectuseful.org/stories/61
+
+commit e79bf992e06d7387452bf86fed7b3fa15a482b92
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 17:42:38 2014 -0400
+
+    http://www.projectuseful.org/stories/61
+
+commit c00566f02b0d84a07d9fa22d5342b6465d441e6c
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 17:07:56 2014 -0400
+
+    working on http://www.projectuseful.org/stories/58
+
+commit ce5126b74ee6338b8f3fd3c9840e564d0966331e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 16:01:49 2014 -0400
+
+    working on http://www.projectuseful.org/stories/56
+
+commit 0a8cf8c60eb57c73e564862598db5b04e637b97d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 14:53:00 2014 -0400
+
+    http://www.projectuseful.org/stories/26 touch up
+
+commit 33d57a932d6c74fb08de94b025a981c134224c21
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 14:50:38 2014 -0400
+
+    http://www.projectuseful.org/stories/26 touch up
+
+commit cca388580bca14deabec919f085af2af5d3a9c36
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 14:47:11 2014 -0400
+
+    http://www.projectuseful.org/stories/26 touch up
+
+commit 3ca2ebc2846c5518b114e68128bd197802c586c7
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 14:15:41 2014 -0400
+
+    http://www.projectuseful.org/stories/26 touch up
+
+commit 4f4d4412f16b0caef1fb035e9ee47e89cbbbfe33
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 13:58:51 2014 -0400
+
+    http://www.projectuseful.org/stories/26 complete
+
+commit d558fad17094ce6bac4ee8058af7837fbbd0d563
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 09:06:28 2014 -0400
+
+    http://www.projectuseful.org/stories/26 halfway there ...
+
+commit e42a880ff9e69295ff9c2a1d2913f817f0fd04eb
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 26 23:04:42 2014 -0400
+
+    task comments (hours)
+
+commit fe874f0e701f260a49b79cc18d228118649d0416
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 26 03:09:47 2014 -0400
+
+    updated views to strip_insignificant_zeros on story points, story estimated hours
+
+commit 1dbf269bfb0bd79fb14cea2852cf1e8f8b73bb81
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 26 02:33:37 2014 -0400
+
+    http://www.projectuseful.org/stories/50 complete
+
+commit f27b7cfbebf81b29d3fba1e8ba510e167fbb5ef8
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 25 22:45:08 2014 -0400
+
+    http://www.projectuseful.org/stories/55 is complete
+    
+    minor updates to views
+    
+    updated seeds to include status types codes
+
+commit d3ab37f84e7aaeadbb3c6d140a27b346d5feff34
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 25 19:53:57 2014 -0400
+
+    http://www.projectuseful.org/stories/54 and http://www.projectuseful.org/stories/52 complete
+
+commit 29b486de23e144d1b652683b3085e686a4c1c693
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 25 18:52:26 2014 -0400
+
+    updates to story views
+
+commit c667ba525adb28d9f5c9d671d803f9621673a92e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 25 12:48:03 2014 -0400
+
+    added details to products show page
+
+commit dddec7911ff31111261672ee60bc742be97f0bd6
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 25 10:29:42 2014 -0400
+
+    http://www.projectuseful.org/tasks/35 complete; http://www.projectuseful.org/stories/49 complete
+
+commit fe6fa009f3eb26b35f087089c01885ee3a3e6ea6
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Jul 25 00:44:13 2014 -0400
+
+    http://www.projectuseful.org/stories/6 complete; added User relation in Note so you can link a Note to a User
+
+commit c1355ae5e4bea93526ab41d14e6cc6ff713a594a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 24 23:13:52 2014 -0400
+
+    bug fix; typo
+
+commit 841c2e032d952a72ae1e13fbcb645ffbd3d515c2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 24 21:46:13 2014 -0400
+
+    http://www.projectuseful.org/stories/24 complete; minor task view updates
+
+commit 6b11f34b770aae23203a9070ca84962850644d3b
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 24 20:35:01 2014 -0400
+
+    minor updates to both task show and story show
+
+commit 606e1061b31caea78bfbaf4775c9488ac94eed89
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 24 20:29:03 2014 -0400
+
+    http://www.projectuseful.org/stories/43 complete
+
+commit c8132adaf44de79285dd80eb1b8aca9b43a94329
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 24 19:57:14 2014 -0400
+
+    http://www.projectuseful.org/stories/38 complete
+
+commit 9dd2fab673ec88070512be447888ee58c2e994a5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 24 14:45:42 2014 -0400
+
+    added class to item status displays; added code field to task_status_types; updated seed data to include task status type codes
+
+commit 0d5ddaaa676b3d5b55167d0b0897c8da87f5de35
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 24 13:12:51 2014 -0400
+
+    http://www.projectuseful.org/stories/4 complete
+
+commit bada87cb55ae68f20cc87a99154cd7457eec1fef
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 24 01:45:19 2014 -0400
+
+    show user details to public; added owning users to requests displayed on user details
+
+commit 3cd5b428f42b47ecfff4d923b778bb4cb426b08e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 24 01:27:22 2014 -0400
+
+    added Note to menu; can view notes list and details without logging in; minor note details layout changes
+
+commit c71d56b4954adccfc96379cec4c780e9037a5dbe
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 24 00:52:51 2014 -0400
+
+    migrations clean up
+
+commit 784c0019f736898e40ab1e1d876f4afe24bf12c5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 23 23:37:01 2014 -0400
+
+    removed project migrations and old image
+
+commit b31b467ac34c405c084dcca44b743f90f0aaeb3a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 23 23:29:58 2014 -0400
+
+    significant updates
+    changes to migrations.  removed project_id from all tables, models, etc.
+    Not the best thing, but i'm cleaning up a bit ... it's still super early
+    in the project.
+    
+    have most of the default tests running.  session-based tests are not
+    working
+
+commit 847004c341645bb19e9cdf51c41c36185471cc96
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 23 13:59:19 2014 -0400
+
+    minor view formatting changes; marked "list all blog posts" as DEVEL; removed Version from wiki_pages form as the system will maintain version information
+
+commit 0ea7131af58ba8a13fd80cc336f79e381b6130ab
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 23 10:49:19 2014 -0400
+
+    minor wording change on footer
+
+commit 237cbff750191fb0c9bb64d6245ed4831e1dcb7a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 23 10:25:22 2014 -0400
+
+    http://www.projectuseful.org/stories/23 complete
+
+commit 9cc46d373204e1c5be569879b993c3eb5e2c89a0
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 23 09:47:14 2014 -0400
+
+    http://www.projectuseful.org/stories/12 complete
+
+commit 6408d713e83bb6f27d841fc0271846f0f915dd7d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 23 08:32:08 2014 -0400
+
+    http://www.projectuseful.org/stories/27 done
+
+commit e78575129a3b332088531948c8c5c34284ce43c4
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 23 01:02:54 2014 -0400
+
+    http://www.projectuseful.org/stories/36 complete
+
+commit 2a7c70f8fd664f4a534e87351678573683c32c05
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 21:04:30 2014 -0400
+
+    minor update to complete http://www.projectuseful.org/stories/31
+
+commit 4388a1328c4b7beef381b70c5b9baa58a05edf1e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 21:00:00 2014 -0400
+
+    minor update to complete http://www.projectuseful.org/stories/32
+
+commit 7e2bd9cb86853c98b7b0b3376f4779ff7876f775
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 20:44:09 2014 -0400
+
+    http://www.projectuseful.org/stories/31; minor wording update to welcome page
+
+commit 452e7b31cc3f5dbc13f9220538b3a5daaadce35b
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 13:33:47 2014 -0400
+
+    http://www.projectuseful.org/stories/10
+
+commit 2af9e71b638515a48dce37fdb959788d24999d6f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 13:22:21 2014 -0400
+
+    http://www.projectuseful.org/stories/34
+
+commit ecadeebd4e63de14cf7c997683c05e5638dc0e33
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 13:20:04 2014 -0400
+
+    http://www.projectuseful.org/stories/32
+
+commit 093f9438166e229be3a687497992254fc095e7f8
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 13:18:51 2014 -0400
+
+    http://www.projectuseful.org/stories/33 is complete
+
+commit 6e2465828bab57a9b2a52ac4f57330a0cef0d125
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 12:50:55 2014 -0400
+
+    http://www.projectuseful.org/stories/32 ; minor display updates as well
+
+commit a13db496b663a0363e4dc4d2100a81b1a4ef83ad
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 11:05:55 2014 -0400
+
+    removed Project; updated controllers, models, views accordingly
+
+commit 358dabd054fe24a1c8332b1ef1fc2893bf33b8c8
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 10:22:02 2014 -0400
+
+    removed Project; updated controllers, models, views accordingly
+
+commit b8fbe81a50036bef1d46e402ba35776cec622ae4
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 22 08:47:53 2014 -0400
+
+    view updates
+
+commit 87ae0302aa34462640ef1c66987a7ff382254dc2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 21 21:37:10 2014 -0400
+
+    form updates
+
+commit c1f0a7d3fee183d6319b3986d80cb0cf2702fcb5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 21 19:59:32 2014 -0400
+
+    active / complete stories
+
+commit c0d2683250c534fb4b7ce952aadcaac06a4e6021
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 21 14:57:11 2014 -0400
+
+    removed alive from story--is in status; creating blog_post has blog selection
+
+commit 8b3978b2f8cbda3038e291ed0083ceba5f040231
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 21 14:55:22 2014 -0400
+
+    updating schema a bit; added default statuses into status table migrations
+
+commit 889bf9c7fce903bd22d6210cde954026ff8b9198
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 19:47:24 2014 -0400
+
+    fixed broken page;  had @wiki.product_id instead of @wiki.product
+
+commit 396adda5a2878acbbe8250b2ec775307498a6382
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 19:34:59 2014 -0400
+
+    added status types to tasks; updated displays
+
+commit 6b6f7c05ca219c11fea7c6a013e162605c4302c7
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 17:54:25 2014 -0400
+
+    adding product_id to wikis; updating product/show to list related projects, stories and wikis
+
+commit de434aef1f08b4c06c56a349ab9f1873685bb2b5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 16:39:17 2014 -0400
+
+    removed the default Rails Edit and Back links from show.html.erb files
+    
+    created migrations to add alive field to story_status_types. (allows
+    listing all non-complete, deleted, cancelled stories regardless of
+    actual status type)
+    
+    added reference in Story model to story_status_types
+    
+    added story status to table through migration
+
+commit c42e13dfe2aec01019c211b96547a3ecf67aff11
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 13:10:19 2014 -0400
+
+    logo, colors, layout updates
+
+commit 90b92d117172065f4dd0c8140eac42f010c2b383
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 01:45:35 2014 -0400
+
+    typo in css
+
+commit 4612aa52eb9643903f9ca74ff2883f9e544f752d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 01:39:23 2014 -0400
+
+    typo in css
+
+commit 4c2a68377b39dcb7ffc10dc978b0d0c049f2d3a9
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 01:32:36 2014 -0400
+
+    typo in css
+
+commit a97882aee1e70510f664ec9792847382155fb34e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 01:24:59 2014 -0400
+
+    logo/navbar color tweak; slight layout tweaks; changed most links to link_to from a href
+
+commit 42d2ec81e8c87c02cd7b3143c4e28428a972e98d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 00:19:06 2014 -0400
+
+    added logo to non-logged in navbar
+
+commit 9677b20574eb2949254b87debf0a4f3f17779b76
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 00:01:18 2014 -0400
+
+    blog/index: table is now class=table
+
+commit 3d0600c9855f59099a2a016ad1f8554336a4ca26
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 20 00:00:48 2014 -0400
+
+    added logo; minor layout changes
+
+commit c21254f580fb1389fdc75194d2446a4eebfd43ba
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 19:41:01 2014 -0400
+
+    removed product and project from sprint templates; updated controller
+
+commit d8eb3ee5cd8a0afffed5323bd70fe4f4dc8bd5c3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 19:28:44 2014 -0400
+
+    minor application layout changes
+
+commit 0f348035ba6450452994e17ed6948e5831e7bbb3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 19:28:08 2014 -0400
+
+    http://www.projectuseful.org/stories/18 complete
+
+commit ebcdd249d15b4fa4c0f1d992638569c22f913b87
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 19:25:48 2014 -0400
+
+    http://www.projectuseful.org/stories/17 complete
+
+commit d28aaf4422510de0bff4d01eeeccec497c19ab6a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 18:55:27 2014 -0400
+
+    removed product and project references as a sprint can contain stories from any project
+
+commit 4aebc7e574d0dd89d704a58a89e67c4f4ac5f9c5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 15:40:33 2014 -0400
+
+    updated Welcome page
+    added favicon and apple-touch-icon
+
+commit 0841425d04e17f8a65f45b2c4ad81504e658090e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Jul 19 14:49:59 2014 -0400
+
+    more layout updates
+
 commit 7cb8dc3c5520c63f737b1799b03a0f36600dcba1
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sat Jul 19 14:41:28 2014 -0400
