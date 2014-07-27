@@ -46,7 +46,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <tr><th>Points</th><td><%= number_with_precision(@story.points, strip_insignificant_zeros: true) %></td></tr>
   <tr><th>Estimated Hours</th><td><%= number_with_precision(@story.estimated_hours, strip_insignificant_zeros: true) %></td></tr>
 	<% @time = 0 %>
-	<% story.tasks.each do |task| %>
+	<% @story.tasks.each do |task| %>
 		<% @time = @time + task.task_comments.sum(:hours) %>
 	<% end %>
 	<tr><th>Actual Hours</th><td><%= number_with_precision(@time, strip_insignificant_zeros: true) %></td></tr>
