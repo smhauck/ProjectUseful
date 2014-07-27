@@ -48,8 +48,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	<td><%= number_with_precision(task.task_comments.sum(:hours), strip_insignificant_zeros: true) %></td>
 	<td class="<%= task.status.code %>"><%= task.status.title %></td>
 	<td>
-        <% task.users.each do |user| %>
-		<%= link_to user.username, user %><br />
+        <% task.task_assignments.each do |assignment| %>
+		<%= link_to assignment.user.username, assignment.user %><br />
         <% end %>
         </td>
         <td><% if task.story_id %><%= link_to task.story.title, task.story %><% end %></td>
