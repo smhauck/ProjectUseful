@@ -44,8 +44,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <% @tasks.each do |task| %>
       <tr>
         <td><%= link_to task.title, task %></td>
-        <td>Coming Soon</td>
-        <td>Coming Soon</td>
+        <td><%= number_with_precision(task.estimated_hours, strip_insignificant_zeros: true) %></td>
+	<td><%= number_with_precision(task.task_comments.sum(:hours), strip_insignificant_zeros: true) %></td>
 	<td class="<%= task.status.code %>"><%= task.status.title %></td>
 	<td>
         <% task.users.each do |user| %>

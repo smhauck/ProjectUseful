@@ -70,9 +70,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
             <% task.task_assignments.each do |ta| %>
               <%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
             <% end %>
-          </td>
-          <td>Coming soon</td>
-          <td>Coming soon</td>
+           </td>
+           <td><%= number_with_precision(task.estimated_hours, strip_insignificant_zeros: true) %></td>
+           <td><%= number_with_precision(task.task_comments.sum(:hours), strip_insignificant_zeros: true) %></td>
         </tr>
       <% end %>
     </tbody>
