@@ -34,13 +34,13 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </p>
 
   <p>
-  <strong>Total Estimated Time (Hrs):</strong>
+  <strong>Estimated Hours:</strong>
         <% @time = 0 %>
 	<%= number_with_precision(@sprint.stories.sum(:estimated_hours), strip_insignificant_zeros: true) %>
 	</p>
 
   <p>
-  <strong>Total Time (Hrs):</strong>
+  <strong>Actual Hours:</strong>
         <% @time = 0 %>
         <% @sprint.stories.each do |story| %>
         <% story.tasks.each do |task| %>
