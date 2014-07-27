@@ -37,6 +37,18 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	<%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
   <%= render 'add_user' %>
+</td>
+</tr>
+<tr>
+	<th>Ocmments</th>
+	<td>
+<% @task.task_comments.each do |tc| %>
+	<%= tc.user.username -%> <%= link_to '(Remove)', task_assignment_path(tc.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+	<%= tc.hours %>
+	<%= tc.date_of_work %>
+	<%= tc.comment %>
+
+<% end %>
   <%= render 'add_comments' %>
 </td>
 </tr>
