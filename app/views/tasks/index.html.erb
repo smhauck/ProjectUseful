@@ -49,10 +49,10 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	<td class="<%= task.status.code %>"><%= task.status.title %></td>
 	<td>
         <% task.users.each do |user| %>
-          <%= link_to user.username, user %>
+		<%= link_to user.username, user %><br />
         <% end %>
-        <td><% if task.story_id %><%= link_to task.story.title, task.story %><% end %></td>
         </td>
+        <td><% if task.story_id %><%= link_to task.story.title, task.story %><% end %></td>
         <td><% if task.story.product_id %><%= link_to task.story.product.title, task.story.product %><% end %></td>
 	<td><% if task.story.sprint_id %><%= link_to "#{task.story.sprint.start_date} - #{task.story.sprint.end_date}", task.story.sprint %><% end %></td>
       </tr>
