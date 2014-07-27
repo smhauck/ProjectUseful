@@ -44,8 +44,12 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <tr>
         <td><%= link_to story.title, story %></td>
         <td><%= number_with_precision(story.points, strip_insignificant_zeros: true) %></td>
-        <td><%= number_with_precision(story.estimated_hours, strip_insignificant_zeros: true) %></td>
-        <td>Coming Soon</td>
+	<td><%= number_with_precision(story.estimated_hours, strip_insignificant_zeros: true) %></td>
+	<% @time = 0 %>
+	<% story.tasks.each do |task| %>
+		<% @time = @time + task.task_comments.sum(:hours) %>
+	<% end %>
+		<td><%= number_with_precision(@time, strip_insignificant_zeros: true) %></td>
 	<td class="<%= story.status.code %>"><%= story.status.title %></td>
 	<td><%= story.tasks.count %></td>
         <td>
