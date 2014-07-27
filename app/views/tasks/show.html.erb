@@ -37,6 +37,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	<%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
   <%= render 'add_user' %>
+  <%= render 'add_comments' %>
 </td>
 </tr>
 

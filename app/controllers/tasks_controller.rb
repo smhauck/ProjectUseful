@@ -29,7 +29,8 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-	  @task_assignment = TaskAssignment.new
+    @task_assignment = TaskAssignment.new
+    @task_comment = TaskComment.new
   end
 
   # GET /tasks/new

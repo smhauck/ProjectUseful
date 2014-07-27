@@ -1,0 +1,26 @@
+<%= form_for @task_comments do |f| %>
+
+
+
+
+
+
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <%= f.hidden_field :task_id, value: @task.id %>
+  <input type="submit" value="Add User" />
+<% end %>

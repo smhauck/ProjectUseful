@@ -1,0 +1,33 @@
+<h1>Listing task_comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hours</th>
+      <th>Date of work</th>
+      <th>Task</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_comments.each do |task_comment| %>
+      <tr>
+        <td><%= task_comment.hours %></td>
+        <td><%= task_comment.date_of_work %></td>
+        <td><%= task_comment.task %></td>
+        <td><%= task_comment.user %></td>
+        <td><%= link_to 'Show', task_comment %></td>
+        <td><%= link_to 'Edit', edit_task_comment_path(task_comment) %></td>
+        <td><%= link_to 'Destroy', task_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task hour', new_task_comment_path %>

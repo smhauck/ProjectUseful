@@ -1,5 +1,7 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :task_comments
+
   resources :issues
 
   resources :issue_status_types

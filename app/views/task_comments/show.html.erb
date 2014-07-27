@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @task_comment.hours %>
+</p>
+
+<p>
+  <strong>Date of work:</strong>
+  <%= @task_comment.date_of_work %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @task_comment.task %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @task_comment.user %>
+</p>
+
+<%= link_to 'Edit', edit_task_comment_path(@task_comment) %> |
+<%= link_to 'Back', task_comments_path %>

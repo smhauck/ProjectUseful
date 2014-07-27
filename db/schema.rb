@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726023014) do
+ActiveRecord::Schema.define(version: 20140726135459) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -171,6 +171,19 @@ ActiveRecord::Schema.define(version: 20140726023014) do
 
   add_index "task_assignments", ["task_id"], name: "index_task_assignments_on_task_id", using: :btree
   add_index "task_assignments", ["user_id"], name: "index_task_assignments_on_user_id", using: :btree
+
+  create_table "task_comments", force: true do |t|
+    t.decimal  "hours",        precision: 5, scale: 2
+    t.date     "date_of_work"
+    t.text     "comment"
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "task_comments", ["task_id"], name: "index_task_comments_on_task_id", using: :btree
+  add_index "task_comments", ["user_id"], name: "index_task_comments_on_user_id", using: :btree
 
   create_table "task_status_types", force: true do |t|
     t.boolean  "alive"

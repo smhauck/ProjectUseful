@@ -7,5 +7,9 @@ class Task < ActiveRecord::Base
   has_many :task_assignments
   has_many :users, through: :task_assignments
   accepts_nested_attributes_for :task_assignments
+  
+  has_many :task_comments
+  has_many :users, through: :task_comments
+  accepts_nested_attributes_for :task_comments
 
 end

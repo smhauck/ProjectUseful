@@ -9,5 +9,10 @@ class User < ActiveRecord::Base
 
   has_many :task_assignments
   has_many :tasks, through: :task_assignments
+  
+  has_many :task_comments
+  has_many :tasks, through: :task_comments
+  accepts_nested_attributes_for :task_comments
+
 
 end
