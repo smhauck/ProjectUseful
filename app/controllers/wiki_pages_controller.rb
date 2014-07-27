@@ -44,6 +44,7 @@ class WikiPagesController < ApplicationController
   # POST /wiki_pages.json
   def create
     @wiki_page = WikiPage.new(wiki_page_params)
+    @wiki_page.user_id = session[:user_id]
 
     respond_to do |format|
       if @wiki_page.save
