@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726135459) do
+ActiveRecord::Schema.define(version: 20140727175230) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(version: 20140726135459) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "task_status_type_id"
+    t.decimal  "estimated_hours",     precision: 5, scale: 2
   end
 
   add_index "tasks", ["product_id"], name: "index_tasks_on_product_id", using: :btree

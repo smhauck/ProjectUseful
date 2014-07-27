@@ -29,6 +29,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <h1>TASK: <%= @task.title %> <%= link_to '(Edit)', edit_task_path(@task) %> <%= link_to '(Delete)', task_path(@task), method: :delete, data: { confirm: 'Really delete Task?' } %></h1>
 <table class="table">
 	<tr><th>Status</th><td class="<%= @task.status.code %>"><%= @task.status.title %></td></tr>
+  <tr><th>Estimated Hours</th><td><%= number_with_precision(@task.estimated_hours, strip_insignificant_zeros: true) %></td></tr>
 
 <tr>
 	<th>Owners</th>
@@ -37,19 +38,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	<%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
   <%= render 'add_user' %>
-</td>
-</tr>
-<tr>
-	<th>Ocmments</th>
-	<td>
-<% @task.task_comments.each do |tc| %>
-	<%= tc.user.username -%> <%= link_to '(Remove)', task_assignment_path(tc.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
-	<%= tc.hours %>
-	<%= tc.date_of_work %>
-	<%= tc.comment %>
-
-<% end %>
-  <%= render 'add_comments' %>
 </td>
 </tr>
 
@@ -63,4 +51,22 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
 <tr><th>Description</th><td><%= simple_format(@task.description) %></td></tr>
+</table>
+
+
+<h2>Comments <%= link_to '(Add)', controller: "task_comments", action: "new",  task: @task %></h2>
+<table class="table">
+	<thead>
+		<tr><th>User</th><th>Date</th><th>Hours</th><th>Comment</th></tr>
+	</thead>
+	<tbody>
+      <% @task.task_comments.each do |tc| %>
+  <tr>
+    <td><%= tc.user.username %></td>
+	 <td><%= tc.date_of_work %></td>
+	    <td><%= tc.hours %></td>
+	<td><%= tc.comment %></td>
+  </tr>
+<% end %>
+</tbody>
 </table>

@@ -15,6 +15,13 @@ class TaskCommentsController < ApplicationController
   # GET /task_comments/new
   def new
     @task_comment = TaskComment.new
+    if params[:task]
+      @task_comment.task_id = params[:task]
+      @task = Task.find(params[:task])
+      @task_selected = 1
+    else
+      @task = Task.new
+    end
   end
 
   # GET /task_comments/1/edit
@@ -25,10 +32,11 @@ class TaskCommentsController < ApplicationController
   # POST /task_comments.json
   def create
     @task_comment = TaskComment.new(task_comment_params)
+    @task_comment.user_id = session[:user_id]
 
     respond_to do |format|
       if @task_comment.save
-        format.html { redirect_to @task_comment, notice: 'Task comment was successfully created.' }
+        format.html { redirect_to @task_comment.task, notice: 'Task comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @task_comment }
       else
         format.html { render action: 'new' }
@@ -69,6 +77,6 @@ class TaskCommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_comment_params
-      params.require(:task_comment).permit(:comments, :date_of_work, :comment, :task_id, :user_id)
+      params.require(:task_comment).permit(:comments, :date_of_work, :hours, :comment, :task_id, :user_id)
     end
 end

@@ -12,12 +12,12 @@
 
 <p>
   <strong>Task:</strong>
-  <%= @task_comment.task %>
+  <%= @task_comment.task.title %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @task_comment.user %>
+  <%= @task_comment.user.username %>
 </p>
 
 <%= link_to 'Edit', edit_task_comment_path(@task_comment) %> |
