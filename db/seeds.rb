@@ -16,6 +16,13 @@
 # along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
+
+#     Create the default issue_status_types
+IssueStatusType.create(title: "Waiting", alive: "1", code: 'waiting')
+IssueStatusType.create(title: "Accepted", alive: "0", code: 'accepted')
+IssueStatusType.create(title: "Denied", alive: "0", code: 'denied')
+
+
 #     Create the default product_status_types
 ProductStatusType.create(title: "Waiting", alive: "1", code: 'waiting')
 ProductStatusType.create(title: "In Progress", alive: "1", code: 'in_progress')
@@ -55,10 +62,10 @@ StoryStatusType.create(title: "Cancelled", alive: "0", code: "cancelled")
 
 
 
-#################################################
-#     Create the default administrator user     #
-#     BE SURE TO CHANGE THE admin PASSWORD!     #
-#################################################
-User.create(username: "admin", password: "SECRET", password_confirmation: "SECRET")
+##################################################################
+#     Create the default administrator user                      #
+#     BE SURE TO CHANGE THE admin password and contact_email     #
+##################################################################
+User.create(username: "admin", password: "SECRET", password_confirmation: "SECRET", contact_email: "FIXME@example.com")
 
 

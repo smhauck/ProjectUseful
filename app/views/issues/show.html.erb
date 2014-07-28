@@ -19,7 +19,12 @@
 
 <p>
   <strong>Requestor:</strong>
-  <%= @issue.requestor.username %>
+  <%= @issue.submitter_email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @issue.submitter_full_name %>
 </p>
 
 <p>

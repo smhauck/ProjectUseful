@@ -17,7 +17,7 @@
 
 
 class IssuesController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
+  skip_before_action :authorize, only: [:index, :show, :new, :create]
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
 
   # GET /issues
@@ -44,6 +44,7 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
+    @issue.issue_status_type_id = 1
 
     respond_to do |format|
       if @issue.save
@@ -88,6 +89,6 @@ class IssuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-      params.require(:issue).permit(:title, :description, :product_id, :requestor_id, :issue_status_type_id)
+      params.require(:issue).permit(:title, :description, :product_id, :requestor_id, :issue_status_type_id, :submitter_full_name, :submitter_email)
     end
 end

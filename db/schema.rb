@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728031222) do
+ActiveRecord::Schema.define(version: 20140728155137) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140728031222) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "alive"
   end
 
   create_table "issues", force: true do |t|
@@ -50,6 +51,8 @@ ActiveRecord::Schema.define(version: 20140728031222) do
     t.integer  "issue_status_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "submitter_email"
+    t.string   "submitter_full_name"
   end
 
   add_index "issues", ["issue_status_type_id"], name: "index_issues_on_issue_status_type_id", using: :btree
@@ -218,7 +221,6 @@ ActiveRecord::Schema.define(version: 20140728031222) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "cell_phone"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "contact_phone"

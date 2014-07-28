@@ -1,6 +1,6 @@
 <h1>Listing issues</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -21,7 +21,7 @@
         <td><%= issue.description %></td>
         <td><%= issue.product %></td>
         <td><%= issue.requestor_id %></td>
-        <td><%= issue.issue_status_type %></td>
+        <td><%= issue.status.title %></td>
         <td><%= link_to 'Show', issue %></td>
         <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
         <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
