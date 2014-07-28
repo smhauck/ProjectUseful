@@ -45,6 +45,7 @@ class WikisController < ApplicationController
   # POST /wikis.json
   def create
     @wiki = Wiki.new(wiki_params)
+    @wiki.creator_id = session[:user_id]
 
     respond_to do |format|
       if @wiki.save
