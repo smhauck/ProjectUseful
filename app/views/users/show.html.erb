@@ -26,12 +26,16 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<h1>Username: <%= @user.username %></h1>
+<p><strong>First Name:</strong> <%= @user.first_name %></p>
+<p><strong>Last Nmae:</strong> <%= @user.last_name %></p>
+<p><strong>Contact Email:</strong> <%= @user.contact_email %></p>
+<p><strong>Contact Phone:</strong> <%= @user.contact_phone %></p>
 
-<% if @user.blogs %>
+
+
+
+<% if @user.blogs.count > 0 %>
   <h2>Created Blogs</h2>
   <table class="table">
     <thead>
@@ -48,7 +52,24 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% end %>
 
 
-<% if @user.requests %>
+<% if @user.wikis.count > 0 %>
+  <h2>Created Wikis</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th><th>Created At</th></tr>
+    </thead>
+    <tbody>
+  <% @user.wikis.each do |wiki| %>
+    <tr><td><%= link_to wiki.title, wiki %></td><td><%= wiki.created_at %></td></tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Wikis</h2>
+<% end %>
+
+
+<% if @user.requests.count > 0 %>
   <h2>Requested Stories</h2>
   <table class="table">
     <thead>
@@ -78,7 +99,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <h2>No Requested Stories</h2>
 <% end %>
 
-<% if @user.story_assignments %>
+<% if @user.story_assignments.count > 0 %>
   <h2>Assigned Stories</h2>
   <table class="table">
     <thead>
@@ -105,7 +126,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </tbody>
 </table>
 <% else %>
-  <h2>No Requested Stories</h2>
+  <h2>No Assigned Stories</h2>
 <% end %>
 
 

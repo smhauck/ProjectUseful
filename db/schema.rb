@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728021007) do
+ActiveRecord::Schema.define(version: 20140728031222) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -218,6 +218,11 @@ ActiveRecord::Schema.define(version: 20140728021007) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cell_phone"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "contact_phone"
+    t.string   "contact_email",   null: false
   end
 
   create_table "wiki_pages", force: true do |t|
