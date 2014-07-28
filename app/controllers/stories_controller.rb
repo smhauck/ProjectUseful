@@ -52,10 +52,14 @@ class StoriesController < ApplicationController
   # GET /stories/new
   def new
     @story = Story.new
+    @products = Product.joins(:status).where(product_status_types: { alive: true }).order(:title)
+    @sprints = Sprint.joins(:status).where(sprint_status_types: { alive: true }).order(:start_date)
   end
 
   # GET /stories/1/edit
   def edit
+    @products = Product.joins(:status).where(product_status_types: { alive: true }).order(:title)
+    @sprints = Sprint.joins(:status).where(sprint_status_types: { alive: true }).order(:start_date)
   end
 
   # POST /stories
