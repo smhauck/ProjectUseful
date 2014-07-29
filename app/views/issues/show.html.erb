@@ -1,36 +1,45 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @issue.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @issue.description %>
-</p>
+<h1>ISSUE: <%= @issue.title %> <%= link_to '(Edit)', edit_issue_path(@issue) %> <%= link_to '(Delete)', issue_path(@issue), method: :delete, data: { confirm: 'Really delete Story?' } %></h1>
 
-<% if @issue.product_id %>
-<p>
-  <strong>Product:</strong>
-  <%= @issue.product.title %>
-</p>
-<% end %>
+<table class="table">
+	
+  <tr><th>Description</th><td><%= simple_format(@issue.description) %></td></tr>
 
-<p>
-  <strong>Requestor:</strong>
-  <%= @issue.submitter_email %>
-</p>
+  <tr><th>Status</th><td class="<%= @issue.status.code %>"><%= @issue.status.title %></td></tr>
+  
+  <tr><th>Product</th><td><% if @issue.product_id %><%= link_to @issue.product.title, @issue.product %><% end %></td></tr>
 
-<p>
-  <strong>Name:</strong>
-  <%= @issue.submitter_full_name %>
-</p>
+  <tr><th>Requestor Name</th><td><%= @issue.submitter_full_name %></td></tr>
+  
+  <tr><th>Requestor Email</th><td><%= @issue.submitter_email %></td></tr>
 
-<p>
-  <strong>Issue status type:</strong>
-  <%= @issue.status.title %>
-</p>
 
-<%= link_to 'Edit', edit_issue_path(@issue) %> |
-<%= link_to 'Back', issues_path %>
+</table>
