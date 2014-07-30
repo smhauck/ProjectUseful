@@ -15,7 +15,7 @@
 
   <div class="field"><%= f.label :description %>: <%= f.text_area :description %></div>
 
-  <div class="field"><%= f.label :product_id %>: <%= f.text_field :product_id %></div>
+  <div class="field"><%= f.label :product_id %> <%= collection_select(:issue, :product_id, @products, :id, :title, include_blank: true) %></div>
 
   <div class="field"><%= f.label :submitter_email %>: <%= f.text_field :submitter_email %></div>
 

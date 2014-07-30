@@ -34,6 +34,7 @@ class IssuesController < ApplicationController
   # GET /issues/new
   def new
     @issue = Issue.new
+    @products = Product.joins(:status).where(product_status_types: { alive: true }).order(:title)
   end
 
   # GET /issues/1/edit
