@@ -16,7 +16,7 @@
       <tr>
         <td><%= link_to issue.title, issue %></td>
         <td><%= issue.description %></td>
-        <td><%= issue.product %></td>
+        <td><% if issue.product_id %><%= issue.product.title %><% end %></td>
         <td><%= issue.requestor_id %></td>
         <td><%= issue.status.title %></td>
       </tr>
