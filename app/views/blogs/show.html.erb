@@ -42,6 +42,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 		  <h2 class="blog_post_title"><%= post.title %></h2>
 	  <% end %>
     <p class="blog_post_published">Published on <%= post.publish_date %> by <%= link_to post.user.username, post.user %></p>
-    <p><%= simple_format(post.body) %></p>
+    <%= sanitize post.body %>
   </div>
 <% end %>

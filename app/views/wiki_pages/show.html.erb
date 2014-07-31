@@ -34,7 +34,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <p class="timestamp">Created: <%= @wiki_page.created_at %></p>
 <% end %>
 
-<%= simple_format(@wiki_page.body) %>
+<%= sanitize @wiki_page.body %>
 
 <% if @wiki_page.product || @wiki_page.story || @wiki_page.task || @wiki_page.user %>
 <h3>Related Items</h3>
