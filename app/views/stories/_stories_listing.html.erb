@@ -30,6 +30,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <th>Points</th>
       <th>Est. Hours</th>
       <th>Actual Hours</th>
+      <th>Type</th>
       <th>Status</th>
       <th>Num Tassk</th>
       <th>Owner</th>
@@ -48,17 +49,18 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	<% @time = 0 %>
 	<% story.tasks.each do |task| %>
 		<% @time = @time + task.task_comments.sum(:hours) %>
-	<% end %>
-		<td><%= number_with_precision(@time, strip_insignificant_zeros: true) %></td>
-	<td class="<%= story.status.code %>"><%= story.status.title %></td>
-	<td><%= story.tasks.count %></td>
+        <% end %>
+        <td><%= number_with_precision(@time, strip_insignificant_zeros: true) %></td>
+        <td><%= story.type.title %></td>
+        <td class="<%= story.status.code %>"><%= story.status.title %></td>
+        <td><%= story.tasks.count %></td>
         <td>
         <% story.users.each do |user| %>
           <%= link_to user.username, user %><br />
         <% end %>
         </td>
-	<td><%= link_to story.requestor.username, story.requestor %></td>
-	<td><% if story.product_id %><%= link_to story.product.title, story.product %><% end %></td>
+        <td><%= link_to story.requestor.username, story.requestor %></td>
+        <td><% if story.product_id %><%= link_to story.product.title, story.product %><% end %></td>
         <td><% if story.sprint_id %><%= link_to "#{story.sprint.start_date} - #{story.sprint.end_date}", story.sprint %><% end %></td>
       </tr>
     <% end %>

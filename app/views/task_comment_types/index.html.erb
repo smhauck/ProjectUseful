@@ -1,0 +1,29 @@
+<h1>Listing task_comment_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_comment_types.each do |task_comment_type| %>
+      <tr>
+        <td><%= task_comment_type.title %></td>
+        <td><%= task_comment_type.description %></td>
+        <td><%= link_to 'Show', task_comment_type %></td>
+        <td><%= link_to 'Edit', edit_task_comment_type_path(task_comment_type) %></td>
+        <td><%= link_to 'Destroy', task_comment_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task comment type', new_task_comment_type_path %>

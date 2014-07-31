@@ -1,0 +1,29 @@
+<h1>Listing task_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_types.each do |task_type| %>
+      <tr>
+        <td><%= task_type.title %></td>
+        <td><%= task_type.description %></td>
+        <td><%= link_to 'Show', task_type %></td>
+        <td><%= link_to 'Edit', edit_task_type_path(task_type) %></td>
+        <td><%= link_to 'Destroy', task_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task type', new_task_type_path %>

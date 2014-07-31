@@ -24,4 +24,5 @@ class Issue < ActiveRecord::Base
   belongs_to :status, class_name: "IssueStatusType", foreign_key: "issue_status_type_id"
 
   belongs_to :issue_status_type
+  belongs_to :type, class_name: "IssueType", foreign_key: "issue_type_id"
 end

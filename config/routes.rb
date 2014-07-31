@@ -1,5 +1,13 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :task_comment_types
+
+  resources :task_types
+
+  resources :story_types
+
+  resources :issue_types
+
   resources :task_comments
 
   resources :issues

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @issue_type.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @issue_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_issue_type_path(@issue_type) %> |
+<%= link_to 'Back', issue_types_path %>

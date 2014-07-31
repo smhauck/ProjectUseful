@@ -18,9 +18,18 @@
 
 
 #     Create the default issue_status_types
-IssueStatusType.create(title: "Waiting", alive: "1", code: 'waiting')
-IssueStatusType.create(title: "Accepted", alive: "0", code: 'accepted')
-IssueStatusType.create(title: "Denied", alive: "0", code: 'denied')
+IssueStatusType.create(title: 'Waiting', alive: "1", code: 'waiting')
+IssueStatusType.create(title: 'Accepted', alive: "0", code: 'accepted')
+IssueStatusType.create(title: 'Denied', alive: "0", code: 'denied')
+
+
+#     Create the default issue_types
+IssueType.create(title: 'Bug')
+IssueType.create(title: 'New Feature Request')
+IssueType.create(title: 'Existing Feature Enhancement')
+IssueType.create(title: 'Documentation Request')
+IssueType.create(title: 'Documentation Bug')
+IssueType.create(title: 'Other')
 
 
 #     Create the default product_status_types
@@ -59,6 +68,14 @@ StoryStatusType.create(title: "Production Review", alive: "1", code: "production
 StoryStatusType.create(title: "Complete", alive: "0", code: "complete")
 StoryStatusType.create(title: "Cancelled", alive: "0", code: "cancelled")
 
+
+#     Create the default story_types
+StoryType.create(title: 'Bug')
+StoryType.create(title: 'New Feature Request')
+StoryType.create(title: 'Existing Feature Enhancement')
+StoryType.create(title: 'Documentation Request')
+StoryType.create(title: 'Documentation Bug')
+StoryType.create(title: 'Other')
 
 
 

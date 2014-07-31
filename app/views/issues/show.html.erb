@@ -34,6 +34,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <tr><th>Description</th><td><%= simple_format(@issue.description) %></td></tr>
 
   <tr><th>Status</th><td class="<%= @issue.status.code %>"><%= @issue.status.title %></td></tr>
+
+  <tr><th>Type</th><td><%= @issue.type.title %></td></tr>
   
   <tr><th>Product</th><td><% if @issue.product_id %><%= link_to @issue.product.title, @issue.product %><% end %></td></tr>
 

@@ -28,6 +28,7 @@ class Story < ActiveRecord::Base
 
   belongs_to :product
   belongs_to :sprint
+  belongs_to :type, class_name: "StoryType", foreign_key: "story_type_id"
   belongs_to :status, class_name: "StoryStatusType", foreign_key: "story_status_type_id"
   belongs_to :requestor, class_name: "User", foreign_key: "requestor_id"
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"

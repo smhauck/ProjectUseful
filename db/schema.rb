@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728155137) do
+ActiveRecord::Schema.define(version: 20140730233043) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 20140728155137) do
     t.boolean  "alive"
   end
 
+  create_table "issue_types", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "issues", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -53,9 +60,11 @@ ActiveRecord::Schema.define(version: 20140728155137) do
     t.datetime "updated_at"
     t.string   "submitter_email"
     t.string   "submitter_full_name"
+    t.integer  "issue_type_id"
   end
 
   add_index "issues", ["issue_status_type_id"], name: "index_issues_on_issue_status_type_id", using: :btree
+  add_index "issues", ["issue_type_id"], name: "index_issues_on_issue_type_id", using: :btree
   add_index "issues", ["product_id"], name: "index_issues_on_product_id", using: :btree
 
   create_table "note_privacy_types", force: true do |t|
@@ -141,11 +150,13 @@ ActiveRecord::Schema.define(version: 20140728155137) do
     t.decimal  "estimated_hours",      precision: 10, scale: 2
     t.decimal  "points",               precision: 10, scale: 2
     t.integer  "creator_id"
+    t.integer  "story_type_id"
   end
 
   add_index "stories", ["product_id"], name: "index_stories_on_product_id", using: :btree
   add_index "stories", ["sprint_id"], name: "index_stories_on_sprint_id", using: :btree
   add_index "stories", ["story_status_type_id"], name: "index_stories_on_story_status_type_id", using: :btree
+  add_index "stories", ["story_type_id"], name: "index_stories_on_story_type_id", using: :btree
 
   create_table "story_assignments", force: true do |t|
     t.integer  "story_id"
@@ -166,6 +177,13 @@ ActiveRecord::Schema.define(version: 20140728155137) do
     t.datetime "updated_at"
   end
 
+  create_table "story_types", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "task_assignments", force: true do |t|
     t.integer  "task_id"
     t.integer  "user_id"
@@ -175,6 +193,13 @@ ActiveRecord::Schema.define(version: 20140728155137) do
 
   add_index "task_assignments", ["task_id"], name: "index_task_assignments_on_task_id", using: :btree
   add_index "task_assignments", ["user_id"], name: "index_task_assignments_on_user_id", using: :btree
+
+  create_table "task_comment_types", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "task_comments", force: true do |t|
     t.decimal  "hours",        precision: 5, scale: 2
@@ -198,6 +223,13 @@ ActiveRecord::Schema.define(version: 20140728155137) do
     t.datetime "updated_at"
   end
 
+  create_table "task_types", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tasks", force: true do |t|
     t.boolean  "alive"
     t.string   "title"
@@ -209,12 +241,14 @@ ActiveRecord::Schema.define(version: 20140728155137) do
     t.datetime "updated_at"
     t.integer  "task_status_type_id"
     t.decimal  "estimated_hours",     precision: 5, scale: 2
+    t.integer  "task_type_id"
   end
 
   add_index "tasks", ["product_id"], name: "index_tasks_on_product_id", using: :btree
   add_index "tasks", ["sprint_id"], name: "index_tasks_on_sprint_id", using: :btree
   add_index "tasks", ["story_id"], name: "index_tasks_on_story_id", using: :btree
   add_index "tasks", ["task_status_type_id"], name: "index_tasks_on_task_status_type_id", using: :btree
+  add_index "tasks", ["task_type_id"], name: "index_tasks_on_task_type_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"

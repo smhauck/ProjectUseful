@@ -5,6 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>Type</th>
       <th>Product</th>
       <th>Requestor</th>
       <th>Issue status type</th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= link_to issue.title, issue %></td>
         <td><%= issue.description %></td>
+        <td><%= issue.type.title %></td>
         <td><% if issue.product_id %><%= issue.product.title %><% end %></td>
         <td><%= issue.requestor_id %></td>
         <td><%= issue.status.title %></td>
