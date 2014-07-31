@@ -26,7 +26,7 @@ IssueStatusType.create(title: 'Denied', alive: "0", code: 'denied')
 #     Create the default issue_types
 IssueType.create(title: 'Bug')
 IssueType.create(title: 'New Feature Request')
-IssueType.create(title: 'Existing Feature Enhancement')
+IssueType.create(title: 'Enhance Existing Feature')
 IssueType.create(title: 'Documentation Request')
 IssueType.create(title: 'Documentation Bug')
 IssueType.create(title: 'Other')
