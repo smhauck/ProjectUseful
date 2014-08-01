@@ -32,6 +32,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <th>Sprint</th>
       <th>Status</th>
       <th>Stories</th>
+      <th>Points</th>
+      <th>Est. Hours</th>
+      <th>Actual Hours</th>
     </tr>
   </thead>
 
@@ -40,7 +43,16 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <tr>
 	      <td><%= link_to "#{sprint.start_date} - #{sprint.end_date}", sprint %></td>
         <td><%= sprint.status.title %></td>
-        <td><%= sprint.stories.count %></td>
+	<td><%= sprint.stories.count %></td>
+	<td><%= number_with_precision(sprint.stories.sum(:points), strip_insignificant_zeros: true) %></td>
+	<td><%= number_with_precision(sprint.stories.sum(:estimated_hours), strip_insignificant_zeros: true) %></td>
+        <% @time = 0 %>
+        <% sprint.stories.each do |story| %>
+        <% story.tasks.each do |task| %>
+          <% @time = @time + task.task_comments.sum(:hours) %>
+        <% end %>
+        <% end %>
+	<td><%= number_with_precision(@time, strip_insignificant_zeros: true) %></td>
       </tr>
     <% end %>
   </tbody>
