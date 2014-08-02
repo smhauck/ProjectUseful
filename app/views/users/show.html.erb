@@ -26,13 +26,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<h1>Username: <%= @user.username %></h1>
+<h1>Username: <%= @user.username %> <%= link_to '(Edit)', edit_user_path(@user) %></h1>
 <p><strong>First Name:</strong> <%= @user.first_name %></p>
 <p><strong>Last Nmae:</strong> <%= @user.last_name %></p>
 <p><strong>Contact Email:</strong> <%= @user.contact_email %></p>
 <p><strong>Contact Phone:</strong> <%= @user.contact_phone %></p>
-
-
 
 
 <% if @user.blogs.count > 0 %>
