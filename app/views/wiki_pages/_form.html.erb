@@ -29,7 +29,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
   <div class="field">
 	  <%= f.label :title %><br>
-	  <% @wiki_page.title.gsub!(/_/, ' ') %>
+  <% if @wiki_page.title %><% @wiki_page.title.gsub!(/_/, ' ') %><% end %>
     <%= f.text_field :title, { size: 60 } %>
   </div>
   <div class="field">
