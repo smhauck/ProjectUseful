@@ -19,7 +19,7 @@
 class WikiPage < ActiveRecord::Base
   
   validates :title, presence: true
-  validates :wiki, presence: true
+  validates :wiki_id, presence: true
 
 
   belongs_to :wiki
@@ -27,4 +27,7 @@ class WikiPage < ActiveRecord::Base
   belongs_to :story
   belongs_to :task
   belongs_to :user
+
+  accepts_nested_attributes_for :wiki
+
 end

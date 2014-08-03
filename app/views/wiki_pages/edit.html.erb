@@ -24,6 +24,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 %>
 
 
-<h1>Editing <%= @wiki_page.title %></h1>
+<h1>Editing <%= @wiki_page.title.gsub(/_/, ' ') %></h1>
 
 <%= render 'form' %>

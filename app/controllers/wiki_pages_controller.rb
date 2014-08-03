@@ -17,7 +17,7 @@
 
 
 class WikiPagesController < ApplicationController
-	skip_before_action :authorize, only: [:index, :show]
+  skip_before_action :authorize, only: [:index, :show]
   before_action :set_wiki_page, only: [:update, :destroy]
 
   # GET /wiki_pages
@@ -49,7 +49,8 @@ class WikiPagesController < ApplicationController
 
   # GET /wiki_pages/new
   def new
-    @wiki_page = WikiPage.new
+    @wiki = Wiki.find(params[:wiki_id])
+    @wiki_page = @wiki.pages.build
   end
 
   # GET /wiki_pages/1/edit
@@ -60,14 +61,26 @@ class WikiPagesController < ApplicationController
   # POST /wiki_pages
   # POST /wiki_pages.json
   def create
-    @wiki_page = WikiPage.new(wiki_page_params)
+    @wiki = Wiki.find(params[:wiki_id])
+    @wiki_page = @wiki.pages.build(wiki_page_params)
     @wiki_page.user_id = session[:user_id]
+    @wiki_page.wiki_id = params[:wiki_id]
     @wiki_page.title.gsub!(/ /, '_')
+    
+    puts "\n\n\n\n"
+    puts @wiki.id
+    puts "\n\n\n\n"
+    puts "\n\n\n\n"
+    puts 'title' + @wiki_page.title
+    puts 'body' + @wiki_page.body
+    puts 'user_id' + @wiki_page.user_id.to_s
+    puts 'wiki_id' + @wiki_page.wiki_id.to_s
+    puts "\n\n\n\n"
 
 
     respond_to do |format|
       if @wiki_page.save
-        format.html { redirect_to wiki_page_path(@wiki_page.title), notice: 'Wiki page was successfully created.' }
+        format.html { redirect_to wiki_wiki_page_path(@wiki_page.wiki, @wiki_page.title), notice: 'Wiki page was successfully created.' }
         format.json { render action: 'show', status: :created, location: @wiki_page }
       else
         format.html { render action: 'new' }
@@ -80,11 +93,20 @@ class WikiPagesController < ApplicationController
   # PATCH/PUT /wiki_pages/1.json
   def update
 
+  #  @title = params.require(:wiki_page).permit(:title)
+  #  @body = params.require(:wiki_page).permit(:body)
+  #  @wiki_page.title = @title[:title]
+  #  @wiki_page.body = @body[:body]
+  
+    @new_data = wiki_page_params
+    @new_data[:title].gsub!(/ /, '_')
+
     @wiki_page.user_id = session[:user_id]
-    @wiki_page.title.gsub!(/ /, '_')
+
+    @wiki_page.update(@new_data)
 
     respond_to do |format|
-      if @wiki_page.update(wiki_page_params)
+      if @wiki_page.save
         format.html { redirect_to wiki_wiki_page_path(@wiki_page.wiki, @wiki_page.title), notice: 'Wiki page was successfully updated.' }
         format.json { head :no_content }
       else
@@ -112,6 +134,6 @@ class WikiPagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wiki_page_params
-      params.require(:wiki_page).permit(:title, :body, :wiki_id, :version, :product_id, :story_id, :task_id, :user_id)
+      params.require(:wiki_page).permit(:title, :body, :product_id, :story_id, :task_id)
     end
 end

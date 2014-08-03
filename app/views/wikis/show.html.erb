@@ -27,7 +27,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p id="notice"><%= notice %></p>
 
   
-<h1><%= @wiki.title %> (<%= link_to 'Edit', edit_wiki_path(@wiki) %>)</h1>
+<h1><%= @wiki.title %> (<%= link_to 'Edit', edit_wiki_path(@wiki) %>)</h1> 
+
+<p><%= link_to 'Add Page', new_wiki_wiki_page_path(@wiki) %></p>
 
 <p class="wiki_description"><%= @wiki.description %></p>
 
