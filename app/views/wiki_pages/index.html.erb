@@ -40,7 +40,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <tbody>
     <% @wiki_pages.each do |wiki_page| %>
       <tr>
-        <td><%= link_to wiki_page.title, wiki_page %></td>
+        <td><%= link_to wiki_page.title, wiki_page_path(wiki_page.page_name) %></td>
         <td><%= wiki_page.version %></td>
         <td><% if wiki_page.product_id %><%= wiki_page.product.title %><% end %></td>
         <td><% if wiki_page.story_id %><%= wiki_page.story.title %><% end %></td>

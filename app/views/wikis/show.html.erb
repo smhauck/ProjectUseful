@@ -36,5 +36,5 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% end %>
 
 <% @wiki.pages.each do |page| %>
-	<p><%= link_to page.title, page %></p>
+	<p><%= link_to page.title.gsub(/_/, ' '), wiki_wiki_page_path(@wiki, page.title) %></p>
 <% end %>

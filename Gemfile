@@ -48,3 +48,9 @@ gem 'mysql2'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# File uploading through CarrierWave
+gem 'carrierwave'
+
+
+

@@ -30,7 +30,8 @@ ProjectUseful::Application.routes.draw do
       get 'license' => :license
       get 'technology' => :technology
   end
-  resources :wiki_pages
+  
+#   resources :wiki_pages
 
   get 'admin' => 'admin#index'
 

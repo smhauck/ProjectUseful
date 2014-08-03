@@ -18,7 +18,7 @@
 
 class WikiPagesController < ApplicationController
 	skip_before_action :authorize, only: [:index, :show]
-  before_action :set_wiki_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_wiki_page, only: [:update, :destroy]
 
   # GET /wiki_pages
   # GET /wiki_pages.json
@@ -29,6 +29,22 @@ class WikiPagesController < ApplicationController
   # GET /wiki_pages/1
   # GET /wiki_pages/1.json
   def show
+
+    @wiki_page = WikiPage.where(title: params[:id]).take!
+
+
+
+    @wiki_page.body.gsub!(/^# (.*)$/, '<h1>\1</h1>')
+    @wiki_page.body.gsub!(/^## (.*)$/, '<h2>\1</h2>')
+    @wiki_page.body.gsub!(/^### (.*)$/, '<h3>\1</h3>')
+    @wiki_page.body.gsub!(/^#### (.*)$/, '<h4>\1</h4>')
+    @wiki_page.body.gsub!(/^##### (.*)$/, '<h5>\1</h5>')
+    @wiki_page.body.gsub!(/^###### (.*)$/, '<h6>\1</h6>')
+    @wiki_page.body.gsub!(/\n\n/, '<br />')
+
+
+    @wiki_page.body.gsub!(/\[\[(.*)\]\]/, '<a href="/wiki_pages/\1">\1</a>')
+
   end
 
   # GET /wiki_pages/new
@@ -38,6 +54,7 @@ class WikiPagesController < ApplicationController
 
   # GET /wiki_pages/1/edit
   def edit
+    @wiki_page = WikiPage.where(title: params[:id]).take!
   end
 
   # POST /wiki_pages
@@ -45,10 +62,12 @@ class WikiPagesController < ApplicationController
   def create
     @wiki_page = WikiPage.new(wiki_page_params)
     @wiki_page.user_id = session[:user_id]
+    @wiki_page.title.gsub!(/ /, '_')
+
 
     respond_to do |format|
       if @wiki_page.save
-        format.html { redirect_to @wiki_page, notice: 'Wiki page was successfully created.' }
+        format.html { redirect_to wiki_page_path(@wiki_page.title), notice: 'Wiki page was successfully created.' }
         format.json { render action: 'show', status: :created, location: @wiki_page }
       else
         format.html { render action: 'new' }
@@ -60,9 +79,13 @@ class WikiPagesController < ApplicationController
   # PATCH/PUT /wiki_pages/1
   # PATCH/PUT /wiki_pages/1.json
   def update
+
+    @wiki_page.user_id = session[:user_id]
+    @wiki_page.title.gsub!(/ /, '_')
+
     respond_to do |format|
       if @wiki_page.update(wiki_page_params)
-        format.html { redirect_to @wiki_page, notice: 'Wiki page was successfully updated.' }
+        format.html { redirect_to wiki_wiki_page_path(@wiki_page.wiki, @wiki_page.title), notice: 'Wiki page was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
