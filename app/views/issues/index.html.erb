@@ -17,10 +17,10 @@
       <tr>
         <td><%= link_to issue.title, issue %></td>
         <td><%= issue.description %></td>
-        <td><%= issue.type.title %></td>
+	<td class="<%= issue.type.code %>"><%= issue.type.title %></td>
         <td><% if issue.product_id %><%= issue.product.title %><% end %></td>
         <td><%= issue.requestor_id %></td>
-        <td><%= issue.status.title %></td>
+	<td class="<%= issue.status.code %>"><%= issue.status.title %></td>
       </tr>
     <% end %>
   </tbody>

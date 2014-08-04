@@ -1,5 +1,6 @@
 
 /* =================================================================== */
+/* status.code styles */
 .waiting { color: #ff6d24; font-weight: bold; }
 .in_progress { color: #1ca800; font-weight: bold; }
 .product_owner_review { }
@@ -13,6 +14,10 @@
 .complete { }
 .cancelled { text-decoration: line-through; }
 .deleted { }
+
+/* =================================================================== */
+/* issue.type.code styles */
+.bug, .documentation_bug { color: #ff6d24; font-weight: bold; }
 
 /* =================================================================== */
 
