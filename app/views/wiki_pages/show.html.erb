@@ -28,36 +28,27 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <h2>Wiki: <%= link_to @wiki_page.wiki.title, @wiki_page.wiki %></h2>
 <h2><%= @wiki_page.title.gsub(/_/, ' ') %> <%= link_to '(Edit)', edit_wiki_wiki_page_path(@wiki_page.wiki, @wiki_page.title) %></h2>
+
+<%= sanitize @wiki_page.body %>
+
+<% if @wiki_page.product || @wiki_page.story || @wiki_page.task || @wiki_page.user %>
+  <h3>Related Items</h3>
+  <% if @wiki_page.product %>
+    <p><strong>Product:</strong> <%= link_to @wiki_page.product.title, @wiki_page.product %></p>
+  <% end %>
+
+  <% if @wiki_page.story %>
+    <p> <strong>Story:</strong> <%= @wiki_page.story.title %></p>
+  <% end %>
+
+  <% if @wiki_page.task %>
+    <p><strong>Task:</strong> <%= @wiki_page.task.title %></p>
+  <% end %>
+
+<% end %>
+
 <% if @wiki_page.created_at != @wiki_page.updated_at %>
   <p class="timestamp">Updated: <%= @wiki_page.updated_at %> Created: <%= @wiki_page.created_at %></p>
 <% else %>
   <p class="timestamp">Created: <%= @wiki_page.created_at %></p>
 <% end %>
-
-<%= sanitize @wiki_page.body %>
-
-<% if @wiki_page.product || @wiki_page.story || @wiki_page.task || @wiki_page.user %>
-<h3>Related Items</h3>
-<% if @wiki_page.product %>
-	<p>
-  <strong>Product:</strong>
-  <%= link_to @wiki_page.product.title, @wiki_page.product %>
-  </p>
-<% end %>
-
-<% if @wiki_page.story %>
-  <p>
-    <strong>Story:</strong>
-    <%= @wiki_page.story.title %>
-  </p>
-<% end %>
-
-<% if @wiki_page.task %>
-  <p>
-    <strong>Task:</strong>
-    <%= @wiki_page.task.title %>
-  </p>
-<% end %>
-
-<% end %>
-
