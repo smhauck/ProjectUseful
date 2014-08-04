@@ -30,7 +30,8 @@ class WikiPagesController < ApplicationController
   # GET /wiki_pages/1.json
   def show
 
-    @wiki_page = WikiPage.where(title: params[:id]).take!
+    @wiki = Wiki.find(params[:wiki_id])
+    @wiki_page = @wiki.pages.where(title: params[:id]).take!
 
 
 

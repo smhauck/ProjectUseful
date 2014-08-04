@@ -18,7 +18,7 @@
 
 class WikiPage < ActiveRecord::Base
   
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: { scope: :wiki, message: "Page titles must be unique within a given Wiki" }
   validates :wiki_id, presence: true
 
 

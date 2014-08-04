@@ -26,9 +26,20 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <%= form_for([@wiki_page.wiki, @wiki_page]) do |f| %>
 
+<% if @wiki_page.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@wiki_page.errors.count, "error") %> prohibited this page from being saved:</h2>
+<ul>
+<% @wiki_page.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
 
   <div class="field">
-	  <%= f.label :title %><br>
+  <%= f.label :title %><br>
   <% if @wiki_page.title %><% @wiki_page.title.gsub!(/_/, ' ') %><% end %>
     <%= f.text_field :title, { size: 60 } %>
   </div>
