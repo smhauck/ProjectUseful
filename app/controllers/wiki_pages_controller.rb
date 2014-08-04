@@ -56,7 +56,8 @@ class WikiPagesController < ApplicationController
 
   # GET /wiki_pages/1/edit
   def edit
-    @wiki_page = WikiPage.where(title: params[:id]).take!
+    @wiki = Wiki.find(params[:wiki_id])
+    @wiki_page = @wiki.pages.where(title: params[:id]).take!
   end
 
   # POST /wiki_pages
