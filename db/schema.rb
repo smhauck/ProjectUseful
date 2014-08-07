@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804044742) do
+ActiveRecord::Schema.define(version: 20140807051421) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -62,11 +62,14 @@ ActiveRecord::Schema.define(version: 20140804044742) do
     t.string   "submitter_email"
     t.string   "submitter_full_name"
     t.integer  "issue_type_id"
+    t.boolean  "accepted"
+    t.integer  "story_id"
   end
 
   add_index "issues", ["issue_status_type_id"], name: "index_issues_on_issue_status_type_id", using: :btree
   add_index "issues", ["issue_type_id"], name: "index_issues_on_issue_type_id", using: :btree
   add_index "issues", ["product_id"], name: "index_issues_on_product_id", using: :btree
+  add_index "issues", ["story_id"], name: "index_issues_on_story_id", using: :btree
 
   create_table "note_privacy_types", force: true do |t|
     t.string   "title"
