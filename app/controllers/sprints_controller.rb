@@ -23,7 +23,7 @@ class SprintsController < ApplicationController
   # GET /sprints
   # GET /sprints.json
   def index
-    @sprints = Sprint.all
+    @sprints = Sprint.all.order('start_date desc')
   end
 
   # GET /sprints/1
