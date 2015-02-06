@@ -40,7 +40,7 @@ class Task < ActiveRecord::Base
   accepts_nested_attributes_for :task_assignments
   
   has_many :task_comments
-  has_many :users, through: :task_comments
+  has_many :user_comments, through: :task_comments
   accepts_nested_attributes_for :task_comments
 
 end

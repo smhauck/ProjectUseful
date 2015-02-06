@@ -1,0 +1,65 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<h1>Listing tasks</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Est. Hours</th>
+      <th>Actual Hours</th>
+      <th>Status</th>
+      <th>Owner</th>
+      <th>Story</th>
+      <th>Product</th>
+      <th>Sprint</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.title, task %></td>
+        <td><%= number_with_precision(task.estimated_hours, strip_insignificant_zeros: true) %></td>
+	<td><%= number_with_precision(task.task_comments.sum(:hours), strip_insignificant_zeros: true) %></td>
+	<td class="<%= task.status.code %>"><%= task.status.title %></td>
+	<td>
+        <% task.task_assignments.each do |assignment| %>
+		<%= link_to assignment.user.username, assignment.user %><br />
+        <% end %>
+        </td>
+        <td><% if task.story_id %><%= link_to task.story.title, task.story %><% end %></td>
+        <td><% if task.story.product_id %><%= link_to task.story.product.title, task.story.product %><% end %></td>
+	<td><% if task.story.sprint_id %><%= link_to "#{task.story.sprint.start_date} - #{task.story.sprint.end_date}", task.story.sprint %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>

@@ -26,6 +26,39 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  # GET /tasks/my
+  # GET /tasks/my.json
+  def my
+    @user = User.find(session[:user_id])
+    @tasks = @user.tasks
+  end
+
+  # GET /tasks/active
+  # GET /tasks/active.json
+  def active
+    @tasks = Task.joins(:status).where(task_status_types: { alive: true })
+  end
+
+  # GET /tasks/complete
+  # GET /tasks/complete.json
+  def complete
+    @tasks = Task.joins(:status).where(task_status_types: { code: 'complete'})
+  end
+
+  # GET /tasks/myactive
+  def myactive
+    @user = User.find(session[:user_id])
+    @tasks = @user.tasks.joins(:status).where(task_status_types: { alive: '1'})
+  end
+ 
+  # GET /tasks/mycomplete
+  def mycomplete
+    @user = User.find(session[:user_id])
+    @tasks = @user.tasks.joins(:status).where(task_status_types: { id: 4 })
+  end
+ 
+  
+  
   # GET /tasks/1
   # GET /tasks/1.json
   def show

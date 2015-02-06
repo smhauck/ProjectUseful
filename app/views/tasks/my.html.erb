@@ -1,0 +1,49 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+<% if @user.task_assignments.count > 0 %>
+  <h2>My Tasks</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th><th>Status</th><th>Story</th><th>Estimated Time</th><th>Actual Time</th></tr>
+    </thead>
+    <tbody>
+  <% @user.task_assignments.each do |assignment| %>
+    <tr>
+      <td><%= link_to assignment.task.title, assignment.task %></td>
+      <td class="<%= assignment.task.status.code %>"><%= assignment.task.status.title %></td>
+      <td><%= link_to assignment.task.story.title, assignment.task.story %></td>
+      <td><%= number_with_precision(assignment.task.estimated_hours, strip_insignificant_zeros: true) %></td>
+      <td>SOON</td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Assigned Stories</h2>
+<% end %>
+<br>
+
+<%= link_to 'New Task', new_task_path %>

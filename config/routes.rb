@@ -1,5 +1,13 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :product_groups
+
+  resources :group_users
+
+  resources :group_members
+
+  resources :groups
+
   resources :task_comment_types
 
   resources :task_types
@@ -43,6 +51,11 @@ ProjectUseful::Application.routes.draw do
   get 'stories/active' => 'stories#active'
   get 'stories/complete' => 'stories#complete'
 
+  get 'tasks/my' => 'tasks#my'
+  get 'tasks/myactive' => 'tasks#myactive'
+  get 'tasks/mycomplete' => 'tasks#mycomplete'
+  get 'tasks/active' => 'tasks#active'
+  get 'tasks/complete' => 'tasks#complete'
 
   resources :product_status_types
   resources :project_status_types
