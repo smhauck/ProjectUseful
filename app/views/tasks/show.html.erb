@@ -30,10 +30,13 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <table class="table">
 	<tr><th>Status</th><td class="<%= @task.status.code %>"><%= @task.status.title %></td></tr>
   <tr><th>Estimated Hours</th><td><%= number_with_precision(@task.estimated_hours, strip_insignificant_zeros: true) %></td></tr>
-
-<tr>
-	<th>Owners</th>
-	<td>
+  <% @time = 0 %>
+  <% @time = @task.task_comments.sum(:hours) %>
+  <tr><th>Actual Hours</th><td><%= number_with_precision(@time, strip_insignificant_zeros: true) %></td></tr>
+  
+  <tr>
+    <th>Owners</th>
+    <td>
 <% @task.task_assignments.each do |ta| %>
 	<%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
