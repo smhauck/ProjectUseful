@@ -23,7 +23,11 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    if session[:user_id]
+      @tasks = Task.all
+    else
+      @tasks = Task.joins(story: :product).where(products: { public: true })
+    end
   end
 
   # GET /tasks/my
@@ -125,7 +129,14 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+      @tmptask = Task.find(params[:id])
+      if session[:user_id]
+        @task = @tmptask
+      elsif @tmptask.story.product.public == true
+        @task = @tmptask
+      else
+        redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -23,7 +23,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if session[:user_id]
+      @products = Product.all
+    else 
+      @products = Product.where(public: true)
+
+    end
   end
 
   # GET /products/1

@@ -23,7 +23,11 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    if session[:user_id]
+      @stories = Story.all
+    else
+      @stories = Story.joins(:product).where(products: { public: true })
+    end
   end
 
 
@@ -106,7 +110,14 @@ class StoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_story
-      @story = Story.find(params[:id])
+      @tmpstory = Story.find(params[:id])
+      if session[:user_id]
+        @story = @tmpstory
+      elsif @tmpstory.product.public == true
+        @story = @tmpstory
+      else
+        redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
