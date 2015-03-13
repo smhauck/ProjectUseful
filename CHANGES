@@ -1,3 +1,260 @@
+commit 094a89472f9cb5820195e4f44b2e8c949ca09cdc
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Mar 13 14:06:02 2015 -0400
+
+    http://projectuseful.org/stories/93 Public option for Products
+
+commit 11bc1ffbbddac9cc5f35e73e4e6eee5c28e2626d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Feb 21 14:36:29 2015 -0500
+
+    http://projectuseful.org/stories/91 change Story menu: list to all
+
+commit efa5d99ae3ea90831a04be5c7a43365bb3fdb1a1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Feb 20 14:20:33 2015 -0500
+
+    http://projectuseful.org/stories/88 task details should show actual hours
+
+commit 776dccbe629e558b2f14611e7e5d69422ecdf8df
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Feb 20 13:22:38 2015 -0500
+
+    http://projectuseful.org/stories/88 task details should show actual hours
+
+commit 43afbc3836cfaa13e0a5de125f55367cc776dada
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Feb 20 12:51:21 2015 -0500
+
+    http://projectuseful.org/stories/48 adding myactive, mycomplete, allactive, allcomplete to Task menu
+
+commit cef6858ab4b4f7971f16efe014980ef79cfcf3b8
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Feb 6 14:41:05 2015 -0500
+
+    added my active, complete, and all tasks options
+    added all active, all complete, and all tasks options
+
+commit d2dfd5e008149a311dc9c434e96683b908dc4190
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Aug 8 23:44:43 2014 -0400
+
+    updating README
+
+commit 90bee72d994e615a16a4dec8b46da5fc12a0169d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Aug 7 22:18:31 2014 -0400
+
+    http://www.projectuseful.org/stories/81 sprints should display in descending order by start_date
+
+commit c62c2a571c548556a639e89f2ab507a5d3f2d37e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Aug 7 01:16:41 2014 -0400
+
+    http://www.projectuseful.org/stories/75 started
+
+commit ae32a270c61bf95092f3f7259f6056916b13973a
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Aug 6 02:19:47 2014 -0400
+
+    updating README.rdoc
+
+commit 014f9cce40c323edcc7dfbc980fb36d1a7aabdf2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Aug 6 02:17:51 2014 -0400
+
+    updating README.rdoc
+
+commit 4fd58dc4b499f24d0d0dd4c95dec89afd65d30fa
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Aug 5 00:52:05 2014 -0400
+
+    tweaked welcome page wording
+
+commit ab93a13c39946c5a366fd557745a6b1e9c9512d2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Aug 4 14:55:02 2014 -0400
+
+    license file tweak; removed section after terms showing how to use the license
+
+commit f81e8cc1d2fb3831f60f47582fef418fd42eac29
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Aug 4 14:54:24 2014 -0400
+
+    moved wiki page's wiki title to under the page title; also made it a paragraph instead of a header
+
+commit ad1fd579a381a1f01d69b2065c5a85526fd22c09
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Aug 4 03:33:16 2014 -0400
+
+    http://www.projectuseful.org/stories/73 wiki pages need to be unique within the owning wiki :: fix
+
+commit c9a484dc9c656c045493c61b532c741f69bc6a02
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Aug 4 03:29:40 2014 -0400
+
+    http://www.projectuseful.org/stories/73 wiki pages need to be unique within the owning wiki :: complete
+
+commit b229432ebc009728201bc9b304706f00a8de9b96
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Aug 4 02:46:45 2014 -0400
+
+    http://www.projectuseful.org/stories/74 move created and updated data to bottom of wiki page display :: complete
+
+commit cfb0ceb66d72730ae98a4eb593009ddef2c083db
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Aug 4 01:04:53 2014 -0400
+
+    http://www.projectuseful.org/stories/67 complete
+
+commit eeeac7e0fbfdb0e8d743b4181032fdec0678e877
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Aug 3 19:31:47 2014 -0400
+
+     http://www.projectuseful.org/stories/73 fixing bug in wiki_page.new
+
+commit bb8ffa019ed5889755216ad75219481bdabcb2eb
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Aug 3 19:17:01 2014 -0400
+
+    updated version to match development
+
+commit 52c76b3fd64093af506021868acbe05d0483589b
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Aug 3 19:09:24 2014 -0400
+
+    http://www.projectuseful.org/stories/73
+    getting closer ...
+    creating, showing, and editing a wiki_page works through title
+    automatically save title with / /_/
+    using association to create form_for and create / update routines
+
+commit d4cd2fd438db4d941157a158919fcdd665fd2436
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Aug 3 01:07:09 2014 -0400
+
+    http://www.projectuseful.org/stories/73 in progress
+
+commit fcf84c571312001eddd8d60b3c100b0c84811053
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sat Aug 2 01:01:38 2014 -0400
+
+    minor layout changes for user and note details page
+
+commit 1c936d0783ce149e4bd40033d887305d79135a23
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Aug 1 13:46:12 2014 -0400
+
+    http://www.projectuseful.org/stories/42 more tests working
+
+commit d3a369aaba8c1dcab81b0fce7bfbf9d44a4eaf7e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Aug 1 13:42:03 2014 -0400
+
+    task_hours to task_comments cleanup
+
+commit 09047afefcee50fc2c4d6b8c4c67c33a7c844ab5
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Aug 1 13:37:31 2014 -0400
+
+    http://www.projectuseful.org/stories/71 Add estimated and actual hours to sprint list
+
+commit 06e62797e58a68ad230391a75d5ba8021c6d842f
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 31 13:16:07 2014 -0400
+
+    http://www.projectuseful.org/stories/70 Blog posts and wiki pages need better formatting
+
+commit c8616c3c9df202a1ca732da11cc6bf57d2fd1482
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Thu Jul 31 11:32:43 2014 -0400
+
+    tweaked the issue and story type names
+
+commit c7caa7b85460c4d8ee18c927a2d02290ee77d86e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 30 20:52:03 2014 -0400
+
+    changed "Existing Feature Enhancement" to "Enhance Existing Feature"
+
+commit 6d18ae8630e401c4558657938e5ed2b8c3ab5a6b
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 30 20:38:48 2014 -0400
+
+    http://www.projectuseful.org/stories/66 ; also made type scaffolding for stories and tasks
+
+commit de60c81e7773526a8792726657552613a258f7aa
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 30 14:35:13 2014 -0400
+
+    http://www.projectuseful.org/stories/65 small bug in product dropdown
+
+commit b5b268a9b13932274e8f167ed9a58d3977d184c1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 30 13:22:55 2014 -0400
+
+    http://www.projectuseful.org/stories/65 small bug in product dropdown
+
+commit 7087818437c52c679db280f4c89503e21fba4ebb
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Wed Jul 30 10:26:49 2014 -0400
+
+    http://www.projectuseful.org/stories/65 issues need product as drop down not a text field
+
+commit d6582d60ffeb73c750e9674929ff7bd7ae0d6f8d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 29 12:02:43 2014 -0400
+
+    updated issues views a bit
+
+commit c774b93efdf095fd845dc892f75f639229d2552b
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Jul 29 00:49:31 2014 -0400
+
+    updatedd issues views a bit
+
+commit 3420c50145f34eeb3d58e2142f4ff69785417f11
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 28 13:33:06 2014 -0400
+
+    basic issues type working now; going to version 0.2.0
+
+commit 0488106941865d31828c8c88e591c48a30920cf2
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 28 10:10:47 2014 -0400
+
+    http://www.projectuseful.org/stories/45 STORY: new story should only show active sprints and products
+
+commit 8f11f4b51f825ca46687b5f4ebd0dcca456a8b1d
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Mon Jul 28 00:23:20 2014 -0400
+
+    http://www.projectuseful.org/stories/56 STORY: view a users estimated time / actual time for requested stories, assigned stories & tasks
+
+commit 44a715ce3bc74c6d57498064a61e18f18109662e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 23:47:29 2014 -0400
+
+    http://www.projectuseful.org/stories/47 STORY: add some details to user accounts
+
+commit 39c07175aa91d459043a4779f3845bbb4d918e54
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 22:21:14 2014 -0400
+
+    http://www.projectuseful.org/stories/59 STORY: add creator to wiki type
+
+commit dff9e8fdacd51578440e7cdd3d7285f46a7edb0e
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 20:24:11 2014 -0400
+
+    minor task form update; added size to title
+
+commit ab0631db550ce9942bd9f9a760376aedfb6af7a7
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Sun Jul 27 19:45:05 2014 -0400
+
+    added version info
+
 commit 5bcc5802eca41e346c9675526e2ccf2d5331dbb4
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Sun Jul 27 18:26:21 2014 -0400

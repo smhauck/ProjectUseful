@@ -43,7 +43,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </div>
   <div class="field">
     <%= f.label :date_of_work %><br>
-    <%= f.date_select :date_of_work %>
+    <%= f.date_field :date_of_work, :value => Time.now.strftime('%Y-%m-%d') %>
   </div>
   <div class="field">
     <%= f.label :task_id %><br>
