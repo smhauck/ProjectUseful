@@ -1,3 +1,27 @@
+commit 72970b9635c33ee570c6680449678ef0dc9b57bd
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Mar 20 14:01:51 2015 -0400
+
+    http://projectuseful.org/stories/95 hide Edit links on user page if not logged in
+
+commit ea77186b26117e45fc058a7d35a8a690b6a424b6
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Mar 13 14:26:12 2015 -0400
+
+    http://projectuseful.org/stories/93 Public option for Products
+
+commit 0442b9a2d9fbc5a6e615016e1b74a0f80bf7e7a3
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Mar 13 14:25:00 2015 -0400
+
+    http://projectuseful.org/stories/93 Public option for Products
+
+commit f714e019bbd0e47e2d1164b587829fea28143611
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Mar 13 14:13:38 2015 -0400
+
+    http://projectuseful.org/stories/94 date fields to use calendar instead of list
+
 commit 094a89472f9cb5820195e4f44b2e8c949ca09cdc
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Mar 13 14:06:02 2015 -0400
