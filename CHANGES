@@ -1,3 +1,27 @@
+commit f5a949185120d8146ed5b46b4a49de7fcbe633a1
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Apr 24 13:11:42 2015 -0400
+
+    updated for Rails 4.2.1; using scope instead of hardcoding order in has_many relationship
+
+commit 63ed549fb7a71fb4be417c8d314468c775cd4c71
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Fri Apr 24 13:10:22 2015 -0400
+
+    updating to Rails 4.2.1
+
+commit d1aaf3d470c17d330ccb9e0906fa42a3da7c9edb
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Mar 24 14:29:51 2015 -0400
+
+    added default false to products.public
+
+commit dfe51d671894e393268d0e510fe884842fbcb920
+Author: William B. Hauck <wbhauck@yahoo.com>
+Date:   Tue Mar 24 14:24:53 2015 -0400
+
+    added default false to products.public
+
 commit 72970b9635c33ee570c6680449678ef0dc9b57bd
 Author: William B. Hauck <wbhauck@yahoo.com>
 Date:   Fri Mar 20 14:01:51 2015 -0400
