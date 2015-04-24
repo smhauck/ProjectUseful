@@ -24,4 +24,9 @@ class BlogPost < ActiveRecord::Base
 
   belongs_to :blog
   belongs_to :user
+
+
+  scope :sorted, lambda { order("blog_posts.publish_date DESC") }
+
+
 end

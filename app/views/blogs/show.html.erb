@@ -34,7 +34,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p>Created by: <%= link_to @blog.creator.username, @blog.creator %></p>
 <p><%= @blog.description %></p>
 
-<% @blog.posts.each do |post| %>
+<% @blog.posts.sorted.each do |post| %>
   <div class="blog_post">
 	  <% if session[:user_id] %>
 		  <h2 class="blog_post_title"><%= post.title %> <%= link_to '(Edit)', edit_blog_post_path(post) %></h2>

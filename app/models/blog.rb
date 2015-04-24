@@ -22,5 +22,6 @@ class Blog < ActiveRecord::Base
   validates :creator, presence: true
 
   belongs_to :creator, class_name: "User"
-  has_many :posts, class_name: "BlogPost", :order => "publish_date DESC"
+  # has_many :posts, -> { order('publish_date DESC') }, class_name: "BlogPost"
+  has_many :posts, class_name: "BlogPost"
 end
