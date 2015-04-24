@@ -40,7 +40,7 @@ Project Useful is released under the GNU Affero General Public License.  See the
 
 * Database initialization
 The datatbase currently needs to be setup manually.  Login with admin privileges (root) and create a new database for Project Useful.  Then grant permissions to a new database user that you want to own the database.  Replace USER and PASSWORD with appropriate information.
-    create databse project_useful;
+    create database project_useful;
     grant all on projectuseful.* to 'USER'@'localhost' identified by 'PASSWORD';
 
 
