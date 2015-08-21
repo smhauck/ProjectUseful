@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627180807) do
+ActiveRecord::Schema.define(version: 20150807012558) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20150627180807) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "creator_id",  limit: 4
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "email_to_sms_gateways", force: :cascade do |t|
@@ -61,24 +68,65 @@ ActiveRecord::Schema.define(version: 20150627180807) do
   end
 
   create_table "issues", force: :cascade do |t|
-    t.string   "title",                limit: 255
-    t.text     "description",          limit: 65535
-    t.integer  "requestor_id",         limit: 4
-    t.integer  "product_id",           limit: 4
-    t.integer  "issue_status_type_id", limit: 4
+    t.string   "title",                       limit: 255
+    t.text     "description",                 limit: 65535
+    t.integer  "requestor_id",                limit: 4
+    t.integer  "product_id",                  limit: 4
+    t.integer  "issue_status_type_id",        limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "submitter_email",      limit: 255
-    t.string   "submitter_full_name",  limit: 255
-    t.integer  "issue_type_id",        limit: 4
-    t.boolean  "accepted",             limit: 1
-    t.integer  "story_id",             limit: 4
+    t.string   "submitter_email",             limit: 255
+    t.string   "submitter_full_name",         limit: 255
+    t.integer  "issue_type_id",               limit: 4
+    t.boolean  "accepted",                    limit: 1
+    t.integer  "story_id",                    limit: 4
+    t.string   "vendor_case_id",              limit: 255
+    t.string   "vendor_issue_id",             limit: 255
+    t.datetime "reported_to_vendor_at"
+    t.integer  "slas_id",                     limit: 4
+    t.datetime "vendor_response_due_at"
+    t.datetime "vendor_response_actual_at"
+    t.datetime "vendor_workaround_due_at"
+    t.datetime "vendor_workaround_actual_at"
+    t.datetime "vendor_solution_due_at"
+    t.datetime "vendor_solution_actual_at"
+    t.text     "impact",                      limit: 65535
   end
 
   add_index "issues", ["issue_status_type_id"], name: "index_issues_on_issue_status_type_id", using: :btree
   add_index "issues", ["issue_type_id"], name: "index_issues_on_issue_type_id", using: :btree
   add_index "issues", ["product_id"], name: "index_issues_on_product_id", using: :btree
+  add_index "issues", ["slas_id"], name: "index_issues_on_slas_id", using: :btree
   add_index "issues", ["story_id"], name: "index_issues_on_story_id", using: :btree
+
+  create_table "meeting_assignments", force: :cascade do |t|
+    t.integer  "meeting_id", limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "meeting_assignments", ["meeting_id"], name: "index_meeting_assignments_on_meeting_id", using: :btree
+  add_index "meeting_assignments", ["user_id"], name: "index_meeting_assignments_on_user_id", using: :btree
+
+  create_table "meetings", force: :cascade do |t|
+    t.datetime "scheduled"
+    t.string   "title",       limit: 255
+    t.string   "subject",     limit: 255
+    t.text     "description", limit: 65535
+    t.text     "notes",       limit: 65535
+    t.integer  "creator_id",  limit: 4
+    t.integer  "owner_id",    limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "product_id",  limit: 4
+    t.integer  "project_id",  limit: 4
+  end
+
+  add_index "meetings", ["creator_id"], name: "index_meetings_on_creator_id", using: :btree
+  add_index "meetings", ["owner_id"], name: "index_meetings_on_owner_id", using: :btree
+  add_index "meetings", ["product_id"], name: "index_meetings_on_product_id", using: :btree
+  add_index "meetings", ["project_id"], name: "index_meetings_on_project_id", using: :btree
 
   create_table "note_privacy_types", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -100,13 +148,18 @@ ActiveRecord::Schema.define(version: 20150627180807) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",              limit: 4
+    t.integer  "project_id",           limit: 4
+    t.integer  "meeting_id",           limit: 4
   end
 
+  add_index "notes", ["meeting_id"], name: "index_notes_on_meeting_id", using: :btree
   add_index "notes", ["note_privacy_type_id"], name: "index_notes_on_note_privacy_type_id", using: :btree
   add_index "notes", ["product_id"], name: "index_notes_on_product_id", using: :btree
+  add_index "notes", ["project_id"], name: "index_notes_on_project_id", using: :btree
   add_index "notes", ["sprint_id"], name: "index_notes_on_sprint_id", using: :btree
   add_index "notes", ["story_id"], name: "index_notes_on_story_id", using: :btree
   add_index "notes", ["task_id"], name: "index_notes_on_task_id", using: :btree
+  add_index "notes", ["title", "body"], name: "notes_ft_idx", type: :fulltext
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "organizations", force: :cascade do |t|
@@ -136,26 +189,51 @@ ActiveRecord::Schema.define(version: 20150627180807) do
     t.boolean  "public",                 limit: 1,     default: false, null: false
   end
 
+  create_table "project_assignments", force: :cascade do |t|
+    t.integer  "project_id", limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "project_assignments", ["project_id"], name: "index_project_assignments_on_project_id", using: :btree
+  add_index "project_assignments", ["user_id"], name: "index_project_assignments_on_user_id", using: :btree
+
   create_table "project_status_types", force: :cascade do |t|
-    t.boolean  "alive",       limit: 1,     default: true,                        null: false
-    t.string   "code",        limit: 255,   default: "FIXME",                     null: false
-    t.string   "title",       limit: 255,   default: "Project Title Is Required", null: false
+    t.string   "title",       limit: 255,                  null: false
+    t.boolean  "alive",       limit: 1,     default: true, null: false
     t.text     "description", limit: 65535
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "code",        limit: 255
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "title",       limit: 255,   default: "Project Title Is Required", null: false
-    t.text     "description", limit: 65535
-    t.integer  "creator_id",  limit: 4,     default: 1,                           null: false
-    t.integer  "owner_id",    limit: 4,     default: 1,                           null: false
+    t.string   "title",                  limit: 255,   default: "Project Title Is Required", null: false
+    t.text     "description",            limit: 65535
+    t.integer  "creator_id",             limit: 4,     default: 1,                           null: false
+    t.integer  "owner_id",               limit: 4,     default: 1,                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_status_type_id", limit: 4,     default: 1,                           null: false
   end
 
   add_index "projects", ["creator_id"], name: "index_projects_on_creator_id", using: :btree
   add_index "projects", ["owner_id"], name: "index_projects_on_owner_id", using: :btree
+  add_index "projects", ["project_status_type_id"], name: "index_projects_on_project_status_type_id", using: :btree
+
+  create_table "slas", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.text     "description",       limit: 65535
+    t.integer  "product_id",        limit: 4
+    t.integer  "response_due_at",   limit: 4
+    t.integer  "workaround_due_at", limit: 4
+    t.integer  "solution_due_at",   limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "slas", ["product_id"], name: "index_slas_on_product_id", using: :btree
 
   create_table "sprint_status_types", force: :cascade do |t|
     t.boolean  "alive",       limit: 1
@@ -199,6 +277,7 @@ ActiveRecord::Schema.define(version: 20150627180807) do
   add_index "stories", ["sprint_id"], name: "index_stories_on_sprint_id", using: :btree
   add_index "stories", ["story_status_type_id"], name: "index_stories_on_story_status_type_id", using: :btree
   add_index "stories", ["story_type_id"], name: "index_stories_on_story_type_id", using: :btree
+  add_index "stories", ["title", "description"], name: "stories_ft_idx", type: :fulltext
 
   create_table "story_assignments", force: :cascade do |t|
     t.integer  "story_id",   limit: 4
@@ -273,17 +352,21 @@ ActiveRecord::Schema.define(version: 20150627180807) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.boolean  "alive",               limit: 1
-    t.string   "title",               limit: 255
-    t.text     "description",         limit: 65535
-    t.integer  "product_id",          limit: 4
-    t.integer  "sprint_id",           limit: 4
-    t.integer  "story_id",            limit: 4
+    t.boolean  "alive",                  limit: 1
+    t.string   "title",                  limit: 255
+    t.text     "description",            limit: 65535
+    t.integer  "product_id",             limit: 4
+    t.integer  "sprint_id",              limit: 4
+    t.integer  "story_id",               limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "task_status_type_id", limit: 4
-    t.decimal  "estimated_hours",                   precision: 5, scale: 2
-    t.integer  "task_type_id",        limit: 4
+    t.integer  "task_status_type_id",    limit: 4
+    t.decimal  "estimated_hours",                      precision: 5, scale: 2
+    t.integer  "task_type_id",           limit: 4
+    t.date     "sched_start_date"
+    t.date     "actual_start_date"
+    t.date     "sched_completion_date"
+    t.date     "actual_completion_date"
   end
 
   add_index "tasks", ["product_id"], name: "index_tasks_on_product_id", using: :btree
@@ -291,6 +374,7 @@ ActiveRecord::Schema.define(version: 20150627180807) do
   add_index "tasks", ["story_id"], name: "index_tasks_on_story_id", using: :btree
   add_index "tasks", ["task_status_type_id"], name: "index_tasks_on_task_status_type_id", using: :btree
   add_index "tasks", ["task_type_id"], name: "index_tasks_on_task_type_id", using: :btree
+  add_index "tasks", ["title", "description"], name: "tasks_ft_idx", type: :fulltext
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                limit: 255
@@ -300,9 +384,10 @@ ActiveRecord::Schema.define(version: 20150627180807) do
     t.string   "first_name",              limit: 255
     t.string   "last_name",               limit: 255
     t.string   "office_phone",            limit: 255
-    t.string   "contact_email",           limit: 255, null: false
+    t.string   "contact_email",           limit: 255,                null: false
     t.string   "mobile_phone",            limit: 255
     t.integer  "email_to_sms_gateway_id", limit: 4
+    t.boolean  "active",                  limit: 1,   default: true, null: false
   end
 
   add_index "users", ["email_to_sms_gateway_id"], name: "index_users_on_email_to_sms_gateway_id", using: :btree
@@ -338,5 +423,9 @@ ActiveRecord::Schema.define(version: 20150627180807) do
 
   add_index "wikis", ["product_id"], name: "index_wikis_on_product_id", using: :btree
 
+  add_foreign_key "meeting_assignments", "meetings"
+  add_foreign_key "meeting_assignments", "users"
+  add_foreign_key "project_assignments", "projects"
+  add_foreign_key "project_assignments", "users"
   add_foreign_key "users", "email_to_sms_gateways"
 end
