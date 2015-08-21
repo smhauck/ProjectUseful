@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @email_to_sms_gateway.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @email_to_sms_gateway.address %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @email_to_sms_gateway.description %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @email_to_sms_gateway.active %>
+</p>
+
+<%= link_to 'Edit', edit_email_to_sms_gateway_path(@email_to_sms_gateway) %> |
+<%= link_to 'Back', email_to_sms_gateways_path %>

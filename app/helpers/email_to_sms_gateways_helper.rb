@@ -1,0 +1,2 @@
+module EmailToSmsGatewaysHelper
+end

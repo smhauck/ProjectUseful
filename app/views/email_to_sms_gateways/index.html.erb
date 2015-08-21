@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Email To Sms Gateways</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @email_to_sms_gateways.each do |email_to_sms_gateway| %>
+      <tr>
+        <td><%= email_to_sms_gateway.name %></td>
+        <td><%= email_to_sms_gateway.address %></td>
+        <td><%= email_to_sms_gateway.description %></td>
+        <td><%= email_to_sms_gateway.active %></td>
+        <td><%= link_to 'Show', email_to_sms_gateway %></td>
+        <td><%= link_to 'Edit', edit_email_to_sms_gateway_path(email_to_sms_gateway) %></td>
+        <td><%= link_to 'Destroy', email_to_sms_gateway, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Email to sms gateway', new_email_to_sms_gateway_path %>
