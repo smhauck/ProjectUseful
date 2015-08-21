@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  alive: false
+  code: MyString
+  title: MyString
+  description: MyText
+
+two:
+  alive: false
+  code: MyString
+  title: MyString
+  description: MyText

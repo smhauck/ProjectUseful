@@ -20,7 +20,7 @@ module ProjectUseful
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
   
-    config.action_view.sanitized_allowed_tags = 'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td'
+    config.action_view.sanitized_allowed_tags = 'a', 'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td', 'ul', 'ol', 'li', 'h1','h2','h3','h4','h5','h6','strong','em'
 
   
   

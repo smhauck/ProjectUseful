@@ -1,5 +1,7 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :organizations
+  resources :email_to_sms_gateways
   resources :product_groups
 
   resources :group_users

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807051421) do
+ActiveRecord::Schema.define(version: 20150627180807) do
 
-  create_table "blog_posts", force: true do |t|
-    t.string   "title"
-    t.text     "body"
+  create_table "blog_posts", force: :cascade do |t|
+    t.string   "title",        limit: 255
+    t.text     "body",         limit: 65535
     t.date     "publish_date"
-    t.integer  "blog_id"
-    t.integer  "user_id"
+    t.integer  "blog_id",      limit: 4
+    t.integer  "user_id",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,44 +26,53 @@ ActiveRecord::Schema.define(version: 20140807051421) do
   add_index "blog_posts", ["blog_id"], name: "index_blog_posts_on_blog_id", using: :btree
   add_index "blog_posts", ["user_id"], name: "index_blog_posts_on_user_id", using: :btree
 
-  create_table "blogs", force: true do |t|
-    t.string   "title"
-    t.text     "description"
+  create_table "blogs", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "creator_id"
+    t.integer  "creator_id",  limit: 4
   end
 
-  create_table "issue_status_types", force: true do |t|
-    t.string   "title"
-    t.string   "code"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "alive"
+  create_table "email_to_sms_gateways", force: :cascade do |t|
+    t.string   "name",        limit: 255,                  null: false
+    t.string   "address",     limit: 255,                  null: false
+    t.text     "description", limit: 65535
+    t.boolean  "active",      limit: 1,     default: true, null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
-  create_table "issue_types", force: true do |t|
-    t.string   "title"
-    t.text     "description"
+  create_table "issue_status_types", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.string   "code",        limit: 255
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "code"
+    t.boolean  "alive",       limit: 1
   end
 
-  create_table "issues", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "requestor_id"
-    t.integer  "product_id"
-    t.integer  "issue_status_type_id"
+  create_table "issue_types", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "submitter_email"
-    t.string   "submitter_full_name"
-    t.integer  "issue_type_id"
-    t.boolean  "accepted"
-    t.integer  "story_id"
+    t.string   "code",        limit: 255
+  end
+
+  create_table "issues", force: :cascade do |t|
+    t.string   "title",                limit: 255
+    t.text     "description",          limit: 65535
+    t.integer  "requestor_id",         limit: 4
+    t.integer  "product_id",           limit: 4
+    t.integer  "issue_status_type_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "submitter_email",      limit: 255
+    t.string   "submitter_full_name",  limit: 255
+    t.integer  "issue_type_id",        limit: 4
+    t.boolean  "accepted",             limit: 1
+    t.integer  "story_id",             limit: 4
   end
 
   add_index "issues", ["issue_status_type_id"], name: "index_issues_on_issue_status_type_id", using: :btree
@@ -71,26 +80,26 @@ ActiveRecord::Schema.define(version: 20140807051421) do
   add_index "issues", ["product_id"], name: "index_issues_on_product_id", using: :btree
   add_index "issues", ["story_id"], name: "index_issues_on_story_id", using: :btree
 
-  create_table "note_privacy_types", force: true do |t|
-    t.string   "title"
-    t.string   "code"
-    t.text     "description"
+  create_table "note_privacy_types", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.string   "code",        limit: 255
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "notes", force: true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "creator_id"
-    t.integer  "note_privacy_type_id", default: 1, null: false
-    t.integer  "product_id"
-    t.integer  "sprint_id"
-    t.integer  "story_id"
-    t.integer  "task_id"
+  create_table "notes", force: :cascade do |t|
+    t.string   "title",                limit: 255
+    t.text     "body",                 limit: 65535
+    t.integer  "creator_id",           limit: 4
+    t.integer  "note_privacy_type_id", limit: 4,     default: 1, null: false
+    t.integer  "product_id",           limit: 4
+    t.integer  "sprint_id",            limit: 4
+    t.integer  "story_id",             limit: 4
+    t.integer  "task_id",              limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "user_id",              limit: 4
   end
 
   add_index "notes", ["note_privacy_type_id"], name: "index_notes_on_note_privacy_type_id", using: :btree
@@ -100,61 +109,90 @@ ActiveRecord::Schema.define(version: 20140807051421) do
   add_index "notes", ["task_id"], name: "index_notes_on_task_id", using: :btree
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
-  create_table "product_status_types", force: true do |t|
-    t.boolean  "alive"
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "code",        default: "FIXME", null: false
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  create_table "products", force: true do |t|
-    t.boolean  "alive"
-    t.string   "title"
-    t.text     "description"
+  create_table "product_status_types", force: :cascade do |t|
+    t.boolean  "alive",       limit: 1
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "owner_id",               default: 1, null: false
-    t.integer  "product_status_type_id", default: 1, null: false
+    t.string   "code",        limit: 255,   default: "FIXME", null: false
   end
 
-  create_table "sprint_status_types", force: true do |t|
-    t.boolean  "alive"
-    t.string   "title"
-    t.text     "description"
+  create_table "products", force: :cascade do |t|
+    t.boolean  "alive",                  limit: 1
+    t.string   "title",                  limit: 255
+    t.text     "description",            limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "code",        default: "FIXME", null: false
+    t.integer  "owner_id",               limit: 4,     default: 1,     null: false
+    t.integer  "product_status_type_id", limit: 4,     default: 1,     null: false
+    t.boolean  "public",                 limit: 1,     default: false, null: false
   end
 
-  create_table "sprints", force: true do |t|
+  create_table "project_status_types", force: :cascade do |t|
+    t.boolean  "alive",       limit: 1,     default: true,                        null: false
+    t.string   "code",        limit: 255,   default: "FIXME",                     null: false
+    t.string   "title",       limit: 255,   default: "Project Title Is Required", null: false
+    t.text     "description", limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "title",       limit: 255,   default: "Project Title Is Required", null: false
+    t.text     "description", limit: 65535
+    t.integer  "creator_id",  limit: 4,     default: 1,                           null: false
+    t.integer  "owner_id",    limit: 4,     default: 1,                           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["creator_id"], name: "index_projects_on_creator_id", using: :btree
+  add_index "projects", ["owner_id"], name: "index_projects_on_owner_id", using: :btree
+
+  create_table "sprint_status_types", force: :cascade do |t|
+    t.boolean  "alive",       limit: 1
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "code",        limit: 255,   default: "FIXME", null: false
+  end
+
+  create_table "sprints", force: :cascade do |t|
     t.date     "start_date"
     t.date     "end_date"
-    t.boolean  "alive"
-    t.text     "notes"
+    t.boolean  "alive",                 limit: 1
+    t.text     "notes",                 limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "sprint_status_type_id"
+    t.integer  "sprint_status_type_id", limit: 4
   end
 
   add_index "sprints", ["sprint_status_type_id"], name: "index_sprints_on_sprint_status_type_id", using: :btree
 
-  create_table "stories", force: true do |t|
-    t.boolean  "alive"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "product_id"
-    t.integer  "sprint_id"
+  create_table "stories", force: :cascade do |t|
+    t.boolean  "alive",                limit: 1
+    t.string   "title",                limit: 255
+    t.text     "description",          limit: 65535
+    t.integer  "product_id",           limit: 4
+    t.integer  "sprint_id",            limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "story_status_type_id"
-    t.integer  "requestor_id"
-    t.text     "completion_notes"
-    t.decimal  "estimated_hours",      precision: 10, scale: 2
-    t.decimal  "points",               precision: 10, scale: 2
-    t.integer  "creator_id"
-    t.integer  "story_type_id"
+    t.integer  "story_status_type_id", limit: 4
+    t.integer  "requestor_id",         limit: 4
+    t.text     "completion_notes",     limit: 65535
+    t.decimal  "estimated_hours",                    precision: 10, scale: 2
+    t.decimal  "points",                             precision: 10, scale: 2
+    t.integer  "creator_id",           limit: 4
+    t.integer  "story_type_id",        limit: 4
   end
 
   add_index "stories", ["product_id"], name: "index_stories_on_product_id", using: :btree
@@ -162,9 +200,9 @@ ActiveRecord::Schema.define(version: 20140807051421) do
   add_index "stories", ["story_status_type_id"], name: "index_stories_on_story_status_type_id", using: :btree
   add_index "stories", ["story_type_id"], name: "index_stories_on_story_type_id", using: :btree
 
-  create_table "story_assignments", force: true do |t|
-    t.integer  "story_id"
-    t.integer  "user_id"
+  create_table "story_assignments", force: :cascade do |t|
+    t.integer  "story_id",   limit: 4
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -172,25 +210,25 @@ ActiveRecord::Schema.define(version: 20140807051421) do
   add_index "story_assignments", ["story_id"], name: "index_story_assignments_on_story_id", using: :btree
   add_index "story_assignments", ["user_id"], name: "index_story_assignments_on_user_id", using: :btree
 
-  create_table "story_status_types", force: true do |t|
-    t.boolean  "alive"
-    t.string   "title"
-    t.string   "code"
-    t.text     "description"
+  create_table "story_status_types", force: :cascade do |t|
+    t.boolean  "alive",       limit: 1
+    t.string   "title",       limit: 255
+    t.string   "code",        limit: 255
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "story_types", force: true do |t|
-    t.string   "title"
-    t.text     "description"
+  create_table "story_types", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "task_assignments", force: true do |t|
-    t.integer  "task_id"
-    t.integer  "user_id"
+  create_table "task_assignments", force: :cascade do |t|
+    t.integer  "task_id",    limit: 4
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -198,19 +236,19 @@ ActiveRecord::Schema.define(version: 20140807051421) do
   add_index "task_assignments", ["task_id"], name: "index_task_assignments_on_task_id", using: :btree
   add_index "task_assignments", ["user_id"], name: "index_task_assignments_on_user_id", using: :btree
 
-  create_table "task_comment_types", force: true do |t|
-    t.string   "title"
-    t.text     "description"
+  create_table "task_comment_types", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "task_comments", force: true do |t|
-    t.decimal  "hours",        precision: 5, scale: 2
+  create_table "task_comments", force: :cascade do |t|
+    t.decimal  "hours",                      precision: 5, scale: 2
     t.date     "date_of_work"
-    t.text     "comment"
-    t.integer  "task_id"
-    t.integer  "user_id"
+    t.text     "comment",      limit: 65535
+    t.integer  "task_id",      limit: 4
+    t.integer  "user_id",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -218,34 +256,34 @@ ActiveRecord::Schema.define(version: 20140807051421) do
   add_index "task_comments", ["task_id"], name: "index_task_comments_on_task_id", using: :btree
   add_index "task_comments", ["user_id"], name: "index_task_comments_on_user_id", using: :btree
 
-  create_table "task_status_types", force: true do |t|
-    t.boolean  "alive"
-    t.string   "title"
-    t.string   "code"
-    t.text     "description"
+  create_table "task_status_types", force: :cascade do |t|
+    t.boolean  "alive",       limit: 1
+    t.string   "title",       limit: 255
+    t.string   "code",        limit: 255
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "task_types", force: true do |t|
-    t.string   "title"
-    t.text     "description"
+  create_table "task_types", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tasks", force: true do |t|
-    t.boolean  "alive"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "product_id"
-    t.integer  "sprint_id"
-    t.integer  "story_id"
+  create_table "tasks", force: :cascade do |t|
+    t.boolean  "alive",               limit: 1
+    t.string   "title",               limit: 255
+    t.text     "description",         limit: 65535
+    t.integer  "product_id",          limit: 4
+    t.integer  "sprint_id",           limit: 4
+    t.integer  "story_id",            limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "task_status_type_id"
-    t.decimal  "estimated_hours",     precision: 5, scale: 2
-    t.integer  "task_type_id"
+    t.integer  "task_status_type_id", limit: 4
+    t.decimal  "estimated_hours",                   precision: 5, scale: 2
+    t.integer  "task_type_id",        limit: 4
   end
 
   add_index "tasks", ["product_id"], name: "index_tasks_on_product_id", using: :btree
@@ -254,26 +292,30 @@ ActiveRecord::Schema.define(version: 20140807051421) do
   add_index "tasks", ["task_status_type_id"], name: "index_tasks_on_task_status_type_id", using: :btree
   add_index "tasks", ["task_type_id"], name: "index_tasks_on_task_type_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "password_digest"
+  create_table "users", force: :cascade do |t|
+    t.string   "username",                limit: 255
+    t.string   "password_digest",         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "contact_phone"
-    t.string   "contact_email",   null: false
+    t.string   "first_name",              limit: 255
+    t.string   "last_name",               limit: 255
+    t.string   "office_phone",            limit: 255
+    t.string   "contact_email",           limit: 255, null: false
+    t.string   "mobile_phone",            limit: 255
+    t.integer  "email_to_sms_gateway_id", limit: 4
   end
 
-  create_table "wiki_pages", force: true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "version"
-    t.integer  "wiki_id",    null: false
-    t.integer  "product_id"
-    t.integer  "story_id"
-    t.integer  "task_id"
-    t.integer  "user_id"
+  add_index "users", ["email_to_sms_gateway_id"], name: "index_users_on_email_to_sms_gateway_id", using: :btree
+
+  create_table "wiki_pages", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "body",       limit: 65535
+    t.integer  "version",    limit: 4
+    t.integer  "wiki_id",    limit: 4,     null: false
+    t.integer  "product_id", limit: 4
+    t.integer  "story_id",   limit: 4
+    t.integer  "task_id",    limit: 4
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -284,16 +326,17 @@ ActiveRecord::Schema.define(version: 20140807051421) do
   add_index "wiki_pages", ["user_id"], name: "index_wiki_pages_on_user_id", using: :btree
   add_index "wiki_pages", ["wiki_id"], name: "index_wiki_pages_on_wiki_id", using: :btree
 
-  create_table "wikis", force: true do |t|
-    t.string   "title"
-    t.text     "description"
+  create_table "wikis", force: :cascade do |t|
+    t.string   "title",         limit: 255
+    t.text     "description",   limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "product_id"
-    t.integer  "start_page_id"
-    t.integer  "creator_id"
+    t.integer  "product_id",    limit: 4
+    t.integer  "start_page_id", limit: 4
+    t.integer  "creator_id",    limit: 4
   end
 
   add_index "wikis", ["product_id"], name: "index_wikis_on_product_id", using: :btree
 
+  add_foreign_key "users", "email_to_sms_gateways"
 end
