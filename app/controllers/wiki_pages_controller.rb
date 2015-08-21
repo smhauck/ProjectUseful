@@ -44,7 +44,7 @@ class WikiPagesController < ApplicationController
     @wiki_page.body.gsub!(/\n\n/, '<br />')
 
 
-    @wiki_page.body.gsub!(/\[\[(.*)\]\]/, '<a href="/wiki_pages/\1">\1</a>')
+    @wiki_page.body.gsub!(/\[\[(.*)\]\]/, '<a href="/wiki/' + params[:wiki_id] + '/wiki_pages/\1">\1</a>')
 
   end
 

@@ -26,8 +26,7 @@ class ProductsController < ApplicationController
     if session[:user_id]
       @products = Product.all
     else 
-      @products = Product.where(public: true)
-
+      @products = Product.is_public
     end
   end
 
@@ -89,6 +88,9 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+      unless session[:user_id] || @product.public == true
+        redirect_to products_url, notice: 'Product not available'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

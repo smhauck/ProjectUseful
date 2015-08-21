@@ -23,7 +23,11 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    if session[:user_id]
+      @notes = Note.all
+    else
+      @notes = Note.is_public
+    end
   end
 
   # GET /notes/1

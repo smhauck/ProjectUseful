@@ -11,6 +11,13 @@
   <%= simple_format(@note.body) %>
 </p>
 
+<% if @note.privacy %>
+<p>
+  <strong>Privacy:</strong>
+  <%= @note.privacy.title %>
+  </p>
+<% end %>
+
 <p><strong>Related Items</strong></p>
 
 <% if @note.product %>

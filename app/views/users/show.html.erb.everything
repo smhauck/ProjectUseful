@@ -1,0 +1,133 @@
+<%
+=begin
+%>
+
+Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Username: <%= @user.username %> <%= link_to '(Edit)', edit_user_path(@user) %></h1>
+<p><strong>First Name:</strong> <%= @user.first_name %></p>
+<p><strong>Last Nmae:</strong> <%= @user.last_name %></p>
+<p><strong>Contact Email:</strong> <%= @user.contact_email %></p>
+<p><strong>Contact Phone:</strong> <%= @user.contact_phone %></p>
+
+
+<% if @user.blogs.count > 0 %>
+  <h2>Created Blogs</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th><th>Created At</th></tr>
+    </thead>
+    <tbody>
+  <% @user.blogs.each do |blog| %>
+    <tr><td><%= link_to blog.title, blog %></td><td><%= blog.created_at %></td></tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Blogs</h2>
+<% end %>
+
+
+<% if @user.wikis.count > 0 %>
+  <h2>Created Wikis</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th><th>Created At</th></tr>
+    </thead>
+    <tbody>
+  <% @user.wikis.each do |wiki| %>
+    <tr><td><%= link_to wiki.title, wiki %></td><td><%= wiki.created_at %></td></tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Wikis</h2>
+<% end %>
+
+
+<% if @user.requests.count > 0 %>
+  <h2>Requested Stories</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr>
+    </thead>
+    <tbody>
+  <% @user.requests.each do |request| %>
+    <tr>
+      <td><%= link_to request.title, request %></td>
+      <td class="<%= request.status.code %>"><%= request.status.title %></td>
+      <td>
+        <% request.story_assignments.each do |sa| %>
+          <%= link_to sa.user.username, sa.user %><br />
+        <% end %>
+      </td>
+      <td><%= number_with_precision(request.estimated_hours, strip_insignificant_zeros: true) %></td>
+      <% @time = 0 %>
+      <% request.tasks.each do |task| %>
+        <% @time = @time + task.task_comments.sum(:hours) %>
+      <% end %>
+      <td><%= number_with_precision(@time, strip_insignificant_zeros: true) %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Requested Stories</h2>
+<% end %>
+
+<% if @user.story_assignments.count > 0 %>
+  <h2>Assigned Stories</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr>
+    </thead>
+    <tbody>
+  <% @user.story_assignments.each do |assignment| %>
+    <tr>
+      <td><%= link_to assignment.story.title, assignment.story %></td>
+      <td class="<%= assignment.story.status.code %>"><%= assignment.story.status.title %></td>
+      <td>
+        <% assignment.story.story_assignments.each do |sa| %>
+          <%= link_to sa.user.username, sa.user %><br />
+        <% end %>
+      </td>
+      <td><%= number_with_precision(assignment.story.estimated_hours, strip_insignificant_zeros: true) %></td>
+      <% @time = 0 %>
+      <% assignment.story.tasks.each do |task| %>
+        <% @time = @time + task.task_comments.sum(:hours) %>
+      <% end %>
+      <td><%= number_with_precision(@time, strip_insignificant_zeros: true) %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Assigned Stories</h2>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
