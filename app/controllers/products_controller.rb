@@ -1,4 +1,4 @@
-# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,16 +17,16 @@
 
 
 class ProductsController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
   def index
     if session[:user_id]
-      @products = Product.all
+      @products = Product.all.order(:title)
     else 
-      @products = Product.is_public
+      @products = Product.where(public: true)
+
     end
   end
 
@@ -88,9 +88,6 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
-      unless session[:user_id] || @product.public == true
-        redirect_to products_url, notice: 'Product not available'
-      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

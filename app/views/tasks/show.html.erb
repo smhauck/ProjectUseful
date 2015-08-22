@@ -26,9 +26,17 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<h1>TASK: <%= @task.title %> <%= link_to '(Edit)', edit_task_path(@task) %> <%= link_to '(Delete)', task_path(@task), method: :delete, data: { confirm: 'Really delete Task?' } %></h1>
 <table class="table">
-	<tr><th>Status</th><td class="<%= @task.status.code %>"><%= @task.status.title %></td></tr>
+	<tr><th>Task Title</th><td><%= @task.title %> <%= link_to '(Edit)', edit_task_path(@task) %> <%= link_to '(Delete)', task_path(@task), method: :delete, data: { confirm: 'Really delete Task?' } %></td></tr>
+  <% if @task.task_status_type_id %><tr><th>Status</th><td class="<%= @task.status.code %>"><%= @task.status.title %></td></tr><% end %>
+	  <tr><th>Last Updated</th><td><%= @task.updated_at.to_formatted_s(:db) %></td></tr>
+<tr><th>Sched start date:</th><td><%= @task.sched_start_date %></td></tr>
+
+<tr><th>Actual start date:</th><td><%= @task.actual_start_date %></td></tr>
+
+<tr><th>Sched completion date:</th><td><%= @task.sched_completion_date %></td></tr>
+
+<tr><th>Actual completion date:</th><td><%= @task.actual_completion_date %></td></tr>
   <tr><th>Estimated Hours</th><td><%= number_with_precision(@task.estimated_hours, strip_insignificant_zeros: true) %></td></tr>
   <% @time = 0 %>
   <% @time = @task.task_comments.sum(:hours) %>
@@ -38,19 +46,20 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <th>Owners</th>
     <td>
 <% @task.task_assignments.each do |ta| %>
-	<%= ta.user.username -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+	<%= link_to ta.user.username, ta.user -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
   <%= render 'add_user' %>
 </td>
 </tr>
 
-<tr><th>Story</th><td><% if @task.story_id %><%= link_to @task.story.title, @task.story %><% end %></td></tr>
+<tr><th>Product</th><td><% if @task.product_id %><%= link_to @task.product.title, @task.product %><% end %></td></tr>
+<tr><th>Project</th><td><% if @task.project_id %><%= link_to @task.project.title, @task.project %><% end %></td></tr>
+<!-- <tr><th>Story</th><td><% if @task.story_id %><%= link_to @task.story.title, @task.story %><% end %></td></tr> -->
 
 
-<tr><th>Sprint</th><td><% if @task.story.sprint_id %><%= link_to "#{@task.story.sprint.start_date} - #{@task.story.sprint.end_date}", @task.story.sprint %><% end %></td></tr>
+<% if @task.sprint_id %><tr><th>Sprint</th><td><% if @task.story.sprint_id %><%= link_to "#{@task.story.sprint.start_date} - #{@task.story.sprint.end_date}", @task.story.sprint %><% end %></td></tr><% end %>
 
 
-<tr><th>Product</th><td><% if @task.story.product_id %><%= link_to @task.story.product.title, @task.story.product %><% end %></td></tr>
 
 
 <tr><th>Description</th><td><%= simple_format(@task.description) %></td></tr>
@@ -63,12 +72,12 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 		<tr><th>User</th><th>Date</th><th>Hours</th><th>Comment</th></tr>
 	</thead>
 	<tbody>
-      <% @task.task_comments.each do |tc| %>
+      <% @task.task_comments.order(date_of_work: :desc).each do |tc| %>
   <tr>
     <td><%= tc.user.username %></td>
 	 <td><%= tc.date_of_work %></td>
 	    <td><%= tc.hours %></td>
-	<td><%= tc.comment %></td>
+	<td><%= simple_format(tc.comment) %></td>
   </tr>
 <% end %>
 </tbody>

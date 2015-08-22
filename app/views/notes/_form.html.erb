@@ -1,3 +1,29 @@
+<%
+=begin
+%>
+
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <%= form_for(@note) do |f| %>
   <% if @note.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +39,7 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, { size: 60 } %>
+    <%= f.text_field :title, size: 60, autofocus: :true %>
   </div>
   <div class="field">
     <%= f.label :body %><br>
@@ -22,23 +48,27 @@
  
   <div class="field">
 	  <%= f.label :product_id %></br >
-	  <%= collection_select(:note, :product_id, Product.all, :id, :title, include_blank: true) %>
+	  <%= collection_select(:note, :product_id, Product.all.order(:title), :id, :title, include_blank: true) %>
   </div>
   <div class="field">
-	  <%= f.label :sprint_id %></br >
-	  <%= collection_select(:note, :sprint_id, Sprint.all, :id, :start_date, include_blank: true) %>
+	  <%= f.label :project_id %></br >
+	  <%= collection_select(:note, :project_id, Project.all.order(:title), :id, :title, include_blank: true) %>
+  </div>
+  <div class="field">
+	  <%= f.label :meeting_id %></br >
+	  <%= collection_select(:note, :meeting_id, Meeting.all.order(:subject), :id, :subject, include_blank: true) %>
   </div>
   <div class="field">
 	  <%= f.label :story_id %></br >
-	  <%= collection_select(:note, :story_id, Story.all, :id, :title, include_blank: true) %>
+	  <%= collection_select(:note, :story_id, Story.all.order(:title), :id, :title, include_blank: true) %>
   </div>
   <div class="field">
 	  <%= f.label :task_id %></br >
-	  <%= collection_select(:note, :task_id, Task.all, :id, :title, include_blank: true) %>
+	  <%= collection_select(:note, :task_id, Task.all.order(:title), :id, :title, include_blank: true) %>
   </div>
   <div class="field">
 	  <%= f.label :user_id %></br >
-	  <%= collection_select(:note, :user_id, User.all, :id, :username, include_blank: true) %>
+	  <%= collection_select(:note, :user_id, User.all.order(:username), :id, :username, include_blank: true) %>
   </div>
   
   

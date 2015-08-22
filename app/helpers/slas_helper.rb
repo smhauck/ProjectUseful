@@ -1,0 +1,2 @@
+module SlasHelper
+end

@@ -58,13 +58,15 @@ table tr:hover {
 
 footer {
   background-color: #0080c0;
-  margin-top: 1em;
-  padding-top: 1em;
+  margin: 1em 0em 1em 0em;
+  padding: 1em 0em 1em 0em;
   position: relative;
   bottom: 0;
   width: 100%;
+
   /* Set the fixed height of the footer here */
-  height: 10em;
+  /* FIXME: WHY DO WE NEED A FIXED HEIGHT FOOTER? */
+  /* height: 8em; */
   background-color: #0080c0;
   color: #fff;
 }

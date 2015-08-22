@@ -1,4 +1,4 @@
-# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -18,18 +18,15 @@
 
 class Task < ActiveRecord::Base
   
-  validates :story, presence: true
+#  validates :story, presence: true
   validates :title, presence: true
-  validates :status, presence: true
+#  validates :status, presence: true
 
-
-
-  # has to have an associated story
-  validates :story, presence: true
 
 
 
   belongs_to :product
+  belongs_to :project
   belongs_to :sprint
   belongs_to :story
   belongs_to :status, class_name: "TaskStatusType", foreign_key: "task_status_type_id"

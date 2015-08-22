@@ -17,23 +17,30 @@
 
 
 class ProjectsController < ApplicationController
-  # skip_before_action :authorize, only: [:index, :show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.all.order(:title)
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project_assignment = ProjectAssignment.new
   end
-
+  
   # GET /projects/new
   def new
     @project = Project.new
+    if params[:product]
+      @project.product_id = params[:product]
+      @product = Product.find(params[:product])
+      @product_selected = 1
+    else
+      @product = Product.new
+    end
   end
 
   # GET /projects/1/edit
@@ -44,7 +51,6 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-    @project.creator_id = session[:user_id]
 
     respond_to do |format|
       if @project.save
@@ -89,6 +95,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :description, :owner_id)
+      params.require(:project).permit(:title, :description, :sched_start_date, :actual_start_date, :sched_completion_date, :actual_completion_date, :creator_id, :owner_id, :product_id, :project_status_type_id)
     end
 end

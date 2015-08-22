@@ -1,6 +1,6 @@
-<h1>Listing task_comments</h1>
+<h1>Task Comments</h1>
 
-<table>
+<table class="table tablesorter">
   <thead>
     <tr>
       <th>Hours</th>
@@ -18,8 +18,8 @@
       <tr>
         <td><%= task_comment.hours %></td>
         <td><%= task_comment.date_of_work %></td>
-        <td><%= task_comment.task %></td>
-        <td><%= task_comment.user %></td>
+        <td><%= link_to task_comment.task.title, task_comment.task %></td>
+        <td><%= link_to task_comment.user.username, task_comment.user %></td>
         <td><%= link_to 'Show', task_comment %></td>
         <td><%= link_to 'Edit', edit_task_comment_path(task_comment) %></td>
         <td><%= link_to 'Destroy', task_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

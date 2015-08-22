@@ -13,6 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-// NOT INCLUDING TINYMCE AT THE MOMENT
-//  require tinymce/jquery.tinymce.min.js
 //= require_tree .

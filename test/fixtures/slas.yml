@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  product_id: 
+  response_due_at: 
+  workaround_due_at: 
+  solution_due_at: 
+
+two:
+  name: MyString
+  description: MyText
+  product_id: 
+  response_due_at: 
+  workaround_due_at: 
+  solution_due_at: 

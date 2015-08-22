@@ -39,15 +39,23 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, {size: 60} %>
+    <%= f.text_field :title, size: 60, autofocus: :true %>
   </div>
   <div class="field">
     <%= f.label :task_status_type_id %></br >
     <%= collection_select(:task, :task_status_type_id, TaskStatusType.all, :id, :title) %>
   </div>
   <div class="field">
+    <%= f.label :product_id %></br >
+    <%= collection_select(:task, :product_id, Product.all.order(:title), :id, :title, include_blank: '') %>
+  </div>
+  <div class="field">
+    <%= f.label :project_id %></br >
+    <%= collection_select(:task, :project_id, Project.all.order(:title), :id, :title, include_blank: '') %>
+  </div>
+  <div class="field">
     <%= f.label :story_id %></br >
-    <%= collection_select(:task, :story_id, Story.all, :id, :title) %>
+    <%= collection_select(:task, :story_id, Story.all.order(:title), :id, :title) %>
   </div>
   <div class="field">
     <%= f.label :estimated_hours %></br >
@@ -56,6 +64,22 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description, {rows: 10, cols: 60} %>
+  </div>
+  <div class="field">
+    <%= f.label :sched_start_date %><br>
+    <%= f.date_field :sched_start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :actual_start_date %><br>
+    <%= f.date_field :actual_start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :sched_completion_date %><br>
+    <%= f.date_field :sched_completion_date %>
+  </div>
+  <div class="field">
+    <%= f.label :actual_completion_date %><br>
+    <%= f.date_field :actual_completion_date %>
   </div>
   <div class="actions">
     <%= f.submit %>

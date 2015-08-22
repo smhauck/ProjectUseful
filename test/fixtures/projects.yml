@@ -3,7 +3,17 @@
 one:
   title: MyString
   description: MyText
+  sched_start_date: 2015-06-13
+  actual_start_date: 2015-06-13
+  sched_completion_date: MyString
+  actual_completion_date: MyString
+  product_id: 
 
 two:
   title: MyString
   description: MyText
+  sched_start_date: 2015-06-13
+  actual_start_date: 2015-06-13
+  sched_completion_date: MyString
+  actual_completion_date: MyString
+  product_id: 

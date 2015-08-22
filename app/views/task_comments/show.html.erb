@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Comment:</strong>
+  <%= @task_comment.comment %>
+</p>
+
+<p>
   <strong>Hours:</strong>
   <%= @task_comment.hours %>
 </p>
@@ -12,12 +17,12 @@
 
 <p>
   <strong>Task:</strong>
-  <%= @task_comment.task.title %>
+  <%= link_to @task_comment.task.title, @task_comment %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @task_comment.user.username %>
+  <%= link_to @task_comment.user.username, @task_comment.user %>
 </p>
 
 <%= link_to 'Edit', edit_task_comment_path(@task_comment) %> |

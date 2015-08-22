@@ -1,4 +1,4 @@
-# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,7 +17,6 @@
 
 
 class BlogsController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   # GET /blogs

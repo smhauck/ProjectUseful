@@ -25,18 +25,20 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <% if @user.task_assignments.count > 0 %>
   <h2>My Tasks</h2>
-  <table class="table">
+  <table class="table tablesorter">
     <thead>
-      <tr><th>Title</th><th>Status</th><th>Story</th><th>Estimated Time</th><th>Actual Time</th></tr>
+	    <tr><th>Title</th><th>Status</th><th>Last Updated</th><th>Sched Start</th><th>Actual Start</th><th>Sched Compl</th><th>Actual Compl</th></tr>
     </thead>
     <tbody>
   <% @user.task_assignments.each do |assignment| %>
     <tr>
       <td><%= link_to assignment.task.title, assignment.task %></td>
       <td class="<%= assignment.task.status.code %>"><%= assignment.task.status.title %></td>
-      <td><%= link_to assignment.task.story.title, assignment.task.story %></td>
-      <td><%= number_with_precision(assignment.task.estimated_hours, strip_insignificant_zeros: true) %></td>
-      <td>SOON</td>
+      <td><%= assignment.task.updated_at.to_formatted_s(:db) %></td>
+      <td><%= assignment.task.sched_start_date %></td>
+      <td><%= assignment.task.actual_start_date %></td>
+      <td><%= assignment.task.sched_completion_date %></td>
+      <td><%= assignment.task.actual_completion_date %></td>
     </tr>
   <% end %>
 </tbody>

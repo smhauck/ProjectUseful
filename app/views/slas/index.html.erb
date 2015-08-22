@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Service Level Agreements</h1>
+
+<table class="table tablesorter">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Response due at</th>
+      <th>Workaround due at</th>
+      <th>Solution due at</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @slas.each do |sla| %>
+      <tr>
+        <td><%= link_to sla.product.title, sla.product %></td>
+        <td><%= link_to sla.name, sla %></td>
+        <td><%= sla.description %></td>
+        <td><%= sla.response_due_at %></td>
+        <td><%= sla.workaround_due_at %></td>
+        <td><%= sla.solution_due_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sla', new_sla_path %>

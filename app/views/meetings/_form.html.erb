@@ -1,0 +1,71 @@
+<%
+=begin
+%>
+
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<%= form_for(@meeting) do |f| %>
+  <% if @meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+      <% @meeting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :owner_id %><br>
+    <%= collection_select(:meeting, :owner_id, User.all.order(:username), :id, :username, include_blank: true) %>
+  </div>
+  <div class="field">
+	  <%= f.label :product_id %></br >
+	  <%= collection_select(:meeting, :product_id, Product.all.order(:title), :id, :title, include_blank: true) %>
+  </div>
+  <div class="field">
+	  <%= f.label :project_id %></br >
+	  <%= collection_select(:meeting, :project_id, Project.all.order(:title), :id, :title, include_blank: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :scheduled %><br>
+    <%= f.datetime_select(:scheduled, include_blank: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, { cols: 60, rows: 8 } %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes, { cols: 60, rows: 8 } %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

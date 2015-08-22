@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scheduled: 2015-06-14 13:25:59
+  title: MyString
+  subject: MyString
+  description: MyText
+  notes: MyText
+  user_id: 
+
+two:
+  scheduled: 2015-06-14 13:25:59
+  title: MyString
+  subject: MyString
+  description: MyText
+  notes: MyText
+  user_id: 

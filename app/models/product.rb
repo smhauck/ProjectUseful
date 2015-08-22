@@ -1,4 +1,4 @@
-# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -23,15 +23,13 @@ class Product < ActiveRecord::Base
   validates :status, presence: true
 
 
+  has_many :projects
+  has_many :tasks
   has_many :stories
   has_many :notes
+  has_many :meetings
   has_many :wikis
   has_many :wiki_pages
   belongs_to :status, class_name: "ProductStatusType", foreign_key: "product_status_type_id"
   belongs_to :owner, class_name: "User", foreign_key: "owner_id"
-
-
-  scope :is_public, lambda { where(:public => true) }
-
-
 end

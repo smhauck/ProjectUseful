@@ -1,4 +1,4 @@
-# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,17 +17,12 @@
 
 
 class NotesController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   # GET /notes
   # GET /notes.json
   def index
-    if session[:user_id]
-      @notes = Note.all
-    else
-      @notes = Note.is_public
-    end
+    @notes = Note.all
   end
 
   # GET /notes/1
@@ -38,6 +33,20 @@ class NotesController < ApplicationController
   # GET /notes/new
   def new
     @note = Note.new
+    if params[:product]
+      @note.product_id = params[:product]
+      @product = Product.find(params[:product])
+      @product_selected = 1
+    else
+      @product = Product.new
+    end
+    if params[:project]
+      @note.project_id = params[:project]
+      @project = Project.find(params[:project])
+      @project_selected = 1
+    else
+      @project = Project.new
+    end
   end
 
   # GET /notes/1/edit
@@ -60,6 +69,18 @@ class NotesController < ApplicationController
       end
     end
   end
+
+
+
+  def search
+    @notes = Note.where('MATCH (title,body) AGAINST (? in boolean mode)',params[:criteria])
+  end
+
+
+
+
+
+
 
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
@@ -93,6 +114,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :body, :creator_id, :product_id, :sprint_id, :story_id, :task_id, :user_id)
+      params.require(:note).permit(:title, :body, :creator_id, :product_id, :project_id, :meeting_id, :sprint_id, :story_id, :task_id, :user_id)
     end
 end

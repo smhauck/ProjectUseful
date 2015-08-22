@@ -1,3 +1,29 @@
+<%
+=begin
+%>
+
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <%= form_for(@issue) do |f| %>
   <% if @issue.errors.any? %>
     <div id="error_explanation">
@@ -11,17 +37,17 @@
     </div>
   <% end %>
 
-  <div class="field"><%= f.label :title %>: <%= f.text_field :title %></div>
+  <div class="field"><%= f.label :title %>: <%= f.text_field :title, size: 60, autofocus: :true %></div>
 
   <div class="field"><%= f.label :description %>: <%= f.text_area :description %></div>
 
   <div class="field"><%= f.label :type %> <%= collection_select(:issue, :issue_type_id, IssueType.all, :id, :title) %></div>
 
-  <div class="field"><%= f.label :product_id %> <%= collection_select(:issue, :product_id, Product.all, :id, :title, include_blank: true) %></div>
+  <div class="field"><%= f.label :product_id %> <%= collection_select(:issue, :product_id, Product.all.order(:title), :id, :title, include_blank: true) %></div>
 
-  <div class="field"><%= f.label :submitter_email %>: <%= f.text_field :submitter_email %></div>
-
-  <div class="field"><%= f.label :submitter_full_name %>: <%= f.text_field :submitter_full_name %></div>
+  <div class="field"><%= f.datetime_select(:reported_to_vendor_at, include_blank: true) %></div>
+  
+  <div class="field"><%= f.label :type %> <%= collection_select(:issue, :slas_id, Sla.all, :id, :name) %></div>
 
   <div class="actions">
     <%= f.submit %>

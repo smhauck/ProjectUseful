@@ -25,7 +25,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
 <%= form_for @task_assignment do |f| %>
-    <%= collection_select(:task_assignment, :user_id, User.all, :id, :username, include_blank: true) %>
+    <%= collection_select(:task_assignment, :user_id, User.all.order(:username), :id, :username, include_blank: true) %>
   <%= f.hidden_field :task_id, value: @task.id %>
   <input type="submit" value="Add User" />
 <% end %>

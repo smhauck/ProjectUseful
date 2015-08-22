@@ -13,35 +13,31 @@
 
   <div class="field">
     <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, size: 60, autofocus: :true %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, size: 60 %>
   </div>
   <div>
     <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :contact_email %><br>
-    <%= f.text_field :contact_email %>
+    <%= f.text_field :contact_email, size: 60 %>
   </div>
   <div class="field">
-    <%= f.label :office_phone %><br>
-    <%= f.text_field :office_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile_phone %><br>
-    <%= f.text_field :mobile_phone %>
+    <%= f.label :contact_phone %><br>
+    <%= f.text_field :contact_phone, size: 60 %>
   </div>
   <div class="actions">
     <%= f.submit %>

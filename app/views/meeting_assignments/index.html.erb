@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Meeting Assignments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Meeting</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meeting_assignments.each do |meeting_assignment| %>
+      <tr>
+        <td><%= meeting_assignment.meeting %></td>
+        <td><%= meeting_assignment.user %></td>
+        <td><%= link_to 'Show', meeting_assignment %></td>
+        <td><%= link_to 'Edit', edit_meeting_assignment_path(meeting_assignment) %></td>
+        <td><%= link_to 'Destroy', meeting_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meeting assignment', new_meeting_assignment_path %>

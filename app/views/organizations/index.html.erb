@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @organizations.each do |organization| %>
+    <% @organizations.order(:name).each do |organization| %>
       <tr>
         <td><%= organization.name %></td>
         <td><%= organization.description %></td>

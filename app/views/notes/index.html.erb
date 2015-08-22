@@ -1,31 +1,55 @@
-<h1>Listing notes</h1>
+
+<%
+=begin
+%>
+
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<h1>Notes</h1>
 
 <table class="table">
   <thead>
     <tr>
+      <th>Created</th>
+      <th>Creator</th>
       <th>Title</th>
-      <th>Body</th>
-      <th>User</th>
       <th>Product</th>
-      <th>Sprint</th>
-      <th>Story</th>
+      <th>Project</th>
       <th>Task</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><del style="color:lightgrey">Meeting</del></th>
     </tr>
   </thead>
 
   <tbody>
     <% @notes.each do |note| %>
       <tr>
+        <td><%= note.created_at %></td>
+	<td><%= link_to note.creator.first_name, note.creator %> <%= link_to note.creator.last_name, note.creator %></td>
         <td><%= link_to note.title, note %></td>
-        <td><%= note.body %></td>
-        <td><%= note.creator.username %></td>
-        <td><% if note.product %><%= note.product.title %><% end %></td>
-        <td><% if note.sprint %><%= note.sprint.start_date %> - <%= note.sprint.end_date %><% end %></td>
-        <td><% if note.story %><%= note.story.title %><% end %></td>
-        <td><% if note.task %><%= note.task.title %><% end %></td>
+        <td><% if note.product %><%= link_to note.product.title, note.product %><% end %></td>
+        <td><% if note.project %><%= link_to note.project.title, note.project %><% end %></td>
+	<td><% if note.task %><%= link_to note.task.title, note.task %><% end %></td>
+	<td></td>
       </tr>
     <% end %>
   </tbody>

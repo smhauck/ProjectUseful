@@ -1,14 +1,41 @@
-<h1>Issues</h1>
+<%
+=begin
+%>
 
-<table class="table">
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<h1>Issues</h1>
+<p>Current Time: <%= Time.now.to_formatted_s(:long) %>
+<table class="table tablesorter">
   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Type</th>
       <th>Product</th>
-      <th>Requestor</th>
-      <th>Issue status type</th>
+      <th>Reported To Vendor At</th>
+      <th>Vendor Response Due</th>
+      <th>Vendor Workaround Due</th>
+      <th>Vendor Solution Due</th>
     </tr>
   </thead>
 
@@ -17,10 +44,11 @@
       <tr>
         <td><%= link_to issue.title, issue %></td>
         <td><%= issue.description %></td>
-	<td class="<%= issue.type.code %>"><%= issue.type.title %></td>
         <td><% if issue.product_id %><%= issue.product.title %><% end %></td>
-        <td><%= issue.requestor_id %></td>
-	<td class="<%= issue.status.code %>"><%= issue.status.title %></td>
+        <td><%= issue.reported_to_vendor_at.to_formatted_s(:long) %></td>
+        <td><%= issue.vendor_response_due_at.to_formatted_s(:long) %></td>
+        <td><%= issue.vendor_workaround_due_at.to_formatted_s(:long) %></td>
+        <td><%= issue.vendor_solution_due_at.to_formatted_s(:long) %></td>
       </tr>
     <% end %>
   </tbody>

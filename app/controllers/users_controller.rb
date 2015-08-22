@@ -1,5 +1,4 @@
-
-# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -18,13 +17,13 @@
 
 
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:show]
+  # skip_before_action :authorize, only: [:index, :show, :new, :create, :edit, :update]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all.order(:username)
   end
 
   # GET /users/1
@@ -89,6 +88,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name, :contact_email, :office_phone, :mobile_phone)
+      params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name, :contact_email, :contact_phone)
     end
 end

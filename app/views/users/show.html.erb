@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 
 This file is part of Project Useful.
 
@@ -26,10 +26,85 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<h1>Username: <%= @user.username %> <% if session[:user_id] %><%= link_to '(Edit)', edit_user_path(@user) %><% end %></h1>
+<h1>Username: <%= @user.username %> <%= link_to '(Edit)', edit_user_path(@user) %></h1>
 <p><strong>First Name:</strong> <%= @user.first_name %></p>
 <p><strong>Last Nmae:</strong> <%= @user.last_name %></p>
 <p><strong>Contact Email:</strong> <%= @user.contact_email %></p>
-<p><strong>Office Phone:</strong> <%= @user.office_phone %></p>
-<p><strong>Mobile Phone:</strong> <%= @user.mobile_phone %></p>
+<p><strong>Contact Phone:</strong> <%= @user.contact_phone %></p>
 
+
+<% if @user.task_assignments.count > 0 %>
+  <h2>Assigned Tasks</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th></tr>
+    </thead>
+    <tbody>
+  <% @user.task_assignments.each do |assignment| %>
+    <tr>
+      <td><%= link_to assignment.task.title, assignment.task %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Assigned Tasks</h2>
+<% end %>
+
+
+<% if @user.notes.count > 0 %>
+  <h2>Notes</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th></tr>
+    </thead>
+    <tbody>
+  <% @user.notes.each do |note| %>
+    <tr>
+      <td><%= link_to note.title, note %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Notes</h2>
+<% end %>
+
+
+<% if @user.blogs.count > 0 %>
+  <h2>Created Blogs</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th><th>Created At</th></tr>
+    </thead>
+    <tbody>
+  <% @user.blogs.each do |blog| %>
+    <tr><td><%= link_to blog.title, blog %></td><td><%= blog.created_at %></td></tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Blogs</h2>
+<% end %>
+
+
+<% if @user.wikis.count > 0 %>
+  <h2>Created Wikis</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Title</th><th>Created At</th></tr>
+    </thead>
+    <tbody>
+  <% @user.wikis.each do |wiki| %>
+    <tr><td><%= link_to wiki.title, wiki %></td><td><%= wiki.created_at %></td></tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Wikis</h2>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

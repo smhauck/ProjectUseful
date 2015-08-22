@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 
 This file is part of Project Useful.
 
@@ -33,6 +33,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 <div class="container">
@@ -72,7 +73,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
                 <li><%= link_to "New", new_project_path %></li>
               </ul>
             </li>
-            <li class="dropdown">
+	    <!--
+	    <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sprint <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><%= link_to "List", sprints_path %></li>
@@ -90,12 +92,15 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
                 <li><%= link_to "New", new_story_path %></li>
               </ul>
             </li>
-            <li class="dropdown">
+	    -->
+	    <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Task <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "My Tasks Today", tasks_mytoday_path %></li>
                 <li><%= link_to "My Active Tasks", tasks_myactive_path %></li>
                 <li><%= link_to "My Complete Tasks", tasks_mycomplete_path %></li>
                 <li><%= link_to "My All Tasks", tasks_my_path %></li>
+                <li><%= link_to "All Today's Tasks", tasks_alltoday_path %></li>
                 <li><%= link_to "All Active Tasks", tasks_active_path %></li>
                 <li><%= link_to "All Complete Tasks", tasks_complete_path %></li>
                 <li><%= link_to "All Tasks", tasks_path %></li>
@@ -103,6 +108,23 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
                 <li><%= link_to "New", new_task_path %></li>
               </ul>
             </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Issue <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "List All Issues", issues_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Issue", new_issue_path %></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meeting <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "List All Meetings", meetings_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Meeting", new_meeting_path %></li>
+              </ul>
+	      </li>
+	      <!--
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -114,7 +136,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
                 <li class="divider"></li>
                 <li><%= link_to "New Blog Post", new_blog_post_path %></li>
               </ul>
-            </li>
+	      </li>
+	      -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Wiki <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -127,16 +150,17 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Note <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><%= link_to "List All Notes", notes_path %></li>
+                <li><%= link_to "Search Notes", notes_search_path %></li>
                 <li class="divider"></li>
                 <li><%= link_to "New Note", new_note_path %></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Issue <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">User <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><%= link_to "List All Issues", issues_path %></li>
+                <li><%= link_to "List All Users", users_path %></li>
                 <li class="divider"></li>
-                <li><%= link_to "New Issue", new_issue_path %></li>
+                <li><%= link_to "New User", new_user_path %></li>
               </ul>
             </li>
           </ul>
@@ -149,8 +173,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
               <button type="submit" class="btn btn-default">Submit</button>
       </form>
       -->
-            <li><%= link_to "Help", wiki_path(1) %></li>
-
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= User.find(session[:user_id]).username %> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -192,7 +214,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
               <ul class="dropdown-menu" role="menu">
                 <li><%= link_to "List", projects_path %></li>
               </ul>
-            </li>
+	      </li>
+	      <!--
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sprint <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -207,7 +230,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
                 <li><%= link_to "All Stories", stories_path %></li>
               </ul>
             </li>
-            <li class="dropdown">
+	    -->
+	    <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Task <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><%= link_to "All Active Tasks", tasks_active_path %></li>
@@ -216,12 +240,26 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
               </ul>
             </li>
             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Issue <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "List All Issues", issues_path %></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meeting <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "List All Meetings", meetings_path %></li>
+              </ul>
+	      </li>
+	      <!--
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><%= link_to "List All Blogs", blogs_path %></li>
                 <li><%= link_to "List All Blog Pages", blog_posts_path %></li>
               </ul>
-            </li>
+	      </li>
+	      -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Wiki <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -235,11 +273,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Issue <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">User <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><%= link_to "List All Issues", issues_path %></li>
-                <li class="divider"></li>
-                <li><%= link_to "New Issue", new_issue_path %></li>
+                <li><%= link_to "List All Users", users_path %></li>
               </ul>
             </li>
           </ul>
@@ -252,7 +288,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
               <button type="submit" class="btn btn-default">Submit</button>
       </form>
       -->
-            <li><%= link_to "Help", wiki_path(1) %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -273,13 +308,16 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <div class="container">
   <footer>
-  <p>Project Useful <%= link_to "License", license_url %> * <%= link_to "Technology", technology_url %></p>
-    <p>Follow the progress on the <a href="http://www.projectuseful.org/blogs/1">development blog</a>. Get the <a href="https://github.com/wbhauck/ProjectUseful">Project Useful source code</a>.</p>
-    <p>Powered by <%= link_to 'Project Useful', "http://www.projectuseful.org" %> <%= ProjectUseful::Application::VERSION %></p>
+  <p>Project Useful <%= link_to "License", license_url %> * <%= link_to "Technology", technology_url %> * <%= link_to "System Help and Documentation", wiki_path(1) %></p>
+    <p>Powered by <%= link_to 'Project Useful', "http://www.projectuseful.org" %> <%= ProjectUseful::Application::VERSION %>. Follow the progress on the <a href="http://www.projectuseful.org/blogs/1">development blog</a>. Get the <a href="https://github.com/wbhauck/ProjectUseful">Project Useful source code</a>.</p>
     <p>Project Useful &copy; 2015 <%= mail_to 'wbhauck@yahoo.com', 'William B. Hauck' %> <%= link_to '(wbhauck.com)', "http://www.wbhauck.com" %></p>
   </footer>
 </div><!-- class="container" -->
 
+
+<script type="text/javascript" id="js">$(document).ready(function() {
+  $("table").tablesorter({ });
+}); </script>
 
 </body>
 </html>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sla.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sla.description %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <% if @sla.product_id %><%= link_to @sla.product.title, @sla.product %><% end %>
+</p>
+
+<p>
+  <strong>Response due at:</strong>
+  <%= @sla.response_due_at %>
+</p>
+
+<p>
+  <strong>Workaround due at:</strong>
+  <%= @sla.workaround_due_at %>
+</p>
+
+<p>
+  <strong>Solution due at:</strong>
+  <%= @sla.solution_due_at %>
+</p>
+
+<%= link_to 'Edit', edit_sla_path(@sla) %> |
+<%= link_to 'Back', slas_path %>

@@ -1,4 +1,4 @@
-# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,7 +17,6 @@
 
 
 class TasksController < ApplicationController
-  # skip_before_action :authorize, only: [:index, :show]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
@@ -29,6 +28,22 @@ class TasksController < ApplicationController
       @tasks = Task.joins(story: :product).where(products: { public: true })
     end
   end
+
+  def alltoday
+    time = Time.new
+    the_date = time.strftime("%Y-%m-%d")
+    @tasks = Task.where("sched_start_date <= ? OR actual_start_date <= ?", the_date, the_date).joins(:status).where(task_status_types: {alive: true})
+  end
+  
+  def mytoday
+    time = Time.new
+    the_date = time.strftime("%Y-%m-%d")
+    @user = User.find(session[:user_id])
+    @tasks = @user.tasks.where("sched_start_date <= ? OR actual_start_date <= ?", the_date, the_date).joins(:status).where(task_status_types: {alive: true})
+  end
+
+
+
 
   # GET /tasks/my
   # GET /tasks/my.json
@@ -73,6 +88,13 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    if params[:project]
+      @task.project_id = params[:project]
+      @project = Project.find(params[:project])
+      @project_selected = 1
+    else
+      @project = Project.new
+    end
     if params[:story]
       @task.story_id = params[:story]
       @story = Story.find(params[:story])
@@ -141,6 +163,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:alive, :task_status_type_id, :estimated_hours, :title, :description, :product_id, :sprint_id, :story_id)
+      params.require(:task).permit(:alive, :task_status_type_id, :estimated_hours, :title, :description, :product_id, :project_id, :sprint_id, :story_id, :sched_start_date, :actual_start_date, :sched_completion_date, :actual_completion_date)
     end
 end

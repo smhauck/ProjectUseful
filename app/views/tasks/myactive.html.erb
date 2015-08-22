@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 
 This file is part of Project Useful.
 
@@ -25,18 +25,20 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <% if @tasks.count > 0 %>
   <h2>My Active Tasks</h2>
-  <table class="table">
+  <table class="table tablesorter">
     <thead>
-      <tr><th>Title</th><th>Status</th><th>Story</th><th>Estimated Time</th><th>Actual Time</th></tr>
+	    <tr><th>Title</th><th>Status</th><th>Last Updated</th><th>Sched Start</th><th>Actual Start</th><th>Sched Compl</th><th>Actual Compl</th></tr>
     </thead>
     <tbody>
   <% @tasks.each do |task| %>
     <tr>
       <td><%= link_to task.title, task %></td>
       <td class="<%= task.status.code %>"><%= task.status.title %></td>
-      <td><%= link_to task.story.title, task.story %></td>
-      <td><%= number_with_precision(task.estimated_hours, strip_insignificant_zeros: true) %></td>
-      <td>SOON</td>
+      <td><%= task.updated_at.to_formatted_s(:db) %></td>
+      <td><%= task.sched_start_date %></td>
+      <td><%= task.actual_start_date %></td>
+      <td><%= task.sched_completion_date %></td>
+      <td><%= task.actual_completion_date %></td>
     </tr>
   <% end %>
 </tbody>

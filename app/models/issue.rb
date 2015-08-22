@@ -1,4 +1,4 @@
-# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,7 +17,7 @@
 
 
 class Issue < ActiveRecord::Base
-  validates :submitter_email, presence: true
+#  validates :submitter_email, presence: true
 
   belongs_to :product
   belongs_to :requestor, class_name: "User", foreign_key: "requestor_id"

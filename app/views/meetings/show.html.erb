@@ -1,0 +1,73 @@
+<%
+=begin
+%>
+
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @meeting.subject %>
+</p>
+
+
+<p>
+  <strong>Owner:</strong>
+  <%= link_to @meeting.owner.username, @meeting.owner %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <% if @meeting.product_id %><%= link_to @meeting.product.title, @meeting.product %><% end %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <% if @meeting.project_id %><%= link_to @meeting.project.title, @meeting.project %><% end %>
+</p>
+
+<p>
+  <strong>Scheduled:</strong>
+  <%= @meeting.scheduled %>
+</p>
+
+<p><strong>Attendees</strong></p>
+<p>
+<% @meeting.meeting_assignments.each do |ta| %>
+	<%= ta.user.username -%> <%= link_to '(Remove)', meeting_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+<% end %>
+  <%= render 'add_user' %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= simple_format(@meeting.description, sanitize: true) %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= simple_format(@meeting.notes, sanitize: true) %>
+</p>
+<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+<%= link_to 'Back', meetings_path %>

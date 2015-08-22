@@ -1,29 +1,58 @@
+<%
+=begin
+%>
+
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
 <p id="notice"><%= notice %></p>
 
 <h1><%= @note.title %> <%= link_to '(Edit)', edit_note_path(@note) %></h1>
 <p>
   <strong>Creator:</strong>
-  <%= @note.creator.username %>
+  <%= link_to @note.creator.username, @note.creator %>
 </p>
 
-<p>
-  <strong>Body:</strong>
-  <%= simple_format(@note.body) %>
-</p>
-
-<% if @note.privacy %>
-<p>
-  <strong>Privacy:</strong>
-  <%= @note.privacy.title %>
-  </p>
-<% end %>
 
 <p><strong>Related Items</strong></p>
 
 <% if @note.product %>
 <p>
   <strong>Product:</strong>
-  <%= @note.product.title %>
+  <%= link_to @note.product.title, @note.product %>
+  </p>
+<% end %>
+
+<% if @note.project %>
+<p>
+  <strong>Project:</strong>
+  <%= link_to @note.project.title, @note.project %>
+  </p>
+<% end %>
+
+<% if @note.meeting %>
+<p>
+  <strong>Meeting:</strong>
+  <%= link_to @note.meeting.subject, @note.meeting %>
   </p>
 <% end %>
 
@@ -44,12 +73,17 @@
 <% if @note.task %>
 <p>
   <strong>Task:</strong>
-  <%= @note.task.title %>
+  <%= link_to @note.task.title, @note.task %>
 </p>
 <% end %>
 <% if @note.user %>
 <p>
   <strong>User:</strong>
-  <%= @note.user.username %>
+  <%= link_to @note.user.username, @note.user %>
 </p>
 <% end %>
+
+<p>
+  <strong>Body:</strong>
+  <%= simple_format(@note.body, sanitize: true) %>
+</p>

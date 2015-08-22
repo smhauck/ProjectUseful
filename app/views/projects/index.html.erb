@@ -1,24 +1,58 @@
-<h1>Listing projects</h1>
+<%
+=begin
+%>
 
-<table>
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Projects</h1>
+
+<table class="table tablesorter">
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Status</th>
+      <th>Product</th>
+      <th>Owner</th>
+      <th>Sched Start</th>
+      <th>Actual Start</th>
+      <th>Sched Completion</th>
+      <th>Actual Completion</th>
     </tr>
   </thead>
 
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to project.title, project %></td>
+	<td class="<%= project.status.code %>"><%= project.status.title %></td>
+        <td><% if project.product_id %><%= link_to project.product.title, project.product %><% end %></td>
+        <td><% if project.owner_id %><%= link_to project.owner.username, project.owner %><% end %></td>
+        <td><%= project.sched_start_date %></td>
+        <td><%= project.actual_start_date %></td>
+        <td><%= project.sched_completion_date %></td>
+        <td><%= project.actual_completion_date %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,3 +61,4 @@
 <br>
 
 <%= link_to 'New Project', new_project_path %>
+

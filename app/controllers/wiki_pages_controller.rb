@@ -1,4 +1,4 @@
-# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,7 +17,6 @@
 
 
 class WikiPagesController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
   before_action :set_wiki_page, only: [:update, :destroy]
 
   # GET /wiki_pages
@@ -44,7 +43,7 @@ class WikiPagesController < ApplicationController
     @wiki_page.body.gsub!(/\n\n/, '<br />')
 
 
-    @wiki_page.body.gsub!(/\[\[(.*)\]\]/, '<a href="/wiki/' + params[:wiki_id] + '/wiki_pages/\1">\1</a>')
+    @wiki_page.body.gsub!(/\[\[(.*)\]\]/, '<a href="/wiki_pages/\1">\1</a>')
 
   end
 
