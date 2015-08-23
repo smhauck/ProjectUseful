@@ -18,7 +18,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, project: { description: @project.description, title: @project.title }
+      post :create, project: { actual_completion_date: @project.actual_completion_date, actual_start_date: @project.actual_start_date, description: @project.description, product_id: @project.product_id, sched_completion_date: @project.sched_completion_date, sched_start_date: @project.sched_start_date, title: @project.title }
     end
 
     assert_redirected_to project_path(assigns(:project))
@@ -35,7 +35,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should update project" do
-    patch :update, id: @project, project: { description: @project.description, title: @project.title }
+    patch :update, id: @project, project: { actual_completion_date: @project.actual_completion_date, actual_start_date: @project.actual_start_date, description: @project.description, product_id: @project.product_id, sched_completion_date: @project.sched_completion_date, sched_start_date: @project.sched_start_date, title: @project.title }
     assert_redirected_to project_path(assigns(:project))
   end
 

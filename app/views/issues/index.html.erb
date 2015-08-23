@@ -45,10 +45,10 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
         <td><%= link_to issue.title, issue %></td>
         <td><%= issue.description %></td>
         <td><% if issue.product_id %><%= issue.product.title %><% end %></td>
-        <td><%= issue.reported_to_vendor_at.to_formatted_s(:long) %></td>
-        <td><%= issue.vendor_response_due_at.to_formatted_s(:long) %></td>
-        <td><%= issue.vendor_workaround_due_at.to_formatted_s(:long) %></td>
-        <td><%= issue.vendor_solution_due_at.to_formatted_s(:long) %></td>
+	<td><% if issue.reported_to_vendor_at %><%= issue.reported_to_vendor_at.to_formatted_s(:long) %><% end %></td>
+        <td><% if issue.vendor_response_due_at %><%= issue.vendor_response_due_at.to_formatted_s(:long) %><% end %></td>
+	<td><% if issue.vendor_workaround_due_at %><%= issue.vendor_workaround_due_at.to_formatted_s(:long) %><% end %></td>
+	<td><% if issue.vendor_solution_due_at %><%= issue.vendor_solution_due_at.to_formatted_s(:long) %><% end %></td>
       </tr>
     <% end %>
   </tbody>

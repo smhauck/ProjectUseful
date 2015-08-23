@@ -17,6 +17,7 @@
 
 
 class SprintsController < ApplicationController
+  skip_before_action :authorize, only: [:index, :show]
   before_action :set_sprint, only: [:show, :edit, :update, :destroy]
 
   # GET /sprints

@@ -1,7 +1,14 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :project_status_types
+  resources :departments
+  resources :slas
   resources :organizations
-  resources :email_to_sms_gateways
+  resources :project_assignments
+  resources :meetings
+  resources :projects
+  get 'notes/search' => 'notes#search'
+
   resources :product_groups
 
   resources :group_users
@@ -24,9 +31,9 @@ ProjectUseful::Application.routes.draw do
 
   resources :issue_status_types
 
-  resources :note_privacy_types
+  resources :meeting_assignments
 
-  resources :notes
+  resources :note_privacy_types
 
   resources :story_assignments
 
@@ -55,18 +62,22 @@ ProjectUseful::Application.routes.draw do
 
   get 'tasks/my' => 'tasks#my'
   get 'tasks/myactive' => 'tasks#myactive'
+  get 'tasks/alltoday' => 'tasks#alltoday'
+  get 'tasks/mytoday' => 'tasks#mytoday'
   get 'tasks/mycomplete' => 'tasks#mycomplete'
   get 'tasks/active' => 'tasks#active'
   get 'tasks/complete' => 'tasks#complete'
 
+  
+  resources :notes
   resources :product_status_types
+  resources :products
   resources :project_status_types
+  resources :projects
   resources :sprint_status_types
   resources :story_status_types
-  resources :task_status_types
-  resources :products
-  resources :projects
   resources :sprints
+  resources :task_status_types
 
   resources :stories
 
@@ -79,6 +90,11 @@ ProjectUseful::Application.routes.draw do
     post 'login' => :create
     get 'logout' => :destroy
   end
+
+  
+  
+
+
 
   get "sessions/create"
   get "sessions/destroy"

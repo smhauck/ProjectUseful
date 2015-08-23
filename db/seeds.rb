@@ -1,4 +1,4 @@
-# Copyright (C) 2014 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -37,6 +37,13 @@ ProductStatusType.create(title: "Waiting", alive: "1", code: 'waiting')
 ProductStatusType.create(title: "In Progress", alive: "1", code: 'in_progress')
 ProductStatusType.create(title: "Complete", alive: "0", code: 'complete')
 ProductStatusType.create(title: "Cancelled", alive: "0", code: 'cancelled')
+
+
+#     Create the default project_status_types
+ProjectStatusType.create(title: "Waiting", alive: "1", code: 'waiting')
+ProjectStatusType.create(title: "In Progress", alive: "1", code: 'in_progress')
+ProjectStatusType.create(title: "Complete", alive: "0", code: 'complete')
+ProjectStatusType.create(title: "Cancelled", alive: "0", code: 'cancelled')
 
 
 #     Create the default sprint_status_types
@@ -83,6 +90,6 @@ StoryType.create(title: 'Other')
 #     Create the default administrator user                      #
 #     BE SURE TO CHANGE THE admin password and contact_email     #
 ##################################################################
-User.create(username: "admin", first_name: "System", last_name: "Administrator", password: "SECRET", password_confirmation: "SECRET", contact_email: "FIXME@example.com")
+# User.create(username: "admin", password: "SECRET", password_confirmation: "SECRET", contact_email: "FIXME@example.com")
 
 

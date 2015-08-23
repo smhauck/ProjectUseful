@@ -18,7 +18,7 @@ class ProjectStatusTypesControllerTest < ActionController::TestCase
 
   test "should create project_status_type" do
     assert_difference('ProjectStatusType.count') do
-      post :create, project_status_type: { alive: @project_status_type.alive, code: @project_status_type.code, description: @project_status_type.description, title: @project_status_type.title }
+      post :create, project_status_type: { alive: @project_status_type.alive, description: @project_status_type.description, title: @project_status_type.title }
     end
 
     assert_redirected_to project_status_type_path(assigns(:project_status_type))
@@ -35,7 +35,7 @@ class ProjectStatusTypesControllerTest < ActionController::TestCase
   end
 
   test "should update project_status_type" do
-    patch :update, id: @project_status_type, project_status_type: { alive: @project_status_type.alive, code: @project_status_type.code, description: @project_status_type.description, title: @project_status_type.title }
+    patch :update, id: @project_status_type, project_status_type: { alive: @project_status_type.alive, description: @project_status_type.description, title: @project_status_type.title }
     assert_redirected_to project_status_type_path(assigns(:project_status_type))
   end
 
