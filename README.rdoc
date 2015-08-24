@@ -29,7 +29,7 @@ config/initializers/secret_token.rb
 
 == Author, Copyright, and License
 
-Project Useful is copyright 2014 by William B. Hauck, http://www.wbhauck.com .
+Project Useful is copyright 2015 by William B. Hauck, http://www.wbhauck.com .
 
 Project Useful is released under the GNU Affero General Public License.  See the LICENSE file for details.
 
