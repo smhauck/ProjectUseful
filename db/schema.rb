@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807012558) do
+ActiveRecord::Schema.define(version: 20150824014648) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -216,10 +216,16 @@ ActiveRecord::Schema.define(version: 20150807012558) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_status_type_id", limit: 4,     default: 1,                           null: false
+    t.date     "sched_start_date"
+    t.date     "actual_start_date"
+    t.date     "sched_completion_date"
+    t.date     "actual_completion_date"
+    t.integer  "product_id",             limit: 4
   end
 
   add_index "projects", ["creator_id"], name: "index_projects_on_creator_id", using: :btree
   add_index "projects", ["owner_id"], name: "index_projects_on_owner_id", using: :btree
+  add_index "projects", ["product_id"], name: "index_projects_on_product_id", using: :btree
   add_index "projects", ["project_status_type_id"], name: "index_projects_on_project_status_type_id", using: :btree
 
   create_table "slas", force: :cascade do |t|
