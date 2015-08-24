@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150824014648) do
+ActiveRecord::Schema.define(version: 20150824100000) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -373,9 +373,11 @@ ActiveRecord::Schema.define(version: 20150824014648) do
     t.date     "actual_start_date"
     t.date     "sched_completion_date"
     t.date     "actual_completion_date"
+    t.integer  "project_id",             limit: 4
   end
 
   add_index "tasks", ["product_id"], name: "index_tasks_on_product_id", using: :btree
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
   add_index "tasks", ["sprint_id"], name: "index_tasks_on_sprint_id", using: :btree
   add_index "tasks", ["story_id"], name: "index_tasks_on_story_id", using: :btree
   add_index "tasks", ["task_status_type_id"], name: "index_tasks_on_task_status_type_id", using: :btree
