@@ -17,6 +17,7 @@
 
 
 class ProjectsController < ApplicationController
+  skip_before_action :authorize, only: [:index, :show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
