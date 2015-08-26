@@ -17,6 +17,7 @@
 
 
 class WikisController < ApplicationController
+  skip_before_action :authorize, only: [:index, :show]
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
 
   # GET /wikis

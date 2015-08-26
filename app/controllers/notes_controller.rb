@@ -17,6 +17,7 @@
 
 
 class NotesController < ApplicationController
+  skip_before_action :authorize, only: [:index, :show]
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   # GET /notes
