@@ -17,7 +17,6 @@
 
 
 class ProjectsController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -31,6 +30,30 @@ class ProjectsController < ApplicationController
   def show
     @project_assignment = ProjectAssignment.new
   end
+
+  def my
+    @user = User.find(session[:user_id])
+    @projects= @user.projects
+  end
+
+  def active
+    @projects = Project.joins(:status).where(project_status_types: { alive: true })
+  end
+
+  def complete
+    @projects = Project.joins(:status).where(project_status_types: { code: 'complete'})
+  end
+
+  def myactive
+    @user = User.find(session[:user_id])
+    @projects = @user.projects.joins(:status).where(project_status_types: { alive: '1'})
+  end
+ 
+  def mycomplete
+    @user = User.find(session[:user_id])
+    @projects = @user.projects.joins(:status).where(project_status_types: { id: 4 })
+  end
+ 
   
   # GET /projects/new
   def new
