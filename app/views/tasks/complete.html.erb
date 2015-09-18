@@ -26,39 +26,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <h1>All Complete Tasks</h1>
 
-<table class="table tablesorter">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Status</th>
-      <th>Owner</th>
-      <th>Sched Start</th>
-      <th>Actual Start</th>
-      <th>Sched Compl</th>
-      <th>Actual Compl</th>
-      <th>Product</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= link_to task.title, task %></td>
-	<td class="<%= task.status.code %>"><%= task.status.title %></td>
-	<td>
-        <% task.task_assignments.each do |assignment| %>
-		<%= link_to assignment.user.username, assignment.user %><br />
-        <% end %>
-        </td>
-        <td><%= task.sched_start_date %></td>
-        <td><%= task.actual_start_date %></td>
-        <td><%= task.sched_completion_date %></td>
-        <td><%= task.actual_completion_date %></td>
-        <td><% if task.product_id %><%= link_to task.product.title, task.product %><% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'task_listing' %>
 
 <br>
 

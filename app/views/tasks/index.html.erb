@@ -26,45 +26,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <h1>All Tasks</h1>
 
-<table class="table tablesorter">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Status</th>
-      <th>Owner</th>
-      <!-- <th>Est. Time</th> -->
-      <!-- <th>Actual Time</th> -->
-      <th>Last Updated</th>
-      <th>Sched Start</th>
-      <th>Actual Start</th>
-      <th>Sched Compl</th>
-      <th>Actual Compl</th>
-      <th>Project</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= link_to task.title, task %></td>
-	<!-- <td><%= number_with_precision(task.estimated_hours, strip_insignificant_zeros: true) %></td> -->
-	<!-- <td><%= number_with_precision(task.task_comments.sum(:hours), strip_insignificant_zeros: true) %></td> -->
-        <% if task.task_status_type_id %><td class="<%= task.status.code %>"><%= task.status.title %></td><% else %><td></td><% end %>
-	<td>
-        <% task.task_assignments.each do |assignment| %>
-		<%= link_to assignment.user.username, assignment.user %><br />
-        <% end %>
-        </td>
-        <td><%= task.updated_at.to_formatted_s(:db) %></td>
-        <td><%= task.sched_start_date %></td>
-        <td><%= task.actual_start_date %></td>
-        <td><%= task.sched_completion_date %></td>
-        <td><%= task.actual_completion_date %></td>
-        <td><% if task.project_id %><%= link_to task.project.title, task.project %><% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'task_listing' %>
 
 <br>
 

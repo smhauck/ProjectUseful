@@ -1,0 +1,64 @@
+<%
+=begin
+%>
+
+Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+<table class="table tablesorter">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Owner</th>
+      <!-- <th>Est. Time</th> -->
+      <!-- <th>Actual Time</th> -->
+      <th>Last Updated</th>
+      <th>Sched Start</th>
+      <th>Actual Start</th>
+      <th>Sched Compl</th>
+      <th>Actual Compl</th>
+      <th>Project</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.title, task %></td>
+	<!-- <td><%= number_with_precision(task.estimated_hours, strip_insignificant_zeros: true) %></td> -->
+	<!-- <td><%= number_with_precision(task.task_comments.sum(:hours), strip_insignificant_zeros: true) %></td> -->
+        <% if task.task_status_type_id %><td class="<%= task.status.code %>"><%= task.status.title %></td><% else %><td></td><% end %>
+	<td>
+        <% task.task_assignments.each do |assignment| %>
+		<%= link_to assignment.user.username, assignment.user %><br />
+        <% end %>
+        </td>
+        <td><%= task.updated_at.to_formatted_s(:db) %></td>
+        <td><%= task.sched_start_date %></td>
+        <td><%= task.actual_start_date %></td>
+        <td><%= task.sched_completion_date %></td>
+        <td><%= task.actual_completion_date %></td>
+        <td><% if task.project_id %><%= link_to task.project.title, task.project %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
