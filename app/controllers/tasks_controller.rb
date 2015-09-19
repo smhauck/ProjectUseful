@@ -17,6 +17,7 @@
 
 
 class TasksController < ApplicationController
+  skip_before_action :authorize, only: [:active, :complete, :index, :show]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
