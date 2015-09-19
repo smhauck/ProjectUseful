@@ -6,7 +6,6 @@ ProjectUseful::Application.routes.draw do
   resources :organizations
   resources :project_assignments
   resources :meetings
-  resources :projects
   get 'notes/search' => 'notes#search'
 
   resources :product_groups
@@ -55,6 +54,15 @@ ProjectUseful::Application.routes.draw do
   resources :wikis do
     resources :wiki_pages
   end
+
+
+  get 'projects/my' => 'projects#my'
+  get 'projects/myactive' => 'projects#myactive'
+  get 'projects/alltoday' => 'projects#alltoday'
+  get 'projects/mytoday' => 'projects#mytoday'
+  get 'projects/mycomplete' => 'projects#mycomplete'
+  get 'projects/active' => 'projects#active'
+  get 'projects/complete' => 'projects#complete'
 
   
   get 'stories/active' => 'stories#active'
