@@ -38,7 +38,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
+    <% @projects.order(:title).each do |project| %>
       <tr>
         <td><%= link_to project.title, project %></td>
 	<td class="<%= project.status.code %>"><%= project.status.title %></td>
