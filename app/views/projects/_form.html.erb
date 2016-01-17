@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2016 William B. Hauck, http://www.wbhauck.com
 
 This file is part of Project Useful.
 
@@ -23,6 +23,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 =end
 %>
 
+<script type="text/javascript">
+  $(function() {
+    $(".ui-datepicker").datepicker({dateFormat: "yy-mm-dd"});
+  });
+</script>
 
 <%= form_for(@project) do |f| %>
   <% if @project.errors.any? %>
@@ -43,10 +48,10 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <tr><th><%= f.label :product_id %></th><td><%= collection_select(:project, :product_id, Product.all.order(:title), :id, :title, include_blank: '') %></td></tr>
     <tr><th><%= f.label :owner_id %></th><td><%= collection_select(:project, :owner_id, User.all.order(:username), :id, :username) %></td></tr>
     <tr><th><%= f.label :description %></th><td><%= f.text_area :description %></td></tr>
-    <tr><th><%= f.label :sched_start_date %></th><td><%= f.date_field :sched_start_date %></td></tr>
-    <tr><th><%= f.label :actual_start_date %></th><td><%= f.date_field :actual_start_date %></td></tr>
-    <tr><th><%= f.label :sched_completion_date %></th><td><%= f.date_field :sched_completion_date %></td></tr>
-    <tr><th><%= f.label :actual_completion_date %></th><td><%= f.date_field :actual_completion_date %></td></tr>
+    <tr><th><%= f.label :sched_start_date %></th><td><%= f.date_field :sched_start_date, class: "ui-datepicker" %></td></tr>
+    <tr><th><%= f.label :actual_start_date %></th><td><%= f.date_field :actual_start_date, class: "ui-datepicker" %></td></tr>
+    <tr><th><%= f.label :sched_completion_date %></th><td><%= f.date_field :sched_completion_date, class: "ui-datepicker" %></td></tr>
+    <tr><th><%= f.label :actual_completion_date %></th><td><%= f.date_field :actual_completion_date, class: "ui-datepicker" %></td></tr>
     <tr><td></td><td><%= f.submit %></td></tr>
   </table>
 <% end %>
