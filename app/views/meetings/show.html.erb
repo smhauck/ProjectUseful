@@ -55,7 +55,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p><strong>Attendees</strong></p>
 <p>
 <% @meeting.meeting_assignments.each do |ta| %>
-	<%= ta.user.username -%> <%= link_to '(Remove)', meeting_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+	<%= link_to ta.user.username, ta.user -%> <%= link_to '(Remove)', meeting_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
   <%= render 'add_user' %>
 </p>
