@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2016 William B. Hauck, http://www.wbhauck.com
 
 This file is part of Project Useful.
 
@@ -109,6 +109,23 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </table>
 <% else %>
   <h2>No Notes</h2>
+<% end %>
+
+
+<% if @user.meetings.count > 0 %>
+  <h2>Meetings</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Subject</th><th>Scheduled At</th><th>Product</th><th>Project</th></tr>
+    </thead>
+    <tbody>
+  <% @user.meetings.each do |meeting| %>
+    <tr><td><%= link_to meeting.subject, meeting %></td><td><%= meeting.scheduled %></td><td><%= meeting.product.title %></td><td><%= meeting.project.title %></td></tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+  <h2>No Meetings</h2>
 <% end %>
 
 
