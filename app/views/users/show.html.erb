@@ -120,7 +120,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     </thead>
     <tbody>
   <% @user.meetings.each do |meeting| %>
-    <tr><td><%= link_to meeting.subject, meeting %></td><td><%= meeting.scheduled %></td><td><%= meeting.product.title %></td><td><%= meeting.project.title %></td></tr>
+  <tr><td><%= link_to meeting.subject, meeting %></td><td><%= meeting.scheduled %></td><td><% if meeting.product %><%= meeting.product.title %><% end %></td><td><% if meeting.project %><%= meeting.project.title %><% end %></td></tr>
   <% end %>
 </tbody>
 </table>
