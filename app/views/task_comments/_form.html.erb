@@ -24,6 +24,13 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 %>
 
 
+<script type="text/javascript">
+  $(function() {
+    $(".ui-datepicker").datepicker({dateFormat: "yy-mm-dd"});
+  });
+</script>
+
+
 <%= form_for(@task_comment) do |f| %>
   <% if @task_comment.errors.any? %>
     <div id="error_explanation">
@@ -43,7 +50,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </div>
   <div class="field">
     <%= f.label :date_of_work %><br>
-    <%= f.date_field :date_of_work, :value => Time.now.strftime('%Y-%m-%d') %>
+    <%= f.date_field :date_of_work, class: "ui-datepicker", :value => Time.now.strftime('%Y-%m-%d') %>
   </div>
   <div class="field">
     <%= f.label :task_id %><br>
@@ -57,3 +64,4 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <%= f.submit %>
   </div>
 <% end %>
+
