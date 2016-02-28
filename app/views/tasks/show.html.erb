@@ -74,7 +74,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	<tbody>
       <% @task.task_comments.order(date_of_work: :desc).each do |tc| %>
   <tr>
-    <td><%= tc.user.username %></td>
+    <td><%= link_to tc.user.username, tc.user %></td>
 	 <td><%= tc.date_of_work %></td>
 	    <td><%= tc.hours %></td>
 	<td><%= simple_format(tc.comment) %></td>
