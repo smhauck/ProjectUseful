@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150824100000) do
+ActiveRecord::Schema.define(version: 20160225013804) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -209,13 +209,13 @@ ActiveRecord::Schema.define(version: 20150824100000) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "title",                  limit: 255,   default: "Project Title Is Required", null: false
+    t.string   "title",                  limit: 255,   default: "", null: false
     t.text     "description",            limit: 65535
-    t.integer  "creator_id",             limit: 4,     default: 1,                           null: false
-    t.integer  "owner_id",               limit: 4,     default: 1,                           null: false
+    t.integer  "creator_id",             limit: 4,     default: 1,  null: false
+    t.integer  "owner_id",               limit: 4,     default: 1,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "project_status_type_id", limit: 4,     default: 1,                           null: false
+    t.integer  "project_status_type_id", limit: 4,     default: 1,  null: false
     t.date     "sched_start_date"
     t.date     "actual_start_date"
     t.date     "sched_completion_date"

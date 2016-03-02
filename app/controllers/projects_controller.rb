@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
 
   def my
     @user = User.find(session[:user_id])
-    @projects= @user.projects
+    @projects = @user.projects
   end
 
   def active
@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
  
   def mycomplete
     @user = User.find(session[:user_id])
-    @projects = @user.projects.joins(:status).where(project_status_types: { id: 4 })
+    @projects = @user.projects.joins(:status).where(project_status_types: { id: 3 })
   end
  
   

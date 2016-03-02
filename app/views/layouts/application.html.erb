@@ -34,6 +34,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
+<script>tinymce.init({selector:'textarea'});</script>
 </head>
 <body>
 <div class="container">
@@ -68,6 +69,10 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "My Active Projects", projects_myactive_path %></li>
+                <li><%= link_to "My Complete Projects", projects_mycomplete_path %></li>
+                <li><%= link_to "My All Projects", projects_my_path %></li>
+                <li class="divider"></li>
                 <li><%= link_to "All Active", projects_active_path %></li>
                 <li><%= link_to "All Complete", projects_complete_path %></li>
                 <li><%= link_to "All Projects", projects_path %></li>
