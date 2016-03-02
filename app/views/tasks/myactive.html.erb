@@ -27,7 +27,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <h2>My Active Tasks</h2>
   <table class="table tablesorter">
     <thead>
-	    <tr><th>Title</th><th>Status</th><th>Last Updated</th><th>Sched Start</th><th>Actual Start</th><th>Sched Compl</th><th>Actual Compl</th><th>Project</th><th>Product</th></tr>
+	    <tr><th>Title</th><th>Status</th><th>Last Updated</th><th>Sched Start</th><th>Actual Start</th><th>Sched Compl</th><th>Project</th><th>Product</th></tr>
     </thead>
     <tbody>
   <% @tasks.each do |task| %>
@@ -38,7 +38,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <td><%= task.sched_start_date %></td>
       <td><%= task.actual_start_date %></td>
       <td><%= task.sched_completion_date %></td>
-      <td><%= task.actual_completion_date %></td>
       <td><% if task.project_id %><%= link_to task.project.title, task.project %><% end %></td>
       <td><% if task.product_id %><%= link_to task.product.title, task.product %><% end %></td>
     </tr>
