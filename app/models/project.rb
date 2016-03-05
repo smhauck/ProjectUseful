@@ -18,8 +18,9 @@
 
 class Project < ActiveRecord::Base
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: { case_sensitive: false }
   # validates :owner, presence: true
+  validates :short_title, presence: true, uniqueness: { case_sensitive: false }
 
 
   has_many :tasks

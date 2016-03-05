@@ -29,6 +29,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <table class="table tablesorter">
 	<tbody>
 		<tr><th>Project Title:</th><td><%= @project.title %> <%= link_to '(Edit)', edit_project_path(@project) %></td></tr>
+		<tr><th>Project Short Title:</th><td><%= @project.short_title %></td></tr>
 		<tr><th>Project Status:</th><td><%= @project.status.title %></td></tr>
 		<tr><th>Project Owner:</th><td><%= link_to @project.owner.username, @project.owner %></td></tr>
 

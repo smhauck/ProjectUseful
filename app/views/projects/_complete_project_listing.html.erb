@@ -26,6 +26,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <table class="table tablesorter">
   <thead>
     <tr>
+      <th>Short</th>
       <th>Title</th>
       <th>Status</th>
       <th>Product</th>
@@ -40,6 +41,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <tbody>
     <% @projects.order(:title).each do |project| %>
       <tr>
+        <td><%= link_to project.short_title, project %></td>
         <td><%= link_to project.title, project %></td>
 	<td class="<%= project.status.code %>"><%= project.status.title %></td>
         <td><% if project.product_id %><%= link_to project.product.title, project.product %><% end %></td>

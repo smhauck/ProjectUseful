@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225013804) do
+ActiveRecord::Schema.define(version: 20160305041754) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -221,6 +221,7 @@ ActiveRecord::Schema.define(version: 20160225013804) do
     t.date     "sched_completion_date"
     t.date     "actual_completion_date"
     t.integer  "product_id",             limit: 4
+    t.string   "short_title",            limit: 10,                 null: false
   end
 
   add_index "projects", ["creator_id"], name: "index_projects_on_creator_id", using: :btree

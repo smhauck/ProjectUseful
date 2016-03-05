@@ -44,6 +44,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
   <table class="table">
     <tr><th><%= f.label :title %></th><td><%= f.text_field :title, size: 60, autofocus: :true %></td></tr>
+    <tr><th><%= f.label :short_title %></th><td><%= f.text_field :short_title, size: 60 %></td></tr>
     <tr><th><%= f.label :project_status_type_id %></th><td><%= collection_select(:project, :project_status_type_id, ProjectStatusType.all, :id, :title) %></td></tr>
     <tr><th><%= f.label :product_id %></th><td><%= collection_select(:project, :product_id, Product.all.order(:title), :id, :title, include_blank: '') %></td></tr>
     <tr><th><%= f.label :owner_id %></th><td><%= collection_select(:project, :owner_id, User.all.order(:username), :id, :username) %></td></tr>

@@ -27,11 +27,12 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <h2>My Tasks</h2>
   <table class="table tablesorter">
     <thead>
-	    <tr><th>Title</th><th>Status</th><th>Last Updated</th><th>Sched Start</th><th>Actual Start</th><th>Sched Compl</th><th>Actual Compl</th><th>Project</th><th>Product</th></tr>
+	    <tr><th>Project</th><th>Title</th><th>Status</th><th>Last Updated</th><th>Sched Start</th><th>Actual Start</th><th>Sched Compl</th><th>Actual Compl</th><th>Product</th></tr>
     </thead>
     <tbody>
   <% @user.task_assignments.each do |assignment| %>
     <tr>
+      <td><% if assignment.task.project_id %><%= link_to assignment.task.project.short_title, assignment.task.project %><% end %></td>
       <td><%= link_to assignment.task.title, assignment.task %></td>
       <td class="<%= assignment.task.status.code %>"><%= assignment.task.status.title %></td>
       <td><%= assignment.task.updated_at.to_formatted_s(:db) %></td>
@@ -39,7 +40,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <td><%= assignment.task.actual_start_date %></td>
       <td><%= assignment.task.sched_completion_date %></td>
       <td><%= assignment.task.actual_completion_date %></td>
-      <td><% if assignment.task.project_id %><%= link_to assignment.task.project.title, assignment.task.project %><% end %></td>
       <td><% if assignment.task.product_id %><%= link_to assignment.task.product.title, assignment.task.product %><% end %></td>
     </tr>
   <% end %>
