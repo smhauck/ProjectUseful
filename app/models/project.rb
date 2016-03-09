@@ -21,6 +21,7 @@ class Project < ActiveRecord::Base
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   # validates :owner, presence: true
   validates :short_title, presence: true, uniqueness: { case_sensitive: false }
+  validates_length_of :short_title, maximum: 15, message: "Maximum length 15 characters"
 
 
   has_many :tasks
