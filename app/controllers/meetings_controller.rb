@@ -1,4 +1,4 @@
-# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2016 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -34,7 +34,22 @@ class MeetingsController < ApplicationController
   # GET /meetings/new
   def new
     @meeting = Meeting.new
+    if params[:project]
+      @meeting.project_id = params[:project]
+      @project = Project.find(params[:project])
+      @project_selected = 1
+    else
+      @project = Project.new
+    end
+    if params[:story]
+      @meeting.story_id = params[:story]
+      @story = Story.find(params[:story])
+      @story_selected = 1
+    else
+      @story = Story.new
+    end
   end
+
 
   # GET /meetings/1/edit
   def edit
