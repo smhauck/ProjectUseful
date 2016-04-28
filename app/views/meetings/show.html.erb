@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2016 William B. Hauck, http://www.wbhauck.com
 
 This file is part of Project Useful.
 
@@ -54,10 +54,10 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p><strong>Attendees</strong></p>
 <p>
+<%= render 'add_user' %>
 <% @meeting.meeting_assignments.each do |ta| %>
 	<%= link_to ta.user.username, ta.user -%> <%= link_to '(Remove)', meeting_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
-  <%= render 'add_user' %>
 </p>
 
 <p>
