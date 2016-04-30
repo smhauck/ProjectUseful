@@ -43,6 +43,10 @@ class User < ActiveRecord::Base
   has_many :task_comments
 #  has_many :tasks, through: :task_comments
   accepts_nested_attributes_for :task_comments
+  
+  has_many :project_comments
+#  has_many :projects, through: :project_comments
+  accepts_nested_attributes_for :project_comments
 
 
 end

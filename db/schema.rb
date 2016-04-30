@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305041754) do
+ActiveRecord::Schema.define(version: 20160429031518) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -198,6 +198,17 @@ ActiveRecord::Schema.define(version: 20160305041754) do
 
   add_index "project_assignments", ["project_id"], name: "index_project_assignments_on_project_id", using: :btree
   add_index "project_assignments", ["user_id"], name: "index_project_assignments_on_user_id", using: :btree
+
+  create_table "project_comments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "project_id", limit: 4
+    t.text     "comment",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "project_comments", ["project_id"], name: "index_project_comments_on_project_id", using: :btree
+  add_index "project_comments", ["user_id"], name: "index_project_comments_on_user_id", using: :btree
 
   create_table "project_status_types", force: :cascade do |t|
     t.string   "title",       limit: 255,                  null: false
@@ -436,5 +447,7 @@ ActiveRecord::Schema.define(version: 20160305041754) do
   add_foreign_key "meeting_assignments", "users"
   add_foreign_key "project_assignments", "projects"
   add_foreign_key "project_assignments", "users"
+  add_foreign_key "project_comments", "projects"
+  add_foreign_key "project_comments", "users"
   add_foreign_key "users", "email_to_sms_gateways"
 end

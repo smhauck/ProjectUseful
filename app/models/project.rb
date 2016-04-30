@@ -27,6 +27,7 @@ class Project < ActiveRecord::Base
   has_many :tasks
   has_many :meetings
   has_many :notes
+  has_many :comments, class_name: "ProjectComment", foreign_key: "project_id"
   has_many :wikis
   has_many :wiki_pages
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"

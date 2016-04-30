@@ -1,5 +1,7 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :project_comments
+  resources :project_comments
   resources :project_status_types
   resources :departments
   resources :slas
