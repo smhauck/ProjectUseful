@@ -43,7 +43,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <tr>
         <td><%= link_to project.short_title, project %></td>
         <td><%= link_to project.title, project %></td>
-	<td class="<%= project.status.code %>"><%= project.status.title %></td>
+	<td bgcolor="<%= project.status.code %>"><%= project.status.title %></td>
         <td><% if project.product_id %><%= link_to project.product.title, project.product %><% end %></td>
         <td><% if project.owner_id %><%= link_to project.owner.username, project.owner %><% end %></td>
         <td><%= project.sched_start_date %></td>

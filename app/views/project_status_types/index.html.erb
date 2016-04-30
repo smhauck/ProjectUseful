@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2016 William B. Hauck, http://www.wbhauck.com
 
 This file is part of Project Useful.
 
@@ -33,6 +33,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <tr>
       <th>Title</th>
       <th>Alive</th>
+      <th>Background Color</th>
+      <th>Text Color</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
@@ -43,6 +45,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <tr>
         <td><%= project_status_type.title %></td>
         <td><%= project_status_type.alive %></td>
+        <td><%= project_status_type.background_color %></td>
+        <td><%= project_status_type.text_color %></td>
         <td><%= project_status_type.description %></td>
         <td><%= link_to 'Show', project_status_type %></td>
         <td><%= link_to 'Edit', edit_project_status_type_path(project_status_type) %></td>

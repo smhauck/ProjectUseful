@@ -1,4 +1,4 @@
-# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2016 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -87,6 +87,6 @@ class TaskStatusTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_status_type_params
-      params.require(:task_status_type).permit(:title, :description)
+      params.require(:task_status_type).permit(:title, :alive, :description)
     end
 end

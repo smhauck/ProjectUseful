@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2016 William B. Hauck, http://www.wbhauck.com
 
 This file is part of Project Useful.
 
@@ -47,15 +47,37 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <tr><th>Members</th>
 <td>
+  <%= render 'add_user' %>
 <% @project.project_assignments.each do |pa| %>
 	<%= link_to pa.user.username, pa.user %> <%= link_to '(Remove)', project_assignment_path(pa.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
 <% end %>
-  <%= render 'add_user' %>
 </td>
 </tr>
 
 </tbody>
 </table>
+
+
+<% if @project.comments %>
+  <table class="table">
+    <thead>
+	    <tr><th>Comment <%= link_to '(Add)', controller: "project_comments", action: "new",  project: @project %></th><th>User</th><th>Created At</th><th>Modified At</th></tr>
+    </thead>
+    <tbody>
+      <% @project.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.comment %></td>
+          <td><%= link_to comment.user.username, comment.user %></td>
+          <td><%= comment.created_at.to_formatted_s(:long) %></td>
+          <td><%= comment.updated_at.to_formatted_s(:long) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h2>No Comments for this Project</h2>
+  <%= link_to 'Add Task', controller: "notes", action: "new",  project: @project %><br />
+<% end %>
 
 
 <% if @project.tasks %>
@@ -88,7 +110,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     </tbody>
   </table>
 <% else %>
-  <h2>No Tasks for this Story</h2>
+  <h2>No Tasks for this Project</h2>
   <%= link_to 'Add Task', controller: "tasks", action: "new",  project: @project %><br />
 <% end %>
 
@@ -111,7 +133,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     </tbody>
   </table>
 <% else %>
-  <h2>No Tasks for this Story</h2>
+  <h2>No Tasks for this Project</h2>
   <%= link_to 'Add Task', controller: "notes", action: "new",  project: @project %><br />
 <% end %>
 
@@ -133,6 +155,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     </tbody>
   </table>
 <% else %>
-  <h2>No Tasks for this Story</h2>
+  <h2>No Tasks for this Project</h2>
   <%= link_to 'Add Task', controller: "meetings", action: "new",  project: @project %><br />
 <% end %>

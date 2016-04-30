@@ -1,4 +1,4 @@
-# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2016 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,4 +17,5 @@
 
 
 class TaskStatusType < ActiveRecord::Base
+  validates :code, :format => { with: /\A[A-z0-9#]+\z/, message: 'Only letters, numbers, and pound sign (#)'}
 end
