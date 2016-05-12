@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430163344) do
+ActiveRecord::Schema.define(version: 20160507050515) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -410,6 +410,7 @@ ActiveRecord::Schema.define(version: 20160430163344) do
     t.string   "mobile_phone",            limit: 255
     t.integer  "email_to_sms_gateway_id", limit: 4
     t.boolean  "active",                  limit: 1,   default: true, null: false
+    t.string   "nick_name",               limit: 255
   end
 
   add_index "users", ["email_to_sms_gateway_id"], name: "index_users_on_email_to_sms_gateway_id", using: :btree
