@@ -17,7 +17,7 @@
 
 
 class TasksController < ApplicationController
-  skip_before_action :authorize, only: [:active, :complete, :index, :show]
+  skip_before_action :authorize, only: [:active, :complete, :index, :search, :show]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:edit]
 
@@ -80,6 +80,12 @@ class TasksController < ApplicationController
   end
  
   
+
+  def search
+    @tasks = Task.where('MATCH (title,description) AGAINST (? in boolean mode)',params[:criteria])
+  end
+
+
   
   # GET /tasks/1
   # GET /tasks/1.json

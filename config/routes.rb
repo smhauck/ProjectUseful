@@ -77,6 +77,7 @@ ProjectUseful::Application.routes.draw do
   get 'tasks/mycomplete' => 'tasks#mycomplete'
   get 'tasks/active' => 'tasks#active'
   get 'tasks/complete' => 'tasks#complete'
+  get 'tasks/search' => 'tasks#search'
 
   
   resources :notes
