@@ -63,6 +63,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
 <tr><th>Description</th><td><%= simple_format(@task.description) %></td></tr>
+<tr><th>Notes</th><td>
+	<% @task.notes.each do |note| %>
+		<%= link_to note.title, note -%><br />
+	<% end %>
+</td></tr>
 </table>
 
 
