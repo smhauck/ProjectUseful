@@ -42,7 +42,7 @@ class MeetingAssignmentsController < ApplicationController
   # POST /meeting_assignments
   # POST /meeting_assignments.json
   def create
-    @meeting_assignment = MeetingAssignment.new(meeting_assignment_params)
+      @meeting_assignment = MeetingAssignment.new(meeting_assignment_params)
 
     respond_to do |format|
       if @meeting_assignment.save

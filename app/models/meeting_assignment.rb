@@ -17,6 +17,9 @@
 
 
 class MeetingAssignment < ActiveRecord::Base
+  validates :meeting, presence: true
+  validates :user, presence: true
+
   belongs_to :meeting
   belongs_to :user
 end
