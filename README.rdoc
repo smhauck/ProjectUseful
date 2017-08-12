@@ -8,7 +8,7 @@ Project Useful is a Ruby on Rails-based project management system implementing t
 * Ruby version 2 or later
 * System dependencies
   * Ruby 2
-  * Rails 4
+  * Rails 5
   * MySQL or MariaDB 5.1 or later
 
 
