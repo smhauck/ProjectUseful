@@ -17,8 +17,9 @@
 
 
 class BlogPostsController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
+  before_action :set_blog
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:index, :show]
 
   # GET /blog_posts
   # GET /blog_posts.json
@@ -45,27 +46,22 @@ class BlogPostsController < ApplicationController
   def create
     @blog_post = BlogPost.new(blog_post_params)
     @blog_post.user_id = session[:user_id]
+    @blog_post.blog_id = @blog.id
 
-    respond_to do |format|
       if @blog_post.save
-        format.html { redirect_to @blog_post, notice: 'Blog post was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @blog_post }
+        redirect_to @blog, notice: 'Blog post was successfully created.'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @blog_post.errors, status: :unprocessable_entity }
+        render action: 'new' 
       end
-    end
   end
 
-  # PATCH/PUT /blog_posts/1
-  # PATCH/PUT /blog_posts/1.json
   def update
 
     # only update if original author (user_id) is submitting it
     if @blog_post.user_id = session[:user_id]
       respond_to do |format|
         if @blog_post.update(blog_post_params)
-          format.html { redirect_to @blog_post, notice: 'Blog post was successfully updated.' }
+          format.html { redirect_to [@blog, @blog_post], notice: 'Blog post was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }
@@ -75,8 +71,6 @@ class BlogPostsController < ApplicationController
     end
   end
 
-  # DELETE /blog_posts/1
-  # DELETE /blog_posts/1.json
   def destroy
     @blog_post.destroy
     respond_to do |format|
@@ -86,12 +80,14 @@ class BlogPostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_blog
+      @blog = Blog.find(params[:blog_id])
+    end
+
     def set_blog_post
       @blog_post = BlogPost.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def blog_post_params
       params.require(:blog_post).permit(:title, :body, :publish_date, :blog_id)
     end

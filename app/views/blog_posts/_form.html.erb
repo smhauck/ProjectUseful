@@ -24,24 +24,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 %>
 
 
-<%= form_for(@blog_post) do |f| %>
-  <% if @blog_post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@blog_post.errors.count, "error") %> prohibited this blog_post from being saved:</h2>
-
-      <ul>
-      <% @blog_post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for([@blog, @blog_post]) do |f| %>
   
-  <div class="field">
-	  <%= f.label :blog_id %></br >
-	  <%= collection_select(:blog_post, :blog_id, Blog.all.order(:title), :id, :title) %>
-  </div>
-
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title, { size: 60 } %>
