@@ -1,4 +1,4 @@
-class AddCodeToProductStatusType < ActiveRecord::Migration
+class AddCodeToProductStatusType < ActiveRecord::Migration[4.2]
   def up
     add_column :product_status_types, :code, :string, null: false, default: "FIXME"
 

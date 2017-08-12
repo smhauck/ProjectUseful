@@ -1,4 +1,4 @@
-class AddCodeToSprintStatusType < ActiveRecord::Migration
+class AddCodeToSprintStatusType < ActiveRecord::Migration[4.2]
   def up
     add_column :sprint_status_types, :code, :string, null: false, default: 'FIXME'
 

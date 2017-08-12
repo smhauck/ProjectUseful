@@ -1,4 +1,4 @@
-class CreateProjectStatusTypes < ActiveRecord::Migration
+class CreateProjectStatusTypes < ActiveRecord::Migration[4.2]
   def change
     create_table :project_status_types do |t|
       t.string :title, null: false

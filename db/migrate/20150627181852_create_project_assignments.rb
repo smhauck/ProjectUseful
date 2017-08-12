@@ -1,4 +1,4 @@
-class CreateProjectAssignments < ActiveRecord::Migration
+class CreateProjectAssignments < ActiveRecord::Migration[4.2]
   def change
     create_table :project_assignments do |t|
       t.references :project, index: true, foreign_key: true

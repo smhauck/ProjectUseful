@@ -1,4 +1,4 @@
-class CreateTaskComments < ActiveRecord::Migration
+class CreateTaskComments < ActiveRecord::Migration[4.2]
   def change
     create_table :task_comments do |t|
       t.decimal :hours, precision: 5, scale: 2

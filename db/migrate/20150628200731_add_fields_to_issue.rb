@@ -1,4 +1,4 @@
-class AddFieldsToIssue < ActiveRecord::Migration
+class AddFieldsToIssue < ActiveRecord::Migration[4.2]
   def up
     add_column :issues, :vendor_case_id, :string
     add_column :issues, :vendor_issue_id, :string

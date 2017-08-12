@@ -1,4 +1,4 @@
-class InnodbToMyisam < ActiveRecord::Migration
+class InnodbToMyisam < ActiveRecord::Migration[4.2]
   def change
 execute <<SQL
 alter table products engine=myisam;

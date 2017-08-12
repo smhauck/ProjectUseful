@@ -1,4 +1,4 @@
-# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2017 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 

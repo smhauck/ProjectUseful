@@ -1,4 +1,4 @@
-# Copyright (C) 2015 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2017 William B. Hauck, http://www.wbhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -90,6 +90,6 @@ StoryType.create(title: 'Other')
 #     Create the default administrator user                      #
 #     BE SURE TO CHANGE THE admin password and contact_email     #
 ##################################################################
-# User.create(username: "admin", password: "SECRET", password_confirmation: "SECRET", contact_email: "FIXME@example.com")
+#  User.create(username: "admin", password: "SECRET", password_confirmation: "SECRET", contact_email: "FIXME@example.com")
 
 

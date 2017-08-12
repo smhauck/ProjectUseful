@@ -1,4 +1,4 @@
-class CreateSlas < ActiveRecord::Migration
+class CreateSlas < ActiveRecord::Migration[4.2]
   def change
     create_table :slas do |t|
       t.string :name

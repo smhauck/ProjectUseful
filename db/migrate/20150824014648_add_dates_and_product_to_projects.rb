@@ -1,4 +1,4 @@
-class AddDatesAndProductToProjects < ActiveRecord::Migration
+class AddDatesAndProductToProjects < ActiveRecord::Migration[4.2]
   def change
     add_column :projects, :sched_start_date, :date
     add_column :projects, :actual_start_date, :date

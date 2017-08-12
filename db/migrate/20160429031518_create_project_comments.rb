@@ -1,4 +1,4 @@
-class CreateProjectComments < ActiveRecord::Migration
+class CreateProjectComments < ActiveRecord::Migration[4.2]
   def change
     create_table :project_comments do |t|
       t.references :user, index: true, foreign_key: true

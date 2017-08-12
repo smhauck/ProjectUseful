@@ -1,4 +1,4 @@
-class AddStatusToProjects < ActiveRecord::Migration
+class AddStatusToProjects < ActiveRecord::Migration[4.2]
   def change
     add_reference :projects, :project_status_type, index: true, null: false, default: 1
 

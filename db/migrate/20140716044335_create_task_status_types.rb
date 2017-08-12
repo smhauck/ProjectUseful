@@ -1,4 +1,4 @@
-class CreateTaskStatusTypes < ActiveRecord::Migration
+class CreateTaskStatusTypes < ActiveRecord::Migration[4.2]
   def change
     create_table :task_status_types do |t|
       t.boolean :alive

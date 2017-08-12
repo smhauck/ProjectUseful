@@ -1,4 +1,4 @@
-class AddCodeToProjectStatusTypes < ActiveRecord::Migration
+class AddCodeToProjectStatusTypes < ActiveRecord::Migration[4.2]
   def up
     add_column :project_status_types, :code, :string
 

@@ -1,4 +1,4 @@
-class CreateStoryAssignments < ActiveRecord::Migration
+class CreateStoryAssignments < ActiveRecord::Migration[4.2]
   def change
     create_table :story_assignments do |t|
       t.references :story, index: true

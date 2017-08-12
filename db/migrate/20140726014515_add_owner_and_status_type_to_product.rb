@@ -1,4 +1,4 @@
-class AddOwnerAndStatusTypeToProduct < ActiveRecord::Migration
+class AddOwnerAndStatusTypeToProduct < ActiveRecord::Migration[4.2]
   def change
     add_column :products, :owner_id, :integer, null: false, default: 1
     add_column :products, :product_status_type_id, :integer, null: false, default: 1
