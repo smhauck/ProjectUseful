@@ -32,6 +32,32 @@
 }
 
 
+
+
+.blog-header {
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+  border-bottom: .05rem solid #eee;
+}
+
+.blog-title {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.blog-description {
+  font-size: 1.1rem;
+  color: #999;
+}
+
+@media (min-width: 40em) {
+  .blog-title {
+    font-size: 3.5rem;
+  }
+}
+
+
 /* =================================================================== */
 
 .navbar-brand {

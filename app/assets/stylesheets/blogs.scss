@@ -1,0 +1,68 @@
+// Place all the styles related to the Blogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@media (min-width: 48em) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #555;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+}
+
+
+
+.blog_post {
+	width: 760px;
+}
+
+
+
+
+.blog-header {
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+  border-bottom: .05rem solid #eee;
+}
+
+.blog-title {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.blog-description {
+  font-size: 1.1rem;
+  color: #999;
+}
+
+
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #999;
+}
+
+
+
+@media (min-width: 40em) {
+  .blog-title {
+    font-size: 3.5rem;
+  }
+}
+
+
