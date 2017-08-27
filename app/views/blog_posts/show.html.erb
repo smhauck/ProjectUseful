@@ -32,5 +32,5 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <div class="blog_post">
 <h2 class="blog_post_title"><%= @blog_post.title %> <%= link_to '(Edit)', edit_blog_blog_post_path(@blog_post) %></h2>
 <p class="blog_post_published">Published on <%= @blog_post.publish_date %> by <%= @blog_post.user.username %></p>
-<%= sanitize @blog_post.body %>
+<%= simple_format(sanitize @blog_post.body) %>
 </div>

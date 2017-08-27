@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @contact_email.address %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= link_to (@contact_email.contact.first_name+' '+@contact_email.contact.last_name), @contact_email.contact %>
+</p>
+
+<p>
+  <strong>Email type:</strong>
+  <%= @contact_email.email_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_contact_email_path(@contact_email) %> |
+<%= link_to 'Back', contact_emails_path %>

@@ -1,0 +1,84 @@
+<%
+=begin
+%>
+
+Copyright (C) 2017 William B. Hauck, http://www.wbhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @contact.first_name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @contact.middle_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @contact.last_name %>
+</p>
+
+<p>
+  <strong>Prefix:</strong>
+  <%= @contact.prefix %>
+</p>
+
+<p>
+  <strong>Suffix:</strong>
+  <%= @contact.suffix %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @contact.sex.name %>
+</p>
+
+<p>
+<% @contact.contact_emails.each do |email| %>
+        <%= email.address %> (<%= email.email_type.name %>)<br>
+<% end %>
+</p>
+
+
+<%= form_for(@contact_email) do |form| %>
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :contact_email_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email_type_id %>
+    <%= form.text_field :email_type_id, id: :contact_email_email_type_id %>
+  </div>
+
+    <%= form.hidden_field :contact_id, value: @contact.id %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

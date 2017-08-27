@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contact Emails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Contact</th>
+      <th>Email type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contact_emails.each do |contact_email| %>
+      <tr>
+        <td><%= contact_email.address %></td>
+        <td><%= contact_email.contact.first_name %><%= contact_email.contact.last_name %></td>
+        <td><%= contact_email.email_type.name %></td>
+        <td><%= link_to 'Show', contact_email %></td>
+        <td><%= link_to 'Edit', edit_contact_email_path(contact_email) %></td>
+        <td><%= link_to 'Destroy', contact_email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contact Email', new_contact_email_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Email Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @email_types.each do |email_type| %>
+      <tr>
+        <td><%= email_type.name %></td>
+        <td><%= email_type.description %></td>
+        <td><%= link_to 'Show', email_type %></td>
+        <td><%= link_to 'Edit', edit_email_type_path(email_type) %></td>
+        <td><%= link_to 'Destroy', email_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Email Type', new_email_type_path %>

@@ -1,5 +1,9 @@
 ProjectUseful::Application.routes.draw do
 
+  resources :contact_emails
+  resources :email_types
+  resources :contacts
+  resources :sexes
   resources :project_comments
   resources :project_comments
   resources :project_status_types
