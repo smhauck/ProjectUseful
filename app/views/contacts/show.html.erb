@@ -27,29 +27,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @contact.first_name %>
+  <%= @contact.prefix %> <%= @contact.first_name %> <%= @contact.middle_name %> <%= @contact.last_name %> <%= @contact.suffix %>
 </p>
 
-<p>
-  <strong>Middle name:</strong>
-  <%= @contact.middle_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @contact.last_name %>
-</p>
-
-<p>
-  <strong>Prefix:</strong>
-  <%= @contact.prefix %>
-</p>
-
-<p>
-  <strong>Suffix:</strong>
-  <%= @contact.suffix %>
-</p>
 
 <p>
   <strong>Sex:</strong>
@@ -57,6 +37,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </p>
 
 <p>
+Email Addresses:<br>
 <% @contact.contact_emails.each do |email| %>
         <%= email.address %> (<%= email.email_type.name %>)<br>
 <% end %>
@@ -65,20 +46,15 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <%= form_for(@contact_email) do |form| %>
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :contact_email_address %>
-  </div>
+    <%= form.text_field :address, id: :contact_email_address, placeholder: 'Additional Address' %>
 
-  <div class="field">
     <%= form.label :email_type_id %>
-    <%= form.text_field :email_type_id, id: :contact_email_email_type_id %>
+    <%= collection_select(:contact_email, :email_type_id, EmailType.all, :id, :name) %>
+    <%= form.submit %>
   </div>
 
     <%= form.hidden_field :contact_id, value: @contact.id %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>
