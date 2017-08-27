@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sexes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sexes.each do |sex| %>
+      <tr>
+        <td><%= sex.name %></td>
+        <td><%= sex.description %></td>
+        <td><%= sex.active %></td>
+        <td><%= link_to 'Show', sex %></td>
+        <td><%= link_to 'Edit', edit_sex_path(sex) %></td>
+        <td><%= link_to 'Destroy', sex, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sex', new_sex_path %>

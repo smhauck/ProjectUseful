@@ -1,0 +1,32 @@
+<%= form_with(model: sex, local: true) do |form| %>
+  <% if sex.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sex.errors.count, "error") %> prohibited this sex from being saved:</h2>
+
+      <ul>
+      <% sex.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :sex_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :sex_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.check_box :active, id: :sex_active %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
