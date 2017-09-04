@@ -30,7 +30,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	<h1><%= link_to @blog_post.blog.title, @blog_post.blog %></h1>
 </div>
 <div class="blog_post">
-<h2 class="blog_post_title"><%= @blog_post.title %> <%= link_to '(Edit)', edit_blog_blog_post_path(@blog_post) %></h2>
+<h2 class="blog_post_title"><%= @blog_post.title %> <%= link_to '(Edit)', edit_blog_blog_post_path(@blog_post.blog, @blog_post) %></h2>
 <p class="blog_post_published">Published on <%= @blog_post.publish_date %> by <%= @blog_post.user.username %></p>
 <%= simple_format(sanitize @blog_post.body) %>
 </div>
