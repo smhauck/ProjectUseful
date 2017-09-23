@@ -21,12 +21,14 @@ class Story < ActiveRecord::Base
   validates :title, presence: true
   validates :requestor, presence: true
   validates :status, presence: true
-  validates :product, presence: true
+  # validates :product, presence: true
+  validates :project, presence: true
   validates :creator, presence: true
 
 
 
   belongs_to :product
+  belongs_to :project
   belongs_to :sprint
   belongs_to :type, class_name: "StoryType", foreign_key: "story_type_id"
   belongs_to :status, class_name: "StoryStatusType", foreign_key: "story_status_type_id"

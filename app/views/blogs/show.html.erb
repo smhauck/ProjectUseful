@@ -47,5 +47,12 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 	  <% end %>
     <p class="blog_post_meta">Published on <%= post.publish_date %> by <%= link_to post.user.username, post.user %></p>
     <%= simple_format(sanitize post.body) %>
+<%
+=begin
+%>
+                <div class="post_body"><%= simple_format(sanitize(truncate(post.body, escape: false, length: 400, separator: ' '), attributes: %w(class href style target)), {}, sanitize: false) %></div>
+<%
+=end
+%>
   </div>
 <% end %>

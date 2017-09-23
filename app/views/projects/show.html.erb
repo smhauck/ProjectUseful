@@ -80,6 +80,41 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% end %>
 
 
+<% if @project.stories %>
+  <h2>Stories <%= link_to '(Add)', controller: "stories", action: "new",  project: @project %></h2>
+  <table class="table">
+    <thead>
+	    <!-- <tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr> -->
+	    <tr><th>Title</th><th>Status</th><th>Owner</th><th>SchedStart</th><th>ActualStart</th><th>SchedCompl</th><th>ActualCompl</th></tr>
+    </thead>
+    <tbody>
+      <% @project.stories.each do |story| %>
+        <tr>
+          <td><%= link_to story.title, story %></td>
+	  <td class="<%= story.status.code %>"><%= story.status.title %></td>
+          <td>
+            <% story.story_assignments.each do |ta| %>
+              <%= link_to ta.user.username, ta.user %> <%= link_to '(Remove)', story_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+            <% end %>
+    </td>
+    <!--
+           <td><%= number_with_precision(story.estimated_hours, strip_insignificant_zeros: true) %></td>
+	   <td><%= number_with_precision(story.story_comments.sum(:hours), strip_insignificant_zeros: true) %></td>
+	   -->
+          <td><%= story.sched_start_date %></td>
+          <td><%= story.actual_start_date %></td>
+          <td><%= story.sched_completion_date %></td>
+          <td><%= story.actual_completion_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h2>No Stories for this Project</h2>
+  <%= link_to 'Add Story', controller: "storyies", action: "new",  project: @project %><br />
+<% end %>
+
+
 <% if @project.tasks %>
   <h2>Tasks <%= link_to '(Add)', controller: "tasks", action: "new",  project: @project %></h2>
   <table class="table">

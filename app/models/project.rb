@@ -24,6 +24,7 @@ class Project < ActiveRecord::Base
   validates_length_of :short_title, maximum: 15, message: "Maximum length 15 characters"
 
 
+  has_many :stories
   has_many :tasks
   has_many :meetings
   has_many :notes

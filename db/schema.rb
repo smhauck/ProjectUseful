@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170826200044) do
+ActiveRecord::Schema.define(version: 20170902163453) do
 
   create_table "blog_posts", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "title"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 20170826200044) do
     t.datetime "updated_at", null: false
     t.index ["contact_id"], name: "index_contact_emails_on_contact_id"
     t.index ["email_type_id"], name: "index_contact_emails_on_email_type_id"
+  end
+
+  create_table "contact_phone_numbers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "number"
+    t.boolean "active"
+    t.text "note"
+    t.boolean "optin"
+    t.bigint "contact_id"
+    t.bigint "phone_number_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_contact_phone_numbers_on_contact_id"
+    t.index ["phone_number_type_id"], name: "index_contact_phone_numbers_on_phone_number_type_id"
   end
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -192,6 +205,14 @@ ActiveRecord::Schema.define(version: 20170826200044) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "phone_number_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.text "description"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "product_status_types", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.boolean "alive"
     t.string "title"
@@ -317,7 +338,9 @@ ActiveRecord::Schema.define(version: 20170826200044) do
     t.decimal "points", precision: 10, scale: 2
     t.integer "creator_id"
     t.integer "story_type_id"
+    t.bigint "project_id"
     t.index ["product_id"], name: "index_stories_on_product_id"
+    t.index ["project_id"], name: "index_stories_on_project_id"
     t.index ["sprint_id"], name: "index_stories_on_sprint_id"
     t.index ["story_status_type_id"], name: "index_stories_on_story_status_type_id"
     t.index ["story_type_id"], name: "index_stories_on_story_type_id"
@@ -466,6 +489,8 @@ ActiveRecord::Schema.define(version: 20170826200044) do
 
   add_foreign_key "contact_emails", "contacts"
   add_foreign_key "contact_emails", "email_types"
+  add_foreign_key "contact_phone_numbers", "contacts"
+  add_foreign_key "contact_phone_numbers", "phone_number_types"
   add_foreign_key "contacts", "sexes"
   add_foreign_key "meeting_assignments", "meetings"
   add_foreign_key "meeting_assignments", "users"

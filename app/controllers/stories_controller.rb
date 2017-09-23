@@ -56,6 +56,7 @@ class StoriesController < ApplicationController
   # GET /stories/new
   def new
     @story = Story.new
+    @projects = Project.joins(:status).where(project_status_types: { alive: true }).order(:title)
     @products = Product.joins(:status).where(product_status_types: { alive: true }).order(:title)
     @sprints = Sprint.joins(:status).where(sprint_status_types: { alive: true }).order(:start_date)
   end
@@ -63,6 +64,7 @@ class StoriesController < ApplicationController
   # GET /stories/1/edit
   def edit
     @products = Product.joins(:status).where(product_status_types: { alive: true }).order(:title)
+    @projects = Project.joins(:status).where(project_status_types: { alive: true }).order(:title)
     @sprints = Sprint.joins(:status).where(sprint_status_types: { alive: true }).order(:start_date)
   end
 
@@ -122,6 +124,6 @@ class StoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:alive, :story_status_type_id, :title, :description, :requestor_id, :completion_notes, :product_id, :sprint_id, :estimated_hours, :points, :story_type_id)
+      params.require(:story).permit(:alive, :story_status_type_id, :title, :description, :requestor_id, :completion_notes, :product_id, :project_id, :sprint_id, :estimated_hours, :points, :story_type_id)
     end
 end
