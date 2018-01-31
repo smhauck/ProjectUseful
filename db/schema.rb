@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902163453) do
+ActiveRecord::Schema.define(version: 20180130024651) do
 
   create_table "blog_posts", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "title"
@@ -339,6 +339,10 @@ ActiveRecord::Schema.define(version: 20170902163453) do
     t.integer "creator_id"
     t.integer "story_type_id"
     t.bigint "project_id"
+    t.date "sched_start_date"
+    t.date "actual_start_date"
+    t.date "sched_completion_date"
+    t.date "actual_completion_date"
     t.index ["product_id"], name: "index_stories_on_product_id"
     t.index ["project_id"], name: "index_stories_on_project_id"
     t.index ["sprint_id"], name: "index_stories_on_sprint_id"

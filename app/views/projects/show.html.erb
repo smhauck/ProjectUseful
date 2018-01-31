@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2017 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2018 William B. Hauck, http://www.wbhauck.com
 
 This file is part of Project Useful.
 
@@ -97,10 +97,14 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
               <%= link_to ta.user.username, ta.user %> <%= link_to '(Remove)', story_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
             <% end %>
     </td>
-    <!--
+<%
+=begin
+%>
            <td><%= number_with_precision(story.estimated_hours, strip_insignificant_zeros: true) %></td>
 	   <td><%= number_with_precision(story.story_comments.sum(:hours), strip_insignificant_zeros: true) %></td>
-	   -->
+<%
+=end
+%>
           <td><%= story.sched_start_date %></td>
           <td><%= story.actual_start_date %></td>
           <td><%= story.sched_completion_date %></td>
