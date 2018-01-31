@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2017 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2018 William B. Hauck, http://www.wbhauck.com
 
 This file is part of Project Useful.
 
@@ -119,11 +119,12 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
 <% if @product.stories.count > 0 %>
-  <h2>Stories</h2>
+  <h2>Stories <%= link_to '(Add Story)', controller: "stories", action: "new",  product: @product %></h2>
   <% @stories = @product.stories %>
   <%= render 'stories_listing' %>
 <% else %>
   <h2>No Stories</h2>
+  <%= link_to 'Add Story', controller: "stories", action: "new",  product: @product %><br />
 <% end %>
 
 
