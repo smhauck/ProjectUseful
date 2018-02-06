@@ -61,7 +61,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </div>
   <div class="field">
     <%= f.label :story_id %></br >
-    <%= collection_select(:task, :story_id, Story.all.order(:title), :id, :title) %>
+    <%= collection_select(:task, :story_id, Story.all.order(:title), :id, :title, include_blank: '') %>
   </div>
   <div class="field">
     <%= f.label :estimated_hours %></br >
