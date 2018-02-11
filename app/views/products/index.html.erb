@@ -31,6 +31,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <tr>
       <th>Title</th>
       <th>Owner</th>
+      <th>Public</th>
       <th>Status</th>
       <th>Description</th>
     </tr>
@@ -41,6 +42,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <tr>
         <td><%= link_to product.title, product %></td>
         <td><%= link_to product.owner.username, product.owner %></td>
+        <td><%= product.public %></td>
 	<td class="<%= product.status.code %>"><%= product.status.title %></td>
         <td><%= product.description %></td>
       </tr>

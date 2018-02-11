@@ -31,6 +31,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <table class="table">
 <tr><th>Status</th><td class="<%= @product.status.code %>"><%= @product.status.title %></td></tr>
 <tr><th>Owner</th><td><%= link_to @product.owner.username, @product.owner %></td></tr>
+<tr><th>Public</th><td><%= @product.public %></td></tr>
 <tr><th>Description:</th><td><%= simple_format(@product.description) %></td></tr>
 </table>
 
