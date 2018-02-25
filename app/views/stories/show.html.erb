@@ -39,9 +39,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <th>Owners</th>
     <td>
       <% @story.story_assignments.each do |sa| %>
-        <%= link_to sa.user.username, sa.user -%> <%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+        <%= link_to sa.user.username, sa.user -%> <% if logged_in? %><%= link_to '(Remove)', story_assignment_path(sa.id), method: :delete, data: { confirm: 'Are you sure?' } %><% end %><br />
       <% end %>
-      <%= render 'add_user' %>
+      <% if logged_in? %><%= render 'add_user' %><% end %>
     </td>
   </tr>
 
