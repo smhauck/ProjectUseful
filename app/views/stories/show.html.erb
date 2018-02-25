@@ -25,7 +25,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<h1>STORY: <%= @story.title %> <%= link_to '(Edit)', edit_story_path(@story) %> <%= link_to '(Delete)', story_path(@story), method: :delete, data: { confirm: 'Really delete Story?' } %></h1>
+<h1>STORY: <%= @story.title %> <% if logged_in? %><%= link_to '(Edit)', edit_story_path(@story) %> <%= link_to '(Delete)', story_path(@story), method: :delete, data: { confirm: 'Really delete Story?' } %><% end %></h1>
 
 <table class="table">
 
