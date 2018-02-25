@@ -18,6 +18,6 @@
 
 module ProjectUseful
   class Application
-    VERSION = "0.5.45"
+    VERSION = "0.5.46"
   end
 end

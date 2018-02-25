@@ -29,6 +29,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <table class="table">
 
+  <tr><th>Created</th><td><%= @story.created_at %></td></tr>
+  <tr><th>Modified</th><td><%= @story.updated_at %></td></tr>
   <tr><th>Status</th><td class="<%= @story.status.code %>"><%= @story.status.title %></td></tr>
 
   <tr><th>Requestor</th><td><%= link_to @story.requestor.username, @story.requestor %></td></tr>
