@@ -26,7 +26,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= @note.title %> <%= link_to '(Edit)', edit_note_path(@note) %></h1>
+<h1><%= @note.title %> <% if logged_in? %><%= link_to '(Edit)', edit_note_path(@note) %><% end %></h1>
 <p>
   <strong>Creator:</strong>
   <%= link_to @note.creator.username, @note.creator %>

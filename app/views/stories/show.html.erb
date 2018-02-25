@@ -62,7 +62,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </table>
 
 <% if @story.tasks %>
-  <h2>Tasks <%= link_to '(Add)', controller: "tasks", action: "new",  story: @story %></h2>
+  <h2>Tasks <% if logged_in? %><%= link_to '(Add)', controller: "tasks", action: "new",  story: @story %><% end %></h2>
   <table class="table">
     <thead>
       <tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr>
@@ -85,6 +85,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </table>
 <% else %>
   <h2>No Tasks for this Story</h2>
-  <%= link_to 'Add Task', controller: "tasks", action: "new",  story: @story %><br />
+  <% if logged_in? %><%= link_to 'Add Task', controller: "tasks", action: "new",  story: @story %><br /><% end %>
 <% end %>
 

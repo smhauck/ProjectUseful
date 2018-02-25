@@ -27,7 +27,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <p id="notice"><%= notice %></p>
 
 <table class="table">
-	<tr><th>Task Title</th><td><%= @task.title %> <%= link_to '(Edit)', edit_task_path(@task) %> <%= link_to '(Delete)', task_path(@task), method: :delete, data: { confirm: 'Really delete Task?' } %></td></tr>
+	<tr><th>Task Title</th><td><%= @task.title %> <% if logged_in? %><%= link_to '(Edit)', edit_task_path(@task) %> <%= link_to '(Delete)', task_path(@task), method: :delete, data: { confirm: 'Really delete Task?' } %><% end %></td></tr>
   <% if @task.task_status_type_id %><tr><th>Status</th><td class="<%= @task.status.code %>"><%= @task.status.title %></td></tr><% end %>
 	  <tr><th>Last Updated</th><td><%= @task.updated_at.to_formatted_s(:db) %></td></tr>
 <tr><th>Sched start date:</th><td><%= @task.sched_start_date %></td></tr>
@@ -47,7 +47,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
     <td>
   <%= render 'add_user' %>
 <% @task.task_assignments.each do |ta| %>
-	<%= link_to ta.user.username, ta.user -%> <%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+	<%= link_to ta.user.username, ta.user -%> <% if logged_in? %><%= link_to '(Remove)', task_assignment_path(ta.id), method: :delete, data: { confirm: 'Are you sure?' } %><% end %><br />
 <% end %>
 </td>
 </tr>
@@ -71,7 +71,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </table>
 
 
-<h2>Comments <%= link_to '(Add)', controller: "task_comments", action: "new",  task: @task %></h2>
+<h2>Comments <% if logged_in? %><%= link_to '(Add)', controller: "task_comments", action: "new",  task: @task %><% end %></h2>
 <table class="table">
 	<thead>
 		<tr><th>User</th><th>Date</th><th>Hours</th><th>Comment</th></tr>

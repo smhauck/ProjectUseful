@@ -28,7 +28,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <table class="table tablesorter">
 	<tbody>
-		<tr><th>Project Title:</th><td><%= @project.title %> <%= link_to '(Edit)', edit_project_path(@project) %></td></tr>
+		<tr><th>Project Title:</th><td><%= @project.title %> <% if logged_in? %><%= link_to '(Edit)', edit_project_path(@project) %><% end %></td></tr>
 		<tr><th>Project Short Title:</th><td><%= @project.short_title %></td></tr>
 		<tr><th>Project Status:</th><td><%= @project.status.title %></td></tr>
 		<tr><th>Project Owner:</th><td><%= link_to @project.owner.username, @project.owner %></td></tr>
@@ -61,7 +61,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% if @project.comments %>
   <table class="table">
     <thead>
-	    <tr><th>Comment <%= link_to '(Add)', controller: "project_comments", action: "new",  project: @project %></th><th>User</th><th>Created At</th><th>Modified At</th></tr>
+	    <tr><th>Comment <% if logged_in? %><%= link_to '(Add)', controller: "project_comments", action: "new",  project: @project %><% end %></th><th>User</th><th>Created At</th><th>Modified At</th></tr>
     </thead>
     <tbody>
       <% @project.comments.each do |comment| %>
@@ -76,12 +76,12 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </table>
 <% else %>
   <h2>No Comments for this Project</h2>
-  <%= link_to 'Add Task', controller: "notes", action: "new",  project: @project %><br />
+  <% if logged_in? %><% if logged_in? %><%= link_to 'Add Task', controller: "notes", action: "new",  project: @project %><% end %><br /><% end %>
 <% end %>
 
 
 <% if @project.stories %>
-  <h2>Stories <%= link_to '(Add)', controller: "stories", action: "new",  project: @project %></h2>
+  <h2>Stories <% if logged_in? %><%= link_to '(Add)', controller: "stories", action: "new",  project: @project %><% end %></h2>
   <table class="table">
     <thead>
 	    <!-- <tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr> -->
@@ -120,7 +120,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 
 <% if @project.tasks %>
-  <h2>Tasks <%= link_to '(Add)', controller: "tasks", action: "new",  project: @project %></h2>
+  <h2>Tasks <% if logged_in? %><%= link_to '(Add)', controller: "tasks", action: "new",  project: @project %><% end %></h2>
   <table class="table">
     <thead>
 	    <!-- <tr><th>Title</th><th>Status</th><th>Owner</th><th>Estimated Time</th><th>Actual Time</th></tr> -->
@@ -150,12 +150,12 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </table>
 <% else %>
   <h2>No Tasks for this Project</h2>
-  <%= link_to 'Add Task', controller: "tasks", action: "new",  project: @project %><br />
+  <% if logged_in? %><%= link_to 'Add Task', controller: "tasks", action: "new",  project: @project %><br /><% end %>
 <% end %>
 
 
 <% if @project.notes %>
-  <h2>Notes <%= link_to '(Add)', controller: "notes", action: "new",  project: @project %></h2>
+  <h2>Notes <% if logged_in? %><%= link_to '(Add)', controller: "notes", action: "new",  project: @project %><% end %></h2>
   <table class="table">
     <thead>
       <tr><th>Title</th><th>Owner</th><th>Created At</th><th>Modified At</th></tr>
@@ -173,12 +173,12 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </table>
 <% else %>
   <h2>No Tasks for this Project</h2>
-  <%= link_to 'Add Task', controller: "notes", action: "new",  project: @project %><br />
+  <% if logged_in? %><%= link_to 'Add Task', controller: "notes", action: "new",  project: @project %><br /><% end %>
 <% end %>
 
 
 <% if @project.meetings %>
-  <h2>Meetings <%= link_to '(Add)', controller: "meetings", action: "new",  project: @project %></h2>
+  <h2>Meetings <% if logged_in? %><%= link_to '(Add)', controller: "meetings", action: "new",  project: @project %><% end %></h2>
   <table class="table">
     <thead>
       <tr><th>Title</th><th>Organizer</th><th>Scheduled For</th></tr>

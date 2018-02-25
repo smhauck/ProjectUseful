@@ -26,7 +26,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= @wiki_page.title.gsub(/_/, ' ') %> <%= link_to '(Edit)', edit_wiki_wiki_page_path(@wiki_page.wiki, @wiki_page.title) %></h1>
+<h1><%= @wiki_page.title.gsub(/_/, ' ') %> <% if logged_in? %><%= link_to '(Edit)', edit_wiki_wiki_page_path(@wiki_page.wiki, @wiki_page.title) %><% end %></h1>
 <p>Wiki: <%= link_to @wiki_page.wiki.title, @wiki_page.wiki %></p>
 
 <%= sanitize @wiki_page.body %>
