@@ -30,9 +30,14 @@ nav {
 	list-style: none;
 }
 
-.dropdown-menu a {
-	color: #000;
+.nav-link .dropdown-menu {
+	color: #fff;
 }
+
+.navbar-light .navbar-nav .nav-link {
+	color: #fff;
+}
+
 
 .dropdown-menu ul {
 	list-style-type: none;
