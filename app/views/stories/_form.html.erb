@@ -51,11 +51,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </div>
   <div class="field">
 	  <%= f.label :project_id %></br >
-	  <%= collection_select(:story, :project_id, @projects, :id, :title, include_blank: false) %>
+	  <%= collection_select(:story, :project_id, @projects, :id, :title, include_blank: true) %>
   </div>
   <div class="field">
 	  <%= f.label :product_id %></br >
-	  <%= collection_select(:story, :product_id, @products, :id, :title, include_blank: true) %>
+	  <%= collection_select(:story, :product_id, @products, :id, :title, include_blank: false) %>
   </div>
   <div class="field">
 	  <%= f.label :requestor_id %></br >

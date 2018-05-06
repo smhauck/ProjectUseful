@@ -21,8 +21,8 @@ class Story < ActiveRecord::Base
   validates :title, presence: true
   validates :requestor, presence: true
   validates :status, presence: true
-  # validates :product, presence: true
-  validates :project, presence: true
+  validates :product, presence: true
+  # validates :project, presence: true
   validates :creator, presence: true
 
 

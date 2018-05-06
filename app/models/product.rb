@@ -32,4 +32,8 @@ class Product < ActiveRecord::Base
   has_many :wiki_pages
   belongs_to :status, class_name: "ProductStatusType", foreign_key: "product_status_type_id"
   belongs_to :owner, class_name: "User", foreign_key: "owner_id"
+
+  scope :all_public, lambda { where(:public => true) }
+
+
 end

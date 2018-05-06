@@ -36,6 +36,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       <th>Owner</th>
       <th>Requestor</th>
       <th>Product</th>
+      <th>Project</th>
       <th>Sprint</th>
     </tr>
   </thead>
@@ -61,6 +62,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
         </td>
         <td><%= link_to story.requestor.username, story.requestor %></td>
         <td><% if story.product_id %><%= link_to story.product.title, story.product %><% end %></td>
+        <td><% if story.project_id %><%= link_to story.project.title, story.project %><% end %></td>
         <td><% if story.sprint_id %><%= link_to "#{story.sprint.start_date} - #{story.sprint.end_date}", story.sprint %><% end %></td>
       </tr>
     <% end %>
