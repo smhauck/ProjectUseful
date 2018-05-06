@@ -23,13 +23,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 =end
 %>
 
-
-<script type="text/javascript">
-  $(function() {
-    $(".ui-datepicker").datepicker({dateFormat: "yy-mm-dd"});
-  });
-</script>
-
 <%= form_for(@sprint) do |f| %>
   <% if @sprint.errors.any? %>
     <div id="error_explanation">
@@ -45,11 +38,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 
   <div class="field">
     <%= f.label :start_date %><br>
-    <%= f.date_field :start_date, class: "ui-datepicker" %>
+    <%= f.date_field :start_date %>
   </div>
   <div class="field">
     <%= f.label :end_date %><br>
-    <%= f.date_field :end_date, class: "ui-datepicker" %>
+    <%= f.date_field :end_date %>
   </div>
   <div class="field">
 	  <%= f.label :sprint_status_type_id %></br >

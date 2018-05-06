@@ -23,13 +23,6 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 =end
 %>
 
-
-<script type="text/javascript">
-  $(function() {
-    $(".ui-datepicker").datepicker({dateFormat: "yy-mm-dd"});
-  });
-</script>
-
 <%= form_for(@task) do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
@@ -73,19 +66,19 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </div>
   <div class="field">
     <%= f.label :sched_start_date %><br>
-    <%= f.date_field :sched_start_date, class: "ui-datepicker" %>
+    <%= f.date_field :sched_start_date %>
   </div>
   <div class="field">
     <%= f.label :actual_start_date %><br>
-    <%= f.date_field :actual_start_date, class: "ui-datepicker" %>
+    <%= f.date_field :actual_start_date %>
   </div>
   <div class="field">
     <%= f.label :sched_completion_date %><br>
-    <%= f.date_field :sched_completion_date, class: "ui-datepicker" %>
+    <%= f.date_field :sched_completion_date %>
   </div>
   <div class="field">
     <%= f.label :actual_completion_date %><br>
-    <%= f.date_field :actual_completion_date, class: "ui-datepicker" %>
+    <%= f.date_field :actual_completion_date %>
   </div>
   <div class="actions">
     <%= f.submit %>
