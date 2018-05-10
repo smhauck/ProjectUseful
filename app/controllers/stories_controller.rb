@@ -56,6 +56,11 @@ class StoriesController < ApplicationController
   # GET /stories/new
   def new
     @story = Story.new
+    if params[:product]
+      @story.product_id = params[:product]
+    else
+      @product = Product.new
+    end
     @projects = Project.joins(:status).where(project_status_types: { alive: true }).order(:title)
     @products = Product.joins(:status).where(product_status_types: { alive: true }).order(:title)
     @sprints = Sprint.joins(:status).where(sprint_status_types: { alive: true }).order(:start_date)
