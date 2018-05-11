@@ -18,9 +18,6 @@ Create a database for production.  If you plan to do development or testing of t
 
 Create a user for Project Useful and grant all rights to the databases to the user.  Make sure to update your config/database.yml file with the appropriate database, username, and password.
 
-Include the appropriate database gem.  For MySQL or MariaDB add the following line to your Gemfile:
-
-<tt>gem 'mysql2'</tt>
 
 == Installation
 Make sure you update your secret token before running the application!
@@ -40,7 +37,7 @@ Project Useful is released under the GNU Affero General Public License.  See the
 * Database initialization
 The datatbase currently needs to be setup manually.  Login with admin privileges (root) and create a new database for Project Useful.  Then grant permissions to a new database user that you want to own the database.  Replace USER and PASSWORD with appropriate information.
     create database project_useful;
-    grant all on projectuseful.* to 'USER'@'localhost' identified by 'PASSWORD';
+    grant all on projectuseful.* to 'USER'@'DATABASE_SERVER' identified by 'PASSWORD';
 
 
 * How to run the test suite
