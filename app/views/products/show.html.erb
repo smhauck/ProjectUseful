@@ -36,8 +36,8 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </table>
 
 
-<% if @product.wikis.count > 0 %>
-  <h2>Wikis</h2>
+<% unless @product.wikis.blank? %>
+  <h2>Wikis <% if logged_in? %><%= link_to '(Add)', controller: "wikis", action: "new",  product: @product %><% end %></h2>
   <p>
     <% @product.wikis.each do |wiki| %>
       <%= link_to wiki.title, wiki %><br />
@@ -45,10 +45,11 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </p>
 <% else %>
   <h2>No Wikis</h2>
+  <% if logged_in? %><%= link_to 'Add Wiki', controller: "wikis", action: "new",  product: @product %><br /><% end %>
 <% end %>
 
 
-<% if @product.projects %>
+<% unless @product.projects.blank? %>
   <h2>Projects <% if logged_in? %><%= link_to '(Add)', controller: "projects", action: "new",  product: @product %><% end %></h2>
   <table class="table tablesorter">
     <thead>
@@ -74,7 +75,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% end %>
 
 
-<% if @product.notes %>
+<% unless @product.notes.blank? %>
   <h2>Notes <% if logged_in? %><%= link_to '(Add)', controller: "notes", action: "new",  product: @product %><% end %></h2>
   <table class="table">
     <thead>
@@ -97,7 +98,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% end %>
 
 
-<% if @product.meetings %>
+<% unless @product.meetings.blank? %>
   <h2>Meetings <% if logged_in? %><%= link_to '(Add)', controller: "meetings", action: "new",  product: @product %><% end %></h2>
   <table class="table">
     <thead>
@@ -119,7 +120,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% end %>
 
 
-<% if @product.stories.count > 0 %>
+<% unless @product.stories.blank? %>
   <h2>Stories <% if logged_in? %><%= link_to '(Add Story)', controller: "stories", action: "new",  product: @product %><% end %></h2>
   <% @stories = @product.stories %>
   <%= render 'stories_listing' %>
@@ -129,7 +130,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 <% end %>
 
 
-<% if @product.tasks %>
+<% unless @product.tasks.blank? %>
   <h2>Tasks <% if logged_in? %><%= link_to '(Add)', controller: "tasks", action: "new",  product: @product %><% end %></h2>
   <table class="table">
     <thead>
