@@ -35,6 +35,13 @@ class WikisController < ApplicationController
   # GET /wikis/new
   def new
     @wiki = Wiki.new
+    if params[:product]
+      @wiki.product_id = params[:product]
+    else
+      @product = Product.new
+    end
+    @projects = Project.joins(:status).where(project_status_types: { alive: true }).order(:title)
+    @products = Product.joins(:status).where(product_status_types: { alive: true }).order(:title)
   end
 
   # GET /wikis/1/edit
