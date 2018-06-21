@@ -49,7 +49,7 @@ gem 'sass-rails', '~> 5.0'
 
 
 gem 'nokogiri', '~>1.8.1'
-
+gem 'sprockets', '~> 3.7.2'
 
 
 # Use Uglifier as compressor for JavaScript assets
