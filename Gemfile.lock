@@ -39,11 +39,11 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
-    autoprefixer-rails (8.4.1)
+    autoprefixer-rails (9.1.1)
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
-    bootstrap (4.0.0)
+    bootstrap (4.1.3)
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
@@ -96,7 +96,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-    popper_js (1.12.9)
+    popper_js (1.14.3)
     puma (3.11.4)
     rack (2.0.5)
     rack-test (1.0.0)
@@ -182,7 +182,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bootstrap (~> 4.0.0.beta)
+  bootstrap (~> 4.1.3)
   carrierwave
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)

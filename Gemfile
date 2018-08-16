@@ -37,7 +37,7 @@ gem 'puma', '~> 3.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 
-gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'simple_form', '~> 3.5'
 # gem 'devise', '~> 4.3'
