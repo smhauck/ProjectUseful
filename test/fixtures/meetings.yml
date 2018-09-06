@@ -6,7 +6,7 @@ one:
   subject: MyString
   description: MyText
   notes: MyText
-  user_id: 
+  owner_id: 1
 
 two:
   scheduled: 2015-06-14 13:25:59
@@ -14,4 +14,4 @@ two:
   subject: MyString
   description: MyText
   notes: MyText
-  user_id: 
+  owner_id: 1

@@ -1,13 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
   alive: true
-  title: product ONE
-  description: product one description
+  title: product_ONE
+  description: product_one_description
 
 two:
-  id: 2
   alive: false
-  title: product TWO
-  description: product two description
+  title: product_TWO
+  description: product_two_description

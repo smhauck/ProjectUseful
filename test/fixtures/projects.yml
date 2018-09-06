@@ -8,6 +8,7 @@ one:
   sched_completion_date: MyString
   actual_completion_date: MyString
   product_id: 
+  short_title: Short Title1
 
 two:
   title: MyString
@@ -17,3 +18,4 @@ two:
   sched_completion_date: MyString
   actual_completion_date: MyString
   product_id: 
+  short_title: Short Title2
