@@ -71,7 +71,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </table>
 <% else %>
   <h2>No Projects</h2>
-  <% if logged_in? %><%= link_to 'Add Task', controller: "projects", action: "new",  product: @product %><br /><% end %>
+  <% if logged_in? %><%= link_to 'Add Project', controller: "projects", action: "new",  product: @product %><br /><% end %>
 <% end %>
 
 
@@ -94,7 +94,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </table>
 <% else %>
   <h2>No Notes</h2>
-  <% if logged_in? %><%= link_to 'Add Task', controller: "notes", action: "new",  product: @product %><br /><% end %>
+  <% if logged_in? %><%= link_to 'Add Note', controller: "notes", action: "new",  product: @product %><br /><% end %>
 <% end %>
 
 
@@ -116,7 +116,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </table>
 <% else %>
   <h2>No Meetings</h2>
-  <% if logged_in? %><%= link_to 'Add Task', controller: "meetings", action: "new",  product: @product %><br /><% end %>
+  <% if logged_in? %><%= link_to 'Add Meeting', controller: "meetings", action: "new",  product: @product %><br /><% end %>
 <% end %>
 
 
