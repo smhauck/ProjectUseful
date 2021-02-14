@@ -48,7 +48,8 @@ gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'sass-rails', '~> 5.0'
 
 
-gem 'nokogiri', '~>1.8.1'
+gem "nokogiri", ">= 1.11.0"
+
 gem 'sprockets', '~> 3.7.2'
 
 
