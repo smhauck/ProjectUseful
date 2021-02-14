@@ -39,7 +39,7 @@ gem 'rails', '~> 6.1', '>= 6.1'
 
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
-gem 'simple_form', '~> 4.0', '>= 4.0.1'
+gem 'simple_form', '~> 5.0'
 # gem 'devise', '~> 4.3'
 
 
