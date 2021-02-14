@@ -1,4 +1,4 @@
-ProjectUseful::Application.routes.draw do
+Rails.application.routes.draw do
 
   resources :contact_emails
   resources :email_types
@@ -119,5 +119,4 @@ ProjectUseful::Application.routes.draw do
 
 
   root 'welcome#index'
-
 end

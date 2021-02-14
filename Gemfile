@@ -1,4 +1,4 @@
-# Copyright (C) 2018 William B. Hauck, http://www.wbhauck.com
+# Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -27,15 +27,15 @@ end
 
 
 gem 'loofah', '~> 2.2.1'
-gem 'rails-html-sanitizer', '~> 1.0.4'
-
+gem 'rails-html-sanitizer', '~> 1.2.0'
+gem 'bootsnap'
 
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2', '>= 5.2.1'
+gem 'rails', '~> 6.1', '>= 6.1'
 
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'

@@ -2,7 +2,7 @@
 =begin
 %>
 
-Copyright (C) 2018 William B. Hauck, http://www.wbhauck.com
+Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
 
 This file is part of Project Useful.
 
