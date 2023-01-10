@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) 2023 Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -25,12 +25,13 @@ class Task < ActiveRecord::Base
 
 
 
-  belongs_to :product
-  belongs_to :project
-  belongs_to :sprint
-  belongs_to :story
+  # 2023-01-09 added optional since not all tasks need a product, project, etc.
+  belongs_to :product, optional: true
+  belongs_to :project, optional: true
+  belongs_to :sprint, optional: true
+  belongs_to :story, optional: true
   belongs_to :status, class_name: "TaskStatusType", foreign_key: "task_status_type_id"
-  belongs_to :task_type
+  belongs_to :task_type, optional: true
   has_many :notes
 
   has_many :task_assignments
