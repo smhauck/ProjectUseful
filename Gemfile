@@ -27,7 +27,7 @@ end
 
 
 gem 'loofah', '~> 2.3.1'
-gem 'rails-html-sanitizer', '~> 1.2.0'
+gem 'rails-html-sanitizer', '~> 1.4.3'
 gem 'bootsnap'
 
 
