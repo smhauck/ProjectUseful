@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) 2023 Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -33,7 +33,8 @@ class Project < ActiveRecord::Base
   has_many :wiki_pages
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
   belongs_to :owner, class_name: "User", foreign_key: "owner_id"
-  belongs_to :product, class_name: "Product", foreign_key: "product_id"
+# 2023-01-10 product is optional for flexibility
+  belongs_to :product, class_name: "Product", foreign_key: "product_id", optional: true
   belongs_to :status, class_name: "ProjectStatusType", foreign_key: "project_status_type_id"
 
   has_many :project_assignments
