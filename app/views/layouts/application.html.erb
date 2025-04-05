@@ -43,9 +43,9 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
       
 
   <% if session[:user_id] %>
-
+<header>
 <div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-light ">
+<nav class="navbar navbar-expand-lg">
 	  <%= link_to image_tag("project_useful_50x50.png"), root_url, class: 'navbar-brand' %>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -228,13 +228,14 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   </div><!-- class="collapse navbar-collapse" id="navbarNavDropdown" -->
     </nav>
 </div><!-- class="container" -->
-
+</header>
 
 
 
 
   <% else %>
 
+<header>
 <div class="container-fluid">
 <nav class="navbar navbar-expand-lg navbar-light ">
 	  <%= link_to image_tag("project_useful_50x50.png"), root_url, class: 'navbar-brand' %>
@@ -348,6 +349,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
 </div><!-- class="container" -->
 
 
+</header>
 
 
   <% end %>
@@ -361,7 +363,7 @@ along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
   <footer>
   <p>Project Useful <%= link_to "License", license_url %> * <%= link_to "Technology", technology_url %> * <%= link_to "System Help and Documentation", wiki_path(1) %></p>
     <p>Powered by <%= link_to 'Project Useful', "http://www.projectuseful.org" %> <%= ProjectUseful::Application::VERSION %>. Follow the progress on the <a href="http://www.projectuseful.org/blogs/1">development blog</a>. Get the <a href="https://github.com/smhauck/ProjectUseful" target=_blank>Project Useful source code</a>.</p>
-    <p>Project Useful &copy; 2018 <%= mail_to 'shannonmariehauck@gmail.com', 'Shannon M. Hauck' %> <%= link_to '(smhauck.com)', "http://www.smhauck.com", target: "_blank" %></p>
+    <p>Project Useful &copy; 2025 <%= mail_to 'shannonmariehauck@gmail.com', 'Shannon M. Hauck' %> <%= link_to "Shannon's Github Profile", "https://github.com/smhauck", target: "_blank" %></p>
   </footer>
 </div><!-- class="container footer" -->
 

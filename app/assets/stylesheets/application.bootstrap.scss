@@ -3,32 +3,6 @@
 
 body { font-size: 100%; }
 
-
-
-/* broke */
-.leftsidenav {
-  height: 100%; /* 100% Full-height */
-  width: 10%; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  /* z-index: 1; */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #f99; 
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
-
-/* broke */
-.leftsidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
 .blog { border: 1px solid black; border-radius: 10px; 
   & .posts { border: 1px dotted grey; border-radius: 10px; }
   & .posts-author { font-size: 1em; padding-left: 5px; }
@@ -79,3 +53,95 @@ footer { bottom: 0; margin-top: 50px; }
 .user-link-left { margin-right: 5px; }
 .user-link-middle { margin-left: 5px; margin-right: 5px; }
 .user-link-right { margin-left: 5px; }
+
+/* status.code styles */
+.waiting { color: #ff6d24; font-weight: bold; }
+.in_progress { color: #1ca800; font-weight: bold; }
+.product_owner_review { }
+.product_owner_reject { }
+.product_owner_accept { }
+.client_review { }
+.client_reject { }
+.client_accept { }
+.production_push { }
+.production_review { }
+.complete { }
+.cancelled { text-decoration: line-through; }
+.deleted { }
+
+/* issue.type.code styles */
+.bug, .documentation_bug { color: #ff6d24; font-weight: bold; }
+
+.blog_post_published {
+	font-size: large;
+	font-weight: bold;
+}
+
+.blog_post {
+	width: 760px;
+}
+
+.blog-header {
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+  border-bottom: .05rem solid #eee;
+}
+
+.blog-title {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.blog-description {
+  font-size: 1.1rem;
+  color: #999;
+}
+
+@media (min-width: 40em) {
+  .blog-title {
+    font-size: 3.5rem;
+  }
+}
+
+.container {
+  width: 100%;
+}
+
+/* tables are wide; show people where they are */
+table tr:hover {
+  background: #f0f0f0;
+}
+
+footer {
+  background-color: #f080c0;
+  margin: 1em 0em 1em 0em;
+  padding: 1em 0em 1em 0em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #0080c0;
+  color: #fff;
+}
+
+footer p { padding-left: 15px; }
+
+footer a:link, footer a:visited { color: #fff; }
+
+header { background-color: #0080c0; }
+
+nav { background-color: #0080c0; color: #fff; }
+
+.nav-link { background-color: #0080c0; color: #fff; }
+.dropdown-toggle { background-color: #0080c0; color: #fff; }
+
+.navbar { background-color: #0080c0; color: #fff; }
+.navbar-nav { background-color: #0080c0; color: #fff; }
+.navbar-dropdown { background-color: #0080c0; }
+.navbar-item { color: #fff; }
+.nav-item {
+  background-color: #0080c0; color: #fff; 
+  & .dropdown { background-color: #0080c0; color: #fff; }
+}
+.bg-light { background: #f080c0; }
