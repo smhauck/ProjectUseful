@@ -56,6 +56,6 @@ ProjectUseful.org is currently running through Apache / Phusion Passenger.  Setu
 
 ## Author, Copyright, and License
 
-Project Useful is Copyright 2025 by [Shannon M. Hauck](https://github.com/smhauck)
+Project Useful was created by and is Copyright 2025 by [Shannon M. Hauck](https://github.com/smhauck)
 
 Project Useful is released under the GNU Affero General Public License.  See the [LICENSE](LICENSE) file for details.
