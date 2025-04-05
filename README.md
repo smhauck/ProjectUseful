@@ -1,36 +1,25 @@
-= Project Useful
+# Project Useful
 
 Project Useful is a Ruby on Rails-based project management system implementing the Scrum Agile methodology.
 
+## System Requirements
 
-== System Requirements
-
-* Ruby version 2 or later
-* Rails 5.2.1
-* Bootstrap 4
+* Ruby version 3.4.1 or later
+* Rails 8.0.2
 * MySQL or MariaDB 5.1 or later
 
-
-== Database
+## Database
 The system is being developed on a system using MySQL 5.1.46.  Later versions as well MariaDB should also work.
 
 Create a database for production.  If you plan to do development or testing of the system you'll also need a corresponding database.
 
 Create a user for Project Useful and grant all rights to the databases to the user.  Make sure to update your config/database.yml file with the appropriate database, username, and password.
 
-
-== Installation
+## Installation
 Make sure you update your secret token before running the application!
 config/initializers/secret_token.rb
 
-== Author, Copyright, and License
-
-Project Useful is copyright 2020 by Shannon M. Hauck, http://www.smhauck.com .
-
-Project Useful is released under the GNU Affero General Public License.  See the LICENSE file for details.
-
-
-== Sections still to write
+## Sections still to write
 
 * Configuration
 
@@ -39,12 +28,14 @@ The datatbase currently needs to be setup manually.  Login with admin privileges
     create database project_useful;
     grant all on projectuseful.* to 'USER'@'DATABASE_SERVER' identified by 'PASSWORD';
 
-
-* How to run the test suite
-
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Deployment instructions
+
+I'm converting the system to deploy through [Kamal](https://kamal-deploy.org).
+
+###  Older Deployment Process
+
 ProjectUseful.org is currently running through Apache / Phusion Passenger.  Setup a virtual host for the application similar to the following:
 
     <VirtualHost *:80>
@@ -63,3 +54,8 @@ ProjectUseful.org is currently running through Apache / Phusion Passenger.  Setu
     </VirtualHost>
 
 
+## Author, Copyright, and License
+
+Project Useful is Copyright 2025 by [Shannon M. Hauck](https://github.com/smhauck)
+
+Project Useful is released under the GNU Affero General Public License.  See the [LICENSE](LICENSE) file for details.
