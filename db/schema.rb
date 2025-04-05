@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_30_024651) do
-
+ActiveRecord::Schema[8.0].define(version: 2025_04_05_034843) do
   create_table "blog_posts", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.date "publish_date"
     t.integer "blog_id"
     t.integer "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["blog_id"], name: "index_blog_posts_on_blog_id"
     t.index ["user_id"], name: "index_blog_posts_on_user_id"
   end
@@ -27,8 +26,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
   create_table "blogs", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "creator_id"
   end
 
@@ -36,8 +35,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.string "address"
     t.bigint "contact_id"
     t.bigint "email_type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["contact_id"], name: "index_contact_emails_on_contact_id"
     t.index ["email_type_id"], name: "index_contact_emails_on_email_type_id"
   end
@@ -49,16 +48,16 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.string "prefix"
     t.string "suffix"
     t.bigint "sex_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["sex_id"], name: "index_contacts_on_sex_id"
   end
 
   create_table "departments", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "email_to_sms_gateways", id: :integer, charset: "utf8", force: :cascade do |t|
@@ -66,31 +65,31 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.string "address", null: false
     t.text "description"
     t.boolean "active", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "email_types", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "issue_status_types", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "title"
     t.string "code"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.boolean "alive"
   end
 
   create_table "issue_types", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "code"
   end
 
@@ -100,8 +99,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.integer "requestor_id"
     t.integer "product_id"
     t.integer "issue_status_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "submitter_email"
     t.string "submitter_full_name"
     t.integer "issue_type_id"
@@ -109,14 +108,14 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.integer "story_id"
     t.string "vendor_case_id"
     t.string "vendor_issue_id"
-    t.datetime "reported_to_vendor_at"
+    t.datetime "reported_to_vendor_at", precision: nil
     t.integer "slas_id"
-    t.datetime "vendor_response_due_at"
-    t.datetime "vendor_response_actual_at"
-    t.datetime "vendor_workaround_due_at"
-    t.datetime "vendor_workaround_actual_at"
-    t.datetime "vendor_solution_due_at"
-    t.datetime "vendor_solution_actual_at"
+    t.datetime "vendor_response_due_at", precision: nil
+    t.datetime "vendor_response_actual_at", precision: nil
+    t.datetime "vendor_workaround_due_at", precision: nil
+    t.datetime "vendor_workaround_actual_at", precision: nil
+    t.datetime "vendor_solution_due_at", precision: nil
+    t.datetime "vendor_solution_actual_at", precision: nil
     t.text "impact"
     t.index ["issue_status_type_id"], name: "index_issues_on_issue_status_type_id"
     t.index ["issue_type_id"], name: "index_issues_on_issue_type_id"
@@ -128,22 +127,22 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
   create_table "meeting_assignments", id: :integer, charset: "utf8", force: :cascade do |t|
     t.integer "meeting_id"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["meeting_id"], name: "index_meeting_assignments_on_meeting_id"
     t.index ["user_id"], name: "index_meeting_assignments_on_user_id"
   end
 
   create_table "meetings", id: :integer, charset: "utf8", force: :cascade do |t|
-    t.datetime "scheduled"
+    t.datetime "scheduled", precision: nil
     t.string "title"
     t.string "subject"
     t.text "description"
     t.text "notes"
     t.integer "creator_id"
     t.integer "owner_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "product_id"
     t.integer "project_id"
     t.index ["creator_id"], name: "index_meetings_on_creator_id"
@@ -156,8 +155,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.string "title"
     t.string "code"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "notes", id: :integer, charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
@@ -169,8 +168,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.integer "sprint_id"
     t.integer "story_id"
     t.integer "task_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "user_id"
     t.integer "project_id"
     t.integer "meeting_id"
@@ -188,16 +187,16 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
   create_table "organizations", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "product_status_types", id: :integer, charset: "utf8", force: :cascade do |t|
     t.boolean "alive"
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "code", default: "FIXME", null: false
   end
 
@@ -205,8 +204,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.boolean "alive"
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "owner_id", default: 1, null: false
     t.integer "product_status_type_id", default: 1, null: false
     t.boolean "public", default: false, null: false
@@ -215,8 +214,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
   create_table "project_assignments", id: :integer, charset: "utf8", force: :cascade do |t|
     t.integer "project_id"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["project_id"], name: "index_project_assignments_on_project_id"
     t.index ["user_id"], name: "index_project_assignments_on_user_id"
   end
@@ -225,8 +224,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.integer "user_id"
     t.integer "project_id"
     t.text "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["project_id"], name: "index_project_comments_on_project_id"
     t.index ["user_id"], name: "index_project_comments_on_user_id"
   end
@@ -235,8 +234,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.string "title", null: false
     t.boolean "alive", default: true, null: false
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "code"
     t.string "background_color"
     t.string "text_color"
@@ -247,8 +246,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.text "description"
     t.integer "creator_id", default: 1, null: false
     t.integer "owner_id", default: 1, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "project_status_type_id", default: 1, null: false
     t.date "sched_start_date"
     t.date "actual_start_date"
@@ -266,8 +265,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.string "name"
     t.text "description"
     t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "slas", id: :integer, charset: "utf8", force: :cascade do |t|
@@ -277,8 +276,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.integer "response_due_at"
     t.integer "workaround_due_at"
     t.integer "solution_due_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["product_id"], name: "index_slas_on_product_id"
   end
 
@@ -286,8 +285,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.boolean "alive"
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "code", default: "FIXME", null: false
   end
 
@@ -296,8 +295,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.date "end_date"
     t.boolean "alive"
     t.text "notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "sprint_status_type_id"
     t.index ["sprint_status_type_id"], name: "index_sprints_on_sprint_status_type_id"
   end
@@ -308,8 +307,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.text "description"
     t.integer "product_id"
     t.integer "sprint_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "story_status_type_id"
     t.integer "requestor_id"
     t.text "completion_notes"
@@ -333,8 +332,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
   create_table "story_assignments", id: :integer, charset: "utf8", force: :cascade do |t|
     t.integer "story_id"
     t.integer "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["story_id"], name: "index_story_assignments_on_story_id"
     t.index ["user_id"], name: "index_story_assignments_on_user_id"
   end
@@ -344,22 +343,22 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.string "title"
     t.string "code"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "story_types", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "task_assignments", id: :integer, charset: "utf8", force: :cascade do |t|
     t.integer "task_id"
     t.integer "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["task_id"], name: "index_task_assignments_on_task_id"
     t.index ["user_id"], name: "index_task_assignments_on_user_id"
   end
@@ -367,8 +366,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
   create_table "task_comment_types", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "task_comments", id: :integer, charset: "utf8", force: :cascade do |t|
@@ -377,8 +376,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.text "comment"
     t.integer "task_id"
     t.integer "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["task_id"], name: "index_task_comments_on_task_id"
     t.index ["user_id"], name: "index_task_comments_on_user_id"
   end
@@ -388,15 +387,15 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.string "title"
     t.string "code"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "task_types", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "tasks", id: :integer, charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
@@ -406,8 +405,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.integer "product_id"
     t.integer "sprint_id"
     t.integer "story_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "task_status_type_id"
     t.decimal "estimated_hours", precision: 5, scale: 2
     t.integer "task_type_id"
@@ -428,8 +427,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
   create_table "users", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "first_name"
     t.string "last_name"
     t.string "office_phone"
@@ -450,8 +449,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
     t.integer "story_id"
     t.integer "task_id"
     t.integer "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["product_id"], name: "index_wiki_pages_on_product_id"
     t.index ["story_id"], name: "index_wiki_pages_on_story_id"
     t.index ["task_id"], name: "index_wiki_pages_on_task_id"
@@ -462,8 +461,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_024651) do
   create_table "wikis", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "product_id"
     t.integer "start_page_id"
     t.integer "creator_id"

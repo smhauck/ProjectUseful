@@ -26,31 +26,40 @@ end
 
 
 
-gem 'loofah', '~> 2.19.1'
-gem 'rails-html-sanitizer', '~> 1.4.3'
+gem 'loofah', '~> 2.21'
+gem 'rails-html-sanitizer', '>= 1.6'
 gem 'bootsnap'
+gem 'propshaft'
+gem 'jsbundling-rails'
+gem 'stimulus-rails'
+gem 'cssbundling-rails'
+
+
+
+
+# FIXME: Removed for Rails 8
+# gem "webpacker"
+
 
 
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '>= 5.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1', '>= 6.1'
+gem 'rails', '>= 8.0.2'
 
-gem 'bootstrap', '~> 4.3.1'
-gem 'jquery-rails'
 gem 'simple_form', '~> 5.0'
-# gem 'devise', '~> 4.3'
 
 
-
+# FIXME: removed for Rails 8
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 
 
 gem "nokogiri", ">= 1.11.0"
 
-gem 'sprockets', '~> 3.7.2'
+# FIXME: remove sprockets for rails 8
+# gem 'sprockets', '~> 3.7.2'
 
 
 # Use Uglifier as compressor for JavaScript assets
@@ -60,11 +69,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 
 
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'turbo-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -83,13 +91,14 @@ gem 'carrierwave'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+
+gem 'kamal', require: false
+gem 'thruster', require: false
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 

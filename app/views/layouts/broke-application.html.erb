@@ -1,0 +1,433 @@
+<%
+=begin
+%>
+
+Copyright (C) 2025 Shannon M. Hauck, http://www.smhauck.com
+
+This file is part of Project Useful.
+
+Project Useful is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Project Useful is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
+
+<%
+=end
+%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <%= favicon_link_tag 'project_useful.png', rel: 'apple-touch-icon', type: 'image/png' %>
+    <%= favicon_link_tag 'project_useful.png' %>
+
+
+
+  <title>Project Useful</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
+</head>
+<body>
+      
+
+  <% if session[:user_id] %>
+
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light ">
+	  <%= link_to image_tag("project_useful_50x50.png"), root_url, class: 'navbar-brand' %>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Product
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul class="dropdown-menu">
+          <li class="dropdown-item"><%= link_to "List", products_path %></li>
+                <li class="divider"></li>
+                <li class="dropdown-item"><%= link_to "New", new_product_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Project
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "All Active", projects_active_path %></li>
+                <li><%= link_to "All Complete", projects_complete_path %></li>
+                <li><%= link_to "All Projects", projects_path %></li>
+                <li><%= link_to "My Active Projects", projects_myactive_path %></li>
+                <li><%= link_to "My Complete Projects", projects_mycomplete_path %></li>
+                <li><%= link_to "My All Projects", projects_my_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "All Active", projects_active_path %></li>
+                <li><%= link_to "All Complete", projects_complete_path %></li>
+                <li><%= link_to "All Projects", projects_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New", new_project_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Sprint
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List", sprints_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New", new_sprint_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Story
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "All Active Stories", stories_active_path %></li>
+                <li><%= link_to "All Complete Stories", stories_complete_path %></li>
+                <li><%= link_to "All Stories", stories_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Story", new_story_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Task
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "All Active Tasks", tasks_active_path %></li>
+                <li><%= link_to "All Complete Tasks", tasks_complete_path %></li>
+                <li><%= link_to "All Tasks", tasks_path %></li>
+                <li><%= link_to "Search Tasks", tasks_search_path %></li>
+                <li><%= link_to "My Tasks Today", tasks_mytoday_path %></li>
+                <li><%= link_to "My Active Tasks", tasks_myactive_path %></li>
+                <li><%= link_to "My Complete Tasks", tasks_mycomplete_path %></li>
+                <li><%= link_to "My All Tasks", tasks_my_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "All Today's Tasks", tasks_alltoday_path %></li>
+                <li><%= link_to "All Active Tasks", tasks_active_path %></li>
+                <li><%= link_to "All Complete Tasks", tasks_complete_path %></li>
+                <li><%= link_to "All Tasks", tasks_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Search Tasks", tasks_search_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New", new_task_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Issue
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Issues", issues_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Issue", new_issue_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Meeting
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Meetings", meetings_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Meeting", new_meeting_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Blog
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Blogs", blogs_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Blog", new_blog_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Wiki
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Wikis", wikis_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Wiki", new_wiki_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Note
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Notes", notes_path %></li>
+                <li><%= link_to "Search Notes", notes_search_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Note", new_note_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         User
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Users", users_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New User", new_user_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Contacts
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Contacts", contacts_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Contact", new_contact_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Organization
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Organizations", organizations_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New Organization", new_organization_path %></li>
+		</ul>
+        </div>
+      </li>
+    </ul>
+  </div><!-- class="collapse navbar-collapse" id="navbarNavDropdown" -->
+<div class="float-right">
+
+	  <ul class="navbar-nav navbar-right">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= User.find(session[:user_id]).username %>
+              </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "Account Info", user_path(session[:user_id]) %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Logout", logout_path %></li>
+		</ul>
+        </div>
+            </li>
+          </ul>
+</div>
+
+  </div><!-- class="collapse navbar-collapse" id="navbarNavDropdown" -->
+    </nav>
+</div><!-- class="container" -->
+
+
+
+
+
+  <% else %>
+
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light ">
+	  <%= link_to image_tag("project_useful_50x50.png"), root_url, class: 'navbar-brand' %>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Product
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+          <li><%= link_to "List", products_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Project
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "All Active", projects_active_path %></li>
+                <li><%= link_to "All Complete", projects_complete_path %></li>
+                <li><%= link_to "All Projects", projects_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Sprint
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List", sprints_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Story
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "All Active Stories", stories_active_path %></li>
+                <li><%= link_to "All Complete Stories", stories_complete_path %></li>
+                <li><%= link_to "All Stories", stories_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Task
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "All Active Tasks", tasks_active_path %></li>
+                <li><%= link_to "All Complete Tasks", tasks_complete_path %></li>
+                <li><%= link_to "All Tasks", tasks_path %></li>
+                <li><%= link_to "Search Tasks", tasks_search_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Issue
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Issues", issues_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Meeting
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Meetings", meetings_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Wiki
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Wikis", wikis_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Note
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Notes", notes_path %></li>
+		</ul>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         User
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "List All Users", users_path %></li>
+		</ul>
+        </div>
+      </li>
+    </ul>
+</div>
+<div class="navbar-nav float-right">
+	  <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+              </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		<ul>
+                <li><%= link_to "Login", login_path %></li>
+		</ul>
+        </div>
+            </li>
+          </ul>
+</div>
+  </div><!-- class="collapse navbar-collapse" id="navbarNavDropdown" -->
+    </nav>
+</div><!-- class="container" -->
+
+
+
+
+  <% end %>
+
+
+<div class="container-fluid yield">
+<%= yield %>
+</div><!-- class="container" -->
+
+<div class="container-fluid footer">
+  <footer>
+  <p>Project Useful <%= link_to "License", license_url %> * <%= link_to "Technology", technology_url %> * <%= link_to "System Help and Documentation", wiki_path(1) %></p>
+    <p>Powered by <%= link_to 'Project Useful', "http://www.projectuseful.org" %> <%= ProjectUseful::Application::VERSION %>. Follow the progress on the <a href="http://www.projectuseful.org/blogs/1">development blog</a>. Get the <a href="https://github.com/smhauck/ProjectUseful" target=_blank>Project Useful source code</a>.</p>
+    <p>Project Useful &copy; 2018 <%= mail_to 'shannonmariehauck@gmail.com', 'Shannon M. Hauck' %> <%= link_to '(smhauck.com)', "http://www.smhauck.com", target: "_blank" %></p>
+  </footer>
+</div><!-- class="container footer" -->
+
+
+<script type="text/javascript" id="js">$(document).ready(function() {
+  $("table").tablesorter({ });
+}); </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
