@@ -34,6 +34,9 @@ gem 'jsbundling-rails'
 gem 'stimulus-rails'
 gem 'cssbundling-rails'
 
+gem "solid_cache"
+gem "solid_queue"
+gem "solid_cable"
 
 
 
@@ -94,6 +97,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'kamal', require: false
 gem 'thruster', require: false
+gem "image_processing", "~> 1.2"
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
