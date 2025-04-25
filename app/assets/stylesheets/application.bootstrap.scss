@@ -1,7 +1,6 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
-body { font-size: 100%; }
 
 .blog { border: 1px solid black; border-radius: 10px; 
   & .posts { border: 1px dotted grey; border-radius: 10px; }
@@ -44,6 +43,7 @@ footer { bottom: 0; margin-top: 50px; }
 }
 
 .post-diversion { font-size: 1em; padding-left: 5px; }
+.post-blog { font-size: 1em; padding-left: 5px; }
 .post-author { font-size: 1em; padding-left: 5px; }
 .post-content { font-size: 1em; padding-left: 5px; }
 .post-title { font-size: 1.5em; padding-left: 5px; }
@@ -73,12 +73,12 @@ footer { bottom: 0; margin-top: 50px; }
 .bug, .documentation_bug { color: #ff6d24; font-weight: bold; }
 
 .blog_post_published {
-	font-size: large;
-	font-weight: bold;
+  font-size: large;
+  font-weight: bold;
 }
 
 .blog_post {
-	width: 760px;
+  width: 760px;
 }
 
 .blog-header {
@@ -99,30 +99,21 @@ footer { bottom: 0; margin-top: 50px; }
 }
 
 @media (min-width: 40em) {
-  .blog-title {
-    font-size: 3.5rem;
-  }
+  .blog-title { font-size: 3.5rem; }
 }
 
-.container {
-  width: 100%;
-}
+.container { width: 100%; }
 
-/* tables are wide; show people where they are */
-table tr:hover {
-  background: #f0f0f0;
-}
+table tr:hover { background: #f0f0f0; }
 
 footer {
-  background-color: #f080c0;
+  background-color: #0080c0;
+  bottom: 0;
+  color: #fff;
   margin: 1em 0em 1em 0em;
   padding: 1em 0em 1em 0em;
   position: relative;
-  bottom: 0;
   width: 100%;
-
-  background-color: #0080c0;
-  color: #fff;
 }
 
 footer p { padding-left: 15px; }
@@ -132,16 +123,17 @@ footer a:link, footer a:visited { color: #fff; }
 header { background-color: #0080c0; }
 
 nav { background-color: #0080c0; color: #fff; }
-
-.nav-link { background-color: #0080c0; color: #fff; }
 .dropdown-toggle { background-color: #0080c0; color: #fff; }
-
 .navbar { background-color: #0080c0; color: #fff; }
 .navbar-nav { background-color: #0080c0; color: #fff; }
 .navbar-dropdown { background-color: #0080c0; }
+.nav-link { background-color: #0080c0; color: #fff; }
+
+
 .navbar-item { color: #fff; }
 .nav-item {
   background-color: #0080c0; color: #fff; 
   & .dropdown { background-color: #0080c0; color: #fff; }
 }
+
 .bg-light { background: #f080c0; }
