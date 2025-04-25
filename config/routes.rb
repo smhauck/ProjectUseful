@@ -114,9 +114,9 @@ Rails.application.routes.draw do
 
   get "sessions/create"
   get "sessions/destroy"
-  get "welcome/index"
+  get "pages/index"
 
 
 
-  root 'welcome#index'
+  root 'pages#index'
 end

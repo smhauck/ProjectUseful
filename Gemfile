@@ -83,7 +83,7 @@ end
 gem 'bcrypt', '~> 3.1.7'
 
 # Database connector
-gem 'mysql2'
+gem "sqlite3", ">= 2.1"
 
 # File uploading through CarrierWave
 gem 'carrierwave'
