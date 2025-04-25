@@ -22,3 +22,5 @@
 
 # Ignore Mac OS resource forks and such
 .DS_Store
+
+/config/master.key
