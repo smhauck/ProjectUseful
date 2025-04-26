@@ -17,8 +17,10 @@
 
 
 class PagesController < ApplicationController
-  skip_before_action :authorize, only: [:license, :technology]
-  allow_unauthenticated_access
+  skip_before_action :authorize, only: [:index, :license, :technology]
+
+  def index
+  end
 
   def license
   end
