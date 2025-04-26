@@ -68,8 +68,9 @@ gem "nokogiri", ">= 1.11.0"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+# FIXME: remove for rails 8
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# gem 'coffee-rails', '~> 4.2'
 
 
 gem 'turbo-rails'
@@ -88,8 +89,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Database connector
 gem "sqlite3", ">= 2.1"
 
+# FIXME: remove carrierwave for rails 8
 # File uploading through CarrierWave
-gem 'carrierwave'
+# gem 'carrierwave'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
