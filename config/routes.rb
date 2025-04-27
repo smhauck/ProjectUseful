@@ -50,8 +50,16 @@ Rails.application.routes.draw do
   end
 
   controller :pages do
+      get 'about' => :about
+      get 'changelog' => :changelog
+      get 'faq' => :faq
+      get 'guide' => :guide
       get 'license' => :license
+      get 'privacy' => :privacy
+      get 'roadmap' => :roadmap
       get 'technology' => :technology
+      get 'terms' => :terms
+      get 'changelog' => :changelog
   end
   
 #   resources :wiki_pages

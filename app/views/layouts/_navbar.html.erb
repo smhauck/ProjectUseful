@@ -1,52 +1,149 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <%= link_to (image_tag "dvrsly_logo_black_pink_transparent_512x512.png", alt: "dvrsly logo", width: 48, height: 48, class: "d-inline-block align-text-top"), root_path, class: "navbar-brand" %> 
-    <a class="navbar-brand" href="/">DVRSLY</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blogs</a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "All Blogs", blogs_path, class: "dropdown-item" %></li>
-            <% if Current.user %><li><%= link_to "New Blog", new_blog_path, class: "dropdown-item" %></li><% end %>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">Diversions</a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "All Diversions", diversions_path, class: "dropdown-item" %></li>
-            <% if Current.user %><li><%= link_to "New Diversion", new_diversion_path, class: "dropdown-item" %></li><% end %>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">Posts</a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "All Posts", posts_path, class: "dropdown-item" %></li>
-            <% if Current.user %><li><%= link_to "New Post", new_post_path, class: "dropdown-item" %></li><% end %>
-          </ul>
-        </li>
-        <% if authenticated? %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%= Current.user.username %></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", Current.user, class: "nav-link" %></li>
-              <li><%= link_to "Change Password", edit_password_url(Current.user.password_reset_token), class: "nav-link" %></li>
-              <li><%= button_to "Sign Out", session_path, method: :delete, class: "nav-link" %></li>
-            </ul>
-          </li>
-        <% else %> 
-        <li class="nav-item">
-        <li>
-          <%= link_to "Sign In", new_session_path, class: "nav-link" %>
-        </li>
-          <li class="nav-link">Sign Ups Coming Soon!</li>
-          <%# link_to "Sign Up", new_registration_path, class: "nav-link" %>
-        </li>
-        <% end %> 
-      </ul>
+<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%#= link_to image_tag("engage_logo.svg"), dashboards_index_url, class: "navbar-item" %>
+    <%= link_to "Useful", root_path, class: "navbar-item" %>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Products</a>
+        <div class="navbar-dropdown">
+          <%= link_to "All Products", products_path, class: "navbar-item" %>
+          <%= link_to "List", products_path, class: "navbar-item" %>
+          <%= link_to "New", new_product_path, class: "navbar-item" %>
+          <%# if Current.user %><%= link_to "New Blog", new_blog_path, class: "navbar-item" %><%# end %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Projects</a>
+        <div class="navbar-dropdown">
+          <%= link_to "All Active", projects_active_path, class: "navbar-item" %>
+          <%= link_to "All Complete", projects_complete_path, class: "navbar-item" %>
+          <%= link_to "All Projects", projects_path, class: "navbar-item" %>
+          <%= link_to "My Active Projects", projects_myactive_path, class: "navbar-item" %>
+          <%= link_to "My Complete Projects", projects_mycomplete_path, class: "navbar-item" %>
+          <%= link_to "My All Projects", projects_my_path, class: "navbar-item" %>
+          <%= link_to "All Active", projects_active_path, class: "navbar-item" %>
+          <%= link_to "All Complete", projects_complete_path, class: "navbar-item" %>
+          <%= link_to "All Projects", projects_path, class: "navbar-item" %>
+          <%= link_to "New", new_project_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Sprints</a>
+        <div class="navbar-dropdown">
+          <%= link_to "List", sprints_path, class: "navbar-item" %>
+          <%= link_to "New", new_sprint_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Story</a>
+        <div class="navbar-dropdown">
+          <%= link_to "All Products", products_path, class: "navbar-item" %>
+                <%= link_to "All Active Stories", stories_active_path, class: "navbar-item" %>
+                <%= link_to "All Complete Stories", stories_complete_path, class: "navbar-item" %>
+                <%= link_to "All Stories", stories_path, class: "navbar-item" %>
+                <%= link_to "New Story", new_story_path, class: "navbar-item" %>
+		
+          <%# if Current.user %><%= link_to "New Blog", new_blog_path, class: "navbar-item" %><%# end %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Task</a>
+        <div class="navbar-dropdown">
+                <%= link_to "All Active Tasks", tasks_active_path, class: "navbar-item" %>
+                <%= link_to "All Complete Tasks", tasks_complete_path, class: "navbar-item" %>
+                <%= link_to "All Tasks", tasks_path, class: "navbar-item" %>
+                <%= link_to "Search Tasks", tasks_search_path, class: "navbar-item" %>
+                <%= link_to "My Tasks Today", tasks_mytoday_path, class: "navbar-item" %>
+                <%= link_to "My Active Tasks", tasks_myactive_path, class: "navbar-item" %>
+                <%= link_to "My Complete Tasks", tasks_mycomplete_path, class: "navbar-item" %>
+                <%= link_to "My All Tasks", tasks_my_path, class: "navbar-item" %>
+                <%= link_to "All Today's Tasks", tasks_alltoday_path, class: "navbar-ite" %>
+                <%= link_to "All Active Tasks", tasks_active_path, class: "navbar-item" %>
+                <%= link_to "All Complete Tasks", tasks_complete_path, class: "navbar-item" %>
+                <%= link_to "All Tasks", tasks_path, class: "navbar-item" %>
+                <%= link_to "Search Tasks", tasks_search_path, class: "navbar-item" %>
+                <%= link_to "New", new_task_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Issue</a>
+        <div class="navbar-dropdown">
+          <%= link_to "List All Issues", issues_path, class: "navbar-item" %>
+          <%= link_to "New Issue", new_issue_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Meeting</a>
+        <div class="navbar-dropdown">
+          <%= link_to "List All Meetings", meetings_path, class: "navbar-item" %>
+          <%= link_to "New Meeting", new_meeting_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Blog</a>
+        <div class="navbar-dropdown">
+          <%= link_to "List All Blogs", blogs_path, class: "navbar-item" %>
+          <%= link_to "New Blog", new_blog_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Wiki</a>
+        <div class="navbar-dropdown">
+          <%= link_to "List All Wikis", wikis_path, class: "navbar-item" %>
+          <%= link_to "New Wiki", new_wiki_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Note</a>
+        <div class="navbar-dropdown">
+          <%= link_to "List All Notes", notes_path, class: "navbar-item" %>
+          <%= link_to "Search Notes", notes_search_path, class: "navbar-item" %>
+          <%= link_to "New Note", new_note_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">User</a>
+        <div class="navbar-dropdown">
+          <%= link_to "List All Users", users_path, class: "navbar-item" %>
+          <%= link_to "New User", new_user_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Contacts</a>
+        <div class="navbar-dropdown">
+          <%= link_to "List All Contacts", contacts_path, class: "navbar-item" %>
+          <%= link_to "New Contact", new_contact_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Organization</a>
+        <div class="navbar-dropdown">
+          <%= link_to "List All Organizations", organizations_path, class: "navbar-item" %>
+          <%= link_to "New Organization", new_organization_path, class: "navbar-item" %>
+        </div>
+      </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">My Account</a>
+        <div class="navbar-dropdown">
+          <%#= link_to "Change Password", edit_password_url(Current.user.password_reset_token), class: "navbar-item" %>
+          <%#= button_to "Sign Out", session_path, method: :delete, class: "navbar-item" %>
+        </div>
+      </div>
+      <%# else %>
+        <%#= link_to "Sign In", new_session_path, class: "navbar-item" %>
+        <%# link_to "Sign Up", new_registration_path, class: "navbar-item" %>
+      <%# end %>
     </div>
   </div>
 </nav>

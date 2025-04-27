@@ -17,7 +17,19 @@
 
 
 class PagesController < ApplicationController
-  skip_before_action :authorize, only: [:index, :license, :technology]
+  skip_before_action :authorize, only: [:about, :changelog, :faq, :guide, :index, :license, :privacy, :roadmap, :technology, :terms]
+
+  def about
+  end
+
+  def changelog
+  end
+
+  def faq
+  end
+
+  def guide
+  end
 
   def index
   end
@@ -25,6 +37,15 @@ class PagesController < ApplicationController
   def license
   end
 
+  def privacy
+  end
+
+  def roadmap
+  end
+
   def technology
+  end
+
+  def terms
   end
 end
