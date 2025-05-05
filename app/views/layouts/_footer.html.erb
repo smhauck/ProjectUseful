@@ -1,9 +1,5 @@
 <footer class="footer has-background-info">
   <div class="content has-text-centered">
-   <p> 
-    <span class="slogan">Project Useful</span>
-    <span class="builtby">Built by <%= link_to 'Shannon', 'https://github.com/smhauck', target: '_blank' %></span>
-    </p>
     <p>
       <%= link_to "About", about_path %>
       : <%= link_to "FAQ", faq_path %>
@@ -16,6 +12,9 @@
       : <%= link_to "License", license_path %>
       : <%= link_to "Source Code", 'https://github.com/smhauck/ProjectUseful', target: "_blank" %> 
     </p>
-    <p class="copyright">&copy; Shannon</p>
+    <p> 
+      <span class="slogan">Project Useful</span>
+      <span class="builtby"><%= link_to('https://github.com/smhauck', target: '_blank') do %>&copy; & Built by Shannon<% end %></span>
+    </p>
   </div>
 </footer>
