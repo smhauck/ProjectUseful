@@ -163,8 +163,9 @@ class TasksController < ApplicationController
       @tmptask = Task.find(params[:id])
       if session[:user_id]
         @task = @tmptask
-      elsif @tmptask.&story.product.public == true
-        @task = @tmptask
+# FIXME: if the task doesn't have a story it breaks
+      # elsif @tmptask.&story.product.public == true
+       # @task = @tmptask
       else
         redirect_to root_url
       end
