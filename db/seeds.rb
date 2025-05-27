@@ -90,6 +90,6 @@ StoryType.create(title: 'Other')
 #     Create the default administrator user                      #
 #     BE SURE TO CHANGE THE admin password and contact_email     #
 ##################################################################
-User.create(username: "admin", password: "SECRET", password_confirmation: "SECRET", contact_email: "FIXME@example.com")
+User.create(email_address: "admin@projectuseful.com", username: "admin", password: "SECRET", password_confirmation: "SECRET", contact_email: "FIXME@example.com")
 
 
