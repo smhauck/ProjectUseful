@@ -137,7 +137,7 @@
         <div class="navbar-dropdown">
           <%= link_to "Sign In", login_url, class: "navbar-item" %>
           <%#= link_to "Change Password", edit_password_url(Current.user.password_reset_token), class: "navbar-item" %>
-          <%= button_to "Sign Out", logout_url, method: :delete, class: "navbar-item" %>
+          <%= button_to "Sign Out", session_path, method: :delete, class: "navbar-item" %>
         </div>
       </div>
     </div>

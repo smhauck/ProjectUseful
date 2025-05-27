@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,7 +17,7 @@
 
 
 class TasksController < ApplicationController
-  skip_before_action :authorize, only: [:active, :complete, :index, :search, :show]
+  allow_unauthenticated_access only: [:active, :complete, :index, :search, :show]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:edit]
 

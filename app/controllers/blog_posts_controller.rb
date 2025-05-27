@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -19,7 +19,7 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: [:index, :show]
+  allow_unauthenticated_access only: [:index, :show]
 
   # GET /blog_posts
   # GET /blog_posts.json

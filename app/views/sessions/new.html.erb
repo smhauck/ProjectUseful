@@ -1,39 +1,11 @@
-<%
-=begin
-%>
+<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
 
-Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
+<%= form_with url: session_path do |form| %>
+  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
+  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
+  <%= form.submit "Sign in" %>
+<% end %>
+<br>
 
-This file is part of Project Useful.
-
-Project Useful is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-Project Useful is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with Project Useful.  If not, see <http://www.gnu.org/licenses/>.
-
-<%
-=end
-%>
-
-
-<div class="container">
-  <% if flash[:alert] %>
-    <p id="notice"><%= flash[:alert] %></p>
-  <% end %>
-  <h2 class="form-signin-heading">Please login</h2>
-  <%= form_tag do %>
-    <fieldset>
-	<%= text_field_tag 'username', params[:username], placeholder: 'Username', class: "form-control", autofocus: :true %>
-	<%= password_field_tag 'password', params[:password], placeholder: 'Password', class: "form-control" %>
-        <%= button_tag 'Login', class: "btn btn-lg btn-primary btn-block" %>
-    </fieldset>
-  <% end %>
-</div> <!-- /container -->
+<%= link_to "Forgot password?", new_password_path %>

@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) 2025 Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,7 +17,7 @@
 
 
 class PagesController < ApplicationController
-  skip_before_action :authorize, only: [:about, :changelog, :faq, :guide, :index, :license, :privacy, :roadmap, :technology, :terms]
+  allow_unauthenticated_access only: [:about, :changelog, :faq, :guide, :index, :license, :privacy, :roadmap, :technology, :terms]
 
   def about
   end

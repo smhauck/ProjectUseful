@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,7 +17,7 @@
 
 
 class UsersController < ApplicationController
-  # skip_before_action :authorize, only: [:index, :show, :new, :create, :edit, :update]
+  # allow_unauthenticated_access only: [:index, :show, :new, :create, :edit, :update]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users

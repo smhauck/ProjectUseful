@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,7 +17,7 @@
 
 
 class StoriesController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show, :active, :complete]
+  allow_unauthenticated_access only: [:index, :show, :active, :complete]
   before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   # GET /stories

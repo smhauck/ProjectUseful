@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :session
+  resources :passwords, param: :token
 
   resources :contact_emails
   resources :email_types
@@ -109,19 +111,10 @@ Rails.application.routes.draw do
   
   resources :users
 
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    get 'logout' => :destroy
-  end
 
-  
-  
+  get "login" => "sessions#new"
 
 
-
-  get "sessions/create"
-  get "sessions/destroy"
   get "pages/index"
 
   get "up" => "rails/health#show", as: :rails_health_check

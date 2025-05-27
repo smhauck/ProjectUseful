@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_25_204028) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_27_070732) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -298,6 +298,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_25_204028) do
     t.index ["project_status_type_id"], name: "index_projects_on_project_status_type_id"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "ip_address"
+    t.string "user_agent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "sexes", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -472,7 +481,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_25_204028) do
     t.integer "email_to_sms_gateway_id"
     t.boolean "active", default: true, null: false
     t.string "nick_name"
+    t.string "email_address"
+    t.index ["email_address"], name: "index_users_on_email_address", unique: true
     t.index ["email_to_sms_gateway_id"], name: "index_users_on_email_to_sms_gateway_id"
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   create_table "wiki_pages", force: :cascade do |t|
@@ -515,6 +527,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_25_204028) do
   add_foreign_key "project_assignments", "users"
   add_foreign_key "project_comments", "projects"
   add_foreign_key "project_comments", "users"
+  add_foreign_key "sessions", "users"
   add_foreign_key "stories", "projects"
   add_foreign_key "users", "email_to_sms_gateways"
 end

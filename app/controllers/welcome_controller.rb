@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) 2025 Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,7 +17,9 @@
 
 
 class WelcomeController < ApplicationController
-	skip_before_action :authorize, only: [:index]
+  allow_unauthenticated_access
+
   def index
   end
+
 end
