@@ -1,4 +1,4 @@
-# Copyright (C) Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) Shannon M. Hauck, http://github.com/smhauck
 # 
 # This file is part of Project Useful.
 # 
@@ -160,15 +160,16 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @tmptask = Task.find(params[:id])
-      if session[:user_id]
-        @task = @tmptask
+      @task = Task.find(params[:id])
 # FIXME: if the task doesn't have a story it breaks
-      # elsif @tmptask.&story.product.public == true
-       # @task = @tmptask
-      else
-        redirect_to root_url
-      end
+#      @tmptask = Task.find(params[:id])
+#      if session[:user_id]
+#        @task = @tmptask
+#      elsif @tmptask.&story.product.public == true
+#        @task = @tmptask
+#      else
+#        redirect_to root_url
+#      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
