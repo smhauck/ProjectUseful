@@ -18,6 +18,7 @@
 
 class BlogsController < ApplicationController
   allow_unauthenticated_access only: [:index, :show]
+  before_action :resume_session
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   # GET /blogs

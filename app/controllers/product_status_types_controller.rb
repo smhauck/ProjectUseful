@@ -17,6 +17,7 @@
 
 
 class ProductStatusTypesController < ApplicationController
+  before_action :resume_session
   before_action :set_product_status_type, only: [:show, :edit, :update, :destroy]
 
   # GET /product_status_types

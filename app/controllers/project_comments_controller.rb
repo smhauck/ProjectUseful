@@ -17,6 +17,7 @@
 
 
 class ProjectCommentsController < ApplicationController
+  before_action :resume_session
   before_action :set_project_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /project_comments

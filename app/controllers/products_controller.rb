@@ -1,4 +1,4 @@
-# Copyright (C) 2025 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -18,6 +18,7 @@
 
 class ProductsController < ApplicationController
   allow_unauthenticated_access only: [:index, :show]
+  before_action :resume_session
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products

@@ -17,6 +17,7 @@
 
 
 class ProjectAssignmentsController < ApplicationController
+  before_action :resume_session
   before_action :set_project_assignment, only: [:show, :edit, :update, :destroy]
 
   # GET /project_assignments

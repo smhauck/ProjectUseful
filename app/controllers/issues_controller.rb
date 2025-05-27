@@ -18,6 +18,7 @@
 
 class IssuesController < ApplicationController
   allow_unauthenticated_access only: [:index, :show]
+  before_action :resume_session
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
 
   # GET /issues

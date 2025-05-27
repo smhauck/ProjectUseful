@@ -18,6 +18,7 @@
 
 class StoriesController < ApplicationController
   allow_unauthenticated_access only: [:index, :show, :active, :complete]
+  before_action :resume_session
   before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   # GET /stories

@@ -17,6 +17,7 @@
 
 
 class TaskStatusTypesController < ApplicationController
+  before_action :resume_session
   before_action :set_task_status_type, only: [:show, :edit, :update, :destroy]
 
   # GET /task_status_types

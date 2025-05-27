@@ -17,6 +17,7 @@
 
 
 class TaskCommentsController < ApplicationController
+  before_action :resume_session
   before_action :set_task_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /task_comments

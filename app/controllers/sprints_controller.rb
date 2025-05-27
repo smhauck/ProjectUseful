@@ -18,6 +18,7 @@
 
 class SprintsController < ApplicationController
   allow_unauthenticated_access only: [:index, :show]
+  before_action :resume_session
   before_action :set_sprint, only: [:show, :edit, :update, :destroy]
 
   # GET /sprints

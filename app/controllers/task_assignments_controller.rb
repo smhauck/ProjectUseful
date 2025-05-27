@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 
@@ -17,6 +17,7 @@
 
 
 class TaskAssignmentsController < ApplicationController
+  before_action :resume_session
   before_action :set_task_assignment, only: [:show, :edit, :update, :destroy]
 
   # GET /task_assignments

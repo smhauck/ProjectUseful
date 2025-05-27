@@ -20,6 +20,7 @@ class TasksController < ApplicationController
   allow_unauthenticated_access only: [:active, :complete, :index, :search, :show]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:edit]
+  before_action :resume_session
 
 
   # GET /tasks

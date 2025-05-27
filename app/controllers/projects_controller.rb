@@ -18,6 +18,7 @@
 
 class ProjectsController < ApplicationController
   allow_unauthenticated_access only: [:active, :complete, :index, :show]
+  before_action :resume_session
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects

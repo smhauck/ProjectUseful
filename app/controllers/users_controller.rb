@@ -18,6 +18,7 @@
 
 class UsersController < ApplicationController
   # allow_unauthenticated_access only: [:index, :show, :new, :create, :edit, :update]
+  before_action :resume_session
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users

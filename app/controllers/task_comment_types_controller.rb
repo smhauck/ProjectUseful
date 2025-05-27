@@ -17,6 +17,7 @@
 
 
 class TaskCommentTypesController < ApplicationController
+  before_action :resume_session
   before_action :set_task_comment_type, only: [:show, :edit, :update, :destroy]
 
   # GET /task_comment_types
