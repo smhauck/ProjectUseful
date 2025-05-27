@@ -163,7 +163,7 @@ class TasksController < ApplicationController
       @tmptask = Task.find(params[:id])
       if session[:user_id]
         @task = @tmptask
-      elsif @tmptask.story.product.public == true
+      elsif @tmptask.&story.product.public == true
         @task = @tmptask
       else
         redirect_to root_url
