@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_27_070732) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_27_081201) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -481,7 +481,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_27_070732) do
     t.integer "email_to_sms_gateway_id"
     t.boolean "active", default: true, null: false
     t.string "nick_name"
-    t.string "email_address"
+    t.string "email_address", null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
     t.index ["email_to_sms_gateway_id"], name: "index_users_on_email_to_sms_gateway_id"
     t.index ["username"], name: "index_users_on_username", unique: true
