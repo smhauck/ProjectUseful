@@ -136,14 +136,11 @@
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">My Account</a>
         <div class="navbar-dropdown">
+          <%= link_to "Sign In", login_url, class: "navbar-item" %>
           <%#= link_to "Change Password", edit_password_url(Current.user.password_reset_token), class: "navbar-item" %>
-          <%#= button_to "Sign Out", session_path, method: :delete, class: "navbar-item" %>
+          <%= button_to "Sign Out", logout_url, method: :delete, class: "navbar-item" %>
         </div>
       </div>
-      <%# else %>
-        <%#= link_to "Sign In", new_session_path, class: "navbar-item" %>
-        <%# link_to "Sign Up", new_registration_path, class: "navbar-item" %>
-      <%# end %>
     </div>
   </div>
 </nav>
