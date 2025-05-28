@@ -34,8 +34,7 @@ class ProjectsController < ApplicationController
   end
 
   def my
-    @user = User.find(session[:user_id])
-    @projects = @user.projects
+    @projects = Current.user.projects
   end
 
   def active

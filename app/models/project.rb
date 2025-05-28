@@ -1,4 +1,4 @@
-# Copyright (C) 2023 Shannon M. Hauck, http://www.smhauck.com
+# Copyright (C) Shannon M. Hauck, http://www.smhauck.com
 # 
 # This file is part of Project Useful.
 # 

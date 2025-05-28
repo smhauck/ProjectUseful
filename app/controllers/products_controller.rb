@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    if session[:user_id]
+    if Current.user
       @products = Product.all.order(:title)
     else 
       @products = Product.where(public: true)
