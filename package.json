@@ -18,7 +18,7 @@
     "@rails/actiontext": "^8.0.200",
     "autoprefixer": "^10.4.21",
     "bulma": "^1.0.4",
-    "minimatch": "^10.0.1",
+    "minimatch": "^10.2.1",
     "nodemon": "^3.1.9",
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.1",
